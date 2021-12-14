@@ -36,42 +36,26 @@ public:
       }
     */
 
+    // missed test case is here
     //[0,1,2,3,4,5] step 4
     //0,4,2,0
     //1,5,3,1
-    
-
-
-
+    // So change to use gcd()
     
     void rotate(vector<int>& nums, int k) {
-        int temp = 0;
-        if(k==0) return;
-        if( (nums.size() % k) != 0) {
-            int temp = nums[0];
-            int curr_idx = 0;
-            for(int j = 0; j < nums.size(); j++) {
-                int next_idx = (curr_idx + k) % nums.size();
+        int n = nums.size();
+        int rows = gcd(n, k);
+        for(int i = 0; i < rows; i++) {
+            int temp = nums[i];
+            int curr_idx = i;                
+            for(int j = 0 ; j < n / rows; j++) {
+                int next_idx = (curr_idx + k) % n;
                 int prev_temp = temp;
                 temp = nums[next_idx];
                 nums[next_idx] = prev_temp;
                 curr_idx = next_idx;
             }
-        }
-        else {
-            for(int i = 0; i < k; i++) {
-                int temp = nums[i];
-                int curr_idx = i;                
-                for(int j = 0 ; j < nums.size() / k; j++) {
-                    int next_idx = (curr_idx + k) % nums.size();
-                    int prev_temp = temp;
-                    temp = nums[next_idx];
-                    nums[next_idx] = prev_temp;
-                    curr_idx = next_idx;
-                    
-                }
-            }
-        }
+        }   
     }
 
 };
