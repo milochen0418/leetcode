@@ -36,6 +36,13 @@ public:
       }
     */
 
+    //[0,1,2,3,4,5] step 4
+    //0,4,2,0
+    //1,5,3,1
+    
+
+
+
     
     void rotate(vector<int>& nums, int k) {
         int temp = 0;
