@@ -26,11 +26,15 @@ public:
         //5,8,9,1,2,3  -- value in nums
         //swap(nums,i=0,nums[i=0]-1=4)
         //2,8,9,1,5,3
+        //swap(nums,i=0,nums[i=0]-1=1)
+        //8,2,9,1,5,3
         //      swap(nums,i=3,nums[i=3]-1=0)
-        //1,8,9,2,5,3
+        //1,2,9,8,5,3
         //          swap(nums,i=5, nums[i=5]-1=2)
-        //1,8,3,2,5,9
-        // -> So 2 will be missing postive value because nums[2-1] != 2
+        //1,2,3,8,5,9
+        
+        // -> So 4 will be missing postive value because nums[4-1] != 4  
+        //The real answer is 4 !!
 
         for(int i = 0; i < n; i++) {
             if(nums[i] != i + 1 ) {
