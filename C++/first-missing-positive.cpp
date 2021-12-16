@@ -10,18 +10,18 @@ public:
         //What about that one number is missing in this case? 
         //for example,there is only one k in 1<=k<=n s.t. nums[k-1] != k 
         //Then k is missing positive. 
+
+        //By the way, the missing positive solution k must belong 1<=k<=n
+
+
         
-        
+
         int n = nums.size();
         for(int i = 0; i < n; i++) {
             while(nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
                 swap(nums,i, nums[i]-1);
             }
         }
-
-
-        
-
 
         for(int i = 0; i < n; i++) {
             if(nums[i] != i + 1 ) {
