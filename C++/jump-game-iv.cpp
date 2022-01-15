@@ -55,7 +55,7 @@ public:
     }
     int minJumps(vector<int>& arr) {
         
-        return someone(arr);
+        //return someone(arr);
         //unordered_multimap<int,int> mmap;
         unordered_multimap<int,int> mmap;
         unordered_map<int, vector<int>> vmap;
@@ -119,16 +119,20 @@ public:
                     }
                 }
             }*/
-            auto v = vmap[arr[i]];
-            for(auto j:v) {
-                if(i!=j ) {
-                    int candidate = j;
-                    if(visited[candidate] == false) {
-                        visited[candidate] = true;
-                        lens[candidate] = lens[i] + 1;
-                        q.push(candidate);                    
-                    }
-                }                
+            if(vmap.find(arr[i]) != vmap.end()) {
+                auto v = vmap[arr[i]];
+                for(auto j:v) {
+                    if(i!=j ) {
+                        int candidate = j;
+                        if(visited[candidate] == false) {
+                            visited[candidate] = true;
+                            lens[candidate] = lens[i] + 1;
+                            q.push(candidate);                    
+                        }
+                    }                
+                }
+                vmap.erase(arr[i]);
+
             }
             
         }
