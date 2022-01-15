@@ -65,8 +65,6 @@ public:
             mmap.insert({arr[i],i});
             vmap[arr[i]].push_back(i);
         }
-        
-    
     
         int end = arr.size() - 1;
         vector<bool> visited(arr.size(), false);
@@ -75,10 +73,6 @@ public:
         visited[end] = true;
         lens[end] = 0;
         q.push(end);
-        
-        
-        
-        
         
         while(!q.empty()) {
             int i = q.front();            
@@ -105,20 +99,24 @@ public:
                 }                
             }
             
-            /*
-            auto p = mmap.equal_range(arr[i]);
-            for (auto it = p.first; it != p.second; ++it) {
-                //std::cout << " " << it->first << ":" << it->second;
-                int j = it->second;
-                if(i!=j ) {
-                    int candidate = j;
-                    if(visited[candidate] == false) {
-                        visited[candidate] = true;
-                        lens[candidate] = lens[i] + 1;
-                        q.push(candidate);                    
+            
+            if(mmap.find(arr[i]) != mmap.end()) {
+                auto p = mmap.equal_range(arr[i]);
+                for (auto it = p.first; it != p.second; ++it) {
+                    //std::cout << " " << it->first << ":" << it->second;
+                    int j = it->second;
+                    if(i!=j ) {
+                        int candidate = j;
+                        if(visited[candidate] == false) {
+                            visited[candidate] = true;
+                            lens[candidate] = lens[i] + 1;
+                            q.push(candidate);                    
+                        }
                     }
                 }
-            }*/
+                mmap.erase(arr[i]);
+            }
+            /*
             if(vmap.find(arr[i]) != vmap.end()) {
                 auto v = vmap[arr[i]];
                 for(auto j:v) {
@@ -132,8 +130,8 @@ public:
                     }                
                 }
                 vmap.erase(arr[i]);
-
             }
+            */
             
         }
         return 0;
