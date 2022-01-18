@@ -18,20 +18,17 @@ public:
         When there are z zero, then (z-1) / 2 is the number it can contribute
         */
         int z_cnt = 1;
-        int i = 0; 
+        int i = 0;
         int planted_cnt = 0; 
         for(int i = 0; i < flowerbed.size()+2; i++) {
-            if(i==flowerbed.size() || (i<flowerbed.size() && flowerbed[i]==0) ){
-                z_cnt++;
-            } else {
+            if(i==flowerbed.size()+1 || (i<flowerbed.size() && flowerbed[i]==1) ) {
                 planted_cnt += (z_cnt-1) / 2; 
                 z_cnt = 0;                
             }
+            else {
+                z_cnt++;
+            }            
         }
-        if(n > planted_cnt) {
-            return false;
-        } else {
-            return true;
-        }
+        return n <= planted_cnt;        
     }
 };
