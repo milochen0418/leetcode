@@ -17,6 +17,7 @@ public:
         2,1 -> 0
         When there are z zero, then (z-1) / 2 is the number it can contribute
         */
+        //process end of two element like ...,0,1]
         int z_cnt = 1;
         int i = 0;
         int planted_cnt = 0; 
