@@ -1,3 +1,29 @@
+
+class Solution {
+public:
+    int maxCoins(vector<int>& nums) {
+        vector A = nums;
+        A.insert(A.begin(), 1);
+        A.insert(A.end(), 1);
+        int row_cnt, col_cnt;
+        col_cnt = row_cnt = A.size();
+        vector<vector<int>> dp (row_cnt, vector<int>(col_cnt, 0));
+        return coin(A,dp,0,A.size()-1);
+    }
+    
+    int coin(vector<int>& A, vector<vector<int>>& dp,int i, int j) {
+        if(dp[i][j] != 0) return dp[i][j];
+        if( (j-i)<=1) return 0;
+        
+        for(int k = i+1; k<j;k++) {
+            dp[i][j] = max(dp[i][j], coin(A, dp, i,k) + A[i]*A[k]*A[j] + coin(A, dp, k,j));
+        }
+        return dp[i][j];
+    }
+};
+/*
+
+
 class Solution {
     //https://leetcode.com/problems/burst-balloons
 public:
@@ -19,6 +45,10 @@ public:
     };    
     unordered_map<vector<int>,int,VectorHasher> mp;
      
+    //log (21!) / log(2) = 65.469
+    //log (20!) / log(2) = 61.007 
+    //So the test case  [8,2,6,8,9, 8,1,4,1,5, 3,0,7,7,0, 4,2,2,5] pass
+    //But the test case [8,2,6,8,9, 8,1,4,1,5, 3,0,7,7,0, 4,2,2,5, 2] not pass ?
     int maxCoins(vector<int>& nums) {
         //return INT_MAX;
         if(mp.find(nums) != mp.end()) {
@@ -43,3 +73,4 @@ public:
         return mp[nums];
     }
 };
+*/
