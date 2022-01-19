@@ -21,9 +21,6 @@ public:
         if(mp.find(nums) != mp.end()) {
             return mp[nums];
         }
-        
-        return 1;
-        
         if(nums.size() == 1) {
             mp.insert({nums, nums[0]});
             return mp[nums];
