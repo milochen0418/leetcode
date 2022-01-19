@@ -8,16 +8,19 @@ public:
     //https://leetcode.com/explore/featured/card/dynamic-programming/630/an-introduction-to-dynamic-programming/4035/
     struct VectorHasher {
         int operator()(const vector<int> &V) const {
-            int hash = V.size();
+            //int hash = V.size();
+            long hash = V.size();
             for(auto &i : V) {
-                hash ^= i + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+                hash ^= (i + 0x9e3779b9 + (hash << 6) + (hash >> 2)) % INT_MAX;
+                //hash ^= i + 0x9e3779b9 + (hash << 6) + (hash >> 2);
             }
             return hash;
         }
     };    
     unordered_map<vector<int>,int,VectorHasher> mp;
-    
+     
     int maxCoins(vector<int>& nums) {
+        //return INT_MAX;
         if(mp.find(nums) != mp.end()) {
             return mp[nums];
         }
