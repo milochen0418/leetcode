@@ -1,5 +1,7 @@
 
 class Solution {
+    // https://leetcode.com/problems/burst-balloons
+    // article https://leetcode.com/problems/burst-balloons/discuss/1702385/C%2B%2B-simple-solution-O(N2)-oror-top-down-DP-oror-explanation
 public:
     int maxCoins(vector<int>& nums) {
         vector A = nums;
