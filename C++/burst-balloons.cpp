@@ -15,11 +15,31 @@ public:
             return hash;
         }
     };    
+    unordered_map<vector<int>,int,VectorHasher> mp;
     
     int maxCoins(vector<int>& nums) {
-        unordered_map<vector<int>,string,VectorHasher> mp;
+        if(mp.find(nums) != mp.end()) {
+            return mp[nums];
+        }
         
-
-        return 0;    
+        return 1;
+        
+        if(nums.size() == 1) {
+            mp.insert({nums, nums[0]});
+            return mp[nums];
+        }
+        
+        int max_score = 0;
+        for(int i; i < nums.size(); i++) {
+            vector subnums = nums;
+            int score = ((i-1<0)?1:nums[i-1]) * (nums[i]) * ((i+1>=nums.size())?1:nums[i+1]);
+            subnums.erase(subnums.begin() + i);
+            int candidate_score = score + maxCoins(subnums);
+            if(candidate_score > max_score) {
+                max_score = candidate_score;
+            }
+        }
+        mp.insert({nums, max_score});
+        return mp[nums];
     }
 };
