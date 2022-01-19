@@ -22,12 +22,12 @@ public:
             return mp[nums];
         }
         if(nums.size() == 1) {
-            mp.insert({nums, nums[0]});
+            mp.insert({nums, nums[0]});            
             return mp[nums];
         }
         
         int max_score = 0;
-        for(int i; i < nums.size(); i++) {
+        for(int i=0; i < nums.size(); i++) {
             vector subnums = nums;
             int score = ((i-1<0)?1:nums[i-1]) * (nums[i]) * ((i+1>=nums.size())?1:nums[i+1]);
             subnums.erase(subnums.begin() + i);
