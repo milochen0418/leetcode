@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/meeting-rooms-ii
+    //Time complexity of priority queue https://iq.opengenus.org/priority-queue-cpp-stl/
 public:
     int minMeetingRooms(vector<vector<int>>& intervals) {
         priority_queue<int,vector<int>, greater<int> > start_q;  
