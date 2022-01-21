@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/gas-station
+    //My Article  https://leetcode.com/problems/gas-station/discuss/1707178/gas-station-or-C%2B%2B-solution-or-greedy-or-time-O(N)
     /*
         My research note of this question.
         [1, 2, 3, 4, 5]
