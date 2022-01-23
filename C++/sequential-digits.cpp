@@ -21,18 +21,14 @@ public:
                 inc=(inc*10)+1;
                 base = base*10+i;
                 i++;
-                if(i>10) return v; ////it's enough to return answer v when i>10
-                
+                if(i>10) return v; ////it's enough to return answer v when i>10    
             }
-            
             for (int i = 0; i<(10-base%10); i++) {
                 int val = inc*i+base;
                 if(low<=val && val<=high) {
                     v.push_back(val);    
                 }
             }
-            
-            
             if(temp_val/high>0) break;
             if(temp_val > INT_MAX/10) return v; //it's enough to return answer when temp_val*10 can cause overflow
             temp_val*=10;
