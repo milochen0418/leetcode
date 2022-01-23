@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sequential-digits/
+    //My article: https://leetcode.com/problems/sequential-digits/discuss/1712886/C%2B%2B-or-0ms-or-O(1)time-or-O(1)space(except-result)-or-step-by-step-explanation
 public:
     vector<int> sequentialDigits(int low, int high) {
         //return step1(low,high);
@@ -21,7 +22,7 @@ public:
                 inc=(inc*10)+1;
                 base = base*10+i;
                 i++;
-                if(i>10) return v; ////it's enough to return answer v when i>10    
+                if(i>10) return v; //it's enough to return answer v when i>10    
             }
             for (int i = 0; i<(10-base%10); i++) {
                 int val = inc*i+base;
