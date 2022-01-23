@@ -12,44 +12,29 @@
 class Solution {
     //https://leetcode.com/problems/find-nearest-right-node-in-binary-tree
 public:
-    
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
-        
-        queue<TreeNode*> qs[2]; 
-        int qidx = 0;
-        qs[0] = queue<TreeNode*>();
-        qs[1] = queue<TreeNode*>();
-        
         if(u==root) return nullptr;
-        
+        queue<TreeNode*> qs[2] = {queue<TreeNode*>(), queue<TreeNode*>()};
+        int qidx = 0;
         qs[qidx].push(root);
+        
         bool startToGetNextNode  = false;
         int step = 0;
         int saved_step = -1;
         
         while(!qs[qidx].empty()) {
-            int nidx = (qidx + 1) % 2;
             TreeNode* p = qs[qidx].front();
             qs[qidx].pop();
-            
             TreeNode* childs[] = {p->left, p->right};
-            for(int i=0; i<2; i++) {
-                TreeNode*c = childs[i];
-                if(c!=nullptr) {
-                    if(startToGetNextNode==true) {
-                        if(saved_step == step) {
-                            return c;
-                        } else {
-                            return nullptr;
-                        }
-                    } else {
-                        if(c == u) {
-                            saved_step = step;
-                            startToGetNextNode = true; 
-                        }
-                    }
-                    qs[nidx].push(c);                    
+            for( auto c: childs) {
+                if(c==nullptr) continue;                
+                if(startToGetNextNode==true) {
+                    return saved_step == step ? c : nullptr;
+                } else if(c == u) { 
+                    saved_step = step;
+                    startToGetNextNode = true;                     
                 }
+                qs[(qidx + 1) % 2].push(c);
             }
             
             if(qs[qidx].empty()) {
