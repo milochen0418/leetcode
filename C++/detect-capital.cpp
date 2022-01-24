@@ -9,8 +9,11 @@ public:
         bool shouldAllUpperCase = false;
         while(str[i]!='\0') {
             char c = str[i];
+            bool is_lower_case = (c>='a' && c<='z');
+            bool is_upper_case = (c>='A' && c<='Z');
+            
             if(i==0) {
-                if(c>='a' && c<='z') {
+                if(is_lower_case) {
                     shouldAllLowerCase = true;
                     isFirstUpperCase = false; 
                 } else {
@@ -19,31 +22,19 @@ public:
                 }
             } else if(i==1){
                 if(shouldAllLowerCase) {
-                    if( c >= 'A' && c <= 'Z') {
-                        return false;
-                    }
+                    if(is_upper_case) return false;
                 }
                 if(isFirstUpperCase) {
-                    if( c >= 'A' && c <= 'Z') {
-                        shouldAllUpperCase = true;
-                    } else {
-                        shouldAllUpperCase = false;
-                    }
+                    shouldAllUpperCase = is_upper_case;
                 }
             } else {
                 if(shouldAllLowerCase) {
-                    if( c >= 'A' && c <= 'Z') {
-                        return false;
-                    }
+                    if(is_upper_case) return false;
                 }
                 if(shouldAllUpperCase) {
-                    if( c >= 'a' && c <= 'z') {
-                        return false;
-                    }
+                    if(is_lower_case) return false;
                 } else {
-                    if( c >= 'A' && c <= 'Z') {
-                        return false;
-                    }
+                    if(is_upper_case) return false;
                 }           
             }
             i++;
