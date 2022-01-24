@@ -1,4 +1,5 @@
 class Solution {
+    //My Article https://leetcode.com/problems/stone-game-ii/discuss/1716199/C%2B%2B-or-DP-or-stone-game-ii
 public:
     int stoneGameII(vector<int> &piles) {
         int n = piles.size();
