@@ -19,13 +19,13 @@ public:
         
         if(dp[i][M] != 0) return dp[i][M]; //memorized value
         
-        int total = 0, ans = INT_MIN; //total stores the total no. of stones won by Alice so far
+        int my_taken_in_turn = 0, ans = INT_MIN; //total stores the total no. of stones won by Alice so far
 		//ans - stores the maximum difference between Alice & Bob's stones
         
         for(int j=0; j<2*M; j++){   //1<=X<=2*M
-            if(i+j < piles->size()) total += (*piles)[i+j]; //Each time we're incrementing X, add that index's stones to total
-            
-            ans = max(ans, total-solve(i+j+1, max(M, min(j+1,(int)piles->size()) )) ); //total-solve() is to check if we can maximize the score diff by incrementing X at any time.
+            if(i+j < piles->size()) my_taken_in_turn += (*piles)[i+j]; //Each time we're incrementing X, add that index's stones to total
+            int your_optimal_number_more_than_mine = solve(i+j+1, max(M, min(j+1,(int)piles->size()) ));
+            ans = max(ans, my_taken_in_turn-your_optimal_number_more_than_mine); //total-solve() is to check if we can maximize the score diff by incrementing X at any time.
         }     
         return dp[i][M] = ans; //return the maximum diff
     }    
