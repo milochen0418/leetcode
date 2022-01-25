@@ -13,14 +13,13 @@ public:
         if(dp[i] != INT_MIN) return dp[i];
         if(i >= piles.size()) return dp[i] = 0;
         
-        int max_more = INT_MIN;
-        int my_taken = 0;
+        int my_taken = 0, max_more = INT_MIN;
         for(int X=i; X<i+3 && X < piles.size(); X++) {
             my_taken += piles[X];
             int competitor_more_then_mine = more_than_yours(piles, dp, X+1);
             int the_more = my_taken - competitor_more_then_mine;
             max_more = max(max_more, the_more);
         }
-        return max_more;
+        return dp[i]=max_more;
     }
 };
