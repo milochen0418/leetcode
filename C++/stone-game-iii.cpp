@@ -3,7 +3,8 @@ class Solution {
 public:
     string stoneGameIII(vector<int>& piles) {
         int n = piles.size();
-        vector<int> dp = vector<int>(n+4, INT_MIN);
+        
+        vector<int> dp = vector<int>(n+1, INT_MIN);
         int alice_more_score = more_than_yours(piles, dp, 0);
         if(alice_more_score==0) return "Tie";
         if(alice_more_score>0) return "Alice";
