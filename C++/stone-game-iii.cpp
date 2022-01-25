@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/stone-game-iii/
+    //My Article https://leetcode.com/problems/stone-game-iii/discuss/1718806/stone-game-iii-or-C%2B%2B-or-DP-or-Top-Down-or-easy
 public:
     string stoneGameIII(vector<int>& piles) {
         int n = piles.size();
