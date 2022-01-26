@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/all-elements-in-two-binary-search-trees/
+    //Refer this answer ?https://leetcode.com/problems/all-elements-in-two-binary-search-trees/discuss/1721722/c%2B%2Bor-iterative-or-using-stack
     /*
     Test case pass
     [2,1,4]
