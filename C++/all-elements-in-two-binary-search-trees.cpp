@@ -23,6 +23,22 @@ class Solution {
     [50,2,73,null,34,58,80,21,null,null,64,74,92,10,null,null,68,null,null,89,100,null,null,66,null,84]
     */
 
+   /*
+                        [99,
+               90,                  null,
+         8,       null,        
+      7,      85, 
+  null null null 87
+
+
+[                   50,
+       2,                           73,
+null,       34,          58,                     80,
+          21,null,     null, 64,           74,         92,
+        10,null,          null,   68,   null,null,   89, 100,   
+    null,null,                  66,null,           84]
+   */
+
 public:
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
         vector<int> v;
