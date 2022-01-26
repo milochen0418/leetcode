@@ -24,11 +24,11 @@ class Solution {
     */
 
    /*
-                        [99,
-               90,                  null,
-         8,       null,        
-      7,      85, 
-  null null null 87
+                                 [99,
+                    90,                       null,
+            8,            null,        
+       7,      85, 
+  null null  null 87
 
 
 [                   50,
