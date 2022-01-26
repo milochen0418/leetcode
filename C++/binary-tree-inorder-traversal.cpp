@@ -11,7 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/binary-tree-inorder-traversal
-    //My Article https://leetcode.com/problems/binary-tree-inorder-traversal/discuss/1721174/C%2B%2B-or-0ms-or-O(N)-by-stack-and-while
+    //https://leetcode.com/problems/binary-tree-inorder-traversal/discuss/1721174/C%2B%2B-or-0ms-or-O(N)-by-stack-and-while-or-binary-tree-inorder-traversal
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> v;
@@ -20,16 +20,18 @@ public:
         s.push(root);
         while(!s.empty()) {
             TreeNode* e = s.top();
-            if(e->left != nullptr && e->left->val != INT_MIN) {
-                s.push(e->left);    
-            } else {
-                v.push_back(e->val);
-                e->val = INT_MIN;
-                s.pop();
-                if(e->right != nullptr && e->right->val != INT_MIN) {
-                    s.push(e->right);
-                }
+            while(e->left != nullptr && e->left->val != INT_MIN) {
+                s.push(e->left);
+                e=e->left;
+            }                
+            
+            v.push_back(e->val);
+            e->val = INT_MIN;
+            s.pop();
+            if(e->right != nullptr && e->right->val != INT_MIN) {
+                s.push(e->right);
             }
+            
         }
         return v;
     }
