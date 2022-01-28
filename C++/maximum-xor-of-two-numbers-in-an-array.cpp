@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array
+    //My article https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/discuss/1726080/C%2B%2B-or-O(N)-or-unordered_set-or-explanation
 public:
     int findMaximumXOR(vector<int>& nums) {
         int mymax = 0;
