@@ -7,32 +7,23 @@ class Solution {
     //https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/1727739/C%2B%2B-or-O(N)-or-monotonic-stack
 public:
     int largestRectangleArea(vector<int>& heights) {
-        vector<int>& nums = heights;
-        int n = nums.size();
-        vector<int> v_w_to_right(n);
-        vector<int> v_w_to_left(n);
-        vector<int> v_w(n);
+        int n = heights.size();
+        vector<int> v_w_right(n);
+        vector<int> v_w_left(n);
         vector<int> v_area(n);
-        figure(nums, v_w_to_right);
-        reverse(nums.begin(), nums.end()); 
-        figure(nums, v_w_to_left); 
-		//Use reverse order of heights figure out the result
-		//but remember the result is not normal order.
-        reverse(v_w_to_left.begin(), v_w_to_left.end()); 
-		//reverse the result to get real v_w_toleft 
-        reverse(nums.begin(), nums.end());
-		//nums become normal order of heights now.
+        figure(heights, v_w_right, false);
+        figure(heights, v_w_left, true);
         for(int i=0;i<n;i++) {
-            v_w[i] = v_w_to_right[i] + v_w_to_left[i] - 1;
-            v_area[i] = v_w[i] * nums[i];
+            v_area[i] = heights[i] * (v_w_right[i] + v_w_left[i] - 1);
         }
         int max = *max_element(v_area.begin(), v_area.end());
         return max;
     }
     
-    void figure(vector<int>& nums,  vector<int>& v_w) {
+    void figure(vector<int>& nums,  vector<int>& v_w, bool reversed) {
         int n = nums.size();
         stack<int>s;
+        if(reversed) reverse(nums.begin(), nums.end());
         for(int i =  nums.size()-1; i>=0; i--) {
 			//keep pop until s is empty or the value 
 			//indexed by stack's top less than nums[i]]				
@@ -42,5 +33,9 @@ public:
             v_w[i] = s.empty()?n-i:s.top()-i;
             s.push(i);
         }
+        if(reversed) {
+            reverse(nums.begin(), nums.end());
+            reverse(v_w.begin(), v_w.end());
+        }        
     }
 };
