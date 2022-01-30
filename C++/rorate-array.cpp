@@ -1,6 +1,7 @@
 //https://leetcode.com/problems/rotate-array/
 //189. Rotate Array
 class Solution {
+  //https://leetcode.com/problems/rotate-array/discuss/1729976/C%2B%2B-or-O(N)-or-GCD
 public:
     
     //[0,1,2,3,4,5,6] steps 3
