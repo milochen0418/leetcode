@@ -8,34 +8,31 @@ class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
         int n = heights.size();
-        vector<int> v_w_right(n);
-        vector<int> v_w_left(n);
-        vector<int> v_area(n);
-        figure(heights, v_w_right, false);
-        figure(heights, v_w_left, true);
+        vector<int> W_R(n), W_L(n), A(n);
+        figure(heights, W_R, false);
+        figure(heights, W_L, true);
         for(int i=0;i<n;i++) {
-            v_area[i] = heights[i] * (v_w_right[i] + v_w_left[i] - 1);
+            A[i] = heights[i] * (W_R[i] + W_L[i] - 1);
         }
-        int max = *max_element(v_area.begin(), v_area.end());
+        int max = *max_element(A.begin(), A.end());
         return max;
     }
     
-    void figure(vector<int>& nums,  vector<int>& v_w, bool reversed) {
-        int n = nums.size();
+    void figure(vector<int>& H,  vector<int>& W, bool reversed) {
+        int n = H.size();
         stack<int>s;
-        if(reversed) reverse(nums.begin(), nums.end());
-        for(int i =  nums.size()-1; i>=0; i--) {
+        if(reversed) reverse(H.begin(), H.end());
+        for(int i = n-1; i>=0; i--) {
 			//keep pop until s is empty or the value 
-			//indexed by stack's top less than nums[i]]				
-            while( !(s.empty()||nums[s.top()]<nums[i]) ){
-                s.pop();
-            } 
-            v_w[i] = s.empty()?n-i:s.top()-i;
+			//indexed by stack's top less than A[i]
+            while(!(s.empty() || H[s.top()]<H[i])) s.pop();
+            W[i] = s.empty() ? n-i : s.top()-i;
             s.push(i);
         }
         if(reversed) {
-            reverse(nums.begin(), nums.end());
-            reverse(v_w.begin(), v_w.end());
+            reverse(H.begin(), H.end());
+            reverse(W.begin(), W.end());
         }        
     }
+
 };
