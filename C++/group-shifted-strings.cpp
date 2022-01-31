@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/group-shifted-strings/
+    //article https://leetcode.com/problems/group-shifted-strings/discuss/1733647/C%2B%2B-or-from-idea-to-implement-or-space-only-use-hash-maplessintintgreater
 public:
     
     vector<vector<string>> groupStringsOld4(vector<string>& strings) {                
