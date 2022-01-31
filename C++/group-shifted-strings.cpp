@@ -1,6 +1,18 @@
 class Solution {
     //https://leetcode.com/problems/group-shifted-strings
 public:
+    
+    vector<vector<string>> groupStrings(vector<string>& strings) {
+        unordered_map<vector<int>,vector<string>,vector_hasher> mp;
+        for(auto& s: strings) {
+            vector<int> vs = extract(s);
+            mp[vs].push_back(s);
+        }        
+        vector<vector<string>> result;
+        for(auto& [key,v]: mp) result.push_back(v);
+        return result;
+    }
+    
     struct vector_hasher {
         int operator()(const vector<int> &V) const {
             long hash = V.size();
@@ -10,7 +22,8 @@ public:
             return hash;
         }
     };
-    vector<int> extract_vector(string s) {
+    
+    vector<int> extract(string s) {
         int len = s.length();
         vector<int> v(len);
         v[0]=len;
@@ -20,19 +33,5 @@ public:
         return v;
     }
     
-    vector<vector<string>> groupStrings(vector<string>& strings) {
-        unordered_map<vector<int>,vector<string>,vector_hasher> mp;
-        for(auto& s: strings) {
-            vector<int> vs = extract_vector(s);
-            if(mp.find(vs) == mp.end()) 
-                mp[vs] = vector<string>();
-            mp[vs].push_back(s);
-        }
-        
-        vector<vector<string>> result;
-        for(auto& [key,v]: mp) {
-            result.push_back(v);
-        }
-        return result;
-    }
+
 };
