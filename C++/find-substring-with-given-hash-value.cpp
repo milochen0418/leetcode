@@ -3,21 +3,15 @@ class Solution {
 public:
     string subStrHash(string s, int power, int modulo, int k, int hashValue) {
         const char* str = s.c_str();
-        const int length = s.length();
-        vector<long> p(k);
-        long p_val=1;
-        for(int i=0;i<k;i++) {
-            p[i] = p_val ;
-            p_val*=power;
-            p_val%=modulo;
-        }
+        const int length = s.length();        
         
-        for(int pos=0; pos<length-k;pos++) {
-            long sum = 0;
+        for(int pos=0; pos<length-k ;pos++) {
             
-            for(int i=0;i<k;i++) {
-                sum += (val(str[pos+i])*p[i]) ;
-                sum %= modulo;
+            long sum = 0;
+            int pi=1;
+            for(int i=k-1;~i;i--) {
+                sum = (sum*power)%modulo;
+                sum = (sum + val(str[pos+i]))%modulo;
             }
 
             if(sum == hashValue) {            
