@@ -16,6 +16,8 @@ public:
 []
 1
 [1]
+2
+[1,2,4,2,5,7,2,4,9,0,9]
 */     
     int maxProfit(int k, vector<int>& prices) {
         vector<int>& p = prices;
