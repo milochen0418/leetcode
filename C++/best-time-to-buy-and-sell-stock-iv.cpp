@@ -46,23 +46,31 @@ public:
             }
         }
         n = M.size();
+        priority_queue<int, vector<int>, greater<int>> minDQ;
+        priority_queue<int> maxDQ;
+        priority_queue<int, vector<int>, greater<int>> minUQ;
+        priority_queue<int> maxUQ;
+        
         if(n==0)return 0;
         for(int i=0;i<n;i++) {
             P.push_back( {p[M[i]] - p[m[i]], {m[i], M[i]} });
+            minUQ.push(p[M[i]] - p[m[i]]);
+            maxUQ.push(p[M[i]] - p[m[i]]);
         }
         
-        priority_queue<int, vector<int>, greater<int>> minQ;
-        priority_queue<int> maxQ;
+        
         //vector<int> D(P.size()-1);
         vector<int> D;
         for(int i=0;i<P.size()-1;i++) {
             D.push_back( p[P[i].second.second] - p[P[i+1].second.first]);
-            minQ.push(p[P[i].second.second] - p[P[i+1].second.first]);
-            maxQ.push(p[P[i].second.second] - p[P[i+1].second.first]);
+            minDQ.push(p[P[i].second.second] - p[P[i+1].second.first]);
+            maxDQ.push(p[P[i].second.second] - p[P[i+1].second.first]);
         }
         int sum = 0;
         int sum_upper_bound = accumulate(P.begin(), P.end(),0,[](int s, auto e){return s+e.first;});
         int sum_lower_bound = p[P[0].second.second] - p[P[n-1].second.first];
+        
+        //return sum_lower_bound;
         //return P.size();
         //return P[0].first*100 + P[1].first*10 + P[2].first;
         //return D[1]*10 + D[0];
@@ -80,13 +88,17 @@ public:
         sum = sum_upper_bound;
         
         for(int i=0; i<P.size()-k;i++) {
-            sum -= minQ.top();
-            minQ.pop();
+            if(minUQ.top()<minDQ.top()) {
+                sum -= minUQ.top();
+                minUQ.pop();                
+            } else {
+                sum -= minDQ.top();
+                minDQ.pop();                
+                
+            }
         }
         return sum;
-        
-    
-        return sum_upper_bound-minQ.top();
+        //return sum_upper_bound-minDQ.top();
         
     }
 };
