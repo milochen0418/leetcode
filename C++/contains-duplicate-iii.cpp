@@ -39,25 +39,37 @@ https://stackoverflow.com/questions/41958581/difference-between-upper-bound-and-
 2
 [1,5,9,1,5,9]
 2
-3
+3    
 [8,7,15,1,6,1,9,15]
 1
 3
+[2147483640,2147483641]
+1
+100
     */
 public:
     bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
         int n = nums.size();
-        unordered_set<int> s;
+        //unordered_set<int> s;
+        set<int> s;
         for(int i=0;i<n;i++) {
             if(i>k){
                 s.erase(nums[i-k-1]);
             }
             int num = nums[i];
+            
+            for(auto iter=s.lower_bound(num-t); iter!=s.upper_bound(num+t);iter++) {
+                if(num-t <= *iter && *iter <= num+t){
+                    return true;
+                }
+            }
+            s.insert(num);
+            /*    
             if(s.find(num) == s.end()) {
                 s.insert(num);
             } else {
                 return true;
-            }
+            }*/
         }
         return false;
     }
