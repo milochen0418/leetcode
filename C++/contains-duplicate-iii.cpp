@@ -1,6 +1,8 @@
 class Solution {
     //https://leetcode.com/problems/contains-duplicate-iii/
-/*    
+    //set usage for lower_bound, upper_bound
+    //https://stackoverflow.com/questions/41958581/difference-between-upper-bound-and-lower-bound-in-stl/70958136#70958136
+    /*
     test-cases
 [1,2,3,1]
 3
@@ -23,14 +25,10 @@ public:
         int n = nums.size();
         set<long> s;
         for(int i=0;i<n;i++) {
-            if(i>k){
-                s.erase(nums[i-k-1]);
-            }
-            long num = nums[i];            
+            if(i>k) s.erase(nums[i-k-1]);
+            long num = nums[i];
             for(auto iter=s.lower_bound(num-t); iter!=s.upper_bound(num+t);iter++) {
-                if(num-t <= *iter && *iter <= num+t){
-                    return true;
-                }
+                return true;
             }
             s.insert((long)num);
         }
