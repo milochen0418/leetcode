@@ -6,14 +6,13 @@ class Solution {
 using namespace std;
 #include<set>
 #include<vector>
-
 int main()
 {
     std::set<int> s;
     s.insert(1); 
     s.insert(30);
     s.insert(80);
-    vector<int> v = {-10, 15, 60, 100};
+    vector<int> v = {-10, 15, 30, 31, 60, 100};
     for(auto num: v) {
         cout<<num <<"\tLB="<<*s.lower_bound(num )<<"\tUB="<<*s.upper_bound(num)<<"\n";
     }
@@ -23,9 +22,12 @@ int main()
 Result:
 -10     LB=1    UB=1
 15      LB=30   UB=30
+30      LB=30   UB=80
+31      LB=80   UB=80
 60      LB=80   UB=80
 100     LB=3    UB=3
-
+upper_bound/lower_bound explain
+https://stackoverflow.com/questions/41958581/difference-between-upper-bound-and-lower-bound-in-stl
     */
     /*
     test-cases
@@ -37,7 +39,10 @@ Result:
 2
 [1,5,9,1,5,9]
 2
-3    
+3
+[8,7,15,1,6,1,9,15]
+1
+3
     */
 public:
     bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
