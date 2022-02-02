@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/find-all-anagrams-in-a-string/
     //https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/1739954/C%2B%2B-or-O(N)-or-step-by-step-or-slide-window
+    //https://www.facebook.com/groups/1451299754892511/posts/5031967640159020/
 public:
     vector<int> findAnagrams(string s, string p) {
         vector<int> v, sv(26), pv(26);
