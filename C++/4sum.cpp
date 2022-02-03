@@ -42,17 +42,18 @@ public:
                 nums.push_back(key);
             }
         }
-        
+        //If nums_old = {10,10,10,10,10,10 ...,20...}, than nums={10,10,10,10,20...}
         
         vector<long> v(nums.size());
-        
         for(int i=0;i<v.size();i++) v[i] = nums[i];
         
+        //Expect to compared by sorted vector
         unordered_set<vector<int>, vector_hasher> s;
+
         int n = nums.size();
-        for(int i=0;i<n-3;i++) {
-            for(int j=i+1;j<n-2;j++) {
-                for(int k=j+1;k<n-1;k++) {
+        for(int i=0;i<n-2;i++) {
+            for(int j=i+1;j<n-1;j++) {
+                for(int k=j+1;k<n;k++) {
                     long search_val=-1* (v[i]+v[j]+v[k]-(long)target);
                     if(mp.find(search_val)  != mp.end()) {
                         int cnt = 1;
@@ -61,9 +62,10 @@ public:
                         if(v[k]==search_val) cnt++;
                         if(mp[search_val]>=cnt) {
                             vector<int> vv={nums[i],nums[j],nums[k],(int)search_val};
+                            //compare by sorted vector
                             sort(vv.begin(), vv.end());
                             if(s.find(vv) == s.end()) {
-                                s.insert(vv);
+                                s.insert(vv); 
                                 result.push_back(vv);                                
                             }
                         }
