@@ -2,6 +2,7 @@ class Solution {
     //https://leetcode.com/problems/find-substring-with-given-hash-value
     //Modulo Math : https://en.wikipedia.org/wiki/Modulo_operation
     //Math https://jamboard.google.com/d/1Vx8Tqk-Aph_FftKULHNIsJxdeQCciE5OHTStAwuoiEg/edit?usp=sharing
+    //Jamboard https://jamboard.google.com/d/1Vx8Tqk-Aph_FftKULHNIsJxdeQCciE5OHTStAwuoiEg/viewer
 /*
 
 "leetcode"
@@ -39,16 +40,17 @@ class Solution {
 public:
     string subStrHash(string s, int power, int modulo, int k, int hashValue) {
         const int s_len = s.length();
-        long m = (long)modulo;
-        long pow = long(power) % m;
+        long mod = (long)modulo;
+        long pow = long(power) % mod;
         vector<long> p(k,1);
         for(int i=1;i<k;i++) { 
-            p[i] = ( p[i-1] * pow ) % m;
+            p[i] = ( p[i-1] * pow ) % mod; 
+            //By blue point (1) of picture explanation.
         }
         
         vector<long> vs(s_len);
         for(int i=0;i<s_len;i++) {
-            vs[i] = (s[i]-'a'+1) % m;
+            vs[i] = (s[i]-'a'+1) % mod;
         }
         
         /*
@@ -70,8 +72,9 @@ public:
         long H = 0;
         for(int i=0;i<k;i++) {
             int pos = i + s_len-k;
-            long item = (vs[pos]*p[i]) % m;
-            H = (H + item) % m;
+            long item = (vs[pos]*p[i]) % mod; 
+            ////By blue point (2) of picture explanation.
+            H = (H + item) % mod;
         }
         if ( H == hashValue ) {
             pos_len = {s_len-k,k};
@@ -84,15 +87,17 @@ public:
         [0 1 2]
         */  
         for(int i = (s_len-k) -1; i >= 0; i--) {
-            long removed_factor = vs[k+i]*p[k-1] % m;
+            long removed_factor = vs[k+i]*p[k-1] % mod;
+            //By blue point(3) of picture explanation.
             long added_factor = vs[i];
-            H = (m + H - removed_factor) % m;
-            H = (pow * H) % m;
-            H = (H + added_factor) % m;
+            //By blue point(4) of picture explanation.
+            H = (mod + H - removed_factor) % mod;
+            H = (pow * H) % mod;
+            H = (H + added_factor) % mod;
             if (H == hashValue ) {
                 pos_len = {i,k};
             }
         }        
-        return s.substr(pos_len.first, pos_len.second);
+        return s.substr(pos_len.first, pos_len.second);        
     }
 };
