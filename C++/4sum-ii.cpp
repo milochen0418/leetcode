@@ -1,24 +1,21 @@
 class Solution {
     //https://leetcode.com/problems/4sum-ii
+    //article https://leetcode.com/problems/4sum-ii/discuss/1742279/C%2B%2B-or-O(N2)-time-and-space-or-unordered_map
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/5035031756519275/
 public:
     int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
-        int n = nums1.size();
-        int cnt = 0;        
-        unordered_map<int,int> mp1;
-        unordered_map<int,int> mp2;
+        int n = nums1.size(), cnt = 0;        
+        unordered_map<int,int> mp1, mp2;
         for(int i=0;i<n;i++) { 
             for(int j=0;j<n;j++) {
                 mp1[nums1[i] + nums2[j]]+=1;
                 mp2[nums3[i] + nums4[j]]+=1;
             }
         }      
-        for(auto [key,val]: mp1) {
-            cnt += val * mp2[-1*key];
-        }
+        for(auto [key,val]: mp1) cnt += val * mp2[-1*key];
         return cnt;
     }
 };
-
 
 
 /*
