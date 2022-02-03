@@ -5,8 +5,7 @@ class Solution {
     
     
 /*
-test case 
-failed 
+test case passed
 "xmmhdakfursinye"
 96
 45
@@ -31,7 +30,7 @@ public:
             vs[i] = (s[i]-'a'+1) % modulo;
         }
                 
-        for(int idx = 0; idx < s_len-k; idx++) {
+        for(int idx = 0; idx < s_len-k+1; idx++) {
             int H = 0;
             for(int i=0; i<k; i++) {
                 int pos = i + idx;
