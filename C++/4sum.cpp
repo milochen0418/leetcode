@@ -24,9 +24,25 @@ public:
         }
     };    
     
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+    vector<vector<int>> fourSum(vector<int>& nums_old, int target) {
         vector<vector<int>> result;
+        unordered_map<int, int> mp;
+        vector<int> nums;
+        for(auto num: nums_old) {
+            mp[num]+=1;
+        }
+        //restrict unuseful redundant
+        for(auto [key,val]: mp) {
+            int limit = val>4 ? 4:val;
+            for(int i=0;i<limit;i++) {
+                nums.push_back(key);
+            }
+        }
+        
+        
         vector<long> v(nums.size());
+        //return vector<vector<int>>();
+        
         for(int i=0;i<v.size();i++) v[i] = nums[i];
         
         unordered_set<vector<int>, vector_hasher> s;
