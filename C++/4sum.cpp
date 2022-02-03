@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/4sum
+    //article https://leetcode.com/problems/4sum/discuss/1742749/C%2B%2B-or-O(N3)-or-unordered_map-or-straight-way-and-simple
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/5035641713124946/
 public:
     //Test Case 
 /*
