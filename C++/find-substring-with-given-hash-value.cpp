@@ -39,6 +39,8 @@ class Solution {
     
 public:
     string subStrHash(string s, int power, int modulo, int k, int hashValue) {
+        return answer(s, power, modulo, k, hashValue);
+        
         const int s_len = s.length();
         long mod = (long)modulo;
         long pow = long(power) % mod;
@@ -99,5 +101,48 @@ public:
             }
         }        
         return s.substr(pos_len.first, pos_len.second);        
+    }
+    
+    string answer(string s, int power, int modulo, int k, int hashValue) {
+        const int s_len = s.length();
+        long mod = (long) modulo;
+        long pow = long(power) % mod;
+        vector<long> p(k,1);
+        for(int i=1;i<k;i++) { 
+            p[i] = ( p[i-1] * pow ) % mod; 
+        }
+        
+        vector<long> vs(s_len+k,0);
+        for(int i=0;i<s_len;i++) {
+            vs[i] = (s[i]-'a'+1) % mod;
+        }
+        
+        pair<int, int> pos_len = {-1, -1};
+        long H = 0;
+        /*
+        for(int i=0;i<k;i++) {
+            int pos = i + s_len-k;
+            long item = (vs[pos]*p[i]) % mod; 
+            ////By blue point (2) of picture explanation.
+            H = (H + item) % mod;
+        }
+        if ( H == hashValue ) {
+            pos_len = {s_len-k,k};
+        }
+        */
+        
+        //for(int i = (s_len-k) -1; i >= 0; i--) {
+        for(int i = s_len -1; i >= 0; i--) {        
+            long removed_factor = vs[k+i]*p[k-1] % mod;
+            long added_factor = vs[i];
+            H = (mod + H - removed_factor) % mod;
+            H = (pow * H) % mod;
+            H = (H + added_factor) % mod;
+            if ( i<= (s_len-k)  && H == hashValue) {
+                pos_len = {i,k};
+            }
+        }
+        return s.substr(pos_len.first, pos_len.second);
+        
     }
 };
