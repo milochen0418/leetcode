@@ -39,7 +39,7 @@ class Solution {
     
 public:
     string subStrHash(string s, int power, int modulo, int k, int hashValue) {
-        return answer2(s, power, modulo, k, hashValue);
+        return answer3(s, power, modulo, k, hashValue);
         
         const int s_len = s.length();
         long mod = (long)modulo;
@@ -172,7 +172,42 @@ public:
             if ( i<= (s_len-k)  && H == hashValue) 
                 pos_len = {i,k};
         }
-        return s.substr(pos_len.first, pos_len.second);        
+        return s.substr(pos_len.first, pos_len.second);
+    }
+    
+    
+    string answer3(string s, int power, int modulo, int k, int hashValue) {
+        const int s_len = s.length();
+        long mod = (long) modulo;
+        long pow = long(power) % mod;
+        vector<long> p(k,1);
+        //tailed k elements is dummy
+        vector<long> vs(s_len+k,0); 
+        //figure out power number in mod
+        for(int i=1;i<k;i++) 
+            p[i] = ( p[i-1] * pow ) % mod; 
+        //set vector vs to represent string s in mod
+        for(int i=0;i<s_len;i++) 
+            vs[i] = (s[i]-'a'+1) % mod;
+        
+        pair<int, int> len_pos = solve(p, vs, s_len, pow, mod, k, hashValue);
+        return s.substr(len_pos.first,  len_pos.second);
+        
+    }
+    
+    pair<int, int> solve(vector<long>& p, vector<long>&vs, const int s_len, long pow, long mod, int k, int hashValue) {
+        pair<int, int> pos_len = {-1, -1};
+        long H=0;
+        for(int i = s_len -1; i >= 0; i--) {
+            //remove factor of moving slide window
+            H = (mod + H - (vs[k+i]*p[k-1] % mod)) % mod;
+            //add factor of moving slide window
+            H = ((pow * H) % mod + vs[i]) % mod;
+            // figure out result if hashValue match
+            if ( i<= (s_len-k)  && H == hashValue) 
+                pos_len = {i,k};
+        }
+        return pos_len;
     }
 
 };
