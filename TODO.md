@@ -1,5 +1,6 @@
 
-
+## 4sum
+Still Time Limit Exceeded now. But 4sum-ii have been solved.
 ## find-substring-with-given-hash-value (Medium)
 I have finished it but hard. Need to practice someday
 
