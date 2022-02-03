@@ -30,7 +30,7 @@ public:
     
     vector<vector<int>> fourSum(vector<int>& nums_old, int target) {
         vector<vector<int>> result;
-        unordered_map<int, int> mp;
+        unordered_map<long, int> mp;
         vector<int> nums;
         for(auto num: nums_old) {
             mp[num]+=1;
@@ -45,7 +45,6 @@ public:
         
         
         vector<long> v(nums.size());
-        //return vector<vector<int>>();
         
         for(int i=0;i<v.size();i++) v[i] = nums[i];
         
@@ -54,17 +53,18 @@ public:
         for(int i=0;i<n-3;i++) {
             for(int j=i+1;j<n-2;j++) {
                 for(int k=j+1;k<n-1;k++) {
-                    for(int l=k+1;l<n;l++) {
-                        //long sum=(long)nums[i]+(long)nums[j]+(long)nums[k]+(long)nums[l];
-                        long sum=v[i]+v[j]+v[k]+v[l];
-                        if(sum > INT_MAX) continue;
-                        //if(nums[i]+nums[j]+nums[k]+nums[l] == target) {
-                        if(sum == target) {
-                            vector<int> vv={nums[i],nums[j],nums[k],nums[l]};
+                    long search_val=-1* (v[i]+v[j]+v[k]-(long)target);
+                    if(mp.find(search_val)  != mp.end()) {
+                        int cnt = 1;
+                        if(v[i]==search_val) cnt++;
+                        if(v[j]==search_val) cnt++;
+                        if(v[k]==search_val) cnt++;
+                        if(mp[search_val]>=cnt) {
+                            vector<int> vv={nums[i],nums[j],nums[k],(int)search_val};
                             sort(vv.begin(), vv.end());
                             if(s.find(vv) == s.end()) {
                                 s.insert(vv);
-                                result.push_back(vv);
+                                result.push_back(vv);                                
                             }
                         }
                     }
