@@ -3,6 +3,9 @@ class Solution {
     //Modulo Math : https://en.wikipedia.org/wiki/Modulo_operation
     //Math https://jamboard.google.com/d/1Vx8Tqk-Aph_FftKULHNIsJxdeQCciE5OHTStAwuoiEg/edit?usp=sharing
     //Jamboard https://jamboard.google.com/d/1Vx8Tqk-Aph_FftKULHNIsJxdeQCciE5OHTStAwuoiEg/viewer
+
+    //article https://leetcode.com/problems/find-substring-with-given-hash-value/discuss/1741682/C%2B%2B-or-O(N)-or-create-simple-solution-step-by-step-from-basic-math
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/5034261479929636/
 /*
 
 "leetcode"
@@ -191,8 +194,7 @@ public:
             vs[i] = (s[i]-'a'+1) % mod;
         
         pair<int, int> len_pos = solve(p, vs, s_len, pow, mod, k, hashValue);
-        return s.substr(len_pos.first,  len_pos.second);
-        
+        return s.substr(len_pos.first,  len_pos.second);        
     }
     
     pair<int, int> solve(vector<long>& p, vector<long>&vs, const int s_len, long pow, long mod, int k, int hashValue) {
