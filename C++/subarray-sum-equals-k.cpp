@@ -23,7 +23,7 @@ public:
         //R = [3,2,1]
         int total_n = accumulate(nums.begin(), nums.end(), 0);
         long total = (long) total_n;
-        //So for all j>=i, L[i] + R[j] - total = sum of nums[i..j]. 
+        //So for all i>=j, L[i] + R[j] - total = sum of nums[i..j]. 
         //total = 3
         
         
