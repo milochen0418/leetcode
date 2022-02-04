@@ -12,6 +12,7 @@ public:
     
     typedef pair<int,int> _pos;
     typedef unordered_map< pair<int,int>, pair<int,int>, pair_hash> _parent_map;
+    typedef unordered_map< pair<int,int>, int, pair_hash> _size_map;
     typedef vector<vector<char>> _grid; 
     int set_cnts = 0; 
     
@@ -19,6 +20,7 @@ public:
         int rows = m, cols = n;
         _grid grid(rows, vector<char>(cols,'0'));
         _parent_map ps;
+        _size_map sz;
         vector<int> result;
         for(auto& pos :positions) {
             int row = pos[0];
@@ -29,18 +31,19 @@ public:
             }
             grid[row][col]='1';
             ps[{row, col}] = {row, col};
+            sz[{row, col}] = 1;
             set_cnts+=1;
             if(row+1 < rows && grid[row+1][col] == '1') {
-                UF_union(ps, {row,col}, {row+1,col});
+                UF_union(sz, ps, {row,col}, {row+1,col});
             }
             if(col+1 < cols && grid[row][col+1] == '1') {
-                UF_union(ps, {row,col}, {row,col+1});
+                UF_union(sz, ps, {row,col}, {row,col+1});
             }
             if(col-1 >=0 && grid[row][col-1] == '1') {
-                UF_union(ps, {row,col}, {row,col-1});
+                UF_union(sz, ps, {row,col}, {row,col-1});
             }                    
             if(row-1 >= 0 && grid[row-1][col] == '1') {
-                UF_union(ps, {row,col}, {row-1,col});
+                UF_union(sz, ps, {row,col}, {row-1,col});
             }
             result.push_back(set_cnts);
         }
@@ -62,15 +65,30 @@ public:
         return UF_find_root(ps, node1) == UF_find_root(ps, node2);
     }
     
+    void UF_union(_size_map& sz, _parent_map& ps, _pos node1, _pos node2) {
+        _pos root1 = UF_find_root(ps, node1);
+        _pos root2 = UF_find_root(ps, node2);
+        if(root1 == root2) return;
+        if(sz[root1] <sz[root2]) {
+            ps[root1] = root2;
+            sz[root2] += sz[root1];
+        } else {
+            ps[root2] = root1;
+            sz[root1] += sz[root2];
+        }
+        set_cnts--;
+    }  
+};
+
+    /* old version of UF_union
     void UF_union(_parent_map& ps, _pos node1, _pos node2) {
         _pos root1 = UF_find_root(ps, node1);
         _pos root2 = UF_find_root(ps, node2);
         if(root1 == root2) return;
         ps[root2] = root1;
         set_cnts--;
-    }  
-    
-};
+    } 
+    */ 
 
 
 /* testcase 
