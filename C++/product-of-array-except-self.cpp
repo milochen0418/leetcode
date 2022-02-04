@@ -7,6 +7,7 @@ class Solution {
 */    
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
+        return approach2(nums);
         int n = nums.size();
         long product = 1;
         bool is_exist_zero = false;
@@ -45,4 +46,28 @@ public:
             return ans;            
         }          
     }
+    vector<int> approach2(vector<int>& nums) {
+        int n = nums.size();
+        //nums = [ 1, 2, 3, 4]
+        vector<int> ans(n);
+        int product = 1;
+        for(int i = 0;i<n;i++) {
+            ans[i]=product;
+            product*=nums[i];
+        }
+        //ans = [ 1, 1, 2, 6]
+        product = 1;
+        for(int i = n-1;i>=0;i--) {
+            ans[i]*=product;
+            product*=nums[i];
+        }
+        //[ 1, 1, 2, 6] 
+        //    x
+        //[24,12, 4, 1]
+        //     ||
+        //[24,12, 4, 1]
+
+        return ans;
+    }
+
 };
