@@ -1,4 +1,8 @@
 
+
+## number-of-islands
+Still implement Union Find (My first time)
+
 ## subarray-sum-equals-k
 dirty work to solve testcase ,-1,1,-1,1,-1,1,-1 but not truely to solve
 
