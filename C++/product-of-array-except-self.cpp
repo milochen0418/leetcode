@@ -61,13 +61,12 @@ public:
             ans[i]*=product;
             product*=nums[i];
         }
-        //[ 1, 1, 2, 6] 
-        //    x
-        //[24,12, 4, 1]
-        //     ||
-        //[24,12, 8, 6]
-
-        return ans;
+		return ans;
+        // L = [ 1, 1, 2, 6]    here,  L[i] = product of L[0..i-1]
+        //          x (x here is to bytewise multiplication)
+        // R = [24,12, 4, 1]    here, R[i] = product of R[i+1 .. n-1]
+        //          ||
+        // A = [24,12, 8, 6]    here, A[i] = L[i] * R[i] = product of L[0..i-1]  x product of R[i+1..n-1]
+		// so,  A[i] will bethe  product of all num in nums except num[i]    
     }
-
 };
