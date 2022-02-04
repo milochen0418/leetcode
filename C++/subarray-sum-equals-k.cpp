@@ -13,18 +13,34 @@ public:
         int cnt = 0;
         int n = nums.size();
         //nums = [1,1,1], k=2
-        vector<int> L(n);//L[i] = sum of nums[0..i]
+        vector<long> L(n);//L[i] = sum of nums[0..i]
         for(int i=0;i<n;i++)
             L[i] = (i==0) ? nums[i] : L[i-1]+nums[i];
         //L = [1,2,3]
-        vector<int> R(n);//R[i] = sum of nums[i..n-1]
+        vector<long> R(n);//R[i] = sum of nums[i..n-1]
         for(int i=n-1;i>=0;i--)
             R[i] = (i==n-1) ? nums[i] : R[i+1]+nums[i];
         //R = [3,2,1]
-        int total = accumulate(nums.begin(), nums.end(), 0);
+        int total_n = accumulate(nums.begin(), nums.end(), 0);
+        long total = (long) total_n;
         //So for all j>=i, L[i] + R[j] - total = sum of nums[i..j]. 
         //total = 3
         
+        
+        unordered_map<long,set<int>> mp; 
+        //https://www.geeksforgeeks.org/stddistance-in-c/
+        //https://blog.csdn.net/henu_student/article/details/104419645
+        for(int j=0; j<n ; j++) {
+            mp[R[j]].insert(j);
+        }
+        for(int i=0; i<n; i++) {
+            //cnt += mp[-1*(L[i]-total)].size();
+            
+            auto& s=mp[-1*(L[i]-total)];
+            cnt += distance(s.begin(), s.lower_bound(i));
+        }
+        return cnt;
+            
         for(int j=0; j<n; j++) {
             for(int i=j;i<n;i++) {
                 int sum = L[i] + R[j] - total;
