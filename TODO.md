@@ -1,4 +1,7 @@
 
+## subarray-sum-equals-k
+dirty work to solve testcase ,-1,1,-1,1,-1,1,-1 but not truely to solve
+
 ## best-time-to-buy-and-sell-stock-iv (Hard)
 目前還沒有想到怎麼解決 k=c 的問題， k=1 k=無限大都有手中解了 
 Len Chen的討論串有指引，但我想用自己的方法
