@@ -1,5 +1,7 @@
 class Solution {
     // https://leetcode.com/problems/number-of-islands-ii
+    // article https://leetcode.com/problems/number-of-islands-ii/discuss/1745080/C%2B%2B-or-union-find-or-simple-solution-step-by-step
+    // FB Post https://www.facebook.com/groups/1451299754892511/posts/5039032976119153/
 public:
     struct pair_hash {
         template <class T1, class T2>
