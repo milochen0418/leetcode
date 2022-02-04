@@ -6,8 +6,6 @@ public:
         std::size_t operator () (const std::pair<T1,T2> &p) const {
             auto h1 = std::hash<T1>{}(p.first);
             auto h2 = std::hash<T2>{}(p.second);
-            // Mainly for demonstration purposes, i.e. works but is overly simple
-            // In the real world, use sth. like boost.hash_combine
             return h1 ^ h2;  
         }
     };
@@ -16,7 +14,9 @@ public:
     typedef unordered_map< pair<int,int>, pair<int,int>, pair_hash> _parent_map;
     typedef vector<vector<char>> _grid; 
     
+    int set_cnts = 0; 
     int numIslands(vector<vector<char>>& grid) {
+        _pos a = {1,2};
         _parent_map parents;
         int rows = grid.size();
         int cols = grid[0].size();        
@@ -24,13 +24,50 @@ public:
             for(int col=0;col<cols; col++) {
                 if(grid[row][col]=='1') {
                     parents[{row,col}] = {row,col};
+                    set_cnts++;
                 }
             }
         }
-        return 0;
-    }
-    _pos findRoot(_parent_map& ps, _grid& g,  _pos& node ) {
         
-        return {1,2};
+        for(int row=0;row<rows-1; row++) {
+            for(int col=0;col<cols-1; col++) {
+                if(grid[row][col]=='1') {
+                    if(grid[row+1][col] == '1') {
+                        UF_union(parents, {row,col}, {row+1,col});
+                    }
+                    if(grid[row][col+1] == '1') {
+                        UF_union(parents, {row,col}, {row,col+1});
+                    }                    
+                }
+            }
+        }
+        return set_cnts;
     }
+    
+    _pos UF_find_root(_parent_map& ps,  _pos node ) {
+        _pos root = node;
+        while(ps[root] != root) {
+            root = ps[root];    
+        }
+        return root;
+    }
+    
+    bool UF_is_connected(_parent_map& ps, _pos node1, _pos node2) {
+        return UF_find_root(ps, node1) == UF_find_root(ps, node2);
+    }
+    
+    void UF_union(_parent_map& ps, _pos node1, _pos node2) {
+        _pos root1 = UF_find_root(ps, node1);
+        _pos root2 = UF_find_root(ps, node2);
+        if(root1 == root2) return;
+        ps[root2] = root1;
+        set_cnts--;
+    }  
 };
+
+
+
+/* test-case
+[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
+[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
+*/
