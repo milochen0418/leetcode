@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/contiguous-array
+    //article https://leetcode.com/problems/contiguous-array/discuss/1744065/C%2B%2B-or-amortized-time-O(N)-or-HashMap-with-MinQ
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5037632676259183/
 /* test-case
 [0,1]
 [0,1,0]
@@ -9,16 +11,15 @@ class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
         int n = nums.size();
-        vector<int> v(n);
-        for(int i=0; i<n; i++) 
-            v[i] = nums[i]>0?nums[i]:-1;
-        vector<int> L(n);
-        for(int i=0; i<n; i++) 
-            L[i] = i==0 ? v[i] : L[i-1] + v[i];
-        vector<int> R(n);
-        for(int i=n-1; i>=0; i--) 
-            R[i] = i==n-1 ? v[i] : R[i+1] + v[i];
+        vector<int> v(n);// [1,1,0,1,1,0...]->[1,1,-1,1,1,-1...]
+        for(int i=0; i<n; i++) v[i] = nums[i]>0?nums[i]:-1;
+        vector<int> L(n);// summation of v from left to right
+        for(int i=0; i<n; i++) L[i] = i==0 ? v[i] : L[i-1] + v[i];
+        vector<int> R(n);// summation of v from right to left
+        for(int i=n-1; i>=0; i--)  R[i] = i==n-1 ? v[i] : R[i+1] + v[i];
         int total = accumulate(v.begin(), v.end(),0);
+        //for each pair(j,i) with j<=i, L[i]+R[j]-total is summartion from j to i
+
         unordered_map<int, priority_queue<int, vector<int>, greater<int>>> mp;
         for(int j = 0; j<n ;j++) {
             mp[R[j]].push(j);
@@ -47,6 +48,31 @@ public:
         } 
         return max_len;
         */
+    }
+
+
+    int answer1(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> v(n);// [1,1,0,1,1,0...]->[1,1,-1,1,1,-1...]
+        for(int i=0; i<n; i++) v[i] = nums[i]>0?nums[i]:-1;
+        vector<int> L(n);// summation of v from left to right
+        for(int i=0; i<n; i++) L[i] = i==0 ? v[i] : L[i-1] + v[i];
+        vector<int> R(n);// summation of v from right to left
+        for(int i=n-1; i>=0; i--)  R[i] = i==n-1 ? v[i] : R[i+1] + v[i];
+        int total = accumulate(v.begin(), v.end(),0);
+        //for each pair(j,i) with j<=i, L[i]+R[j]-total is summartion from j to i
+
+        // 2Sum problem to find two index j,i s.t. L[i] + R[j] - total == 0
+        // O(N^2)
+        int max_len = 0;
+        for(int i=0; i<n;i++) {
+            for(int j=0; j<=i;j++) {
+                if(L[i] + R[j] - total == 0) {
+                    max_len = max(max_len, i-j+1);
+                }
+            }
+        } 
+        return max_len;
     }
 };
 
