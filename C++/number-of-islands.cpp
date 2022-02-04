@@ -29,15 +29,21 @@ public:
             }
         }
         
-        for(int row=0;row<rows-1; row++) {
-            for(int col=0;col<cols-1; col++) {
+        for(int row=0;row<rows; row++) {
+            for(int col=0;col<cols; col++) {
                 if(grid[row][col]=='1') {
-                    if(grid[row+1][col] == '1') {
+                    if(row+1 < rows && grid[row+1][col] == '1') {
                         UF_union(parents, {row,col}, {row+1,col});
                     }
-                    if(grid[row][col+1] == '1') {
+                    if(col+1 < cols && grid[row][col+1] == '1') {
                         UF_union(parents, {row,col}, {row,col+1});
+                    }
+                    if(col-1 >=0 && grid[row][col-1] == '1') {
+                        UF_union(parents, {row,col}, {row,col-1});
                     }                    
+                    if(row-1 >= 0 && grid[row-1][col] == '1') {
+                        UF_union(parents, {row,col}, {row-1,col});
+                    }
                 }
             }
         }
