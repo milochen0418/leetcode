@@ -37,9 +37,7 @@ public:
             } else {
                 for(int i=0;i<n;i++) {
                     if(vs[i] != 0) {
-                        int temp = vs[i];
-                        vs[i] = vs[0];
-                        vs[0] = temp;
+                        swap(vs[i],vs[0]);
                         break;
                     }
                 }
