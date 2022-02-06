@@ -2,14 +2,15 @@
 class Bitset {
     //https://leetcode.com/problems/design-bitsetgit
 public:
-    vector<string> v; 
+    vector<string> v;
     int onecnt = 0;
     int m_flip = 0;
     int m_size = 0;
     Bitset(int size) {
         m_size = size;
-        v.push_back(string(m_size, '0'));
-        v.push_back(string(m_size, '1'));
+        v=vector<string>(2);
+        v[0]=string(m_size, '0');
+        v[1]=string(m_size, '1');
         onecnt=0;
     }
     
@@ -52,15 +53,3 @@ public:
         return v[m_flip];
     }
 };
-
-/**
- * Your Bitset object will be instantiated and called as such:
- * Bitset* obj = new Bitset(size);
- * obj->fix(idx);
- * obj->unfix(idx);
- * obj->flip();
- * bool param_4 = obj->all();
- * bool param_5 = obj->one();
- * int param_6 = obj->count();
- * string param_7 = obj->toString();
- */
