@@ -3,24 +3,22 @@ class Bitset {
     //https://leetcode.com/problems/design-bitsetgit
 public:
     vector<string> v; 
-    vector<int> onecnt;
+    int onecnt = 0;
     int m_flip = 0;
     int m_size = 0;
     Bitset(int size) {
         m_size = size;
         v.push_back(string(m_size, '0'));
-        onecnt.push_back(0);
         v.push_back(string(m_size, '1'));
-        onecnt.push_back(m_size);
+        onecnt=0;
     }
     
     void fix(int idx) {
         if(idx<0 || idx>=m_size) return;
         if(v[m_flip][idx]=='0') {
             v[m_flip][idx] = '1';
-            onecnt[m_flip]++;
             v[(m_flip+1)%2][idx] = '0';
-            onecnt[(m_flip+1)%2]--;   
+            onecnt++;
         }
     }
     
@@ -28,27 +26,26 @@ public:
         if(idx<0 || idx>=m_size) return;
         if(v[m_flip][idx]=='1') {
             v[m_flip][idx] = '0';
-            onecnt[m_flip]--;
             v[(m_flip+1)%2][idx] = '1';
-            onecnt[(m_flip+1)%2]++;
+            onecnt--;
         }        
     }
     
     void flip() {
         m_flip = (m_flip+1)%2;
-        
+        onecnt = m_size - onecnt;
     }
     
     bool all() {
-        return onecnt[m_flip]==m_size;
+        return onecnt==m_size;
     }
     
     bool one() {
-        return onecnt[m_flip]>0;
+        return onecnt>0;
     }
     
     int count() {
-        return onecnt[m_flip]; 
+        return onecnt; 
     }
     
     string toString() {
