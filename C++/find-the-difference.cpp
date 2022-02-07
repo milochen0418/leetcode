@@ -4,7 +4,8 @@ public:
     char findTheDifference(string s, string t) {
         //return approach1(s,t);
         //return approach2(s,t);
-        return approach3(s,t);
+        //return approach3(s,t);
+        return approach4(s,t);
     }
     
     //Time O(NlogN), Space O(1) 
@@ -30,6 +31,13 @@ public:
         for (auto &c: s) ret^=c;
         for (auto &c: t) ret^=c;
         return ret;
+    }
+    //Time O(N), Space O(1) 
+    char approach4(string s, string t) {
+        int sum = 0;
+        for (auto &c: t) sum+=c;
+        for (auto &c: s) sum-=c;
+        return (char)sum;
     }
 };
 
