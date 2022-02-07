@@ -5,9 +5,9 @@ public:
         //return approach1(s,t);
         //return approach2(s,t);
         //return approach3(s,t);
-        return approach4(s,t);
+        //return approach4(s,t);
+        return approach5(s,t);
     }
-    
     //Time O(NlogN), Space O(1) 
     char approach1(string s, string t) {
         int n = s.length();
@@ -24,7 +24,6 @@ public:
         for(auto& c:t) if(--mp[c]<0) return c;
         return '\0';
     }
-    
     //Time O(N), Space O(1)
     char approach3(string s, string t) {
         char ret ='\0';
@@ -37,6 +36,13 @@ public:
         int sum = 0;
         for (auto &c: t) sum+=c;
         for (auto &c: s) sum-=c;
+        return (char)sum;
+    }
+    //Time O(N), Space O(1)
+    char approach5(string s, string t) {
+        int sum = 0;
+        for (auto &c: t) (sum+=c)%=256;
+        for (auto &c: s) (sum-=c)%=256;
         return (char)sum;
     }
 };
