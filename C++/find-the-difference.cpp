@@ -2,8 +2,9 @@ class Solution {
     //https://leetcode.com/problems/find-the-difference
 public:
     char findTheDifference(string s, string t) {
-        return approach1(s,t);
+        //return approach1(s,t);
         //return approach2(s,t);
+        return approach3(s,t);
     }
     
     //Time O(NlogN), Space O(1) 
@@ -23,8 +24,12 @@ public:
         return '\0';
     }
     
+    //Time O(N), Space O(1)
     char approach3(string s, string t) {
-        return '\0';
+        char ret ='\0';
+        for (auto &c: s) ret^=c;
+        for (auto &c: t) ret^=c;
+        return ret;
     }
 };
 
