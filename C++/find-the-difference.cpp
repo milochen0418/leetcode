@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/find-the-difference
+    //article https://leetcode.com/problems/find-the-difference/discuss/1752248/C%2B%2B-or-6-approach-from-view-of-sort-count-xor-and-sum
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5047028535319597/
 public:
     char findTheDifference(string s, string t) {
         //return approach1(s,t); 
