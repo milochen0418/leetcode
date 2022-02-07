@@ -1,12 +1,11 @@
 class Solution {
-    // https://leetcode.com/problems/find-the-difference/
+    //https://leetcode.com/problems/find-the-difference
 public:
     char findTheDifference(string s, string t) {
-        int n = s.length();
-        for(int i = 0; i<n;i++) {
-            if(s[i]!=t[i]) return t[i];
-        }
-        return t[n];
+        unordered_map<char,int> mp;
+        for(auto& c:s) mp[c]+=1;
+        for(auto& c:t) if(--mp[c]<0) return c;
+        return '\0';
     }
 };
 
