@@ -1,3 +1,8 @@
+
+
+# duplicate-zeros 
+Still need to find O(1) method to solve this issue
+
 ## minimum-difference-in-sums-after-removal-of-elements
 還沒解出來，不曉得為什麼算法會不對，還要研究
 
