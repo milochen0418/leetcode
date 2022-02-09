@@ -1,6 +1,53 @@
 class Solution {
     //https://leetcode.com/problems/k-diff-pairs-in-an-array/
 public:
+    
+    int findPairs(vector<int>& nums, int k) {
+        int cnt=0;
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        if(n<=1) return 0;
+                
+        
+        int idx = 0;
+        bool cnt_same = false;
+        for(auto num: nums) {
+            if(nums[idx] != num) {
+                cnt_same = false;
+                nums[++idx] = num;
+            }  else {
+                if(cnt_same == false) {
+                    cnt_same = true;
+                    cnt++;
+                }                
+            }
+        }
+        if(k==0) { 
+            return cnt;
+        } else {
+            cnt = 0;
+        }
+        n = idx + 1; //number of k non-repeat element in-place. 
+        if(n<=1) return 0;
+        
+        int i =0, j=1;
+        while( i<n && j<n) {
+            if(nums[j] - nums[i]  >  + k)  {
+                //i++;
+                if(++i==j) j++;
+            } 
+            else if(nums[j] - nums[i] < k ){
+                j++;
+            } 
+            else { //case nums[i] == nums[j]
+                cnt++;
+                i++;
+                j++;
+            }            
+        }
+        return cnt;
+    }
+    
     struct pair_hash {
         template <class T1, class T2>
         std::size_t operator () (const std::pair<T1,T2> &p) const {
@@ -10,7 +57,8 @@ public:
         }
     };
     
-    int findPairs(vector<int>& nums, int k) {
+    
+    int answer1(vector<int>& nums, int k) {
         unordered_set< pair<int,int>, pair_hash> s;
         int cnt=0;
         int n = nums.size();
@@ -33,8 +81,9 @@ public:
 
 
 /* test-case
-(1,3), (3,5), (5,3) look like 3? no (3,5)&(5,3) should be the same.
 
+[1,1,1,1,2,2,3,4,4]
+0
 [1,1,3,5,5,3]
 2
 [3,1,4,1,5]
