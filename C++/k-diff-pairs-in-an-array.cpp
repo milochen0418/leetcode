@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/k-diff-pairs-in-an-array/
+    //article https://leetcode.com/problems/k-diff-pairs-in-an-array/discuss/1758176/C%2B%2B-or-remove-duplicate-or-two-pointer-in-non-repeat-sorted-array?fbclid=IwAR12UN8qUgKkx-AeboDtO1f2deosnbAjR4psYgko3lHqhyyYrl50IOO1wnc
+    //FB Post https://www.facebook.com/groups/1451299754892511/?multi_permalinks=5053978524624598&notif_id=1644415892193308&notif_t=feedback_reaction_generic&ref=notif
 public:
     
     int findPairs(vector<int>& nums, int k) {
