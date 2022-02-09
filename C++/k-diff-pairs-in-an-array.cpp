@@ -7,8 +7,8 @@ public:
         int n = nums.size();
         sort(nums.begin(), nums.end());
         if(n<=1) return 0;
-                
         
+        if(nums[0]!=nums[1]) cnt=-1;
         int idx = 0;
         bool cnt_same = false;
         for(auto num: nums) {
@@ -18,15 +18,18 @@ public:
             }  else {
                 if(cnt_same == false) {
                     cnt_same = true;
-                    cnt++;
+                    cnt++;                    
                 }                
-            }
+            }            
         }
+        
+        
         if(k==0) { 
             return cnt;
         } else {
             cnt = 0;
         }
+        
         n = idx + 1; //number of k non-repeat element in-place. 
         if(n<=1) return 0;
         
@@ -91,5 +94,7 @@ public:
 [1,2,3,4,5]
 1
 [1,3,1,5,4]
+0
+[1,2,3,4,5]
 0
 */
