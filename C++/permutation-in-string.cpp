@@ -12,3 +12,10 @@ public:
             
     }
 };
+
+/* testcase 
+"ab"
+"eidbaooo"
+"ab"
+"eidboaoo"
+*/
