@@ -2,15 +2,19 @@ class Solution {
     //https://leetcode.com/problems/permutation-in-string/
 public:
     bool checkInclusion(string s1, string s2) {
-        //code logic is wrong because I misunderstand the problem
-        //Refer this problem, maybe it is the answer
-        unordered_map<char,int> mp_s1;
-        unordered_map<char,int> mp_s2;
-        for(auto &c:s1) mp_s1[c]+=1;
-        for(auto &c:s2) mp_s2[c]+=1;
-        for(auto& [key, val]:mp_s1) if( mp_s2[key] < val) return false;
-        
-        return true;
+        if(s2.length()>s1.length()) false;
+        vector<int> s1v(26);
+        for(auto &c:s1) s1v[c-'a']+=1;
+        for(int i = 0; i<s2.length()-s1.length(); i++) { 
+            string s2sub = s2.substr(i,s1.length());
+            vector<int> s2v(26);
+            for(auto &c:s2sub) {
+                s2v[c-'a']+=1;
+            }
+            if(s1v == s2v) return true;
+        }
+        return false;
+
             
     }
 };
@@ -20,4 +24,6 @@ public:
 "eidbaooo"
 "ab"
 "eidboaoo"
+"adc"
+"dcda"
 */
