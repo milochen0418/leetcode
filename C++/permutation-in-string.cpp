@@ -2,6 +2,8 @@ class Solution {
     //https://leetcode.com/problems/permutation-in-string/
 public:
     bool checkInclusion(string s1, string s2) {
+        //code logic is wrong because I misunderstand the problem
+        //Refer this problem, maybe it is the answer
         unordered_map<char,int> mp_s1;
         unordered_map<char,int> mp_s2;
         for(auto &c:s1) mp_s1[c]+=1;
