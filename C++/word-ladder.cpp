@@ -27,7 +27,7 @@ public:
         for(auto& i:mp[beginWord]) {
             if(traveled[i] == false) {
                 if(endWord == wordList[i]) {
-                    return 1;
+                    return 1+1;
                 }
                 q.push({i,1});
                 traveled[i] = true;                
@@ -37,14 +37,16 @@ public:
             pair<int,int>& p = q.front();
             string &str = wordList[p.first];
             int len = p.second;
+            if(endWord == str) {
+                return len+1;
+            }
+
             q.pop();
             for(auto& i:mp[str]) {
                 if(traveled[i] == false) {
-                    if(endWord == wordList[i]) {
-                        return len+1;
-                    }
                     q.push({i,len+1});
                     traveled[i] = true;
+                    
                 }
             }
         }
@@ -52,8 +54,10 @@ public:
     }
 };
 
-
 /* testcase
+"hit"
+"hot"
+["hot","dot","dog","lot","log","cog"]
 "hit"
 "cog"
 ["hot","dot","dog","lot","log","cog"]
