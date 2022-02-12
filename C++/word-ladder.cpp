@@ -2,7 +2,6 @@ class Solution {
     //https://leetcode.com/problems/word-ladder/
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-        //answer1(beginWord, endWord, wordList);
         unordered_map<string,vector<int>> mp;
         int n = wordList.size();
         vector<bool> traveled(n, false);
@@ -12,14 +11,6 @@ public:
             string key = str;
             for(int j = 0; j<m; j++) {
                 char orig_char = key[j];
-                /*
-                for(int k=0;k<26;k++) {
-                    char new_char = k + 'a';
-                    if(new_char != orig_char) {
-                        key[j]=new_char;
-                        mp[key].push_back(i);
-                    }
-                }*/
                 key[j]='_';
                 mp[key].push_back(i);
                 key[j] = orig_char;
@@ -41,28 +32,10 @@ public:
                         q.push({i,1});
                         traveled[i] = true;                                                            
                     }
-                    /*
-                    if(endWord == wordList[i]) {
-                        return 1+1;
-                    }
-                    q.push({i,1});
-                    traveled[i] = true;
-                    */
                 }
             }
             key[j] = orig_char;
         }
-        /*
-        for(auto& i:mp[beginWord]) {
-            if(traveled[i] == false) {
-                if(endWord == wordList[i]) {
-                    return 1+1;
-                }
-                q.push({i,1});
-                traveled[i] = true;                
-            }
-        }*/
-        
         while(!q.empty()) {
             pair<int,int>& p = q.front();
             string &str = wordList[p.first];
@@ -70,7 +43,6 @@ public:
             if(endWord == str) {
                 return len+1;
             }
-
             q.pop();
             string key = str;
             int m = key.length();
@@ -87,16 +59,6 @@ public:
                 }
                 key[j] = orig_char;
             }
-            
-            /*
-            for(auto& i:mp[str]) {
-                if(traveled[i] == false) {
-                    q.push({i,len+1});
-                    traveled[i] = true;
-                    
-                }
-            }
-            */
         }
         return 0;
     }
