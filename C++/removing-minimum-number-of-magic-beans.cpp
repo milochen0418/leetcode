@@ -20,14 +20,16 @@ public:
          L[2]    - m*2 + (L[3]-L[2])   PS:L[3]=16, L[2]=15 = 1
         (i=2)
         */
-        long long min_val = INT_MAX;
+        long long max_val = INT_MIN;
         for(long long i = 0 ; i < n; i++) {
-            long long middle = nums[(int)i];
-            min_val = min(min_val, L[n-1] - middle*(i+1));
+            long long q = nums[i];
+            q = q*(i+1);
+            max_val = max(max_val, q);
         }
-        return (int)min_val;
+        return L[n-1] - max_val;
     }
 };
+
 
 
 
