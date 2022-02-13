@@ -7,28 +7,30 @@ public:
         sort(beans.begin(), beans.end());
         reverse(beans.begin(), beans.end());
         vector<long long> L(n);//L[i] = sum of nums[0..i]
-        for(int i=0;i<n;i++)
+        for(int i=0;i<n;i++) {
             L[i] = (i==0) ? (long long)nums[i] : L[i-1]+(long long)nums[i];
-        //L = [1,2,3]
+        }
+
         
-        /*
-        [4,1,6,5]
-        [6,5,4,1]
-        [4,4,4,0]
-         2 1 0 1
-         (6+5+4) - 4*3 + 1
-         L[2]    - m*2 + (L[3]-L[2])   PS:L[3]=16, L[2]=15 = 1
-        (i=2)
-        */
         long long max_val = INT_MIN;
         for(long long i = 0 ; i < n; i++) {
             long long q = nums[i];
-            q = q*(i+1);
+            q = q*(i+1);    
             max_val = max(max_val, q);
         }
-        return L[n-1] - max_val;
+        //return L[n-1] - max_val;
+
+        long long min_val = INT_MAX;
+        for(long long i = 0 ; i < n; i++) {
+            long long q = nums[i];
+            q = q*(i+1);
+            min_val = min(min_val, L[n-1]-q);    
+        }
+        return min_val;
     }
 };
+
+
 
 
 
