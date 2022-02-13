@@ -6,43 +6,21 @@ public:
         int n = beans.size(); //n = 89280
         sort(beans.begin(), beans.end());
         reverse(beans.begin(), beans.end());
-        vector<long long> L(n);//L[i] = sum of nums[0..i]
+        
+        vector<long long> L(n);
         for(int i=0;i<n;i++) {
             L[i] = (i==0) ? (long long)nums[i] : L[i-1]+(long long)nums[i];
         }
-        
-
-        
-        long long max_val = LONG_LONG_MIN;
-        long long max_idx = -1;
-        for(long long i = 0 ; i < n; i++) {
-            long long q = nums[i];
-            q = q*(i+1);
-            if(max_val < q) {
-                max_val = q;  
-                max_idx = i; //final max_idx will be 44707
-            }
-            //max_val = max(max_val, q);
-        }
-        //return max_idx;
-        //return L[n-1] - max_val;
 
         long long min_val = LONG_LONG_MAX;
-        long long min_idx = -1;
         for(long long i = 0 ; i < n; i++) {
-            long long q = nums[i];
-            q = q*(i+1);
-            /*
-            if(min_val> L[n-1]-q ) {
-                min_val = L[n-1]-q;
-                min_idx = i; //final min_idx will be
-            }*/
-            min_val = min(min_val, L[n-1]-q);
+            min_val = min(min_val, L[n-1] - nums[i]*(i+1));
         }
-        //return min_idx;
         return min_val;
     }
 };
+
+
 
 
 
