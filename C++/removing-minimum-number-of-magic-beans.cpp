@@ -2,21 +2,13 @@ class Solution {
     //https://leetcode.com/problems/removing-minimum-number-of-magic-beans/
 public:
     long long minimumRemoval(vector<int>& beans) {
-        vector<int>& nums = beans;
-        int n = beans.size(); //n = 89280
+        int n = beans.size(); 
         sort(beans.begin(), beans.end());
-        reverse(beans.begin(), beans.end());
-        
-        vector<long long> L(n);
-        for(int i=0;i<n;i++) {
-            L[i] = (i==0) ? (long long)nums[i] : L[i-1]+(long long)nums[i];
-        }
-
-        long long min_val = LONG_LONG_MAX;
-        for(long long i = 0 ; i < n; i++) {
-            min_val = min(min_val, L[n-1] - nums[i]*(i+1));
-        }
-        return min_val;
+        long long sum = accumulate(beans.begin(), beans.end(), (long long)0);
+        long long mini = LONG_LONG_MAX;
+        for(long long i = 0 ; i < n; i++) 
+            mini = min(mini, sum - beans[i]*(n-i));
+        return mini;
     }
 };
 
