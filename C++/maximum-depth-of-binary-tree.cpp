@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/maximum-depth-of-binary-tree
+    //article https://leetcode.com/problems/maximum-depth-of-binary-tree/discuss/1769457/c-dfs-on-one-line
 public:
     int maxDepth(TreeNode* root) {
         if(root == nullptr) return 0;
