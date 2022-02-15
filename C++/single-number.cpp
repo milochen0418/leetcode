@@ -2,10 +2,17 @@ class Solution {
     //https://leetcode.com/problems/single-number
 public:
     int singleNumber(vector<int>& nums) {
-        //return answer1(nums);
-        int val = 0;
-        for(auto& num:nums) val^=num;
-        return val;
+        unordered_set<int> s1;
+        long long sum = 0; 
+        for(auto &num: nums) {
+            if(s1.find(num) == s1.end()) {
+                s1.insert(num);
+                sum += num;
+            } else {
+                sum -= num;
+            }
+        }
+        return sum;
     }
     
     int answer1(vector<int>& nums) {
@@ -24,6 +31,27 @@ public:
             }
         }
         return 0;
-        
     }
+    
+    int answer2(vector<int>& nums) {
+        unordered_set<int> s1;
+        long long sum = 0; 
+        for(auto &num: nums) {
+            if(s1.find(num) == s1.end()) {
+                s1.insert(num);
+                sum += num;
+            } else {
+                sum -= num;
+            }
+        }
+        return sum;
+    }
+    
+    int answer3(vector<int>& nums) {
+        int val = 0;
+        for(auto& num:nums) val^=num;
+        return val;
+    }
+    
+    
 };
