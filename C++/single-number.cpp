@@ -2,7 +2,10 @@ class Solution {
     //https://leetcode.com/problems/single-number
 public:
     int singleNumber(vector<int>& nums) {
-        return answer1(nums);
+        //return answer1(nums);
+        int val = 0;
+        for(auto& num:nums) val^=num;
+        return val;
     }
     
     int answer1(vector<int>& nums) {
@@ -21,5 +24,6 @@ public:
             }
         }
         return 0;
+        
     }
 };
