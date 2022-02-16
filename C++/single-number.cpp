@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/single-number
+    //article https://leetcode.com/problems/single-number/discuss/1775732/c-3-approach-2-set-1-set-0-set-step-by-step-with-explanation
 public:
     int singleNumber(vector<int>& nums) {
         unordered_set<int> s1;
