@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/swap-nodes-in-pairs/
-    //article https://leetcode.com/problems/swap-nodes-in-pairs/discuss/1774267/C%2B%2B-or-swap-or-O(N)
+    //article https://leetcode.com/problems/swap-nodes-in-pairs/discuss/1774267/c-swap-and-without-swap-on-explanation
     //FB post https://www.facebook.com/groups/1451299754892511/posts/5074225949266522/
 public:
     ListNode* swapPairs(ListNode* head) {
@@ -13,10 +13,9 @@ public:
     }
     
     ListNode* answer_new(ListNode* head) {
-        
-        ListNode* dummy = new ListNode(0); 
-        //dummy->next would be answer
-        ListNode* head_prev = dummy; 
+        ListNode dummy = ListNode(0); 
+        //dummy.next would be answer
+        ListNode* head_prev = &dummy; 
         head_prev->next = head;
         while(!(head == nullptr || head->next == nullptr)  ){
             //swap(head->val, head->next->val);
@@ -39,7 +38,6 @@ public:
             head_prev = _head;
             
         }
-        return dummy->next;
+        return dummy.next;
     }
-
 };
