@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-k-length-substrings-with-no-repeated-characters/
+    //article https://leetcode.com/problems/find-k-length-substrings-with-no-repeated-characters/discuss/1775064/C%2B%2B-or-HashMap-or-Sliding-Window-or-explanation
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
         int num = 0;
