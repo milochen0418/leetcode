@@ -14,7 +14,7 @@ public:
         }
         num += overcnt==0;
         
-        for(int i=1; i<n-k+1; i++) {
+        for(int i=1; i<=n-k; i++) {
             mp[s[i-1]] -= 1;
             overcnt -= mp[s[i-1]] > 0;
             overcnt += mp[s[i+k-1]] > 0;
