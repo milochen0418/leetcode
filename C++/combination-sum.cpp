@@ -1,5 +1,7 @@
 class Solution {
     // https://leetcode.com/problems/combination-sum
+    // article https://leetcode.com/problems/combination-sum/discuss/1778430/c-sort-faster-than-100-make-solution-step-by-step 
+    // FB Post https://www.facebook.com/groups/1451299754892511/posts/5079559668733150/
 public:
     vector<vector<int>> ans;
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
