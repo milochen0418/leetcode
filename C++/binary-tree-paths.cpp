@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/binary-tree-paths/
+    //article https://leetcode.com/problems/binary-tree-paths/discuss/1778386/C%2B%2B-or-backtracking
 public:
     vector<string> vs; 
     vector<string> binaryTreePaths(TreeNode* root) {
