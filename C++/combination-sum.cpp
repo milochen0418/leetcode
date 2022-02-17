@@ -1,5 +1,5 @@
 class Solution {
-    //https://leetcode.com/problems/combination-sum/
+    // https://leetcode.com/problems/combination-sum
 public:
     vector<vector<int>> ans;
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
@@ -8,8 +8,8 @@ public:
         vector<int>& v = candidates;
         vector<int> a;
         int v_idx = 0;
+        sort(v.begin(), v.end());
         combineSum(v,v_idx, a, target);
-        
         return ans;
     }
     
