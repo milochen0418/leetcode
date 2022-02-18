@@ -4,17 +4,22 @@ public:
     string removeKdigits(string num, int k) {
         for(int i = 0; i<k;i++) {
             int n = num.size();
+            
             for(int j = 0; j<n;j++) {
                if(j+1>=n || num[j+1]<num[j]) {
                    num.erase(j,1);
                    break;
                } 
             }
-            if(num.size() > 1 && num[0]=='0') {
-                //process testcase of "10200" 3
-                num.erase(0,1);
+            for(int j = 0; j<n;j++) {
+                //clean zero for case like 10200, 10001
+                if(num[j]!='0') {
+                    num.erase(0,j);
+                    break;
+                }
             }
-        }      
+        }
+        
         if(num=="") return "0";
         return num;
     }
