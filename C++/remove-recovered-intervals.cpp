@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/remove-covered-intervals
+    //article https://leetcode.com/problems/remove-covered-intervals/discuss/1786612/c-brute-force-time-on2
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5089285167760600/
 public:
     int removeCoveredIntervals(vector<vector<int>>& intervals) {
         vector<vector<int>>& v = intervals;
