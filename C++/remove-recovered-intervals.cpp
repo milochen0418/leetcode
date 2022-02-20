@@ -7,18 +7,23 @@ public:
         
         int n = v.size();
         int cnt = 0;
+        vector<bool> covered(n,false);
         for(int i = 0; i<n; i++) {
             int start =v[i][0];
             int end = v[i][1];
             int j = i+1;
             while(j<n && v[j][0]<=end) {
-                if(v[j][1]<=end) cnt++;
+                if(v[j][1]<=end && !covered[j]) {
+                    covered[j] = true;
+                    cnt++;
+                }
                 j++;
             }
         }
         return n-cnt;
     }
 };
+
 
 
 /* test-case
