@@ -10,18 +10,20 @@ public:
         for(int i = 0; i<n; i++) {
             int start =v[i][0];
             int end = v[i][1];
-            int j = start;
+            int j = i+1;
             while(j<n && v[j][0]<=end) {
                 if(v[j][1]<=end) cnt++;
                 j++;
             }
-        }        
+        }
         return n-cnt;
     }
 };
+
 
 /* test-case
 [[1,4],[3,6],[2,8]]
 [[1,4],[2,3]]
 [[0,10],[5,12]]
+[[1,2],[1,4],[3,4]]
 */
