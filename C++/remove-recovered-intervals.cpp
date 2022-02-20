@@ -3,7 +3,7 @@ class Solution {
 public:
     int removeCoveredIntervals(vector<vector<int>>& intervals) {
         vector<vector<int>>& v = intervals;
-        sort(v.begin(), v.end(), [](auto r, auto l){return r[0]<l[0];});
+        sort(v.begin(), v.end(), [](auto r, auto l){return r[0]!=l[0]?r[0]<l[0]:r[1]>l[1] ;});
         
         int n = v.size();
         int cnt = 0;
@@ -26,4 +26,5 @@ public:
 [[1,4],[2,3]]
 [[0,10],[5,12]]
 [[1,2],[1,4],[3,4]]
+[[34335,39239],[15875,91969],[29673,66453],[53548,69161],[40618,93111]]
 */
