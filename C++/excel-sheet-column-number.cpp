@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/excel-sheet-column-number
+    //article https://leetcode.com/problems/excel-sheet-column-number/discuss/1790152/C%2B%2B-or-right-to-left-without-map-or-power
 public:
     int titleToNumber(string columnTitle) {
         string& s = columnTitle;
