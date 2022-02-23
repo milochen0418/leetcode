@@ -26,19 +26,11 @@ public:
     
     Node* cloneGraph(Node* node) {
         if(node == nullptr) return nullptr;
-        Node *ans;
-        
-        if(mp.find(node) == mp.end()) {
-            ans = new Node(node->val,  vector<Node*>(node->neighbors.size()) );
-            mp.insert({node, ans});
-        } else {
-            ans = mp[node];
-            return ans;
-        }
-        
+        if(mp[node]!=nullptr) return mp[node];
+        mp[node] = new Node(node->val, vector<Node*>(node->neighbors.size()));
         for(int i = 0; i< node->neighbors.size(); i++) {
-            ans->neighbors[i] = cloneGraph(node->neighbors[i]);            
-        }
-        return ans;
+            mp[node]->neighbors[i] = cloneGraph(node->neighbors[i]); 
+        }            
+        return mp[node];
     }
 };
