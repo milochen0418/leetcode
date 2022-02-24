@@ -12,42 +12,48 @@ class Solution {
     //https://leetcode.com/problems/sort-list/
 public:
     ListNode* sortList(ListNode* head) {
-        int len = 0; 
-        //refer https://www.geeksforgeeks.org/in-place-merge-sort/
         ListNode* node = head;
-        ListNode* start1_node = node;
-        ListNode* start2_node = node;
+        int base = 1;
+        ListNode* l = node;
+        ListNode* r = node->next;
+        int cnt;
         
-        while(node != nullptr) {
-            node = node->next;
-            len++;
+        while(true) {
+            cnt=0; while(r!=nullptr && cnt++<base) r = r->next;
+            if(r == nullptr) break;
+            
+            merge_list(l, r, cnt);
+            
+            cnt=0; while(l!= nullptr && cnt++<base) l = l->next;
+            if(l == nullptr) base*=2;
         }
-        
-        
-        node = head;
-        int cnt=0;
+        return head;        
+    }
+
+    ListNode* get_prev_node(ListNode* head, ListNode* target){
+        ListNode *node = head;
+        ListNode *prev_node = nullptr;
         while(node != nullptr) {
-            ListNode* prev_node = node;
-            node = node->next
-            cnt++;
-            if(cnt==len/2) {
-                start2_node = node;
-                prev_node->next = nullptr;
-            }
+            prev_node = node;
+            node=node->next;
         }
-        
-        //1 4 6 2 
-        //2 5 6 7
-        ListNode* node1 = start1_node;
-        ListNode* node2 = start2_node; 
-        while(node1 == nullptr && node2 == nullptr) { 
-            if(node1 == nullptr) {
-                    
+        return prev_node;
+    }
+    void merge_list(ListNode* left, ListNode* right, int count){
+        ListNode * l = left;
+        ListNode * r = right;
+        int lcnt = 0;
+        int rcnt = 0;
+        //Refer https://www.geeksforgeeks.org/in-place-merge-sort/
+        while(! (lcnt > count && rcnt > count) ) {
+            int l_val = lcnt > count ? INT_MAX : l->val;
+            int r_val = rcnt > count ? INT_MAX : r->val;
+            if(l_val < r_val) {
+                l = l->next;
+            } else {
+                //l->next
             }
             
         }
-        //TODO all of the code is not yet finished.
-        
-        
     }
 };
