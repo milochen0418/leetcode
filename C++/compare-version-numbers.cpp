@@ -13,16 +13,15 @@ public:
         }
         return 0;
     }
+    //getv:= Input 0.012.001 -> Output for v is {0, 12, 1}
     void getv(string s, vector<int>& v) {
         int n = s.length();
-        int base =1;
         int val = 0;
         for(int i=0; i<n; i++) {
             if(s[i] != '.') {
                 val = val * 10 + (s[i]-'0');
             } else {
                 v.push_back(val);
-                base = 1;
                 val = 0;
             }
         }
