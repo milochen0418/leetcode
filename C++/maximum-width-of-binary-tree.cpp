@@ -18,25 +18,36 @@ public:
         int qidx = 0;
         qs[qidx].push(root);
         int max_width = 1;
-        
+        bool hasrealnode = false;
         while(!qs[qidx].empty()) {
             TreeNode* p = qs[qidx].front();
             qs[qidx].pop();
+            if(p ==nullptr) continue;
             TreeNode* childs[] = {p->left, p->right};
-            for( auto c: childs) {
-                if(c==nullptr) continue;
+            for( auto c: childs) {    
+                //if(c==nullptr) continue;
+                //qs[(qidx + 1) % 2].push(c);
+                
                 qs[(qidx + 1) % 2].push(c);
+                if(c!=nullptr) hasrealnode = true;
             }
             
             if(qs[qidx].empty()) {
                 qidx=(qidx+1)%2;
                 //step++;
-                max_width = max(max_width, (int)qs[qidx].size());
+                if(hasrealnode) {
+                    hasrealnode = false;
+                    max_width = max(max_width, (int)qs[qidx].size());                    
+                }
             }            
         }
         return max_width;
 
     }
-    
-    
 };
+
+/* testcase
+[1,3,2,5,3,null,9]
+[1,3,2,5]
+[1,3,null,5,3]
+*/
