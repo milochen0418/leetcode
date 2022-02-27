@@ -18,36 +18,53 @@ public:
         int qidx = 0;
         qs[qidx].push(root);
         int max_width = 1;
-        bool hasrealnode = false;
+        
+        
+        int x = 0;
+        int x_begin = -1;
+        int x_end = -1;
+        
         while(!qs[qidx].empty()) {
             TreeNode* p = qs[qidx].front();
             qs[qidx].pop();
-            if(p ==nullptr) continue;
+            if(p == nullptr) continue;
             TreeNode* childs[] = {p->left, p->right};
             for( auto c: childs) {    
-                //if(c==nullptr) continue;
-                //qs[(qidx + 1) % 2].push(c);
-                
                 qs[(qidx + 1) % 2].push(c);
-                if(c!=nullptr) hasrealnode = true;
+                if(x_begin == -1) {
+                    if(c!=nullptr) {
+                        x_begin = x;    
+                        x_end = x;
+                    }
+                } else {//x_begin ha
+                    if(c!=nullptr) {
+                        x_end = x;
+                    }
+                }
+                x++;
             }
             
             if(qs[qidx].empty()) {
-                qidx=(qidx+1)%2;
-                //step++;
-                if(hasrealnode) {
-                    hasrealnode = false;
-                    max_width = max(max_width, (int)qs[qidx].size());                    
+                
+                if(x_begin != -1) {
+                    max_width = max(max_width, x_end-x_begin+1);
                 }
+                x = 0;
+                x_begin=-1;
+                x_end=-1;
+                qidx=(qidx+1)%2;
             }            
         }
         return max_width;
 
     }
+    
+    
 };
 
 /* testcase
 [1,3,2,5,3,null,9]
-[1,3,2,5]
 [1,3,null,5,3]
+[1,3,2,5]
+
 */
