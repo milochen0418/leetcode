@@ -3,14 +3,11 @@ class Solution {
 public:
     vector<string> summaryRanges(vector<int>& nums) {
         vector<string> v;
-        nums.push_back(nums.size()==0?0:nums[nums.size()-1]);
-        int n = nums.size();
-        int begin,end;
-        begin = end = nums[0];
-        
-        for(int i=1;i<n;i++) {
+        nums.push_back(nums.size()==0?0:nums.back());
+        int begin=nums[0],end=nums[0];        
+        for(int i=1;i<nums.size();i++) {
             if((long)nums[i]==(long)nums[i-1]+1) {
-                end=nums[i];
+                end = nums[i];
             } else {
                 v.push_back(begin!=end?to_string(begin)+"->"+to_string(end) : to_string(begin));
                 begin = end = nums[i];
