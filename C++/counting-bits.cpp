@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/counting-bits
+    //article https://leetcode.com/problems/counting-bits/discuss/1808648/C%2B%2B-or-from-simple-to-DP-step-by-step
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5114919391863844/
 public:
     vector<int> countBits(int n) {
         vector<int> ans(n+1,0);
