@@ -20,6 +20,7 @@ public:
 
 class Solution {
     //https://leetcode.com/problems/clone-n-ary-tree
+    //article https://leetcode.com/problems/clone-n-ary-tree/discuss/1809846/C%2B%2B-or-DFS-or-complexity-analysis-or-O(N)-for-time-and-space
 public:
     Node* cloneTree(Node* root) {
         if(root == nullptr) return root;
