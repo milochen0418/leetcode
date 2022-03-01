@@ -22,6 +22,16 @@ public:
         return ans;                
     }
 
+    vector<int> answer2(int n) {
+        vector<int> ans(n+1,0);        
+        for(int i=1,j=1; i<n+1;i++) {
+            if(i==j*2) j=i;
+            ans[i] = ans[i-j]+1;
+        }
+        return ans;
+    }
+
+
 };
 /* testcase 
 100000
