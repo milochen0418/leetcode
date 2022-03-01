@@ -2,10 +2,10 @@ class Solution {
     //https://leetcode.com/problems/counting-bits
 public:
     vector<int> countBits(int n) {
-        vector<int> ans(n+1,0);        
-        for(int i=1,j=1; i<n+1;i++) {
-            if(i==j*2) j=i;
+        vector<int> ans(n+1,0);   
+        for(int i=1,j=1,k=1; i<n+1;i++) {
             ans[i] = ans[i-j]+1;
+            if(k==ans[i]) j=1<<k++;
         }
         return ans;
     }
@@ -30,6 +30,16 @@ public:
         }
         return ans;
     }
+
+    vector<int> answer3(int n) {
+        vector<int> ans(n+1,0);   
+        for(int i=1,j=1,k=1; i<n+1;i++) {
+            ans[i] = ans[i-j]+1;
+            if(k==ans[i]) j=1<<k++;
+        }
+        return ans;
+    }
+
 
 
 };
