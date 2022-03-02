@@ -4,8 +4,9 @@ public:
     bool isSubsequence(string s, string t) {
         int n = s.length();
         int m = t.length();
+        if(n==0) return true;
+        if(n>m) return false;
         int i=0;
-        if(i>=n) return true;
         for(int j=0;j<m;j++) {
             if(s[i] == t[j]) {
                 i++;
