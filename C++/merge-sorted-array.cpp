@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/merge-sorted-array/
+    //article https://leetcode.com/problems/merge-sorted-array/discuss/1811934/C%2B%2B-or-step-by-step-to-improve
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         return answer3(nums1, m, nums2, n);
