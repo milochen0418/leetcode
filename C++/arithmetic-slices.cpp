@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/arithmetic-slices/
+    //article https://leetcode.com/problems/arithmetic-slices/discuss/1814798/C%2B%2B-or-two-pointer-or-step-by-step-from-idea-to-solution
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5120529471302836
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
         //Observation
