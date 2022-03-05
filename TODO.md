@@ -1,4 +1,5 @@
-
+# champagne-tower
+Not yet finish
 
 # duplicate-zeros 
 Still need to find O(1) method to solve this issue
