@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/
+    //article https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/discuss/1830191/C%2B%2B-or-2-approach-or-left-start-O(n2)-and-right-start-O(n)?fbclid=IwAR3BI57HQSReU5hxmBnlNEJz9jJIkVN9smMpo-2dY-QFTtNKYTMLZxavQ-s
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5134393469916436/
 public:
     vector<int> replaceElements(vector<int>& arr) {
         //Input:  [17,18, 5, 4, 6, 1]
