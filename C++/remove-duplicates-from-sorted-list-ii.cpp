@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+    //article https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/discuss/1832545/C%2B%2B-or-O(n)-or-remove-K-number-duplicates-from-sorted-list-or-(K234....)
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         if(head ==nullptr) return nullptr;
