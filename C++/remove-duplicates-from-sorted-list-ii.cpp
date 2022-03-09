@@ -2,29 +2,32 @@ class Solution {
     //https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        int DUMMY_VAL = -111;
         if(head ==nullptr) return nullptr;
-        ListNode*dummy=new ListNode(DUMMY_VAL);
-        dummy->next = head;
-        ListNode* begin_node = dummy;
+        const int DUMMY_VAL = -111;
+        ListNode* node;
+        ListNode* begin_node;
+        ListNode* dummy = new ListNode(DUMMY_VAL);
+        
+        dummy->next = head;        
+        node = dummy;
+        begin_node = dummy;
         int duplicates = 1;
         int duplicdate_val = DUMMY_VAL;
-        head = dummy;
-        
-        while(head != nullptr) {
-            if(head->next == nullptr || head->next->val != duplicdate_val) {
+
+        while(node != nullptr) {
+            if(node->next == nullptr || node->next->val != duplicdate_val) {
                 if(duplicates > 1) {
-                    begin_node->next = head->next;
+                    begin_node->next = node->next;
                 } else {
-                    begin_node = head;
+                    begin_node = node;
                 }
-                if(head->next == nullptr) break;
+                if(node->next == nullptr) break;
                 duplicates = 1;
-                duplicdate_val = head->next->val;
+                duplicdate_val = node->next->val;
             } else {
                 duplicates++;
             }
-            head = head->next;
+            node = node->next;
         }
         return dummy->next;
     }
