@@ -10,6 +10,8 @@
  */
 class Solution {
     //https://leetcode.com/problems/add-two-numbers/
+    //article https://leetcode.com/problems/add-two-numbers/discuss/1836671/C%2B%2B-or-easy-solution-or-14-lines-and-explanation
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/5140641069291676/
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         //return answer1(l1,l2);
