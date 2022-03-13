@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/valid-parentheses
+    //article https://leetcode.com/problems/valid-parentheses/discuss/1846384/C%2B%2B-or-O(n)-by-stack-unordered_set-and-unordered_map
 public:
     bool isValid(string s) {
         stack<char> stk;
