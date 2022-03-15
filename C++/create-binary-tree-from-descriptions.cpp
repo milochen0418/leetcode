@@ -10,6 +10,7 @@
  * };
  */
 class Solution {
+    //article https://leetcode.com/problems/create-binary-tree-from-descriptions/discuss/1851235/C%2B%2B-or-O(n)-or-unordered_map-or-explain
     //https://leetcode.com/problems/create-binary-tree-from-descriptions/
 public:
     TreeNode* createBinaryTree(vector<vector<int>>& descriptions) {
