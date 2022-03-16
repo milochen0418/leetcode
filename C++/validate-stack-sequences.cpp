@@ -1,5 +1,7 @@
 class Solution {
     // https://leetcode.com/problems/validate-stack-sequences
+    // article https://leetcode.com/problems/validate-stack-sequences/discuss/1853719/C%2B%2B-or-simulate-approach-or-O(n)-or-explain-from-idea-to-source-code.
+    // FB post https://www.facebook.com/groups/1451299754892511/posts/5156519707703812/
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
         //stack<int> stk;
