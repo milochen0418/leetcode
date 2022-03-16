@@ -7,14 +7,12 @@ public:
         int pu = 0; //index of pushed vector
         int po = 0; //index of popped vector
         while(po<n) { 
-            if(stk.empty()) {
-                stk.push(pushed[pu++]);
-            } else if (stk.top()==popped[po]) {
-                stk.pop();
-                po++;
-            } else if(stk.top()!=popped[po]) {
+            if(stk.empty() || stk.top()!=popped[po]) {
                 if(pu>=n) return false;
                 stk.push(pushed[pu++]);
+            } else  { 
+                stk.pop();
+                po++;
             }
         }
         return true;        
