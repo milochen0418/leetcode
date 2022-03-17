@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/score-of-parentheses
+    //article https://leetcode.com/problems/score-of-parentheses/discuss/1857804/C%2B%2B-or-3-approach-stack-in-place-stack-and-counter
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5160087157347067/
 public:
     int scoreOfParentheses(string s) {
         int cnt= 0;
