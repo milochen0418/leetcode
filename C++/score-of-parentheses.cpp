@@ -4,21 +4,14 @@ class Solution {
     //FB Post https://www.facebook.com/groups/1451299754892511/posts/5160087157347067/
 public:
     int scoreOfParentheses(string s) {
-        int cnt= 0;
-        int sum = 0;
-        int n = s.length();
-        for(int i = 0;i<n;i++) {
-            if(s[i] == '(') {
+        // optimized counter approach
+        int cnt= 0, ans =0, n = s.length();
+        for(int i = 0;i<n;i++) 
+            if(s[i] == '(')
                 ++cnt;
-            } else if(s[i]==')') {
-                --cnt;
-            }
-            if(i-1>=0 && s[i-1]=='(' && s[i]==')') {
-                sum += 1<<cnt;
-            }
-            
-        }
-        return sum;
+            else
+                ans += (s[i-1]=='(')<<--cnt;
+        return ans;
     }
     
     //stack approach
@@ -110,4 +103,6 @@ public:
         }
         return sum;
     }
+
+
 };
