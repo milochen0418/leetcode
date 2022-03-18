@@ -31,12 +31,14 @@ public:
                 }
             } else if(c<q.back()) {
                 if(mp[q.back()]>i) {
-                    while(!q.empty() && mp[q.back()]>i) {
-                        in_stack_mp[q.back()]=0;
-                        q.pop_back();
+                    if(in_stack_mp[c]==0){
+                        while(!q.empty() && mp[q.back()]>i) {
+                            in_stack_mp[q.back()]=0;
+                            q.pop_back();
+                        }
+                        q.push_back(c);
+                        in_stack_mp[c]=1;
                     }
-                    q.push_back(c);
-                    in_stack_mp[c]=1;
                 } else {
                     if(in_stack_mp[c]==0) {
                         q.push_back(c);
@@ -60,8 +62,11 @@ public:
         
 
         
+
+        
 /* testcase
 "bcb"
 "bcabc"
 "ccacbaba"
- */
+"acbac"
+*/
