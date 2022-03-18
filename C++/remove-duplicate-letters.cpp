@@ -13,49 +13,54 @@ public:
     // https://www.geeksforgeeks.org/deque-cpp-stl/
     string removeDuplicateLetters(string s) {
         unordered_map<char,int> mp;//char to maximum index
-        unordered_set<char> hset;
-        stack<char> stk;
+        unordered_map<char,int> in_stack_mp;
         deque<int> q;
-        set<char> ss;
         int n = s.length();
         for(int i = 0; i<n; i++) mp[s[i]] = i;
         
         for(int i = 0; i<n; i++){ 
             char c = s[i];
+            
             if(q.empty()) {
                 q.push_back(c);
-                ss.insert(c);
+                in_stack_mp[c]=1;
             } else if(c>q.back()) {
-                if(ss.find(c) == ss.end()) {
+                if(in_stack_mp[c]==0) {
                     q.push_back(c);
-                    ss.insert(c);
+                    in_stack_mp[c]=1;
                 }
             } else if(c<q.back()) {
                 if(mp[q.back()]>i) {
                     while(!q.empty() && mp[q.back()]>i) {
-                        ss.erase(q.back());    
+                        in_stack_mp[q.back()]=0;
                         q.pop_back();
                     }
                     q.push_back(c);
-                    ss.insert(c);
+                    in_stack_mp[c]=1;
                 } else {
-                    if(ss.find(c) == ss.end()) {
+                    if(in_stack_mp[q.back()]==0) {
                         q.push_back(c);
-                        ss.insert(c);
+                        in_stack_mp[c]=1;
                     }
                 }
+                
             }
         }
+        
         string ans="";
+    
         while(!q.empty()) {
             ans.push_back(q.front());
             q.pop_front();
         }
+        
         return ans;
         
         return "";
     }
 };
+        
+
         
 /* testcase
 "bcb"
