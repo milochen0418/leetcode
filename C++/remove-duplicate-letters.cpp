@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-duplicate-letters
+    //article https://leetcode.com/problems/remove-duplicate-letters/discuss/1861190/C%2B%2B-or-deque-or-Time-O(n)-Space-O(n)
 public:
     //    .
     //cbacdcbc ,  
