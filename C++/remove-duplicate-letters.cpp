@@ -15,12 +15,12 @@ public:
         unordered_map<char,int> mp;//char to maximum index
         unordered_map<char,int> in_stack_mp;
         deque<int> q;
+        
         int n = s.length();
         for(int i = 0; i<n; i++) mp[s[i]] = i;
         
         for(int i = 0; i<n; i++){ 
             char c = s[i];
-            
             if(q.empty()) {
                 q.push_back(c);
                 in_stack_mp[c]=1;
@@ -38,27 +38,25 @@ public:
                     q.push_back(c);
                     in_stack_mp[c]=1;
                 } else {
-                    if(in_stack_mp[q.back()]==0) {
+                    if(in_stack_mp[c]==0) {
                         q.push_back(c);
                         in_stack_mp[c]=1;
                     }
                 }
-                
             }
         }
-        
         string ans="";
-    
         while(!q.empty()) {
             ans.push_back(q.front());
             q.pop_front();
         }
-        
         return ans;
         
         return "";
     }
 };
+        
+
         
 
         
