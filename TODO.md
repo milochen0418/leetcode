@@ -1,3 +1,6 @@
+# remove-duplicate-letters 
+Use Monotonic to solve but I just rewrite Java answer into C++ answer. 
+I don't know deatil of why it can be. Need to study more.
 # rotate-list
 The current solution is not mine.
 
