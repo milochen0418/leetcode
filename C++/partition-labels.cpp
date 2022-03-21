@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/partition-labels/
+    //article https://leetcode.com/problems/partition-labels/discuss/1869725/C%2B%2B-or-time-O(n)-space-O(1)
 public:
     vector<int> partitionLabels(string s) {
         vector<int> ans;
