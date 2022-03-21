@@ -8,8 +8,10 @@ public:
         unordered_set<char> hset; //[begin,end] for c in hset
         vector<char> v;
         s.push_back('-');//dummy 
-        ans.push_back(s.length());
         int n = s.length();
+        
+        //Figure out all interval of letter
+        //and letter in v is increasing order of index in s
         for(int i = 0; i < n; i++) {
             if(hset.find(s[i]) == hset.end()) {
                 hset.insert(s[i]);
@@ -20,10 +22,10 @@ public:
             }
             end_mp[s[i]] = i;
         }
-        
+        begin_mp[s[0]] = 0;
         
         int m = v.size();
-        int begin =-1, end=-1;//dummy for begin
+        int begin =-1, end=-1;
         for(int i = 0; i<m;i++) {
             if(begin_mp[v[i]] > end ) {
                 if(begin >= 0) ans.push_back(end-begin+1);
@@ -32,14 +34,7 @@ public:
             } else {
                 end = max(end, end_mp[v[i]]);
             }
-            /*
-            if(begin_mp[v[i]] <= i && i<= end_mp[v[i]]) {
-                begin = min(begin,  begin_mp[v[i]]);
-                end = max(end, end_mp[v[i]]);
-            }*/
         }
-        return ans;
-            
-        
+        return ans;      
     }
 };
