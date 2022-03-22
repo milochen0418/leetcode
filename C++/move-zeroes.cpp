@@ -11,4 +11,19 @@ public:
             else 
                 swap(nums[i], nums[i-cnt]);
     }
+    void answer2(vector<int>& nums) {
+        int i=0,cnt=0, n = nums.size();
+        while(nums[i] != 0) if(++i>=n) break;//no moving before zero
+        for(; i<n; i++ ) {
+            if(nums[i] == 0) {
+                ++cnt;
+            } else {
+                //swap(nums[i-cnt], nums[i]) but nums[i-cnt] always zero
+                //optimize here
+                nums[i-cnt] = nums[i];
+                nums[i] = 0;
+            }
+        }
+    }
+
 };
