@@ -18,16 +18,12 @@ public:
         //0+0+25+25
         
         int total = k-n;
-        int z_cnt = total / 26;
-        int middle_val = total % 26;
-        int a_cnt = n-z_cnt-(middle_val!=0);
-        
-        
-        
-        
-        
-        
-        
-        
+        int z_cnt = total / 25;
+        int middle_val = total % 25;
+        string ans = string(n,'a');
+        int i = n-1;
+        for(int j =0;j<z_cnt ;i--,j++)ans[i]='z';
+        if(i>=0) ans[i]='a'+middle_val;
+        return ans;        
     }
 };
