@@ -1,8 +1,8 @@
 class Solution {
     //https://leetcode.com/problems/smallest-string-with-a-given-numeric-value
+    //article https://leetcode.com/problems/smallest-string-with-a-given-numeric-value/discuss/1872321/C%2B%2B-or-one-line-solution-fast-solution-and-explanation-orO(n)-or-can-O(1)
 public:
     string getSmallestString(int n, int k) {
-        
         // a b c d e f g h i j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z 
         // 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
         
@@ -16,7 +16,7 @@ public:
         
         //case n=4, k=54  (k-n = 50) aazz
         //0+0+25+25
-        
+
         int total = k-n;
         int z_cnt = total / 25;
         int middle_val = total % 25;
@@ -25,5 +25,8 @@ public:
         for(int j =0;j<z_cnt ;i--,j++)ans[i]='z';
         if(i>=0) ans[i]='a'+middle_val;
         return ans;        
+    }
+    string answer1(int n, int k) {
+        return string(n-(k-n)/25-((k-n)%25!=0), 'a') + string(((k-n)%25!=0),'a'+(k-n)%25) + string((k-n)/25,'z');
     }
 };
