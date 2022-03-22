@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/smallest-string-with-a-given-numeric-value
     //article https://leetcode.com/problems/smallest-string-with-a-given-numeric-value/discuss/1872321/C%2B%2B-or-one-line-solution-fast-solution-and-explanation-orO(n)-or-can-O(1)
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/5172658552756594/
 public:
     string getSmallestString(int n, int k) {
         // a b c d e f g h i j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z 
