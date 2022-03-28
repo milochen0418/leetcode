@@ -3,7 +3,13 @@ class Solution {
 public:
     bool search(vector<int>& a, int t) {
         int L = 0, R = a.size() - 1;
-        while(L<=R) {            
+        while(L<=R) {       
+            if(a[L] == a[R]) {
+                for(int i=L;i<=R;i++) {
+                    if(a[i] == t) return true;
+                }
+                return false;
+            }
             int M = L + (R-L)/2; 
             if(a[M] == t) return true;
             
