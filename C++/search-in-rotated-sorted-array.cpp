@@ -23,13 +23,12 @@ public:
     int binSearch(int L, int R, int t, vector<int>& a) {
         while(L<=R) {
             int M = L + (R-L); // (L+H)/2;
-            if(t<a[M]) {
+            if(t<a[M]) 
                 R = M-1;
-            } else if(t>a[M]) {
+            else if(t>a[M]) 
                 L = M+1;
-            } else {
+            else 
                 return M;
-            }
         }
         return -1;        
     }
