@@ -3,15 +3,16 @@ class Solution {
 public:
     bool search(vector<int>& a, int t) {
         int L = 0, R = a.size() - 1;
-        while(L<=R) {       
-            if(a[L] == a[R]) {
-                for(int i=L;i<=R;i++) {
-                    if(a[i] == t) return true;
-                }
-                return false;
-            }
+        
+        while(L<=R) {            
             int M = L + (R-L)/2; 
             if(a[M] == t) return true;
+            if(a[L] == a[R] == a[M]) {
+                for(int i=L;i<=R;i++) 
+                    if(a[i] == t) return true;
+                return false;
+            }            
+            
             
             if(a[M]>=a[L])  //case M is in left-up raising edge
                 if(a[L]<=t && t<=a[M]) 
