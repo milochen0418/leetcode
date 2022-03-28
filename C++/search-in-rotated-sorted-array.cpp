@@ -3,9 +3,9 @@ class Solution {
 public:
     int search(vector<int>& a, int t) {
         int L = 0, R = a.size() - 1;
-        return recursiveSearch(L,R,t,a);
+        //return recursiveSearch(L,R,t,a);
         while(L<=R) {
-            int M = L + (R-L); 
+            int M = L + (R-L)/2; 
             if(a[M] == t) return M;
             if(a[M]>=a[L])  //case M is in left-up raising edge
                 if(a[L]<=t && t<=a[M]) 
@@ -23,7 +23,7 @@ public:
         
     int iterativeBinSearch(int L, int R, int t, vector<int>& a) {
         while(L<=R) {
-            int M = L + (R-L); // (L+H)/2;
+            int M = L + (R-L)/2; // (L+H)/2;
             if(t<a[M]) 
                 R = M-1;
             else if(t>a[M]) 
@@ -37,7 +37,7 @@ public:
     int recursiveBinSearch(int L, int R, int t, vector<int>& a) {
         if (L > R) return -1;
         if (t < a[L] || t > a[R]) return -1;
-        int M = (L + R) / 2;
+        int M = L + (R-L) / 2;
         if (a[M] < t) return recursiveBinSearch(M + 1, R, t, a);
         if (t < a[M]) return recursiveBinSearch(L, M - 1, t, a);
         return M; // case  (a[M] == t)
