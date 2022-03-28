@@ -2,7 +2,6 @@ class Solution {
     //https://leetcode.com/problems/search-in-rotated-sorted-array
 public:
     int search(vector<int>& a, int t) {
-        
         int L = 0, R = a.size() - 1;
         return recursiveSearch(L,R,t,a);
         while(L<=R) {
@@ -49,20 +48,15 @@ public:
         if (L > R) return -1;
         int M = L + (R-L)/2; 
         if (a[M] == t) return M;
-        if (a[L] <= a[M] ) {
-            //case M is in left-up raising edge
-            if (a[L] <= t && t <= a[M]) {
+        if (a[L] <= a[M] ) //case M is in left-up raising edge
+            if (a[L] <= t && t <= a[M]) 
                 return recursiveBinSearch(L, M - 1, t,a);
-            } else {
+            else 
                 return recursiveSearch(M + 1, R, t,a);  
-            }
-        } else {
-            //case M is in bottom-down raising edge
-            if (a[M] <= t && t <= a[R]) {
+        else //case M is in bottom-down raising edge 
+            if (a[M] <= t && t <= a[R]) 
                 return recursiveBinSearch(M + 1, R, t,a);
-            } else {
-                return recursiveSearch(L, M - 1, t,a);
-            }                
-        }
-    }    
+            else 
+                return recursiveSearch(L, M - 1, t,a);            
+    }
 };
