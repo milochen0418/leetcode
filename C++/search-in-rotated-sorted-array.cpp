@@ -3,22 +3,19 @@ class Solution {
 public:
     int search(vector<int>& a, int t) {
         int L = 0, R = a.size() - 1;
-        while(L<=R){
+        while(L<=R) {
             int M = L + (R-L); 
             if(a[M] == t) return M;
-            if(a[M]>=a[L]) { //case M is in left-up raising edge
-                if(a[L]<=t && t<=a[M]) {
+            if(a[M]>=a[L])  //case M is in left-up raising edge
+                if(a[L]<=t && t<=a[M]) 
                     return binSearch(L,M-1,t,a);
-                } else {
+                else 
                     L = M+1;
-                }
-            } else { //case M is in bottom-down raising edge
-                if(a[M]<=t && t<=a[R]) {
+            else //case M is in bottom-down raising edge
+                if(a[M]<=t && t<=a[R]) 
                     return binSearch(M+1,R,t,a);
-                } else {
+                else 
                     R = M-1;
-                }
-            }
         }
         return -1;
     }
