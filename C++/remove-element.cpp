@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-element/
+    //article https://leetcode.com/problems/remove-element/discuss/1894691/C%2B%2B-or-two-pointer-approach
 public:
     int removeElement(vector<int>& nums, int val) {
         int n = nums.size();
