@@ -3,17 +3,22 @@ class Solution {
 public:
     bool search(vector<int>& a, int t) {
         int L = 0, R = a.size() - 1;
+        //process the worst case like this
+        //[999....999... 0,0,1,2,3,4,5,6,7,8,8 ...999...999 ...999 ...999 ...999] 
+        // with target = 6
+        // to become [0,0,1,2,3,4,5,6,7,8,8] with target =6
+        if(a[L] == a[R]) {
+            if (t==a[L]) return true;
+            int i, same = a[L];
+            for(i=L;a[i]==same && ++i<R;);
+            L = i;
+            for(i=R;a[i]==same && --i>L;);
+            R = i;
+        }            
         
         while(L<=R) {            
             int M = L + (R-L)/2; 
-            if(a[M] == t) return true;
-            if(a[L] == a[R] == a[M]) {
-                for(int i=L;i<=R;i++) 
-                    if(a[i] == t) return true;
-                return false;
-            }            
-            
-            
+            if(a[M] == t) return true;            
             if(a[M]>=a[L])  //case M is in left-up raising edge
                 if(a[L]<=t && t<=a[M]) 
                     return iterativeBinSearch(L,M-1,t,a);
