@@ -1,7 +1,19 @@
 class Solution {
-    //https://leetcode.com/problems/remove-element/submissions/
+    //https://leetcode.com/problems/remove-element/
 public:
     int removeElement(vector<int>& nums, int val) {
+        int n = nums.size();
+        if (n==0) return 0;
+        int i = 0, j = n-1;
+        while(i<j) {
+            if(nums[j]==val) j--;
+            else if(nums[i]!=val) i++;
+            else swap(nums[i],nums[j]);
+        }
+        while(j<n && nums[j]!=val) j++;
+        return j;
+    }
+    int answer1(vector<int>& nums, int val) {
         int i = 0;
         int k = nums.size();
         while (i < k) {
@@ -14,4 +26,5 @@ public:
         }
         return k;
     }
+
 };
