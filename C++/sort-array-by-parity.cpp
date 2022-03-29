@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sort-array-by-parity/
+    //article https://leetcode.com/problems/sort-array-by-parity/discuss/1893555/C%2B%2B-or-two-pointers-approach-or-time-O(n)-space-O(1)
 public:
     vector<int> sortArrayByParity(vector<int>& a) {
         int i=0,j=a.size()-1;
