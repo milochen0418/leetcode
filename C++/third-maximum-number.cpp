@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/third-maximum-number
+    //article https://leetcode.com/problems/third-maximum-number/discuss/1897704/C%2B%2B-or-hash-set-or-time-O(N)-space-O(1)
 public:
     int thirdMax(vector<int>& nums) {
         unordered_set<int> s; 
