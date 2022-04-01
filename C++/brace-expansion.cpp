@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/brace-expansion
+    //article https://leetcode.com/problems/brace-expansion/discuss/1902830/C%2B%2B-or-counter-approach-best-time-O(N*26N)-with-space-O(N*26N)-or-no-DFS-no-backtracking
 public:
     vector<string> expand(string s) {
         int n = s.length();
