@@ -27,7 +27,29 @@ public:
             }            
             R--;L++;
         }
-            
+        return true;
+    }
+
+    bool answer2(string s) {
+        int L=0,R = s.length()-1;
+        while(L<R) {
+            if(s[R--]!=s[L++]) {
+                int L1=L, R1=R+1;
+                int L2=L-1,R2=R;
+                bool case1=true, case2=true;
+                while(L1<R1){
+                    if(s[R1--]==s[L1++]) continue;
+                    case1=false;
+                    break;
+                }
+                while(L2<R2){
+                    if(s[R2--]==s[L2++]) continue;
+                    case2=false;
+                    break;
+                }
+                return case1||case2;
+            }            
+        }
         return true;
     }
 };
