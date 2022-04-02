@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/valid-palindrome-ii
+    //article https://leetcode.com/problems/valid-palindrome-ii/discuss/1906369/C%2B%2B-or-two-pointer-or-explanation
 public:
     bool validPalindrome(string s) {
         int L=0,R = s.length()-1;
