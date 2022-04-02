@@ -52,4 +52,23 @@ public:
         }
         return true;
     }
+
+        bool answer3(string s) {
+        int L=0,R = s.length()-1;
+        while(L<R) {
+            if(s[R--]!=s[L++]) {                
+                //case 1
+                int L1=L, R1=R+1;
+                while(L1<=R1) if(s[R1--]!=s[L1++]) break;
+                bool case1 = s[R1+1]==s[L1-1];
+                //case 2
+                int L2=L-1,R2=R;
+                while(L2<=R2) if(s[R2--]!=s[L2++]) break;
+                bool case2 = s[R2+1]==s[L2-1];
+				
+                return case1||case2;
+            }            
+        }
+        return true;
+    }
 };
