@@ -3,13 +3,14 @@ class Solution {
 public:
     using ll = long long ;
     int maximumCandies(vector<int>& a, ll k) {
-        int ans = 1;
+
         int L = 0; 
-        int R = 1000000000;
+        //int R = 1000000000;
+        int R = 1+*max_element(a.begin(),a.end());
         while(L<R) {
-            
             int M = L + (R-L)/2;
             //cout<<"(L,R)="<<L<<","<<R<<" -> M="<<M<<"\n";
+            
             if(M==0) return 0;
             if(check(a,k,M) && !check(a,k,M+1)){
                 return M;
@@ -19,15 +20,14 @@ public:
                 } else {
                     R=M;
                 }
-            }            
+            }
         }
-        return 0;
+        return R;
     }
     
     bool check(vector<int>& a, ll k, int m) {
         ll sum = 0;
         for(auto& i:a) sum+= i/m;
-        //if(sum>=k) return true;
         return sum>=k;
     }
 
