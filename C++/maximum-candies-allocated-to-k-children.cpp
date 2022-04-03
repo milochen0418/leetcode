@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-candies-allocated-to-k-children
+    //article https://leetcode.com/problems/maximum-candies-allocated-to-k-children/discuss/1910904/C%2B%2B-or-binary-search-or-O(N-logK)-K%3Amax-candy-or-explanation
 public:
     using ll = long long ;
     int maximumCandies(vector<int>& a, ll k) {
