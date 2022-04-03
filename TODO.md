@@ -1,3 +1,6 @@
+# next-permutation
+I only refer https://leetcode.com/problems/next-permutation/solution/ to write C++
+and I still have no idea how to think this problem.
 # remove-duplicate-letters 
 Use Monotonic to solve but I just rewrite Java answer into C++ answer. 
 I don't know deatil of why it can be. Need to study more.
