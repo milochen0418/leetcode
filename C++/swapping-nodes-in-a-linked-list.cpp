@@ -10,6 +10,8 @@
  */
 class Solution {
     //https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
+    //article https://leetcode.com/problems/swapping-nodes-in-a-linked-list/discuss/1912802/C%2B%2B-or-space-O(1)-and-only-travel-n-%2B-k-times-in-linked-list.
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5207757989246650
 public:
     ListNode* swapNodes(ListNode* head, int k) {
         return answer3(head,k);
