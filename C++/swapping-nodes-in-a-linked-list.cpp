@@ -12,7 +12,7 @@ class Solution {
     //https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        return answer2(head,k);
+        return answer3(head,k);
         int n = 0;
         ListNode *node = head;
         while(node != nullptr) {
@@ -47,4 +47,18 @@ public:
         swap(L->val, R->val);
         return head;        
     }
+    
+    ListNode* answer3(ListNode* head, int k) {
+        unordered_map<int,ListNode*> mp;
+        int n = 0;
+        ListNode *node = head;
+        ListNode*L, *R=head;
+        while(node != nullptr) {
+            mp[n+1] = node;
+            node = node->next;
+            n++;
+        }
+        swap(mp[k]->val, mp[n-k+1]->val);
+        return head;
+    }    
 };
