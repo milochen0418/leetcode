@@ -7,6 +7,10 @@ public:
         for(int i = 1; i<n; i++) if(a[i]!=0) a[i]=a[i-1]+a[i];
         for(int i = n-2;i>=0;i--) if(a[i]>0 && a[i+1]>0) a[i]=a[i+1];
         //Input [1,0,1,1,1,0,0,1,1,0] -> [1,0,3,3,3,0,0,2,2,0] here
+        
+        //convert [1,0,3,3,3,0,0,2,2,0]
+        //  into  [1,4,3,3,3,4,3,2,2,3]
+        //and then, select the maximum
         for(int i=0;i<n;i++) {
             if(a[i]!=0){
                 ans = max(ans, a[i]);
