@@ -3,18 +3,10 @@ class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
         //return answer1(stones);
-        priority_queue<int> maxQ;
-        for(auto &i:stones) maxQ.push(i);
-        while(maxQ.size()>1) {
-            int e1 = maxQ.top();
-            maxQ.pop();
-            e1 -= maxQ.top();
-            maxQ.pop();
-            if(e1>0) maxQ.push(e1);
-        }
-        return maxQ.empty()?0:maxQ.top();
+        return answer2(stones);
     }
     int answer1(vector<int>& stones) {
+        //TC => N^2 * logN
         int stones_size = stones.size();        
         while(stones_size>1) {
             
@@ -37,5 +29,20 @@ public:
             return 0;
         } 
     }
+
+    int answer2(vector<int>& stones) {
+        //TC=> N*logN
+        priority_queue<int> maxQ;
+        for(auto &i:stones) maxQ.push(i);
+        while(maxQ.size()>1) {
+            int e1 = maxQ.top();
+            maxQ.pop();
+            e1 -= maxQ.top();
+            maxQ.pop();
+            if(e1>0) maxQ.push(e1);
+        }
+        return maxQ.empty()?0:maxQ.top();
+    }
+
     
 };
