@@ -2,7 +2,6 @@ class Solution {
     //https://leetcode.com/problems/shift-2d-grid
 public:
     vector<vector<int>>& shiftGrid(vector<vector<int>>& grid, int k) {
-        vector<vector<int>> ans = grid;
         int rows = grid.size(), cols = grid[0].size(), n = rows*cols; 
         int r = gcd(n,k);
         for(int i = 0; i<r;i++) {
@@ -36,7 +35,7 @@ public:
             }
         }
     }
-    
+
     vector<vector<int>> answer1(vector<vector<int>>& grid, int k) {
         vector<vector<int>> ans = grid;
         int rows = grid.size(), cols = grid[0].size(), n = rows*cols; 
