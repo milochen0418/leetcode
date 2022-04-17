@@ -1,6 +1,21 @@
 class Solution {
     //https://leetcode.com/problems/top-k-frequent-elements
 public:
+
+/*
+尾玉分享
+
+auto f = [](int n) {
+     if (f == 0) return 0;
+     return 1+ f(n-1);
+};
+
+functional<int(int)> f = [](int n) -> int {
+     if (f == 0) return 0;
+     return 1+ f(n-1);
+};
+
+*/
     vector<int> topKFrequent(vector<int>& nums, int k) {
         //return answer1(nums, k);
         /*
@@ -17,6 +32,8 @@ public:
         */
         vector<int> ans;
         unordered_map<int,int> mp;
+
+        unordered_map<int,int> &mp;
         auto compare = [](pair<int,int> lhs, pair<int,int> rhs) {
             return lhs.second >rhs.second;
         };
@@ -24,10 +41,10 @@ public:
         priority_queue<
             pair<int,int>, 
             vector<pair<int,int>>,
-            decltype(/*[](pair<int,int> lhs, pair<int,int> rhs){ return lhs.second >rhs.second;}*/compare)
-        >minQ(/*[](pair<int,int> lhs, pair<int,int> rhs) {
-            return lhs.second >rhs.second;
-        }*/compare);
+            decltype(compare)
+        >minQ(compare);
+
+
         //unordered_map<int,int> mp;
         for(auto &i:nums) mp[i]++;
         for(auto& [key,val]:mp) {
