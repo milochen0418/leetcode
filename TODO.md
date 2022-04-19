@@ -1,3 +1,7 @@
+# recover-binary-search-tree
+I refer this answer
+https://leetcode.com/problems/recover-binary-search-tree/discuss/1962281/C%2B%2B-oror-Easy-to-understand
+But I still cannot solve this problem by myself. Google, Amazon, Microsoft, Apple , Adobe 半年來都考過這題
 # next-permutation
 I only refer https://leetcode.com/problems/next-permutation/solution/ to write C++
 and I still have no idea how to think this problem.
