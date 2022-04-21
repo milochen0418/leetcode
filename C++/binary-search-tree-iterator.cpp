@@ -11,32 +11,30 @@
  */
 class BSTIterator {
 public:
-     stack<TreeNode*> st;
+    stack<TreeNode*> stk;
+
     BSTIterator(TreeNode *root) {
-        Lefttree(root);
+        while(root!=nullptr) {
+            stk.push(root);
+            root = root->left;
+        }
     }
     
     bool hasNext() {
-    return st.empty() ? false : true;
+        return !stk.empty();
     }
     
     int next() {
-        TreeNode* top = st.top();
-        st.pop();
-        if (top->right != NULL)
-            Lefttree(top->right);  
-     return top->val;
+        TreeNode *root = stk.top();
+        stk.pop();
+        TreeNode *root_right = root->right;
+        while(root_right!=nullptr) {
+            stk.push(root_right);
+            root_right = root_right->left;
+        }
+        return root->val;
     }
     
-    void Lefttree(TreeNode* root)
-    {
-        TreeNode* p = root;
-        while (p)
-        {
-            st.push(p);
-            p = p->left;
-        }
-    }
 };
 /**
  * Your BSTIterator object will be instantiated and called as such:

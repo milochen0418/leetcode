@@ -2,12 +2,6 @@
 I refer this answer
 https://leetcode.com/problems/binary-search-tree-iterator-ii/discuss/851112/C%2B%2B-Stack-and-List
 But I still cannot solve this problem by myself. Microsoft, 半年來都考過這題
-
-
-# binary-search-tree-iterator
-I refer this answer
-https://leetcode.com/problems/binary-search-tree-iterator/discuss/1965170/C%2B%2B-Solution-using-Inorder-TC%3A-O(h)-instead-of-O(n)
-But I still cannot solve this problem by myself. Facebook, Google, Amazon, Microsoft, 半年來都考過這題
 # recover-binary-search-tree
 I refer this answer
 https://leetcode.com/problems/recover-binary-search-tree/discuss/1962281/C%2B%2B-oror-Easy-to-understand
