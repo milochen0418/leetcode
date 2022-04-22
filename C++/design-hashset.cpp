@@ -1,20 +1,21 @@
 class MyHashSet {
+    //https://leetcode.com/problems/design-hashset
 public:
-    vector<bool> hash_table;
+    const int n = 1000000 + 1;
+    vector<bool> a = vector<bool>(n,false);
     MyHashSet() {
-        hash_table = vector<bool>(1000001, false);
     }
     
     void add(int key) {
-        hash_table[key] = true;
+        a[key] = true;
     }
     
     void remove(int key) {
-        hash_table[key] = false;
+        a[key] = false;
     }
     
     bool contains(int key) {
-        return hash_table[key] == true;
+        return a[key];
     }
 };
 

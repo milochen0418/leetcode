@@ -1,7 +1,3 @@
-# design-hashset
-I refer this answer
-https://leetcode.com/problems/design-hashset/discuss/1256929/C%2B%2B-Easy
-
 # binary-search-tree-iterator-ii
 I refer this answer
 https://leetcode.com/problems/binary-search-tree-iterator-ii/discuss/851112/C%2B%2B-Stack-and-List
