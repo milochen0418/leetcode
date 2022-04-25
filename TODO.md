@@ -1,3 +1,5 @@
+# two-sum-ii-input-array-is-sorted
+In binary search study plan but not yet finish this problem
 # binary-search-tree-iterator-ii
 I refer this answer
 https://leetcode.com/problems/binary-search-tree-iterator-ii/discuss/851112/C%2B%2B-Stack-and-List
