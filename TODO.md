@@ -1,3 +1,9 @@
+
+# min-cost-to-connect-all-points
+//https://leetcode.com/problems/min-cost-to-connect-all-points/
+
+//refer https://leetcode.com/problems/min-cost-to-connect-all-points/discuss/843940/C%2B%2B-MST%3A-Kruskal-%2B-Prim's-%2B-Complete-Graph
+
 # connecting-cities-with-minimum-cost 
 https://leetcode.com/problems/connecting-cities-with-minimum-cost/
 Not yet done
