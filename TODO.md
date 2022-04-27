@@ -1,4 +1,9 @@
 
+# smallest-string-with-swaps
+Not yet done , just refer official answer
+https://leetcode.com/problems/smallest-string-with-swaps/solution/
+
+
 # min-cost-to-connect-all-points
 //https://leetcode.com/problems/min-cost-to-connect-all-points/
 
