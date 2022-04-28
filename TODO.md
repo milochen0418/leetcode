@@ -1,4 +1,7 @@
 
+# path-with-minimum-effort
+refer solution
+
 # smallest-string-with-swaps
 Not yet done , just refer official answer
 https://leetcode.com/problems/smallest-string-with-swaps/solution/
