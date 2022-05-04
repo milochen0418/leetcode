@@ -19,6 +19,35 @@ public:
                 ans += a[i].second/2;
                 continue;
             }
+            //Change to use hash map
+            if(mp.find(t) != mp.end()) {
+                int cnt = min(mp[a[i].first], mp[t]);
+                ans+=cnt;
+                mp[a[i].first]-=cnt;
+                mp[t]-=cnt;
+            }
+            
+        }
+        return ans;  
+    }
+
+    int maxOperationsBinarySearch(vector<int>& nums, int k) {
+        int ans = 0;
+        unordered_map<int,int> mp;
+        for(auto &i: nums) mp[i]+=1;
+        vector<pair<int,int>> a;
+        for(auto &[key,val]:mp) a.push_back({key,val});
+        sort(a.begin(), a.end(), [](auto& lhs, auto& rhs) {
+            return lhs.first< rhs.first;
+        });
+        
+        int n = a.size();
+        for(int i = 0;i<n;i++) {
+            int t = k-a[i].first;
+            if(t==a[i].first) {
+                ans += a[i].second/2;
+                continue;
+            }
             
             int L=i+1,R=n-1;
             while(L<=R) {
