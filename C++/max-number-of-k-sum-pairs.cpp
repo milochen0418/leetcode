@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/max-number-of-k-sum-pairs
+    //Article https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2006689/C%2B%2B-or-binary-search-approach-or-O(N*log-N-)
 public:
     int maxOperations(vector<int>& nums, int k) {
         int ans = 0;
