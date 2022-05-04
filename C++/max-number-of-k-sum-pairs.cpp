@@ -2,12 +2,32 @@ class Solution {
     //https://leetcode.com/problems/max-number-of-k-sum-pairs
     //Article https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2006689/C%2B%2B-or-binary-search-approach-or-O(N*log-N-)
 public:
-    int maxOperations(vector<int>& nums, int k) {
+    int maxOperationsByHashMap(vector<int>& nums, int k) {
+        int ans = 0;
+        unordered_map<int,int> mp;
+        for(auto &i: nums) mp[i]+=1;
+        for(auto &[key,val]:mp) {
+            int t = k-key;
+            if(t==key) {
+                ans += val/2;
+            } else if(mp.find(t) != mp.end()) {
+                int cnt = min(val, mp[t]);
+                ans += cnt;
+                mp[key] -= cnt;
+                mp[t]-=cnt;   
+            }
+        } 
+        return ans;  
+    }
+
+    int maxOperationsImproveSearchByHashMap(vector<int>& nums, int k) {
         int ans = 0;
         unordered_map<int,int> mp;
         for(auto &i: nums) mp[i]+=1;
         vector<pair<int,int>> a;
         for(auto &[key,val]:mp) a.push_back({key,val});
+        
+        
         sort(a.begin(), a.end(), [](auto& lhs, auto& rhs) {
             return lhs.first< rhs.first;
         });
