@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-permutation/
+    //Article https://leetcode.com/problems/find-permutation/discuss/2014316/C%2B%2B-or-Array-Approach-or-Explanation
 public:
     vector<int> findPermutation(string s_tmp) {
         /*
