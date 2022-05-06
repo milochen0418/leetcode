@@ -1,8 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/find-permutation/
 public:
-    vector<int> findPermutation(string s) {
-        return vector<int>();
+    vector<int> findPermutation(string s_tmp) {
         /*
         I [1,2]
         DI [2,1,3]
@@ -14,8 +13,22 @@ public:
         DDIDDDIDDDDI [3,2,1,7,6,5,4,12,11,10,9,8,13]
         DDIDDDIDDDDII [3,2,1,7,6,5,4,12,11,10,9,8,13,14]
         DDIDDDIDDDDIII [3,2,1,7,6,5,4,12,11,10,9,8,13,14,15]
-        DDIDDDIDDDDIIIDD [3,2,1,7,6,5,4,12,11,10,9,8,13,14,17,16,15]
+        IDDIDDDIDDDDIIIDD [3,2,1,7,6,5,4,12,11,10,9,8,13,14,17,16,15]
         */
         //The key point is to process How many IDD...D 
+        vector<int> ans = vector<int>();
+        string s = "I" + s_tmp;
+        int n = s.length();
+        int cnt = 0;
+        
+        for(int i = 0;i<n+1;i++) {
+            int start_idx=i ;
+            while(i<n && s[i]=='D') i++;
+            int end_idx = i;
+            for(int j = end_idx;j>=start_idx;j--) {
+                if(j>0)ans.push_back(j);
+            }                
+        }
+        return ans;
     }
 };
