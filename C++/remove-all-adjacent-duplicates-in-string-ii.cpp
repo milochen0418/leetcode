@@ -2,6 +2,42 @@ class Solution {
     //https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii
 public:
     string removeDuplicates(string s, int k) {
+        stack<pair<char,int>> stk;
+        char prev_c = '-';
+        for(auto &c: s) {
+            char prev_c = stk.empty()?'-':stk.top().first;
+            if(prev_c != c) {
+                int cnt = 1;
+                stk.push({c,cnt});
+                //printf("stk.push({%c, %d})", c,cnt);
+            } else {
+                int cnt=stk.top().second+1;
+                stk.push({c,cnt});
+                //printf("stk.push({%c, %d})", c,cnt);
+                if(stk.top().second == k) {
+                    for(int i = 0;i<k;i++) {
+                        stk.pop();
+                    }
+                }
+            }   
+            //cout<<"\n";
+        }
+        string ret;
+        stack<char> stk2;
+        while(!stk.empty()){
+            stk2.push(stk.top().first);
+            stk.pop();
+        }
+        while(!stk2.empty()) {
+            ret.push_back(stk2.top());
+            stk2.pop();
+        }
+        
+        return ret;
+    }
+    
+    string removeDuplicatesBruteForce(string s, int k) {
+        //Time Limit Exceeded
         bool flag = true;
         while(flag){
             flag = false;
@@ -21,10 +57,9 @@ public:
                     }
                 }
             }
-        }
-        
+        }   
         return s;
-    }
+    }    
 };
 
 /* failed testcase 
