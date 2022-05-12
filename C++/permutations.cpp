@@ -32,7 +32,8 @@ public:
         if(start_idx == a.size()-1) {
             ans.push_back(a);
         } else {
-            for(int i=start_idx; i<a.size();i++) {            
+            per(ans, start_idx+1, a); 
+            for(int i=start_idx+1; i<a.size();i++) {            
                 swap(a[start_idx], a[i]);
                 per(ans, start_idx+1, a);
                 swap(a[start_idx], a[i]);
