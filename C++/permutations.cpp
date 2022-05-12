@@ -1,12 +1,28 @@
 class Solution {
     //https://leetcode.com/problems/permutations
 public:
+    //Logic of backtracking
+    //a = [0,1,2,3]
+    //swap(a[0],a[0])
+    //a = [0,?,?,?]
+    //recursive for tailed part [? ? ?] 
+    //swap(a[0],a[0])
+    
     //a = [0,1,2,3]
     //swap(a[0],a[1])
     //a = [1,?,?,?]
+    //recursive for tailed part [? ? ?] 
+    //swap(a[0],a[1])
+    //a = [0,1,2,3]
+
+    //a = [0,1,2,3]
+    //swap(a[0],a[2])
+    //a = [2,?,?,?]
+    //recursive for tailed part [? ? ?] 
+    //swap(a[0],a[2])
+    //a = [0,1,2,3]
     
-    //[2,?,?,?]
-    //
+    
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> ans = vector<vector<int>>();
         per(ans, 0, nums);
