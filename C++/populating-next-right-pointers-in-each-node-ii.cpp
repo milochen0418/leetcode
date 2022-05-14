@@ -20,6 +20,26 @@ class Solution {
     //https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
 public:
     Node* connect(Node* root) {
+        Node* head = root;
+        Node* next_head = nullptr, *next_tail = nullptr;
+        while(head != nullptr) {
+            vector<Node*> childs = {head->left, head->right};
+            for(Node* c: childs) {
+                if(c == nullptr) continue;
+                if(next_head == nullptr) {
+                    next_tail = next_head = c;
+                } else {
+                    next_tail->next = c;
+                    next_tail = next_tail->next;
+                }
+            }
+            head = head->next;
+            if(head == nullptr) swap(head, next_head);
+        }
+        return root;
+    }
+
+    Node* connectByQueue(Node* root) {
         if(root == nullptr) return nullptr;
         vector<queue<Node*>> qs = vector<queue<Node*>>(2,queue<Node*>());
         int idx = 0;
@@ -35,5 +55,5 @@ public:
             if(qs[idx].empty()) idx = (idx+1)%2;
         }
         return root;
-    }
+    }    
 };
