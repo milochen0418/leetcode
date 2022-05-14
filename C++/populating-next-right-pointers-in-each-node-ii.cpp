@@ -18,6 +18,8 @@ public:
 
 class Solution {
     //https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
+    //Article https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/discuss/2036344/C%2B%2B-or-BFS-by-link-list-with-constant-space-or-explanation
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5315264225162692/
 public:
     Node* connect(Node* root) {
         Node* head = root;
