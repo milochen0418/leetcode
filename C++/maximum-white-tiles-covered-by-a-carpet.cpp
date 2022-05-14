@@ -5,9 +5,15 @@ public:
         //[0,1,1,1,0,0,0,1,1,1,1,0,0,1,1]
         //    [         ]
         //      [         ]
+        
+        sort(tiles.begin(), tiles.end(), [](auto& lhs,auto& rhs){
+            return lhs[0]<rhs[0];
+        });
         vector<int> v;
         vector<int> total;
         int n = tiles.size();
+        for(auto& t:tiles) t.push_back(t[1]-t[0]+1);
+        
         for(auto& t:tiles) {
             v.push_back(t[0]);
             total.push_back(t[1] - t[0] + 1);
@@ -16,25 +22,39 @@ public:
         int ans=0;
         for(int i = 0; i<n;i++) { 
             int L = v[i];
+            //int L = tiles[i][0];
             int R = v[i]+k-1;
+            //int R = tiles[i][0]+k-1; 
+            
             //figure out who cover R.
-            int end_j=0;
+            int end_j=i;
             for(int j = i; j<n;j++ ) {
-                if(R>=v[j]) end_j = j;
+                if(R>=v[j]) {
+                    end_j = j;
+                } else {
+                    break;
+                }
             }
+            
+            
             int sum = 0;
             for(int k = i; k<end_j;k++) {
                 sum += total[k];
+                //sum += tiles[k][2];
             }
             if(R > tiles[end_j][1]) {
                 sum += total[end_j];
+                //sum += tiles[end_j][2];
             } else {
-                sum += (R-v[i]+1);
+                //sum += (R-v[i]+1);
+                sum += (R-v[end_j]+1);
+                //sum += (R-tiles[i][0]+1);
             }
             ans = max(ans,sum);
         }
         return ans;
     }
+    
     int memoryExceeded(vector<vector<int>>& tiles, int carpetLen) { 
         //a=[0,1,1,1,0,0,1,1,1,1,0]
         //s=[0,1,2,3,3,3,4,5,6,7,0] //prefix sum of a
