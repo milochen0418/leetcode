@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/deepest-leaves-sum/
+    //Article https://leetcode.com/problems/deepest-leaves-sum/discuss/2042478/C%2B%2B-or-BFS-or-Explanation
 public:
     int deepestLeavesSum(TreeNode* root) {
         queue<TreeNode*> curQ, nextQ;
