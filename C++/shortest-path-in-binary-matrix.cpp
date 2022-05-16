@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/shortest-path-in-binary-matrix
+    //article https://leetcode.com/problems/shortest-path-in-binary-matrix/discuss/2045236/C%2B%2B-or-BFS-or-Explanation
 public:
     struct _rc{ int row; int col; };
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
