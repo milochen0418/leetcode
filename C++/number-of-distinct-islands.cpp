@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/number-of-distinct-islands
     //article https://leetcode.com/problems/number-of-distinct-islands/discuss/2049792/C%2B%2B-or-BFS-or-easy-understand-and-explanation
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/5328977077124740/
 public:
     struct _rc {int row; int col;};
     struct vector_hasher {
@@ -20,7 +21,6 @@ public:
         for(int i = 0; i<m;i++) {
             for(int j = 0;j<n;j++) {
                 if(grid[i][j] == 0) continue;
-                ans++;
                 grid[i][j]--;
                 queue<_rc> q;
                 q.push(_rc{i,j});
