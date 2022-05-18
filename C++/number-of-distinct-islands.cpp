@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-distinct-islands
+    //article https://leetcode.com/problems/number-of-distinct-islands/discuss/2049792/C%2B%2B-or-BFS-or-easy-understand-and-explanation
 public:
     struct _rc {int row; int col;};
     struct vector_hasher {
