@@ -10,6 +10,8 @@
 
 class Solution {
     //https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree
+    //article https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/discuss/2049589/C%2B%2B-or-simulation-approach-%2B-BFS
+    
 public:
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
         queue<TreeNode*> Q1;
