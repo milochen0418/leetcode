@@ -23,8 +23,12 @@ https://leetcode.com/problems/connecting-cities-with-minimum-cost/
 Not yet done
 
 
+
 # longest-increasing-path-in-a-matrix (Hard)
 Only refer solution from https://leetcode.com/problems/longest-increasing-path-in-a-matrix/discuss/2052285/C%2B%2B-dp-dfs
+
+# critical-connections-in-a-network (Hard)
+Still try to solve by BFS
 # network-delay-time 
 Not yet done, only refer solution 
 # two-sum-ii-input-array-is-sorted
