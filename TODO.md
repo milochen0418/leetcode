@@ -1,4 +1,6 @@
 
+# critical-connections-in-a-network
+Still doing with BFS
 # longest-increasing-path-in-a-matrix
 only refer solution from https://leetcode.com/problems/longest-increasing-path-in-a-matrix/discuss/2052285/C%2B%2B-dp-dfs
 # permutations-ii
