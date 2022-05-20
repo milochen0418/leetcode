@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/unique-paths-ii
+    //article https://leetcode.com/problems/unique-paths-ii/discuss/2055929/C%2B%2B-or-Dynamic-Programming-or-Explanation
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5335095856512862/
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         vector<vector<int>>& a = obstacleGrid;
