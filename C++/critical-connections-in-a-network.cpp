@@ -12,6 +12,65 @@ public:
         }
         unordered_set<int> s;//travelled set
         
+        unordered_set<int> currS;
+        unordered_set<int> nextS;
+        queue<int> currQ;
+        queue<int> nextQ;
+        currQ.push(0);
+        currS.insert(0);
+        int level = 0;
+        printf("level %d : \n", level);
+        for(auto &i:currS) printf("%d, ", i);
+        printf("\n");
+        
+        while(!currQ.empty()) {
+            int u = currQ.front();
+            currQ.pop();
+            for(auto &v : emp[u]) {
+                
+                if(currS.find(v) != currS.end()) {
+                    //connect in the current level.
+                    //go up to track cycle
+                } else if(nextS.find(v) != nextS.end()) {
+                    //connect in the next level and repeat
+                    //go up to track cycle
+                } else if(s.find(v) != s.end()) {
+                    //don't care 
+                } else {
+                    //add new edge for BFS
+                    nextS.insert(v);
+                    nextQ.push(v);
+                }
+            }
+            if(currQ.empty()) {
+                
+                for(auto &v:currS) s.insert(v);
+                currS = nextS;
+                nextS = unordered_set<int>();                
+                swap(currQ,nextQ);
+                printf("level %d : \n", ++level);
+                for(auto &i:currS) printf("%d, ", i);
+                printf("\n");
+                
+            }
+        }
+        return ans;
+        //要找的 edge 一定是在這次的 BFS 上
+        //從最後一個 level 開始找起， 若是在同level 有一個邊出來, 或是 level n 的點有與2個以上的 level n-1相連，那麼這必定是形成 cycle 上的邊，故由此可以回塑找到這整個 cycle出來，而這整個cycle 的邊必定不會是我們要找的edge. 
+        //將所有可能性的cycle都找出來後，也將所有cycle邊移除，剩下的邊就是我們要找的答案了?
+    }
+
+
+    vector<vector<int>> criticalConnectionsFailedTestcase10_17(int n, vector<vector<int>>& connections) {
+        //Test case 10/17 is not pass https://leetcode.com/submissions/detail/702179235/
+        vector<vector<int>> ans;
+        unordered_map<int,unordered_set<int>> emp;
+        for(auto &e:connections) {
+            emp[e[0]].insert(e[1]);
+            emp[e[1]].insert(e[0]);
+        }
+        unordered_set<int> s;//travelled set
+        
         queue<int> currQ;
         queue<int> nextQ;
         currQ.push(0);
