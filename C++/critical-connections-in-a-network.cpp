@@ -4,7 +4,7 @@ public:
     
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
         struct edge{int u; int v;int level; bool selected;};//edge from u to v 
-        //Test case 10/17 is not pass https://leetcode.com/submissions/detail/702179235/
+        //Test case 11/17 Time Limit Excedded https://leetcode.com/submissions/detail/704053550/
         vector<vector<int>> ans;
         unordered_map<int,unordered_set<int>> emp;
         for(auto &e:connections) {
@@ -129,6 +129,7 @@ public:
         }
         return ans;
     }
+
     
     vector<vector<int>> criticalConnectionsStruct(int n, vector<vector<int>>& connections) {
         struct edge{int u; int v;};//edge from u to v 
