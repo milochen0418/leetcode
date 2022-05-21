@@ -94,11 +94,11 @@ public:
                     edge added_edge = edge{u,v,level,true};
                     edges.push_back(added_edge);
                     vmp[v] = edges.size() - 1;
-                    //printf("vmp[] = \n");
-                    for(auto &[vv,eidx]: vmp) {
-                        //printf("%d->{(%d,%d),level=%d,selected=%d}", v, e.u, e.v, e.level, e.selected);
+                    printf("vmp[] = \n");
+                    for(int vv = 0; vv<edges.size();vv++) {
+                        int eidx = vmp[vv];                        
                         edge& e = edges[eidx];
-                        //printf("%d->idx=%d, {(%d,%d),level=%d,selected=%d}\n", vv, eidx, e.u, e.v, e.level, (int)e.selected);
+                        printf("%d->{(%d,%d),level=%d,selected=%d}\n", v, e.u, e.v, e.level, e.selected);
                     }
                     //printf("\n");
                     nextS.insert(v);
@@ -111,9 +111,9 @@ public:
                 currS = nextS;
                 nextS = unordered_set<int>();                
                 swap(currQ,nextQ);
-                //printf("level %d : \n", ++level);
-                //for(auto &i:currS) printf("%d, ", i);
-                //printf("\n");
+                printf("level %d : \n", ++level);
+                for(auto &i:currS) printf("%d, ", i);
+                printf("\n");
                 
             }
         }
