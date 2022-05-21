@@ -17,10 +17,19 @@ public:
         
         unordered_set<int> s;//travelled set
         
-        unordered_set<int> currS;
-        unordered_set<int> nextS;
-        queue<int> currQ;
-        queue<int> nextQ;
+        
+        unordered_set<int> realCurrS;
+        unordered_set<int> realNextS;
+        unordered_set<int> &currS = realCurrS;
+        unordered_set<int> &nextS = realNextS;
+        
+        //unordered_set<int> currS;
+        //unordered_set<int> nextS;
+        queue<int> realCurrQ;
+        queue<int> realNextQ;
+        queue<int> &currQ = realCurrQ;
+        queue<int> &nextQ = realNextQ;
+        
         currQ.push(0);
         currS.insert(0);
         
@@ -39,12 +48,14 @@ public:
             for(auto &v : emp[u]) {
                 //printf("processing (u=%d,v=%d)\n",u,v);
                 if(currS.find(v) != currS.end()) {
+                    //if(level == 6) printf("u=%d, currS.find(v=%d) != currS.end()\n",u, v);  
+                    
                     //printf("u=%d, currS.find(v=%d) != currS.end()\n",u, v);
                     //connect in the current level.
                     //go up to track cycle
                     
                     while(vmp[u]!=vmp[v]) {
-                        //printf("b");
+                        printf("a");
                         //if(edges[vmp[v]].level < edges[vmp[u]].level) {
                         if(edges[vmp[v]].level > edges[vmp[u]].level) {                        
                             edges[vmp[v]].selected = false;
@@ -61,13 +72,13 @@ public:
                         }
                     }
                     
-                    //edge ev = vmp[v];
-                    //edge eu = vmp[u];
-                    //ev.level
-                } else if(nextS.find(v) != nextS.end()) {
+                }  else if(nextS.find(v) != nextS.end()) {
                     //printf("u=%d, nextS.find(v=%d) != nextS.end()\n",u, v);
+                    //if(level == 6) printf("u=%d, nextS.find(v=%d) != nextS.end()\n",u, v);  
+                    
+                    
                     while(vmp[u]!=vmp[v]) {
-                        //printf("b");
+                        printf("b");
                         if(edges[vmp[v]].level > edges[vmp[u]].level) {
                             edges[vmp[v]].selected = false;
                             vmp[v] = vmp[edges[vmp[v]].u];//up one edge of v
@@ -86,20 +97,21 @@ public:
                     //connect in the next level and repeat
                     //go up to track cycle
                 } else if(s.find(v) != s.end()) {
-                    //printf("don't care for (u=%d,v=%d)\n",u,v);
+                    //if(level==6)printf("don't care for (u=%d,v=%d) s.size()=%d, currS.size()=%d\n",u,v,s.size(), currS.size());
                     //don't care 
                 } else {
                     //add new edge for BFS
-                    
+                    //if(level==6) printf("add edge(%d,%d)\n",u,v);
                     edge added_edge = edge{u,v,level,true};
                     edges.push_back(added_edge);
                     vmp[v] = edges.size() - 1;
                     //printf("vmp[] = \n");
+                    /*
                     for(int vv = 0; vv<edges.size();vv++) {
                         int eidx = vmp[vv];                        
                         edge& e = edges[eidx];
                         //printf("%d->{(%d,%d),level=%d,selected=%d}\n", v, e.u, e.v, e.level, e.selected);
-                    }
+                    }*/
                     //printf("\n");
                     nextS.insert(v);
                     nextQ.push(v);
@@ -112,7 +124,18 @@ public:
                 nextS = unordered_set<int>();                
                 swap(currQ,nextQ);
                 ++level;
-                //printf("level %d : \n", level);
+                //printf("level %d (size=%d): \n", level,currS.size());
+                /*
+                if(level==6) {
+                    for(auto &i:s) {
+                        if(i==15770)printf("\n");
+                        printf("%d, ", i);    
+                        if(i==15770)printf("\n");
+                    }
+                    
+                }
+                printf("\n");
+                */
                 //for(auto &i:currS) printf("%d, ", i);
                 //printf("\n");
                 
@@ -128,6 +151,10 @@ public:
                 ans.push_back(ae);
             }
         }
+        //vector<int> makewrong = vector<int>(2,0);
+        //makewrong[0] = 144;
+        //makewrong[1] = 944;
+        //ans.push_back(makewrong);
         return ans;
     }
 
