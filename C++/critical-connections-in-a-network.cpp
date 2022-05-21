@@ -1,8 +1,81 @@
 class Solution {
     //https://leetcode.com/problems/critical-connections-in-a-network/
+    //article https://leetcode.com/problems/critical-connections-in-a-network/discuss/2061069/C%2B%2B-or-BFS-%2B-two-pointer-approach-or-Time-and-Space-O(E%2BV)-or-Explanation
 public:
 
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
+        struct edge{int u; int v;int level; bool selected;};//edge from u to v 
+        vector<vector<int>> ans;
+        unordered_map<int,unordered_set<int>> emp;
+        for(auto &e:connections) {
+            emp[e[0]].insert(e[1]);
+            emp[e[1]].insert(e[0]);
+        }
+        vector<edge> edges;
+        unordered_map<int,int> vmp; //map from vertex to index of edges
+        unordered_set<int> s;//travelled set
+        unordered_set<int> realCurrS, realNextS, &currS = realCurrS, &nextS = realNextS;
+        queue<int> realCurrQ, realNextQ, &currQ = realCurrQ, &nextQ = realNextQ;
+        
+        currQ.push(0);
+        currS.insert(0);
+        
+        edges.push_back(edge{-1, 0, -1, true});
+        vmp[0] = 0;
+        int level = 0;
+        
+        while(!currQ.empty()) {
+            int u = currQ.front();
+            currQ.pop();
+            for(auto &v : emp[u]) {
+
+                if(currS.find(v) != currS.end() || nextS.find(v) != nextS.end()) {                    
+                    while(vmp[u]!=vmp[v]) {
+                        if(edges[vmp[v]].level > edges[vmp[u]].level) {                        
+                            edges[vmp[v]].selected = false;
+                            vmp[v] = vmp[edges[vmp[v]].u];//up one edge of v
+                        } else if (edges[vmp[v]].level < edges[vmp[u]].level) {
+                            edges[vmp[u]].selected = false;
+                            vmp[u] = vmp[edges[vmp[u]].u];//up one edge of u
+                        } else {
+                            edges[vmp[v]].selected = false;
+                            edges[vmp[u]].selected = false;
+                            vmp[v] = vmp[edges[vmp[v]].u];
+                            vmp[u] = vmp[edges[vmp[u]].u];
+                        }
+                    }
+                } else if(s.find(v) == s.end()) {
+                    edge added_edge = edge{u,v,level,true};
+                    edges.push_back(added_edge);
+                    vmp[v] = edges.size() - 1;
+                    nextS.insert(v);
+                    nextQ.push(v);
+                }
+            }
+            if(currQ.empty()) {
+                for(auto &v:currS) s.insert(v);
+                currS = nextS;
+                nextS = unordered_set<int>();                
+                swap(currQ,nextQ);
+                ++level;
+            }
+        }
+        
+
+        for(auto& e: edges) {
+            if(e.selected == true && e.u >=0) {
+                vector<int>ae;
+                ae.push_back(e.u);
+                ae.push_back(e.v);
+                ans.push_back(ae);
+            }
+        }
+        return ans;
+    }
+
+
+
+    vector<vector<int>> criticalConnectionsWithPrint(int n, vector<vector<int>>& connections) {
         struct edge{int u; int v;int level; bool selected;};//edge from u to v 
         //Test case 11/17 Time Limit Excedded https://leetcode.com/submissions/detail/704053550/
         vector<vector<int>> ans;
