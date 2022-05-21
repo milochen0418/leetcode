@@ -29,9 +29,9 @@ public:
         vmp[0] = 0;
         
         int level = 0;
-        printf("level %d : \n", level);
-        for(auto &i:currS) printf("%d, ", i);
-        printf("\n");
+        //printf("level %d : \n", level);
+        //for(auto &i:currS) printf("%d, ", i);
+        //printf("\n");
         
         while(!currQ.empty()) {
             int u = currQ.front();
@@ -67,7 +67,7 @@ public:
                 } else if(nextS.find(v) != nextS.end()) {
                     //printf("u=%d, nextS.find(v=%d) != nextS.end()\n",u, v);
                     while(vmp[u]!=vmp[v]) {
-                        printf("b");
+                        //printf("b");
                         if(edges[vmp[v]].level > edges[vmp[u]].level) {
                             edges[vmp[v]].selected = false;
                             vmp[v] = vmp[edges[vmp[v]].u];//up one edge of v
@@ -94,11 +94,11 @@ public:
                     edge added_edge = edge{u,v,level,true};
                     edges.push_back(added_edge);
                     vmp[v] = edges.size() - 1;
-                    printf("vmp[] = \n");
+                    //printf("vmp[] = \n");
                     for(int vv = 0; vv<edges.size();vv++) {
                         int eidx = vmp[vv];                        
                         edge& e = edges[eidx];
-                        printf("%d->{(%d,%d),level=%d,selected=%d}\n", v, e.u, e.v, e.level, e.selected);
+                        //printf("%d->{(%d,%d),level=%d,selected=%d}\n", v, e.u, e.v, e.level, e.selected);
                     }
                     //printf("\n");
                     nextS.insert(v);
@@ -111,9 +111,10 @@ public:
                 currS = nextS;
                 nextS = unordered_set<int>();                
                 swap(currQ,nextQ);
-                printf("level %d : \n", ++level);
-                for(auto &i:currS) printf("%d, ", i);
-                printf("\n");
+                ++level;
+                //printf("level %d : \n", level);
+                //for(auto &i:currS) printf("%d, ", i);
+                //printf("\n");
                 
             }
         }
