@@ -1,8 +1,137 @@
 class Solution {
     //https://leetcode.com/problems/critical-connections-in-a-network/
 public:
-    struct edge{int u; int v;};//edge from u to v 
+    
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
+        struct edge{int u; int v;int level; bool selected;};//edge from u to v 
+        //Test case 10/17 is not pass https://leetcode.com/submissions/detail/702179235/
+        vector<vector<int>> ans;
+        unordered_map<int,unordered_set<int>> emp;
+        for(auto &e:connections) {
+            emp[e[0]].insert(e[1]);
+            emp[e[1]].insert(e[0]);
+        }
+        vector<edge> edges;
+        unordered_map<int,int> vmp; //map from vertex to index of edges
+        
+        
+        unordered_set<int> s;//travelled set
+        
+        unordered_set<int> currS;
+        unordered_set<int> nextS;
+        queue<int> currQ;
+        queue<int> nextQ;
+        currQ.push(0);
+        currS.insert(0);
+        
+        //vmp[0]=edge{-1,0,0,1};
+        edges.push_back(edge{-1, 0, -1, true});
+        vmp[0] = 0;
+        
+        int level = 0;
+        printf("level %d : \n", level);
+        for(auto &i:currS) printf("%d, ", i);
+        printf("\n");
+        
+        while(!currQ.empty()) {
+            int u = currQ.front();
+            currQ.pop();
+            for(auto &v : emp[u]) {
+                //printf("processing (u=%d,v=%d)\n",u,v);
+                if(currS.find(v) != currS.end()) {
+                    //printf("u=%d, currS.find(v=%d) != currS.end()\n",u, v);
+                    //connect in the current level.
+                    //go up to track cycle
+                    
+                    while(vmp[u]!=vmp[v]) {
+                        //printf("b");
+                        //if(edges[vmp[v]].level < edges[vmp[u]].level) {
+                        if(edges[vmp[v]].level > edges[vmp[u]].level) {                        
+                            edges[vmp[v]].selected = false;
+                            vmp[v] = vmp[edges[vmp[v]].u];//up one edge of v
+                        //} else if (edges[vmp[v]].level > edges[vmp[u]].level) {
+                        } else if (edges[vmp[v]].level < edges[vmp[u]].level) {
+                            edges[vmp[u]].selected = false;
+                            vmp[u] = vmp[edges[vmp[u]].u];//up one edge of u
+                        } else {
+                            edges[vmp[v]].selected = false;
+                            edges[vmp[u]].selected = false;
+                            vmp[v] = vmp[edges[vmp[v]].u];
+                            vmp[u] = vmp[edges[vmp[u]].u];
+                        }
+                    }
+                    
+                    //edge ev = vmp[v];
+                    //edge eu = vmp[u];
+                    //ev.level
+                } else if(nextS.find(v) != nextS.end()) {
+                    //printf("u=%d, nextS.find(v=%d) != nextS.end()\n",u, v);
+                    while(vmp[u]!=vmp[v]) {
+                        printf("b");
+                        if(edges[vmp[v]].level > edges[vmp[u]].level) {
+                            edges[vmp[v]].selected = false;
+                            vmp[v] = vmp[edges[vmp[v]].u];//up one edge of v
+                        } else if (edges[vmp[v]].level < edges[vmp[u]].level) {
+                            edges[vmp[u]].selected = false;
+                            vmp[u] = vmp[edges[vmp[u]].u];//up one edge of u
+                        } else {
+                            edges[vmp[v]].selected = false;
+                            edges[vmp[u]].selected = false;
+                            vmp[v] = vmp[edges[vmp[v]].u];
+                            vmp[u] = vmp[edges[vmp[u]].u];
+                        }
+                    }
+                    
+                    
+                    //connect in the next level and repeat
+                    //go up to track cycle
+                } else if(s.find(v) != s.end()) {
+                    //printf("don't care for (u=%d,v=%d)\n",u,v);
+                    //don't care 
+                } else {
+                    //add new edge for BFS
+                    
+                    edge added_edge = edge{u,v,level,true};
+                    edges.push_back(added_edge);
+                    vmp[v] = edges.size() - 1;
+                    //printf("vmp[] = \n");
+                    for(auto &[vv,eidx]: vmp) {
+                        //printf("%d->{(%d,%d),level=%d,selected=%d}", v, e.u, e.v, e.level, e.selected);
+                        edge& e = edges[eidx];
+                        //printf("%d->idx=%d, {(%d,%d),level=%d,selected=%d}\n", vv, eidx, e.u, e.v, e.level, (int)e.selected);
+                    }
+                    //printf("\n");
+                    nextS.insert(v);
+                    nextQ.push(v);
+                }
+            }
+            if(currQ.empty()) {
+                
+                for(auto &v:currS) s.insert(v);
+                currS = nextS;
+                nextS = unordered_set<int>();                
+                swap(currQ,nextQ);
+                //printf("level %d : \n", ++level);
+                //for(auto &i:currS) printf("%d, ", i);
+                //printf("\n");
+                
+            }
+        }
+        
+        //vector<vector<int>>
+        for(auto& e: edges) {
+            if(e.selected == true && e.u >=0) {
+                vector<int>ae;
+                ae.push_back(e.u);
+                ae.push_back(e.v);
+                ans.push_back(ae);
+            }
+        }
+        return ans;
+    }
+    
+    vector<vector<int>> criticalConnectionsStruct(int n, vector<vector<int>>& connections) {
+        struct edge{int u; int v;};//edge from u to v 
         //Test case 10/17 is not pass https://leetcode.com/submissions/detail/702179235/
         vector<vector<int>> ans;
         unordered_map<int,unordered_set<int>> emp;
