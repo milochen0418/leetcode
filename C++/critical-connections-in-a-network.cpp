@@ -1,7 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/critical-connections-in-a-network/
 public:
-    
+
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
         struct edge{int u; int v;int level; bool selected;};//edge from u to v 
         //Test case 11/17 Time Limit Excedded https://leetcode.com/submissions/detail/704053550/
@@ -329,6 +329,15 @@ public:
     }
 };
 
+/* small failed test-case for double cycle
+15
+[[0,1],[0,2],[1,3],[2,4],[3,5],[4,6],[5,7],[6,7],[7,8],[8,9],[9,10],[10,11],[9,12],[12,13],[13,14],[14,9]]
+Output
+[[9,10],[10,11]]
+Expected 
+[[10,11],[9,10],[8,9],[7,8]]
+
+*/
 
 /* failed test-case
 test case 10/17
