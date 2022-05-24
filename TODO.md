@@ -1,4 +1,6 @@
 
+# Longest Valid Parentheses (Hard)
+Not yet do only refer answer from forum https://leetcode.com/problems/longest-valid-parentheses/discuss/2068304/C%2B%2B-Using-left-and-right-parentheses-count 
 # ones-and-zeroes
 Only refer solution from discussion 
 # palindromic-substrings
