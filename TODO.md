@@ -1,6 +1,8 @@
 
-# critical-connections-in-a-network
-Still doing with BFS
+# ones-and-zeroes
+Only refer solution from discussion 
+# palindromic-substrings
+TODO
 # longest-increasing-path-in-a-matrix
 only refer solution from https://leetcode.com/problems/longest-increasing-path-in-a-matrix/discuss/2052285/C%2B%2B-dp-dfs
 # permutations-ii
