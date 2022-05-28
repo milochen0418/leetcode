@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/missing-number/
-    //article https://leetcode.com/problems/missing-number/discuss/2082536/C%2B%2B-or-4-approach-or-sum-xor-sort-hashsaet
+    //article https://leetcode.com/problems/missing-number/discuss/2082536/C%2B%2B-or-4-approach-or-sum-xor-sort-hashset
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5359955194026928/
 public:
     int missingNumber(vector<int>& nums) {
         return missingNumberSum(nums);
