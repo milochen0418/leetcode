@@ -19,5 +19,13 @@ public:
         for(ans = 0; ans<nums.size();ans++) if(ans!=nums[ans]) break;
         return ans;
     }
+    int missingNumberHashSet(vector<int>& nums) {
+        int ans;
+        unordered_set<int> s;
+        for(auto &i:nums) s.insert(i);
+        for(ans = 0; ans<=nums.size();ans++) if(s.find(ans)==s.end())break;
+        return ans;
+    }
+
 
 };
