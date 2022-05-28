@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/missing-number/
+    //article https://leetcode.com/problems/missing-number/discuss/2082536/C%2B%2B-or-3-approach-or-xor-sort-hashsaet
 public:
     int missingNumber(vector<int>& nums) {
         int ans = 0;
