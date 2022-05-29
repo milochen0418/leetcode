@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-product-of-word-lengths
+    //https://leetcode.com/problems/maximum-product-of-word-lengths/discuss/2087555/C%2B%2B-or-Bit-Manipulation
 public:
     int maxProduct(vector<string>& words) {
         int ans, n = words.size();
