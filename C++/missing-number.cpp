@@ -8,8 +8,9 @@ public:
     }
     //TC: O(N), SC: O(1)
     int missingNumberSum(vector<int>& nums) {
-        int ans = 0;
-        for(int i = 0; i <= nums.size();i++) ans+=i;
+        int ans = 0,n = nums.size();
+        //for(int i = 0; i <= n;i++) ans+=i;
+        ans = (n*(n+1))/2; //it's the same as the above code but fast.
         for(auto &i:nums) ans-=i;
         return ans;
     }
