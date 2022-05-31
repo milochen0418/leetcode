@@ -1,6 +1,8 @@
 class Solution {
     //https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k
     //article https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/discuss/2093987/C%2B%2B-or-HashSet-%2B-SlidingWindow
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5369457389743375/
+
 public:
     bool hasAllCodes(string s, int k) {
         int n = s.length();
