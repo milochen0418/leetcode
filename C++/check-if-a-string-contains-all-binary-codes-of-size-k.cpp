@@ -3,6 +3,17 @@ class Solution {
 public:
     bool hasAllCodes(string s, int k) {
         int n = s.length();
+        unordered_set<int> ss;
+        for(int i = 0,val = 0; i<n; i++) {        
+            val = ( (val<<1) + (s[i]-'0') ) & ( (1<<k) -1);    
+            if(i>=k-1) ss.insert(val);
+            if(ss.size()>=1<<k) return true;
+        }        
+        return false;
+    }
+
+    bool hasAllCodesHashSet(string s, int k) {
+        int n = s.length();
         if(n<k) return false;
         unordered_set<int> ss;
         int val = 0;
