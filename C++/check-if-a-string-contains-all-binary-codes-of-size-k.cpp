@@ -2,6 +2,21 @@ class Solution {
     //https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k
 public:
     bool hasAllCodes(string s, int k) {
+        int n = s.length();
+        if(n<k) return false;
+        unordered_set<int> ss;
+        int val = 0;
+        for(int i = 0; i<k;i++) val = (val<<1) + (s[i]-'0');
+        ss.insert(val);
+        for(int i = k; i<n; i++) {
+            val = ( (val<<1) + (s[i]-'0') ) & ( (1<<k) -1);    
+            ss.insert(val);
+        }        
+        return ss.size()>=1<<k;
+    }
+
+
+    bool hasAllCodesHashMap(string s, int k) {
         using ll = long long;
         int n = s.length();
         if(n<k) return false;
@@ -19,4 +34,5 @@ public:
         
         return true;
     }
+
 };
