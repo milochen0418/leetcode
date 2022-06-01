@@ -2,7 +2,7 @@ class Solution {
     //https://leetcode.com/problems/valid-perfect-square/
 public:
     bool isPerfectSquare(int num) {
-        int L=1,  R= sqrt( INT_MAX-1 );
+        int L=1,  R= sqrt( INT_MAX );
         while(L<=R) {
             int M = (L + (R-L)/2);
             if(M*M == num) {
