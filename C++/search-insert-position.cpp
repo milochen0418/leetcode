@@ -35,4 +35,20 @@ public:
         }
         return L;
     }
+    int searchInsertAnswer3(vector<int>& a, int target) {    
+        int L=0, R=a.size()-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if( (M-1<0 || a[M-1]<t) && t<=a[M]) return M; // case match
+            if(a[M]<t) { // case larger
+                L= M+1;
+                if(L>=a.size())return a.size();
+            } else { // case small
+                R = M-1;
+                if(R<=0) return 0;//this case is included in the match case
+            }
+        }
+        return -1;
+    }
+
 };
