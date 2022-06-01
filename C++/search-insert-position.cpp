@@ -51,4 +51,21 @@ public:
         return -1;
     }
 
+    int searchInsertAnswer4ByDummy(vector<int>& a, int t) {
+        a.push_back(INT_MAX);
+        int L=0, R=a.size()-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            int aM_1 = M-1>=0?a[M-1]:INT_MIN;
+            if(aM_1<t && t<=a[M]) return M;
+            if(a[M]<t) {
+                L= M+1;
+            } else {
+                R = M-1;
+            }
+        }
+        return -1;
+    }
+
+
 };
