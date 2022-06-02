@@ -1,14 +1,13 @@
 class Solution {
     
 public:
-    bool isValid(vector<int>&a,int v,int d){
-        
+    bool isValid(vector<int>&a,int offset,int d){
         int L = 0, R = a.size() - 1;
         while(L <= R){
             int M = L + (R-L)/2;
-            int t = a[M] - v;
-            if( -d<=t &&t<=d) return false;
-            if(t > d)
+            int aM_v = a[M] - offset;
+            if( -d<= aM_v && aM_v <=d) return false;
+            if(aM_v > d)
                 R = M - 1;
             else
                 L = M + 1;
@@ -17,17 +16,12 @@ public:
     }
     
     int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        
-        sort(arr2.begin(),arr2.end());
-        
-        int cnt = 0;
+        sort(arr2.begin(),arr2.end());        
+        int ans = 0;
         for(auto num:arr1){
-           if(isValid(arr2,num,d)){
-               cnt++;
-           } 
+           if(isValid(arr2,num,d)) ans++;
         }
-        
-        return cnt;
+        return ans;
     }
 
     int findTheDistanceValueBruteForce(vector<int>& arr1, vector<int>& arr2, int d) {
