@@ -1,14 +1,14 @@
 class Solution {
-    
+    //https://leetcode.com/problems/find-the-distance-value-between-two-arrays
 public:
-    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        sort(arr2.begin(),arr2.end());        
+    int findTheDistanceValue(vector<int>& values, vector<int>& a, int d) {
+        sort(a.begin(),a.end());        
         int ans = 0;
-        for(auto offset:arr1){
-            int L = 0, R = arr2.size() - 1;
+        for(auto v:values){
+            int L = 0, R = a.size() - 1;
             while(L <= R){
                 int M = L + (R-L)/2;
-                int aM_v = arr2[M] - offset;
+                int aM_v = a[M] - v;
                 if( -d<= aM_v && aM_v <=d) break;
                 if(aM_v > d)
                     R = M - 1;
