@@ -1,22 +1,17 @@
 class Solution {
-    //https://leetcode.com/problems/find-the-distance-value-between-two-arrays/
+    
 public:
-    bool isValid(vector<int>&arr,int target,int d){
+    bool isValid(vector<int>&a,int v,int d){
         
-        int low = 0, high = arr.size() - 1;
-        while(low <= high){
-            
-            int mid = low + (high - low)/2;
-            if(abs(arr[mid] - target) <= d){
-                return false;
-            }
-            else if(arr[mid] < target){
-                low = mid + 1;
-            }
-            else{
-                high = mid - 1;
-            }
-            
+        int L = 0, R = a.size() - 1;
+        while(L <= R){
+            int M = L + (R-L)/2;
+            int t = a[M] - v;
+            if( -d<=t &&t<=d) return false;
+            if(t > d)
+                R = M - 1;
+            else
+                L = M + 1;
         }
         return true;
     }
