@@ -1,6 +1,25 @@
 class Solution {
     
 public:
+    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+        sort(arr2.begin(),arr2.end());        
+        int ans = 0;
+        for(auto offset:arr1){
+            int L = 0, R = arr2.size() - 1;
+            while(L <= R){
+                int M = L + (R-L)/2;
+                int aM_v = arr2[M] - offset;
+                if( -d<= aM_v && aM_v <=d) break;
+                if(aM_v > d)
+                    R = M - 1;
+                else
+                    L = M + 1;
+            }
+            ans+=(L>R);
+        }
+        return ans;
+    }
+
     bool isValid(vector<int>&a,int offset,int d){
         int L = 0, R = a.size() - 1;
         while(L <= R){
@@ -15,7 +34,7 @@ public:
         return true;
     }
     
-    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+    int findTheDistanceValueTwoFunction(vector<int>& arr1, vector<int>& arr2, int d) {
         sort(arr2.begin(),arr2.end());        
         int ans = 0;
         for(auto num:arr1){
