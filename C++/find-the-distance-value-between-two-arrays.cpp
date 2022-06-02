@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-distance-value-between-two-arrays
+    //article https://leetcode.com/problems/find-the-distance-value-between-two-arrays/discuss/2103513/C%2B%2B-or-two-approaches-or-brute-force-binary-search
 public:
     int findTheDistanceValue(vector<int>& values, vector<int>& a, int d) {
         sort(a.begin(),a.end());        
