@@ -1,5 +1,6 @@
 class NumMatrix {
     //https://leetcode.com/problems/range-sum-query-2d-immutable/
+    //article https://leetcode.com/problems/range-sum-query-2d-immutable/discuss/2107372/C%2B%2B-or-O(1)-space-O(N)-time-or-Explanation
 public:
     vector<vector<int>>& M;
     NumMatrix(vector<vector<int>>& matrix):M(matrix) {
