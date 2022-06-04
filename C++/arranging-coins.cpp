@@ -1,5 +1,7 @@
 class Solution {
     // https://leetcode.com/problems/arranging-coins
+    // article: https://leetcode.com/problems/arranging-coins/discuss/2111204/C%2B%2B-or-binary-search-or-explanation
+    
 public:
     int arrangeCoins(int n) {
         using ll = long long; 
