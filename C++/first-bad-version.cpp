@@ -5,6 +5,21 @@ class Solution {
     //https://leetcode.com/problems/first-bad-version
 public:
     int firstBadVersion(int n) {
+        int L=1,R=n;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if(isBadVersion(M)  && (M-1<1 || !isBadVersion(M-1)) ) {
+                return M;
+            }
+            if(isBadVersion(M)) 
+                R=M-1;
+            else 
+                L=M+1;
+        }
+        return 0;
+    }
+
+    int firstBadVersionOld(int n) {
         /*
         if(isBadVersion(1))return 1;
         for(int i = 1; i<=n-1;i++ ) {
