@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-smallest-letter-greater-than-target/
+    //article https://leetcode.com/problems/find-smallest-letter-greater-than-target/discuss/2109778/C%2B%2B-or-simple-binary-search-solution-or-explanation
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
         vector<char>&a = letters;
