@@ -12,6 +12,9 @@ public:
             }
             if(target>=a[M]) 
                 L = M+1; //case search right-side
+                //Use target>=a[M] to instead target>a[M] because of following case
+                //["e","e","e","e","e","e","n","n","n","n"]
+                //"e"
             else 
                 R = M-1;//case search left-side
         }
