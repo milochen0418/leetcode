@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
     //article https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/discuss/2110058/C%2B%2B-or-simple-binary-search-solution-or-explanation-easy
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5381846665171114
 public:
     vector<int> searchRange(vector<int>& a, int t) {
         vector<int> ans = vector<int>(2,-1);
