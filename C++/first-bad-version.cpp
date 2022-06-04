@@ -16,7 +16,7 @@ public:
             else 
                 L=M+1;
         }
-        return 0;
+        return -1; //The code will not be wrong becuase so such case happened
     }
 
     int firstBadVersionOld(int n) {
