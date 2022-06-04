@@ -1,6 +1,60 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& a, int t) {
+        vector<int> ans = vector<int>(2,-1);
+        int L,R;
+        L=0;
+        R=a.size()-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if(a[M]==t && (M-1<0 || a[M-1]<t) ) {
+                ans[0]=M;
+                break;
+            }
+            if(t<=a[M])
+                R=M-1;
+            else
+                L=M+1;
+        }
+        if(ans[0]==-1) return ans;
+        L = ans[0];
+        R = a.size()-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if(a[M]==t && (M+1>=a.size() || a[M+1]>t)) {
+                ans[1] = M;
+                return ans;
+            }
+            if(a[M]<=t)
+                L=M+1;
+            else 
+                R=M-1;
+        }
+        return ans;
+    }
+
+    vector<int> searchRangeOptimizedFromAbove(vector<int>& a, int t) {
+        vector<int> ans = vector<int>(2,-1);
+        int L=0,R=a.size()-1,M;
+        while(L<=R) {
+            M = L+(R-L)/2;
+            if(a[M]==t && (M-1<0 || a[M-1]<t) ) {
+                ans[0] = M;
+                R = a.size()-1;
+                while(L<=R) {
+                    M = L+(R-L)/2;
+                    if(a[M]==t && (M+1>=a.size() || a[M+1]>t)) {
+                        ans[1] = M;
+                        return ans;
+                    }
+                    if(a[M]<=t) L=M+1; else R=M-1;
+                }
+            }
+            if(t<=a[M]) R=M-1; else L=M+1;
+        }
+        return ans;
+    }
+    vector<int> searchRangeOld(vector<int>& a, int t) {
         //[    5,  7,  7,   8,   8,  10]
         //   0   1   2    3    4   5
         vector<int> ans = vector<int>(2,0);

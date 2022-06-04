@@ -3,6 +3,7 @@
 
 class Solution {
     //https://leetcode.com/problems/first-bad-version
+    //https://leetcode.com/problems/first-bad-version/discuss/2109813/C%2B%2B-or-simple-binary-search-solution-or-explanation
 public:
     int firstBadVersion(int n) {
         int L=1,R=n;
@@ -16,7 +17,7 @@ public:
             else 
                 L=M+1;
         }
-        return -1; //The code will not be wrong becuase so such case happened
+        return -1; //The code will not be wrong becuase so there's no such case happened
     }
 
     int firstBadVersionOld(int n) {
