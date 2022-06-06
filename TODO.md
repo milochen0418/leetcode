@@ -1,3 +1,6 @@
+
+# minimum-knight-moves
+Not yet done, but only refer answer and rewrite from Java to C++ from here https://leetcode.com/problems/minimum-knight-moves/discuss/387036/O(1)-formula.
 # parallel-courses
 Not yet do but refer answer 
 

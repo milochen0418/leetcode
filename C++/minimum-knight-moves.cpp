@@ -1,6 +1,25 @@
 class Solution {
     //https://leetcode.com/problems/minimum-knight-moves
 public:
+    int O1Answer(int x, int y) {
+        // Symmetry for axes
+        x = abs(x);
+        y = abs(y);
+        // Symmetry for diagonal
+        if (x < y) {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+        if (x == 1 && y == 0)  return 3;
+        if (x == 2 && y == 2) return 4;
+        int delta = x - y;
+        if (y > delta) 
+            return (int) (delta - 2 * floor((float) (delta - y) / 3));
+        else 
+            return (int) (delta - 2 * floor((delta - y) / 4));
+    }    
+
     struct RC{
         int row;int col;
         RC(int row, int col):row(row), col(col){}
@@ -8,6 +27,7 @@ public:
         int getId() {return (row)*300 + col;}
     };
     int minKnightMoves(int x, int y) {
+        return O1Answer(x,y);
         vector<RC> dirs = {
                RC{-2,-1},  RC{-2,+1},
             RC{-1,-2},       RC{-1,+2},
