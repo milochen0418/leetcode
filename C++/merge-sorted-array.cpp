@@ -1,9 +1,27 @@
 class Solution {
     //https://leetcode.com/problems/merge-sorted-array/
     //article https://leetcode.com/problems/merge-sorted-array/discuss/1811934/C%2B%2B-or-step-by-step-to-improve
+    //article https://leetcode.com/problems/merge-sorted-array/discuss/2120854/C%2B%2B-or-1-line-solution-and-explanation
 public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        return answer3(nums1, m, nums2, n);
+    void merge(vector<int>& a, int m, vector<int>& b, int n) {
+
+        while(m+n>0) a[m+n] = (m<=0?INT_MIN:a[m-1])>(n<=0?INT_MIN:b[n-1])? a[m---1]:b[n---1];
+        /*
+        while(m+n>0) {
+            int va = (m<=0?INT_MIN:a[m-1]);
+            int vb = (n<=0?INT_MIN:b[n-1]);
+            a[m+n] = va>vb? a[m---1]:b[n---1];
+        }
+        */
+
+        /*
+		int i = m-1, j = n-1, k = n+m-1;
+		while( k>=0) {
+			int va = i<0?INT_MIN:a[i];
+			int vb = j<0?INT_MIN:b[j];
+			a[k--] = vb>va? b[j--]: a[i--];
+		}
+        */
     }
     
     void answer1(vector<int>& nums1, int m, vector<int>& nums2, int n) {
