@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/intersection-of-two-linked-lists/
+    //article https://leetcode.com/problems/merge-sorted-array/discuss/2120854/C%2B%2B-or-1-line-solution-and-explanation
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         //figure length of headA is n;
