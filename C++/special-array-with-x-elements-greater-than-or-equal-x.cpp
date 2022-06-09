@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x
+    //article https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/discuss/2131594/C%2B%2B-or-3-approach-O(N2)-O(NlogN)-and-O(N)-without-binary-search
 public:
     int specialArray(vector<int>& a) {
         return specialArrayByCountingSort(a);
