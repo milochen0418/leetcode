@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
+    //article https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/2128743/C%2B%2B-or-binary-search-approach
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
         vector<int> ans = vector<int>(2,-1);
