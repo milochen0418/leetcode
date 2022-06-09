@@ -7,18 +7,17 @@ public:
         int ans = 0;
         for(i = 0; i<m;i++){
             if(j<0||grid[i][j]<0) {
-                while(j>=0) {
-                    if(grid[i][j]>=0) {
-                        j=j+1;
-                        break;
-                    }
+                while(j>0) {
+                    if(grid[i][j-1]>=0) break;
                     j--;
                 }                
-                ans+=j<0?n:n-j;
+                //printf("?i=%d -> %d\n",i, n-j);
+                ans+=(n-j);
             }
         }
         return ans;
     }
+
 
     int countNegativesUgly(vector<vector<int>>& grid) {
         int m = grid.size(), n=grid[0].size();        
