@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix
+    //article https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/discuss/2131885/C%2B%2B-or-O(m%2Bn)-by-tracing-the-largest-negative-number-or-explanation
 public:
     int countNegatives(vector<vector<int>>& grid) {
         int m = grid.size(), n=grid[0].size();        
