@@ -1,10 +1,11 @@
 class Solution {
+    //https://leetcode.com/problems/longest-substring-without-repeating-characters
+    //article https://leetcode.com/problems/longest-substring-without-repeating-characters/discuss/2133716/C%2B%2B-or-two-pointer-with-hash-map
 public:
     int lengthOfLongestSubstring(string s) {
-        int n = s.length();
+        int n = s.length(), L = 0, R = 0, ans = 1;
         if(n==0) return 0;
         unordered_map<char,int> mp = {{s[0],1}};
-        int L = 0, R = 0, ans = 1;
         while(L<n && R<n-1) {
             if(mp[s[R+1]])             
                 mp[s[L++]]--;
