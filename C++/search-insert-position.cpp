@@ -1,7 +1,18 @@
 class Solution {
     //https://leetcode.com/problems/search-insert-position/
 public:
-    int searchInsert(vector<int>& a, int target) {
+    int searchInsert(vector<int>& a, int t) {
+        int n = a.size();
+        int L=0, R=a.size();
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if(  (M==n || t<=a[M]) && (M-1<0 || t>a[M-1]) ) return M;   
+            if(t>a[M]) L=M+1; else R=M-1;
+        }
+        return -1;        
+    }
+
+    int searchInsertOldAnswer(vector<int>& a, int target) {
         int L=0, R=a.size()-1;
         while(L<=R) {
             int M = L+(R-L)/2;
