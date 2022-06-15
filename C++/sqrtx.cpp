@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sqrtx/
+    //article https://leetcode.com/problems/sqrtx/discuss/2155138/C%2B%2B-or-binary-search-solution-without-long-long-and-divide
 public:
     int mySqrt(int x) {
         const int MAX = 46340; //sqrt of INT_MAX;
