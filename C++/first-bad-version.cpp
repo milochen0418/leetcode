@@ -8,6 +8,15 @@ public:
     int firstBadVersion(int n) {
         int L=1,R=n;
         while(L<=R) {
+            int M = L + (R-L)/2;
+            if(isBadVersion(M) && (M-1==0||!isBadVersion(M-1)) ) return M;
+            if(isBadVersion(M)) R=M-1; else L=M+1;
+        } return -1;
+    }
+
+    int firstBadVersionOld1(int n) {
+        int L=1,R=n;
+        while(L<=R) {
             int M = L+(R-L)/2;
             if(isBadVersion(M)  && (M-1<1 || !isBadVersion(M-1)) ) {
                 return M;
@@ -20,7 +29,7 @@ public:
         return -1; //The code will not be wrong becuase so there's no such case happened
     }
 
-    int firstBadVersionOld(int n) {
+    int firstBadVersionOld2(int n) {
         /*
         if(isBadVersion(1))return 1;
         for(int i = 1; i<=n-1;i++ ) {
