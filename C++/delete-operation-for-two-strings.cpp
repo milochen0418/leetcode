@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/delete-operation-for-two-strings
+    //article https://leetcode.com/problems/delete-operation-for-two-strings/discuss/2157776/C%2B%2B-or-Top-Down-DP-approach-or-explanation
 public:
     unordered_map<string, unordered_map<string, int>> dp;
     vector<vector<int>> idp;
