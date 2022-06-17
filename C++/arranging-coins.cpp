@@ -4,6 +4,18 @@ class Solution {
     
 public:
     int arrangeCoins(int n) {
+        using ll = long long;
+        //int L=1,R=(sqrt(INT_MAX)/500)*708;  //1.414=707/500, 1.416=708/500
+        //printf("default R = %d\n", R);
+        int L=1,R=(sqrt(n)/500)*708;  //1.414=707/500, 1.416=708/500
+        while(L<=R) {
+            ll M = (ll)(L + (R-L)/2);
+            if( (M*(M+1))/2 <= (ll)n && (ll)n<((M+1)*(M+2))/2 ) return (int)M;
+            if( (M*(M+1))/2 <= (ll)n ) L=(int)M+1; else R=(int)M-1;
+        } return -1;
+    }    
+
+    int arrangeCoinsAnswer1(int n) {
         using ll = long long; 
         ll L = 1,R=(ll)(3*(sqrt(INT_MAX)/2)); //(R*(R+1))/2 = INT_MAX
         while(L<=R) {
