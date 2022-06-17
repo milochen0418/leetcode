@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/kth-missing-positive-number/
+    //article https://leetcode.com/problems/kth-missing-positive-number/discuss/2163408/C%2B%2B-or-find-aM-M-1-greater-k-greater-aM-1-(M-1)-1
 public:
     int findKthPositive(vector<int>& a, int k) {
         a.push_back(INT_MAX);
