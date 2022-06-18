@@ -1,19 +1,26 @@
 class Solution {
     //https://leetcode.com/problems/kth-missing-positive-number/
-    //article https://leetcode.com/problems/kth-missing-positive-number/discuss/2163408/C%2B%2B-or-find-aM-M-1-greater-k-greater-aM-1-(M-1)-1
+    //article https://leetcode.com/problems/kth-missing-positive-number/discuss/2163408/C%2B%2B-or-find-aM-greater-k%2BM-greater-aM-1
 public:
     int findKthPositive(vector<int>& a, int k) {
         a.push_back(INT_MAX);
-        int n = a.size();
-        int L=1,R=n-1;
+        int L=0,R=a.size()-1;
+        while(L<=R) {
+            int M = L + (R-L)/2, aM_1=M-1>=0?a[M-1]:0; //find a[M] > k+M > a[M-1]
+            if(a[M] > k+M && k+M > aM_1) return k+M;
+            if(a[M] > k+M) R=M-1; else L=M+1;
+        } return -1;
+    }
+
+    int findKthPositiveOld(vector<int>& a, int k) {
+        a.push_back(INT_MAX);
+        int L=0,R=a.size()-1;
         while(L<=R) {
             int M = L + (R-L)/2; //find a[M]-M-1 >= k > a[M-1]-(M-1)-1
-            if(a[M]-M-1 >= k && (M-1<0 || k > a[M-1]-(M-1)-1) ) 
-                return k-(a[M-1]-(M-1)-1) + a[M-1];
-            if(a[M-1]-(M-1)-1 >= k) R=M-1; else L=M+1;
-        }
-        return k;
-        
+            if(a[M]-M-1 >= k && (M-1<0 || k > a[M-1]-(M-1)-1) ) return k+M;
+            if(a[M]-M-1 >= k) R=M-1; else L=M+1;
+        } return -1;
+
         /*              8
                     5   9
            1        6  10
