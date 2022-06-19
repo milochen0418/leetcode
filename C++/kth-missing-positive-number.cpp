@@ -5,10 +5,10 @@ public:
     int findKthPositive(vector<int>& a, int k) {
         a.push_back(INT_MAX);
         int L=0,R=a.size()-1;
-        while(L<=R) {
-            int M = L + (R-L)/2, aM_1=M-1>=0?a[M-1]:0; //find a[M] > k+M > a[M-1]
-            if(a[M] > k+M && k+M > aM_1) return k+M;
-            if(a[M] > k+M) R=M-1; else L=M+1;
+        while(L<=R) { //find a[M-1] < k+M < a[M] 
+            int M = L + (R-L)/2, aM_1=M-1>=0?a[M-1]:0; 
+            if(aM_1 < k+M && k+M < a[M] ) return k+M;
+            if(k+M < a[M]) R=M-1; else L=M+1;
         } return -1;
     }
 
