@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sum-of-square-numbers
+    //article https://leetcode.com/problems/sum-of-square-numbers/discuss/2174784/C%2B%2B-or-binary-search-approach-or-O(NlogN)-or-Explanation
 public:
     bool judgeSquareSum(int c2) { //N*logN
         using ll = long long;
