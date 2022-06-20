@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
+    //article https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/discuss/2174061/C%2B%2B-or-binary-search-or-easy-understand
 public:
     int findMin(vector<int>& nums) {
         vector<int> &a = nums;
