@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/climbing-stairs
+    //article https://leetcode.com/problems/climbing-stairs/discuss/2175372/C%2B%2B-or-easy-understand-to-do-from-backtrace-to-top-down-DP
+    //refer https://leetcode.com/explore/featured/card/dynamic-programming/631/strategy-for-solving-dp-problems/4096/
 public:
     vector<int> dp;
     int climbStairs(int n) {
