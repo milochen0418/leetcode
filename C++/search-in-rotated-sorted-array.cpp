@@ -2,6 +2,19 @@ class Solution {
     //https://leetcode.com/problems/search-in-rotated-sorted-array
 public:
     int search(vector<int>& a, int t) {
+        int n = a.size(), L=0, R=n-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if(a[M] == t) return M;
+            if(a[M]>=a[L]) {//a[M] in left-up raising edge
+                if(a[L]<=t && t<=a[M]) R=M-1; else L=M+1;
+            } else { //a[M] in right-bottom raising edge
+                if(a[M]<=t && t<=a[R]) L=M+1; else R=M-1;
+            }
+        } return -1;
+    }
+
+    int searchByCallFunc(vector<int>& a, int t) {
         int L = 0, R = a.size() - 1;
         //return recursiveSearch(L,R,t,a);
         while(L<=R) {
