@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/intersection-of-two-arrays-ii
-    //article https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/2175115/C%2B%2B-or-binary-search-approach-O(N-log-M)
+    //article https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/2175115/C%2B%2B-or-binary-search-approach-O(N-log-N)
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
         sort(nums1.begin(), nums1.end());
