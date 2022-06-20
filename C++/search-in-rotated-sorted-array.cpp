@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/search-in-rotated-sorted-array
+    //article https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/2174199/C%2B%2B-or-binary-search-or-explanation
 public:
     int search(vector<int>& a, int t) {
         int n = a.size(), L=0, R=n-1;
