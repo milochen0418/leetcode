@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/valid-triangle-number
+    //article https://leetcode.com/problems/valid-triangle-number/discuss/2188063/C%2B%2B-or-binary-search-approach
 public:
     int triangleNumber(vector<int>& nums) {
         //When a <= b <= c
