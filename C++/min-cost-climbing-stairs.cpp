@@ -6,15 +6,14 @@ public:
     int minCostClimbingStairs(vector<int>& a) {
         cost = a;
         int n = cost.size();
-        dp = vector<int>(n+2,INT_MAX);
+        dp = vector<int>(n+2,-1);
         dp[n] = 0;
         dp[n+1] = 0;
         return min(sol(0), sol(1));
     }
     int sol(int n) {
-        if(dp[n] != INT_MAX) return dp[n];
-        dp[n] = min(dp[n], cost[n] + sol(n+1));
-        dp[n] = min(dp[n], cost[n] + sol(n+2));
+        if(dp[n] != -1) return dp[n];
+        dp[n] = min(cost[n]+sol(n+1), cost[n] + sol(n+2));
         return dp[n];
     }
 };
