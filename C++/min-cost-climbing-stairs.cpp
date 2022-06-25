@@ -11,9 +11,9 @@ public:
         dp[n+1] = 0;
         return min(sol(0), sol(1));
     }
-    int sol(int n) {
-        if(dp[n] != -1) return dp[n];
-        dp[n] = min(cost[n]+sol(n+1), cost[n] + sol(n+2));
-        return dp[n];
+    int sol(int i) {
+        if(dp[i] != -1) return dp[i];
+        dp[i] = min(cost[i]+sol(i+1), cost[i] + sol(i+2));
+        return dp[i];
     }
 };
