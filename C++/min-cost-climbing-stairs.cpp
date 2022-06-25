@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/min-cost-climbing-stairs
+    //article https://leetcode.com/problems/min-cost-climbing-stairs/discuss/2197248/C%2B%2B-or-top-down-dynamic-programming-or-explanation
 public:
     vector<int> dp;
     vector<int> cost; 
