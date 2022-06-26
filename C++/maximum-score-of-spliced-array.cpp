@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/maximum-score-of-spliced-array
+    //article https://leetcode.com/problems/maximum-score-of-spliced-array/discuss/2199344/C%2B%2B-or-greedy-approach-O(n)-or-observation-and-explanation
 public:
     int maximumsSplicedArray(vector<int>& a1, vector<int>& a2) {
         //Observation 
