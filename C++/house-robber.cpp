@@ -7,7 +7,8 @@ public:
         a = nums;
         int n = a.size();
         dp = vector<int>(n+1,-1);
-        return sol(0);
+        //return sol(0); //dp from head
+        return sol2(n-1); //dp from tail
     }
     int sol(int i) {
         int n = a.size();
@@ -18,4 +19,11 @@ public:
         //ans of the case that not include a[i]  is sol(i+1)
         return dp[i];
     }
+    int sol2(int i) {
+        if(i<0) return 0;
+        if(dp[i] != -1) return dp[i];
+        dp[i] = max(a[i] + sol2(i-2), sol2(i-1));
+        return dp[i];
+    }
+
 };
