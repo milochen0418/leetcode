@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/house-robber
+    //article https://leetcode.com/problems/house-robber/discuss/2204532/C%2B%2B-or-2-kind-of-view-to-make-Top-Down-DP
 public:
     vector<int> a;
     vector<int> dp;
