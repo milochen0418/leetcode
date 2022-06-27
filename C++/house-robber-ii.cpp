@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/house-robber-ii
+    //article https://leetcode.com/problems/house-robber-ii/discuss/2204537/C%2B%2B-or-reuse-DP-approach-of-house-robber-i-or-explanation-or-step-by-step
 public:
     vector<int> a;
     vector<int> ldp;
