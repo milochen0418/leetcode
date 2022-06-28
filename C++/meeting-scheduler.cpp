@@ -3,6 +3,27 @@ class Solution {
     //https://leetcode.com/problems/meeting-scheduler
     //article https://leetcode.com/problems/meeting-scheduler/discuss/2210147/C%2B%2B-or-space-O(1)-time-O(-MlogM-%2B-NlogN-)
 public:
+    vector<int> minAvailableDuration(vector<vector<int>>& a1, vector<vector<int>>& a2, int duration) {
+        sort(a1.begin(), a1.end(), [](auto&l, auto&r){return l[0] < r[0];});
+        sort(a2.begin(), a2.end(), [](auto&l, auto&r){return l[0] < r[0];});
+        int i1 =0, i2=0;
+        while(i1<a1.size() && i2<a2.size()) {
+            if(a2[i2][0] > a1[i1][1]) 
+                i1++;
+            else if(a2[i2][1] < a1[i1][0]) 
+                i2++;
+            else {//intersection case     
+                int m = min(a2[i2][1],a1[i1][1]);
+                vector<int>& item = (a2[i2][0] <= a1[i1][0])?a1[i1]:a2[i2];
+                if(m - item[0] >= duration) 
+                    return vector<int>{item[0], item[0]+duration};
+                else 
+                    (a1[i1][1]<a2[i2][1]?i1:i2)++;
+            }
+        }
+        return vector<int>{};
+    }
+
     void printf(const char *fmt, ...)
     {
         const bool debug=false;
@@ -13,7 +34,7 @@ public:
         va_end(args);
     }
     
-    vector<int> minAvailableDuration(vector<vector<int>>& slots1, vector<vector<int>>& slots2, int duration) {
+    vector<int> minAvailableDurationDetail(vector<vector<int>>& slots1, vector<vector<int>>& slots2, int duration) {
         vector<int> ans = vector<int>();
         
         vector<vector<int>>&a1 = slots1;
