@@ -1,6 +1,7 @@
 
 class Solution {
     //https://leetcode.com/problems/meeting-scheduler
+    //article https://leetcode.com/problems/meeting-scheduler/discuss/2210147/C%2B%2B-or-space-O(1)-time-O(-MlogM-%2B-NlogN-)
 public:
     void printf(const char *fmt, ...)
     {
