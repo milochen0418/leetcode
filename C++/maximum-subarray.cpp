@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-subarray
+    //article https://leetcode.com/problems/maximum-subarray/discuss/2207120/C%2B%2B-or-greedy-approach-space-O(N)-time-O(1)-or-from-idea-to-proof
 public:
 
     //greedy algorithm
