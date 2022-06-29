@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/maximum-product-subarray
     //article https://leetcode.com/problems/maximum-product-subarray/discuss/2214438/C%2B%2B-or-2-approach-to-make-time-O(n)-space-O(1)-or-Explanation
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5454101964612250/
 public:
     int maxProduct(vector<int>& nums) {
         int ans = INT_MIN;
