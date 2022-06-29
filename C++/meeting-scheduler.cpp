@@ -2,8 +2,23 @@
 class Solution {
     //https://leetcode.com/problems/meeting-scheduler
     //article https://leetcode.com/problems/meeting-scheduler/discuss/2210147/C%2B%2B-or-space-O(1)-time-O(-MlogM-%2B-NlogN-)
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5451045701584543/
 public:
     vector<int> minAvailableDuration(vector<vector<int>>& a1, vector<vector<int>>& a2, int duration) {
+        sort(a1.begin(), a1.end(), [](auto&l, auto&r){return l[0] < r[0];});
+        sort(a2.begin(), a2.end(), [](auto&l, auto&r){return l[0] < r[0];});
+        int i1 =0, i2=0;
+        while(i1<a1.size() && i2<a2.size()) {
+            int end =   min(a2[i2][1],a1[i1][1]);//end   of intersect
+            int begin = max(a2[i2][0],a1[i1][0]);//begin of intersect
+            if(end - begin >= duration) 
+                return vector<int>{begin, begin+duration};//earliest time slot
+            else 
+                (a1[i1][1]<a2[i2][1]?i1:i2)++; //slot move forward
+        }
+        return vector<int>{};//no common time slot
+    }
+    vector<int> minAvailableDurationOld(vector<vector<int>>& a1, vector<vector<int>>& a2, int duration) {
         sort(a1.begin(), a1.end(), [](auto&l, auto&r){return l[0] < r[0];});
         sort(a2.begin(), a2.end(), [](auto&l, auto&r){return l[0] < r[0];});
         int i1 =0, i2=0;
