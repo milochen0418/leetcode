@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product
+    //article https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product/discuss/2214627/C%2B%2B-or-time-O(N)-space-O(1)-or-explanation
 public:
     int getMaxLen(vector<int>& nums) {
         nums.push_back(0);
