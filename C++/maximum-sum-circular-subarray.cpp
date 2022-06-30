@@ -4,6 +4,25 @@ class Solution {
     //FB post https://www.facebook.com/groups/1451299754892511/posts/5455204947835285/
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
+        int total = accumulate(nums.begin(),nums.end(),0);
+        int mini = extreSum(nums, true);
+        int maxi = extreSum(nums, false);
+        return total==mini ? maxi : max(maxi, total - mini);
+        //This idea of solution is given in FB post discussion by Arthur Lin. 
+    }
+    int extreSum (vector<int>& a, bool is_min) {
+        int sign =  is_min?-1:1;
+        int ans = INT_MIN, R=0, acc=0;
+        while (R<a.size()) {
+            acc += (sign*a[R++]);
+            ans = max(ans, acc);
+            if(acc<0) acc = 0;
+        }
+        return sign*ans;// min/max subarray sum
+        
+    } //find minimum subarray sum or maximum subarray sum. 
+
+    int maxSubarraySumCircularMayNeedMoreTestCase(vector<int>& nums) {
         vector<int>& a = nums;
         int n = a.size()*2;
         int w = a.size();
