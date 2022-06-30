@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-sum-circular-subarray/
-    //article https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/2215798/C%2B%2B-or-Does-exist-any-test-case-to-make-this-greedy-algorithm-fail-or-time-O(n)-space-O(1)
+    //https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/2215798/C%2B%2B-or-Can-any-test-case-make-this-greedy-algorithm-fail-or-TC-O(n)-SC-O(1)
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
         vector<int>& a = nums;
