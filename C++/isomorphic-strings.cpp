@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/isomorphic-strings/
+    //article https://leetcode.com/problems/isomorphic-strings/discuss/2223448/C%2B%2B-or-array-or-time-O(N)-space-O(N)
 public:
     bool isIsomorphic(string s, string t) {
         vector<int> as(256,0);
