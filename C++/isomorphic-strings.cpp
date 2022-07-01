@@ -2,6 +2,19 @@ class Solution {
     //https://leetcode.com/problems/isomorphic-strings/
 public:
     bool isIsomorphic(string s, string t) {
+        vector<int> as(256,0);
+        vector<int> at(256,0);
+        int cnts=1, cntt=1;
+        int n = s.length();
+        for(int i = 0;i<n;i++) {
+            if(as[s[i]]==0) as[s[i]] = cnts++;
+            if(at[t[i]]==0) at[t[i]] = cntt++;
+            if(as[s[i]] != at[t[i]]) return false;
+        }
+        return true;
+    }
+
+    bool isIsomorphicAnswerVer02(string s, string t) {
         unordered_map<char,int> mps, mpt;
         int cnts=1, cntt=1;
         int n = s.length();
