@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/flood-fill
+    //article https://leetcode.com/problems/flood-fill/discuss/2223544/C%2B%2B-or-BFS-or-time-O(n*m)-space-O(n%2Bm)
 public:
     struct rc{
         int r;
