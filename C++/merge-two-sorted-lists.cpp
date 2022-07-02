@@ -11,7 +11,32 @@
 class Solution {
     //https://leetcode.com/problems/merge-two-sorted-lists
 public:
+    //Space Complexity O(1)
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* ans = new ListNode();
+        ListNode* head = ans;
+        while( !(list1 == nullptr && list2 == nullptr)) {
+            if(list1 == nullptr || list2 == nullptr) {
+                ListNode* remain= list1==nullptr?list2:list1;
+                head->next = remain;
+                break;
+            } else {
+                ListNode* next_head = list1->val < list2->val?list1:list2;
+                //printf("next_head->val = %d\n", next_head->val);
+                if(next_head==list1) {
+                    list1 = list1->next;
+                } else {
+                    list2 = list2->next;
+                }
+                head->next = next_head;
+                next_head->next = nullptr;
+                head = head->next;
+            }
+        }
+        return ans->next;
+    }
+
+    ListNode* mergeTwoListsAnswerVer01(ListNode* list1, ListNode* list2) {
         ListNode *list = nullptr;
         ListNode *head = nullptr;
         while(!(list1 == nullptr && list2 == nullptr)) {
