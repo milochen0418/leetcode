@@ -10,6 +10,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/merge-two-sorted-lists
+    //article https://leetcode.com/problems/merge-two-sorted-lists/discuss/2227904/C%2B%2B-or-space-O(1)-time-O(N)-or-two-poointer
 public:
     //Space Complexity O(1)
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
