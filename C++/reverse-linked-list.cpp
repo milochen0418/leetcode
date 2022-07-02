@@ -9,6 +9,8 @@
  * };
  */
 class Solution {
+    //https://leetcode.com/problems/reverse-linked-list/
+    //article https://leetcode.com/problems/reverse-linked-list/discuss/2228435/C%2B%2B-or-Time-O(N)-Space-O(1)-or-explanation
 public:
     ListNode* reverseList(ListNode* head) {
         /*
