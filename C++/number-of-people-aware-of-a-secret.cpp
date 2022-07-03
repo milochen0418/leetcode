@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-people-aware-of-a-secret
+    //article https://leetcode.com/problems/number-of-people-aware-of-a-secret/discuss/2233104/C%2B%2B-or-simulate-approach-or-easy-to-understand
 public:
     int peopleAwareOfSecret(int n, int delay, int forget) {
         vector<int> a(n+forget,0);
