@@ -14,6 +14,8 @@ class Solution {
     //Space O(1) algorithm can refer 
     //Floyd's cycle detection algorithm  youtube.com/watch?v=PvrxZaH_eZ4
     //Or refer the solution https://leetcode.com/problems/linked-list-cycle-ii/solution/
+    //Another problem for Floyd's cycle detection algorithm 
+    //https://leetcode.com/problems/find-the-duplicate-number
 public:
     ListNode *detectCycle(ListNode *head) {
         unordered_set<ListNode*> set;
