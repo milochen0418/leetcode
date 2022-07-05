@@ -8,23 +8,24 @@ public:
         int m = h.size(), n=h[0].size();
         vector<vector<int>> g = vector<vector<int>>(m, vector<int>(n,0));
         
-        queue<vector<int>> currQ;
-        queue<vector<int>> nextQ;
-        for(int j = 0;j<n;j++) {
+        queue<vector<int>> Q;
+        
+        for(int j = 1;j<n;j++) {
+            //j should start from j to avoid push {0,0} double times
             int r=0,c=j;
-            currQ.push({r,c});
+            Q.push({r,c});
             g[r][c] |= 1;
         }
         for(int i = 0;i<m;i++) {
             int r=i,c=0;
-            currQ.push({r,c});
+            Q.push({r,c});
             g[r][c] |= 1;
         }
         
-        while(!currQ.empty()) {
-            vector<int> e = currQ.front();
+        while(!Q.empty()) {
+            vector<int> e = Q.front();
             //printf("PO pop{%d,%d}\n",e[0],e[1]);
-            currQ.pop();
+            Q.pop();
             
             for(auto &d:dirs){
                 int currH = h[e[0]][e[1]]; 
@@ -33,18 +34,17 @@ public:
                 if(h[r][c]>=currH) {
                     if( (g[r][c] & 1) == 0) {
                         g[r][c] |= 1;
-                        nextQ.push({r,c});
+                        Q.push({r,c});
                         //printf("PO push{%d,%d}\n",r,c);
                     }
                 }
             }
-            if(currQ.empty()) swap(currQ, nextQ);            
         }
         
         for(int j = 0;j<n-1;j++) {
-            //should avoid case == n-1 to avoid repeat in final element
+            //j should stop in n-2 to avoid {m-1,n-1} process in double time.
             int r= m-1,c=j;
-            currQ.push({r,c});
+            Q.push({r,c});
             g[r][c] |= 2;
             if((g[r][c] & 3) == 3) {
                 ans.push_back({r,c});
@@ -53,7 +53,7 @@ public:
         }
         for(int i = 0;i<m;i++) {
             int r= i,c=n-1;
-            currQ.push({r,c});
+            Q.push({r,c});
             g[r][c] |= 2;
             if((g[r][c] & 3) == 3) {
                 ans.push_back({r,c});
@@ -61,9 +61,9 @@ public:
             }
         }
         
-        while(!currQ.empty()) {
-            vector<int> e = currQ.front();
-            currQ.pop();
+        while(!Q.empty()) {
+            vector<int> e = Q.front();
+            Q.pop();
             //printf("AO pop{%d,%d}\n",e[0],e[1]);
             for(auto &d:dirs){
                 int currH = h[e[0]][e[1]]; 
@@ -77,15 +77,11 @@ public:
                             ans.push_back({r,c});
                             //printf("L3: ans push_back{%d,%d}\n",r,c);
                         }
-                        nextQ.push({r,c});
+                        Q.push({r,c});
                     }
                 }
             }
-            if(currQ.empty()) swap(currQ, nextQ);            
         }
         return ans;
-
     }
-    
-    
 };
