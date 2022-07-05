@@ -2,14 +2,13 @@ class Solution {
     //https://leetcode.com/problems/count-sub-islands
 public:
     const vector<vector<int>> dirs={{0,1},{0,-1},{1,0},{-1,0}};
-    vector<vector<int>> g1;
-    vector<vector<int>> g2;
-    int m;
-    int n;
-    int ret;
+    vector<vector<int>>*pg1,*pg2;
+    int m,n, ret;
     int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
-        g1=grid1;
-        g2=grid2;
+        pg1=&grid1;
+        pg2=&grid2;
+        vector<vector<int>>& g1=*pg1;
+        vector<vector<int>>& g2=*pg2;
         m = g1.size(); n = g1[0].size();
         int ans=0;
         for(int i = 0;i<m;i++) {
@@ -24,6 +23,8 @@ public:
         return ans;
     }
     void dfs2(int i, int j) {
+        vector<vector<int>>& g1=*pg1;
+        vector<vector<int>>& g2=*pg2;        
         g2[i][j] = -1;
         if(g1[i][j] == 0)ret = 0;
         for(auto& d:dirs) {
