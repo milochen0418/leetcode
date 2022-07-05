@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-sub-islands
+    //article https://leetcode.com/problems/count-sub-islands/discuss/2242058/C%2B%2B-or-from-original-DFS-to-solve-time-limit-exceeded
 public:
     const vector<vector<int>> dirs={{0,1},{0,-1},{1,0},{-1,0}};
     vector<vector<int>>*pg1,*pg2;
