@@ -1,9 +1,42 @@
 class Solution {
     //https://leetcode.com/problems/count-sub-islands
 public:
+    const vector<vector<int>> dirs={{0,1},{0,-1},{1,0},{-1,0}};
+    vector<vector<int>> g1;
+    vector<vector<int>> g2;
+    int m;
+    int n;
+    int ret;
     int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
-        int m = grid1.size(), n = grid1[0].size();
+        g1=grid1;
+        g2=grid2;
+        m = g1.size(); n = g1[0].size();
+        int ans=0;
+        for(int i = 0;i<m;i++) {
+            for(int j = 0;j<n;j++) {
+                if(g2[i][j] == 1) {
+                    ret = 1;
+                    dfs2(i,j);
+                    ans+=ret;
+                }
+            }
+        }
+        return ans;
+    }
+    void dfs2(int i, int j) {
+        g2[i][j] = -1;
+        if(g1[i][j] == 0)ret = 0;
+        for(auto& d:dirs) {
+            int r = i+d[0], c = j+d[1];
+            if(r<0||r>=m||c<0||c>=n) continue;
+            if(g2[r][c]==1) dfs2(r,c);
+        }
+    }
 
+
+
+    int countSubIslandsTLE(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        int m = grid1.size(), n = grid1[0].size();
         int ans=0;
         for(int i = 0;i<m;i++) {
             for(int j = 0;j<n;j++) {
