@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/as-far-from-land-as-possible
+    //article https://leetcode.com/problems/as-far-from-land-as-possible/discuss/2242306/C%2B%2B-or-BFS-start-from-all-1-and-return-max-length
 public:
     const vector<vector<int>> dirs ={{0,1},{0,-1},{1,0},{-1,0}};
     struct rc{int r;int c;};
