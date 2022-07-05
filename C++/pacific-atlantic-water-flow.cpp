@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/pacific-atlantic-water-flow
+    //article https://leetcode.com/problems/pacific-atlantic-water-flow/discuss/2242975/C%2B%2B-or-BFS-or-explanation-or-easy-understand
 public:
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
         vector<vector<int>> ans = vector<vector<int>>();
