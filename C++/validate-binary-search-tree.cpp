@@ -17,16 +17,10 @@ public:
         return dfs(root);
     }
     bool dfs(TreeNode* head) {
-        if(head->left !=nullptr) {
-            if(!dfs(head->left))return false;
-        }
-        if(curr != nullptr && *curr >= head->val) 
-            return false;
-        else 
-            curr = &(head->val);
-        if(head->right != nullptr) {
-            if(!dfs(head->right)) return false;
-        }
+        if(head->left && !dfs(head->left)) return false; 
+        if(curr && *curr >= head->val) return false;
+        curr = &(head->val);        
+        if(head->right && !dfs(head->right)) return false; 
         return true;
     }
 };
