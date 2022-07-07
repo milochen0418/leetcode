@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/shortest-bridge
     //article https://leetcode.com/problems/shortest-bridge/discuss/2249937/C%2B%2B-or-BFS%2BDFS-or-easy-understand-with-comment-and-printing-message
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5475743202448126/
 public:
     int color;
     vector<int> sums = vector<int>(4,0);
