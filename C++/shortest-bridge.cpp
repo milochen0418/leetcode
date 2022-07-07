@@ -1,4 +1,5 @@
 class Solution {
+    //https://leetcode.com/problems/shortest-bridge
 public:
     int color;
     vector<int> sums = vector<int>(4,0);
@@ -38,15 +39,18 @@ public:
         
         min_color = (sums[2]<sums[3])?2:3;
         max_color = (sums[2]<sums[3])?3:2;
+        /*
         printf("min_color = %d\n",min_color);
         printf("max_color = %d\n",max_color);
         displayG();
-            
+        printf("min_color = %d before dfsQ()\n",min_color);
+        */
         dfsQ(rcs[min_color][0], rcs[min_color][1]);
-        displayG();
+        //printf("min_color = %d after dfsQ()\n",min_color);
+        //displayG();
         min_color = 1;
         
-        printf("max_color = %d\n",max_color);
+        //printf("max_color = %d\n",max_color);
         int len = 0;
         while(!currQ.empty()) {
             rc e = currQ.front();
@@ -58,7 +62,7 @@ public:
                     nextQ.push(rc{r,c});
                     g[r][c] = 1;//traveled
                 } else if(g[r][c] == max_color) {
-                    printf("find out max_color at g[%d][%d]\n",r,c);
+                    //printf("find out max_color at g[%d][%d]\n",r,c);
                     return len;
                 }                
             }
@@ -78,7 +82,7 @@ public:
         for(auto &d: dirs) {
             int r = i+d[0], c = j+d[1];
             if(r<0||r>=m||c<0||c>=n) continue;
-            if(g[r][c] == min_color) dfs(r,c);
+            if(g[r][c] == min_color) dfsQ(r,c);
         }
         
     }
@@ -94,6 +98,8 @@ public:
         }
         return sum;
     }
+    
+    
 };
 
 /* test-case
@@ -101,6 +107,6 @@ Success:
 [[0,1],[1,0]]
 [[0,1,0],[0,0,0],[0,0,1]]
 [[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
-Failed:
-[[0,1,0,0,0],[0,1,0,1,1],[0,0,0,0,1],[0,0,0,0,0],[0,0,0,0,0]] 
+[[0,1,0,0,0],[0,1,0,1,1],[0,0,0,0,1],[0,0,0,0,0],[0,0,0,0,0]]
+Failed: 
 */
