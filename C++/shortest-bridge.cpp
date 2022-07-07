@@ -1,5 +1,4 @@
 class Solution {
-    //https://leetcode.com/problems/shortest-bridge
 public:
     int color;
     vector<int> sums = vector<int>(4,0);
@@ -27,6 +26,9 @@ public:
         g = grid;
         m = g.size();
         n = g[0].size();
+        printf("the original gird status when start.\n");
+        displayG();
+        //Step 1. Give color for the two component
         color = 2;
         for(int i=0; i<m; i++) {
             for(int j=0; j<n; j++) {
@@ -36,19 +38,29 @@ public:
                }
             }
         }
-        
+        printf("the gird status after step 1.\n");
+        displayG();
+        //Step 2. Decide who is min_color and max_color
+        //min_color is the color for the component smaller than another one.
+        //max_color is the color for the component larger than another one.
         min_color = (sums[2]<sums[3])?2:3;
         max_color = (sums[2]<sums[3])?3:2;
-        /*
+        printf("the min_color, max_color status after Step 2.\n");
         printf("min_color = %d\n",min_color);
         printf("max_color = %d\n",max_color);
-        displayG();
-        printf("min_color = %d before dfsQ()\n",min_color);
-        */
+        
+        
+        //Step 3. Use dfsQ for min_color to make first Q of BFS algorithm.
+        //We expect change min_color into 1 after finish of this dfsQ().
         dfsQ(rcs[min_color][0], rcs[min_color][1]);
-        //printf("min_color = %d after dfsQ()\n",min_color);
-        //displayG();
         min_color = 1;
+        printf("Show the min_color and grid status after Step 3.\n");
+        displayG();
+        printf("min_color = %d\n", min_color);
+        
+            
+        //Step 4. find the shortest path from all min_color node to 
+        //the first max_color node by BFS.
         
         //printf("max_color = %d\n",max_color);
         int len = 0;
@@ -62,7 +74,9 @@ public:
                     nextQ.push(rc{r,c});
                     g[r][c] = 1;//traveled
                 } else if(g[r][c] == max_color) {
-                    //printf("find out max_color at g[%d][%d]\n",r,c);
+                    printf("Step 4. finished.\n");
+                    printf("find out first node with max_color at g[%d][%d]\n",r,c);
+                    printf("So, the length of shortest bridge = %d\n", len);
                     return len;
                 }                
             }
@@ -98,8 +112,6 @@ public:
         }
         return sum;
     }
-    
-    
 };
 
 /* test-case
