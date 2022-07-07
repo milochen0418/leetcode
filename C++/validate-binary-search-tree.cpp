@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/validate-binary-search-tree
+    //article https://leetcode.com/problems/validate-binary-search-tree/discuss/2251666/C%2B%2B-or-DFS-or-explanation
 public:
     int *curr=nullptr;
     bool isValidBST(TreeNode* root) {
