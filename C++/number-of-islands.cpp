@@ -1,6 +1,37 @@
 class Solution {
     // https://leetcode.com/problems/number-of-islands
 public:
+
+    vector<vector<char>>* pGrid;
+    const vector<vector<int>> dirs = {{0,1},{0,-1},{1,0},{-1,0}};
+    int m,n;
+    int numIslands(vector<vector<char>>& grid) {
+        int ans = 0;
+        pGrid = &grid;
+        m=grid.size();
+        n=grid[0].size();
+        for(int i = 0; i<m;i++){
+            for(int j = 0;j<n;j++) {
+                if(grid[i][j]=='1') {
+                    dfs(i,j);
+                    ans++;
+                }   
+            }        
+        }
+        return ans;
+    }
+    
+    void dfs(int i, int j) {
+        vector<vector<char>>& g = *pGrid;
+        g[i][j] = '0';
+        for(auto &d: dirs) {
+            int r = i+d[0], c = j+d[1];
+            if(r<0||r>=m||c<0||c>=n) continue;
+            if(g[r][c] == '1') dfs(r,c);
+        }
+    }
+
+
     struct pair_hash {
         template <class T1, class T2>
         std::size_t operator () (const std::pair<T1,T2> &p) const {
@@ -15,7 +46,7 @@ public:
     typedef vector<vector<char>> _grid; 
     
     int set_cnts = 0; 
-    int numIslands(vector<vector<char>>& grid) {
+    int numIslandsUF(vector<vector<char>>& grid) {
         _pos a = {1,2};
         _parent_map parents;
         int rows = grid.size();
