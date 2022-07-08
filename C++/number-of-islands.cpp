@@ -1,10 +1,8 @@
 class Solution {
-    // https://leetcode.com/problems/number-of-islands
+    //https://leetcode.com/problems/number-of-islands
     //article for Union-Find https://leetcode.com/problems/number-of-islands/discuss/1744474/C%2B%2B-or-a-simple-union-find-simple-sample-without-optimizing
     //article for DFS, BFS, UF solutions https://leetcode.com/problems/number-of-islands/discuss/2255363/C%2B%2B-or-3-Approach-DFS-BFS-Union-Find
 public:
-
-
 
     struct rc{int r;int c;};
     int numIslandsBFS(vector<vector<char>>& grid) {
@@ -40,7 +38,7 @@ public:
     vector<vector<char>>* pGrid;
     const vector<vector<int>> dirs = {{0,1},{0,-1},{1,0},{-1,0}};
     int m,n;
-    int numIslands(vector<vector<char>>& grid) {
+    int numIslands(vector<vector<char>>& grid) { //DFS
         int ans = 0;
         pGrid = &grid;
         m=grid.size();
