@@ -2,6 +2,39 @@ class Solution {
     // https://leetcode.com/problems/number-of-islands
 public:
 
+
+
+    struct rc{int r;int c;};
+    int numIslandsBFS(vector<vector<char>>& grid) {
+        queue<rc> Q;
+        int ans = 0;
+        int m = grid.size(), n=grid[0].size();
+        const vector<vector<int>> dirs = {{0,1},{0,-1},{1,0},{-1,0}};
+        for(int i = 0; i<m;i++){
+            for(int j = 0; j<n;j++) {
+                if(grid[i][j]=='1') {
+                    ans++;
+                    Q.push({i,j});
+                    grid[i][j] = '0';
+                    while(!Q.empty()) {
+                        rc e = Q.front();
+                        Q.pop();
+                        for(auto &d: dirs){
+                            int r = e.r+d[0], c = e.c+d[1];
+                            if(r<0||r>=m||c<0||c>=n) continue;
+                            if(grid[r][c]=='1') {
+                                Q.push({r,c});
+                                grid[r][c] = '0';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+
     vector<vector<char>>* pGrid;
     const vector<vector<int>> dirs = {{0,1},{0,-1},{1,0},{-1,0}};
     int m,n;
