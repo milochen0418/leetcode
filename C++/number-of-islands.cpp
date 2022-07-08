@@ -80,6 +80,7 @@ public:
     
     int set_cnts = 0; 
     int numIslandsUF(vector<vector<char>>& grid) {
+        const vector<vector<int>> dirs = {{0,1},{0,-1},{1,0},{-1,0}};
         _pos a = {1,2};
         _parent_map parents;
         int rows = grid.size();
@@ -96,17 +97,12 @@ public:
         for(int row=0;row<rows; row++) {
             for(int col=0;col<cols; col++) {
                 if(grid[row][col]=='1') {
-                    if(row+1 < rows && grid[row+1][col] == '1') {
-                        UF_union(parents, {row,col}, {row+1,col});
-                    }
-                    if(col+1 < cols && grid[row][col+1] == '1') {
-                        UF_union(parents, {row,col}, {row,col+1});
-                    }
-                    if(col-1 >=0 && grid[row][col-1] == '1') {
-                        UF_union(parents, {row,col}, {row,col-1});
-                    }                    
-                    if(row-1 >= 0 && grid[row-1][col] == '1') {
-                        UF_union(parents, {row,col}, {row-1,col});
+                    for(auto &d: dirs){
+                        int r = row+d[0], c=col+d[1];
+                        if(r<0||r>=rows||c<0||c>=cols) continue;
+                        if(grid[r][c]== '1') {
+                            UF_union(parents, {row,col}, {r,c});
+                        }
                     }
                 }
             }
