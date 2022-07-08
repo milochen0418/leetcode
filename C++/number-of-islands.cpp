@@ -1,5 +1,7 @@
 class Solution {
     // https://leetcode.com/problems/number-of-islands
+    //article for Union-Find https://leetcode.com/problems/number-of-islands/discuss/1744474/C%2B%2B-or-a-simple-union-find-simple-sample-without-optimizing
+    //article for DFS, BFS, UF solutions https://leetcode.com/problems/number-of-islands/discuss/2255363/C%2B%2B-or-3-Approach-DFS-BFS-Union-Find
 public:
 
 
