@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/decode-string
+    //article https://leetcode.com/problems/decode-string/discuss/2282439/C%2B%2B-or-iterative-simple-solution-using-stack-or-23-lines
 public:
     string decodeString(string s) {
         pair<int,string> e = {0,""};
