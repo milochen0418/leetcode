@@ -2,6 +2,29 @@ class Solution {
     //https://leetcode.com/problems/decode-string
 public:
     string decodeString(string s) {
+        pair<int,string> e = {0,""};
+        stack<pair<int,string>> stk;
+        for(auto &c:s) {
+            if(c>=0 && c<='9') 
+                e.first = e.first*10+(int)(c-'0');
+            else if(c=='[') {
+                stk.push(e);
+                e={0,""};
+            } else if(c==']') {
+                e.second = multi_append_string(stk.top().second, stk.top().first, e.second);
+                stk.pop();
+            } else
+                e.second.push_back(c);                   
+        }
+        return e.second;
+    }
+    string& multi_append_string (string& orig, int mul, string& str) {
+        for(int i = 0; i<mul;i++) orig.append(str);
+        return orig;
+    }
+
+
+    string decodeStringVer01(string s) {
         int num = 0;
         string str="";
         string ans = "";
