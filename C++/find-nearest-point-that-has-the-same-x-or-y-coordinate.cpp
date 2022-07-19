@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate
+    //article https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/discuss/2305199/C%2B%2B-or-time-O(NLogN)-by-sorting
 public:
     int nearestValidPoint(int x, int y, vector<vector<int>>& points) {
         for(int i = 0; i<points.size();i++) points[i].push_back(i);
