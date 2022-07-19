@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
+    //article https://leetcode.com/problems/sum-of-all-odd-length-subarrays/discuss/2305553/C%2B%2B-or-Prefix-Sum-time-O(N2)-or-7-lines
 public:
     int sumOddLengthSubarrays(vector<int>& arr) {
         int ans = 0, n = arr.size();
