@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reshape-the-matrix
+    //article https://leetcode.com/problems/reshape-the-matrix/discuss/2305619/C%2B%2B-or-O(N)-or-5-lines-or-easy-understand
 public:
     vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
         int m = mat.size(), n = mat[0].size(), size = m*n;
