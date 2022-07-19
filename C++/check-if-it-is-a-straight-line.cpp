@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-it-is-a-straight-line
+    //article https://leetcode.com/problems/check-if-it-is-a-straight-line/discuss/2305412/C%2B%2B-or-int-type-only
 public:
     bool checkStraightLine(vector<vector<int>>& coordinates) {
         vector<int>& p0 = coordinates[0];
