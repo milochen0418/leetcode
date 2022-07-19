@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/largest-perimeter-triangle/
-    //artcile https://leetcode.com/problems/largest-perimeter-triangle/discuss/2305075/C%2B%2B-or-time-O(N)
+    //artcile https://leetcode.com/problems/largest-perimeter-triangle/discuss/2305075/C%2B%2B-or-time-O(NLogN)-or-explanation
 public:
     int largestPerimeter(vector<int>& nums) {//LTE
         sort(nums.begin(), nums.end(), [](auto&lhs, auto& rhs){
