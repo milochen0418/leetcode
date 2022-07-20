@@ -1,4 +1,5 @@
 class Solution {
+    //https://leetcode.com/problems/goal-parser-interpretation
 public:
     string interpret(string s) {
         string ans="";
