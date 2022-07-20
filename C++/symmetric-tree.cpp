@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/symmetric-tree
+    //article https://leetcode.com/problems/symmetric-tree/discuss/2309933/C%2B%2B-or-call-4-lines-DFS
 public:
     bool isSymmetric(TreeNode* root) {
         return dfs(root->left, root->right);
