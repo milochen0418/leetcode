@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/sum-of-left-leaves
+    //article https://leetcode.com/problems/sum-of-left-leaves/discuss/2309533/C%2B%2B-or-simple-DFS
 public:
     int sumOfLeftLeaves(TreeNode* root) {
         TreeNode* dummy = new TreeNode();
