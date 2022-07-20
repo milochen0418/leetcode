@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/path-sum
+    //article https://leetcode.com/problems/path-sum/discuss/2310019/C%2B%2B-or-Recursive-3-lines
 public:
     bool hasPathSum(TreeNode* head, int t) {
         if(!head) return false;
