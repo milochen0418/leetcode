@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits
     //refer article https://www.geeksforgeeks.org/count-set-bits-in-an-integer/ to implement fast bit 1 count
+    //article https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/discuss/2309604/c%2B%2B-or-sorting-by-__builtin_popcount
 public:
 
     vector<int> sortByBits(vector<int>& a) {
