@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/same-tree/    
+    //article https://leetcode.com/problems/same-tree/discuss/2309873/C%2B%2B-or-DFS-or-4-lines
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
         if(p==q) return true;
