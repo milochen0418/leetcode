@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/invert-binary-tree
+    //article https://leetcode.com/problems/invert-binary-tree/discuss/2313700/C%2B%2B-or-DFS
 public:
     TreeNode* invertTree(TreeNode* root) {
         dfs(root);
