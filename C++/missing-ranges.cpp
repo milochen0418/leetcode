@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/missing-ranges/
+    //article https://leetcode.com/problems/missing-ranges/discuss/2314209/C%2B%2B-or-time-O(N)
 public:
     vector<string> findMissingRanges(vector<int>& nums, int lower, int upper) {
         vector<string> ans=vector<string>();
