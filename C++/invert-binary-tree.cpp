@@ -11,9 +11,13 @@
  */
 class Solution {
     //https://leetcode.com/problems/invert-binary-tree
-    //article https://leetcode.com/problems/invert-binary-tree/discuss/2313700/C%2B%2B-or-DFS
+    //article https://leetcode.com/problems/invert-binary-tree/discuss/2313784/C%2B%2B-or-2-lines-solution-or-DFS
 public:
-    TreeNode* invertTree(TreeNode* root) {
+    TreeNode*& invertTree(TreeNode*& root) {
+        if(root) swap(invertTree(root->left), invertTree(root->right));
+        return root;
+    }
+    TreeNode* invertTreeVer01(TreeNode* root) {
         dfs(root);
         return root;
     }
