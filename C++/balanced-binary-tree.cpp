@@ -13,9 +13,21 @@ class Solution {
 public:
     unordered_map<TreeNode*, int> dp;//height of TreeNode
     bool isBalanced(TreeNode* root) {
-        dp[nullptr] = 0;
-        return dfs(root);
+        //dp[nullptr] = 0;
+        //return dfs(root);
+        return !(ddfs(root) == -1);
     }
+
+    int ddfs(TreeNode* node) {
+        if(!node) return 0;
+        int r = node->right?ddfs(node->right):0;
+        if(r==-1) return -1;
+        int l = node->left?ddfs(node->left):0;
+        if(l==-1) return -1;        
+        if(abs(l-r)>1) return -1;
+        return 1+max(l,r);
+    }
+
     bool dfs(TreeNode* node) {
         if(!node) return true;
         if(abs(h_dfs(node->left)-h_dfs(node->right))<=1) {
