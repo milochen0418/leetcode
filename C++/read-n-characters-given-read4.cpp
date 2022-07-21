@@ -5,6 +5,7 @@
 
 class Solution {
     //https://leetcode.com/problems/read-n-characters-given-read4
+    //article https://leetcode.com/problems/read-n-characters-given-read4/discuss/2311502/C%2B%2B-or-Time-O(N)-Space-O(1)-or-easy-to-understand
 public:
     /**
      * @param buf Destination buffer
