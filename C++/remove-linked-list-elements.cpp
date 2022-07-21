@@ -10,6 +10,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/remove-linked-list-elements
+    //article https://leetcode.com/problems/remove-linked-list-elements/discuss/2313757/C%2B%2B-or-7-lines-Time-O(N)
 public:
     ListNode* removeElements(ListNode* head, int val) {
         ListNode* dummy = new ListNode(val+1,head);
