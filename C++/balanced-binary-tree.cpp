@@ -10,6 +10,8 @@
  * };
  */
 class Solution {
+    //https://leetcode.com/problems/balanced-binary-tree
+    //article https://leetcode.com/problems/balanced-binary-tree/discuss/2311350/C%2B%2B-or-Improve-from-2-DFS-into-1-DFS
 public:
     unordered_map<TreeNode*, int> dp;//height of TreeNode
     bool isBalanced(TreeNode* root) {
