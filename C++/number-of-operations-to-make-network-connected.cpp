@@ -3,6 +3,7 @@ class Solution {
     unordered_map<int, vector<int>> g;
     unordered_set<int> s;
     int set_max = 0;
+    
 public:
     /*
     Observation 
