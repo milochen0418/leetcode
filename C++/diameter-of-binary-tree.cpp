@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/diameter-of-binary-tree
+    //article https://leetcode.com/problems/diameter-of-binary-tree/discuss/2328204/C%2B%2B-or-2*DFS-and-1*DFS-or-easy-understanding
 public:
     unordered_map<TreeNode*, int> mp;//longest path from root to leaf
     int ans=0;
