@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/time-needed-to-inform-all-employees
+    //article https://leetcode.com/problems/time-needed-to-inform-all-employees/discuss/2327950/C%2B%2B-or-DFS
 public:
     int ans = INT_MIN;
     int tmp;
