@@ -16,6 +16,19 @@ public:
     int ans=0;
     int diameterOfBinaryTree(TreeNode* root) {
         mp[nullptr] = 0;
+        dfs(root);
+        return ans;
+    }
+    void dfs(TreeNode* root) {
+        if(!root) return;
+        dfs1(root->left); 
+        dfs1(root->right);
+        mp[root] = 1+max(mp[root->left], mp[root->right]);
+        ans = max(ans, mp[root->left] + mp[root->right]);
+    }
+
+    int diameterOfBinaryTreeVer01(TreeNode* root) {
+        mp[nullptr] = 0;
         dfs1(root);
         dfs2(root);
         return ans;
