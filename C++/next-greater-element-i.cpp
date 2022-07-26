@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/next-greater-element-i/
+    //article https://leetcode.com/problems/next-greater-element-i/discuss/2335805/C%2B%2B-or-Monotonic-Stack-%2B-Hash-Map-or-easy-understand
 public:    
     /*
         Observation
