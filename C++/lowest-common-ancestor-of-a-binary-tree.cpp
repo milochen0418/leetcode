@@ -9,6 +9,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
+    //article https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/2335175/C%2B%2B-or-DFS-or-easy-underestand
 public:
     vector<TreeNode*> pv;
     vector<TreeNode*> qv;
