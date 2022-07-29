@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/two-sum-iv-input-is-a-bst
+    //article https://leetcode.com/problems/two-sum-iv-input-is-a-bst/discuss/2351710/C%2B%2B-or-DFS-%2B-Hash-Set
 public:
     unordered_set<int> s;
     bool findTarget(TreeNode* root, int k) {
