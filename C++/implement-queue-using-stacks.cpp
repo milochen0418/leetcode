@@ -1,4 +1,6 @@
 class MyQueue {
+    //https://leetcode.com/problems/implement-queue-using-stacks
+    //article https://leetcode.com/problems/implement-queue-using-stacks/discuss/2349190/C%2B%2B-or-using-temporary-stack-only-in-pop()
 public:
     stack<int> stk;
     int front;//front of q
