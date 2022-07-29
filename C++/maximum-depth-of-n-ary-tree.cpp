@@ -20,6 +20,7 @@ public:
 
 class Solution {
     //https://leetcode.com/problems/maximum-depth-of-n-ary-tree
+    //article https://leetcode.com/problems/maximum-depth-of-n-ary-tree/discuss/2351753/C%2B%2B-or-4-lines-or-DFS
 public:
     int maxDepth(Node* root) {
         if(!root) return 0;
