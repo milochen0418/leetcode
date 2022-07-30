@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/best-sightseeing-pair
+    //article https://leetcode.com/problems/best-sightseeing-pair/discuss/2354047/C%2B%2B-or-time-O(N)-space-O(1)-or-Easy-to-Understand
 public:
     int maxScoreSightseeingPair(vector<int>& values) {
         //for i < j,
