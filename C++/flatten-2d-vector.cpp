@@ -1,5 +1,6 @@
 class Vector2D {
     //https://leetcode.com/problems/flatten-2d-vector
+    //article https://leetcode.com/problems/flatten-2d-vector/discuss/2353986/C%2B%2B-or-time-amortized-O(1)-space-O(1)
 public:
     int i=0,j=0;
     bool currHasNext = false;
