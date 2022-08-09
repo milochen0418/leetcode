@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/insert-into-a-binary-search-tree
+    //article https://leetcode.com/problems/insert-into-a-binary-search-tree/discuss/2402988/C%2B%2B-or-4-lines-iterative-approach
 public:
     TreeNode* insertIntoBST(TreeNode* root, int val) {
         TreeNode*& ans = root, **p = &root;
