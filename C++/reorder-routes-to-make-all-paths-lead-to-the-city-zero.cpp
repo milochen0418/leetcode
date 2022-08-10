@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero
+    //article https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/discuss/2404691/C%2B%2B-or-BFS-or-easy-to-understand
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
         /*
