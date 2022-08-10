@@ -11,12 +11,12 @@ public:
         But count up the ans if it use the edge mpuv[u]=v to travel and
         don't count up the ans if it use the edge mpvu[v]=u to travel. 
         */
-        unordered_map<int,unordered_set<int>> mpuv;
-        unordered_map<int,unordered_set<int>> mpvu;
+        unordered_map<int,vector<int>> mpuv;
+        unordered_map<int,vector<int>> mpvu;
         
         for(auto &e: connections) {//e=[u,v]
-            mpuv[e[0]].insert(e[1]);
-            mpvu[e[1]].insert(e[0]);
+            mpuv[e[0]].push_back(e[1]);
+            mpvu[e[1]].push_back(e[0]);
         }
         
         int ans = 0;
