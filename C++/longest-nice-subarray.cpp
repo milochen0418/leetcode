@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/longest-nice-subarray/
+    //https://leetcode.com/problems/longest-nice-subarray/discuss/2528081/C%2B%2B-or-two-pointer
     /*
     max_cnt alwasy largest (R-L+1) 
     [1,3,8,48,10]
