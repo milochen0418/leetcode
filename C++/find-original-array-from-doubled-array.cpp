@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-original-array-from-doubled-array
+    //add article https://leetcode.com/problems/find-original-array-from-doubled-array/discuss/2577489/C%2B%2B-or-Sort-%2B-Hash-Map-or-explanation
 public:
     vector<int> findOriginalArray(vector<int>& changed) { 
         //assume changed = [0,0,1,1,3,4,2,2,6,8]
