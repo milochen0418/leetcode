@@ -2,12 +2,13 @@ class Solution {
     //https://leetcode.com/problems/find-original-array-from-doubled-array
 public:
     vector<int> findOriginalArray(vector<int>& changed) { 
-        vector<int> ans = vector<int>();
+        //assume changed = [0,0,1,1,3,4,2,2,6,8]
+        vector<int> ans = vector<int>(); 
         unordered_map<int,int> mp; 
-        for(auto &i: changed) mp[i]++; 
+        for(auto &i: changed) mp[i]++;  //mp will be  {(0,2),(1,2),(2,2) (3,1),(4,1),(6,1),(8,1)}
         vector<int> v = vector<int>();
-        for(auto &[k,val]:mp) v.push_back(k);
-        sort(v.begin(), v.end());
+        for(auto &[k,val]:mp) v.push_back(k); 
+        sort(v.begin(), v.end());//v will be {0,1,2,3,4,6,8} here 
         
         if(mp[0]%2!=0) return vector<int>();//edge case for zero
         
