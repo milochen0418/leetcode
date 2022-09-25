@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-all-good-indices/
+    //Add article https://leetcode.com/problems/find-all-good-indices/discuss/2621324/C%2B%2B-or-array-approach-or-explanation
 public:
     vector<int> goodIndices(vector<int>& nums, int k) {
         /*
