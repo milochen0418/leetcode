@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/longest-subarray-with-maximum-bitwise-and
+    //add article https://leetcode.com/problems/longest-subarray-with-maximum-bitwise-and/discuss/2621192/C%2B%2B-or-array-approach
 public:
     int longestSubarray(vector<int>& nums) {
         //what is maximum possible bitwise AND?
