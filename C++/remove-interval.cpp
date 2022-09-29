@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-interval
+    //add article https://leetcode.com/problems/remove-interval/discuss/2637939/C%2B%2B-or-array-approach
 public:
     vector<vector<int>> removeInterval(vector<vector<int>>& intervals, vector<int>& toBeRemoved) {
         vector<vector<int>> ans;
