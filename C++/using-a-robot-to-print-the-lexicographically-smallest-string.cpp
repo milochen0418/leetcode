@@ -53,7 +53,24 @@ class Solution {
 
     Sorted ss = fhnoop
 
-    h ofnpo - > fnohop Yes   Mine is ->fopnoh .. Err
+    hofnpo - > fnohop Yes   Mine is ->fopnoh .. Err
+
+    fhnoop (sorted)
+    [hofnpo -> fnohop]
+    push h(h) _fhnoop
+    push o(ho) _fhnoop
+    push f(hof), pop f(ho) f_hnoop -> fh_noop (because all h is in stack)
+    push n(hon), pop n(ho) fhn_oop
+    
+    pop o(h) 
+    pop h()
+    
+    push p(p), 
+    push o(po),
+    
+    pop o(p),
+    pop p(),
+
 */
     
 public:
