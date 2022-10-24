@@ -1,35 +1,18 @@
 class Solution {
     //https://leetcode.com/problems/number-of-subarrays-with-gcd-equal-to-k/
 public:
-    int subarrayGCD(vector<int>& nums, int kk) {
-        int ans = 0;
-        int n = nums.size();        
-        int L=0,R=0;
-        int figure_gcd = 0;
+    int subarrayGCD(vector<int>& nums, int k) {
+        int ans = 0, L=0,R=0, cur_gcd = 0, n = nums.size();
         while(L<n && R<n) {
-            if(figure_gcd == 0) {
-                figure_gcd = nums[L];
-                for(int k = L;k<=R;k++) {
-                    figure_gcd = gcd(nums[k], figure_gcd);
-                }
-            } else {
-                figure_gcd = gcd(figure_gcd, nums[R]);
-            }
-            
-            if(figure_gcd == kk) {
-                ans++;
-                R++;
-            } else if(figure_gcd > kk){
-                R++;
-            } 
-            
-            if(figure_gcd < kk || R>=n) {
-                L=L+1;
+            cur_gcd = gcd(cur_gcd, nums[R]);
+            if(cur_gcd == k) ans++;
+            if(cur_gcd >= k) R++;
+            if(cur_gcd < k || R>=n) {
+                L = L+1;
                 R = L;
-                figure_gcd = 0;
+                cur_gcd = 0;
             } 
         }
         return ans;
-    }
-    
+    }    
 };
