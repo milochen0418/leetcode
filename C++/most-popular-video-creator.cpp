@@ -10,21 +10,18 @@ public:
         unordered_map <string, vector<int>> idx_mp;//creator to idx vector. use idx can get id and view from ids and views
         unordered_map <string, string> id_mp;
         
-        
         for(int i = 0; i< n;i++) {
             string &creator = creators[i];
-            popularity_mp[creator] += (long long)views[i];            
-            if(max_viewcount_mp[creator] <= views[i]) {
-                if(id_mp.find(creator) == id_mp.end()) {
-                    id_mp[creator] = ids[i];
-                } else {
-                    if(max_viewcount_mp[creator] == views[i]) {
-                        if(id_mp[creator] > ids[i])  id_mp[creator] = ids[i];
-                    } else {//case max_viewcount_mp[creator] < views[i]
-                        id_mp[creator] = ids[i];
-                    }
-                }
+            popularity_mp[creator] += (long long)views[i];
+            
+            if(id_mp.find(creator) == id_mp.end()) {
+                id_mp[creator] = ids[i];
                 max_viewcount_mp[creator] = views[i];
+            } else if(max_viewcount_mp[creator] < views[i]) {
+                id_mp[creator] = ids[i];
+                max_viewcount_mp[creator] = views[i];
+            } else if(max_viewcount_mp[creator] == views[i]){
+                if(id_mp[creator] > ids[i])  id_mp[creator] = ids[i];
             }
             idx_mp[creator].push_back(i);
             highest_popularity = max(highest_popularity, popularity_mp[creator]);
@@ -34,7 +31,8 @@ public:
             if(popularity_mp[creator] != highest_popularity) continue;
             ans.push_back({creator, id_mp[creator]});
         }
-        return ans;        
+        return ans;
+                
     }
     vector<vector<string>> mostPopularCreatorVer01(vector<string>& creators, vector<string>& ids, vector<int>& views) {
         vector<vector<string>> ans;
