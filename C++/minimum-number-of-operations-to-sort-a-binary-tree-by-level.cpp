@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/
+    //add article https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/discuss/2809301/C%2B%2B-or-BFS-or-explanation
 public:
     int minimumOperations(TreeNode* root) {
         int ans = 0;
