@@ -1,7 +1,8 @@
 class Solution {
 public:
     //https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/
-    //Good refer of LCM. : https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B8
+    //Add article https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/discuss/2809268/C%2B%2B-or-O(N2)-or-explanation
+    
     int subarrayLCM(vector<int>& nums, int k) {
         int n = nums.size();
         int ans = 0; 
