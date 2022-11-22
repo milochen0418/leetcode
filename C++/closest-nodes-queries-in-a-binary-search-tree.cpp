@@ -12,108 +12,79 @@
 class Solution {
     //https://leetcode.com/problems/closest-nodes-queries-in-a-binary-search-tree/
 public:
+public:
     vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
         vector<vector<int>> ans;
         vector<int> A;
         A.push_back(INT_MIN);
         inorder(root,A);
         A.push_back(INT_MAX);
-        printf("\nA = ");
-        for(auto &i:A) printf("%d, ", i);
-        printf("\n M seq = ");
-        int n = A.size();
-        for(auto q:queries) {
-            vector<int> a;
-            int L = 0, R = n-1;
-            int min_i = -1;
-            int max_i = -1;
-            int M = L + (R-L)/2;
-            while(L<R) {
-                //M = L/2 + R/2 = L + (R/2-L/2) = L + (R-L)/2
-                M = L + (R-L)/2;
-                printf("(%d,%d)-> M=%d, \n", min_i,max_i, M);
-                if(M==0 || M == n-1) break;
-                if(A[M] == q) {
-                    min_i = q;
-                    max_i = q;
-                    break;
-                }
-                //We want to find the M satisfy that A[M-1] <= q <= A[M+1]
-                if(q < A[M]) { 
-                    min_i = A[M-1];
-                    max_i = A[M];
-                    R = M-1;
-                } else {//case A[M] < q
-                    min_i = A[M];
-                    max_i = A[M+1];
-                    L = M+1;
-                } 
+        //printf("\nA = ");
+        //for(auto &i:A) printf("%d, ", i);
+        vector<vector<int>> qs = vector<vector<int>> (queries.size(), vector<int>());
+        for(int i = 0; i < queries.size(); i++) {
+            qs[i].push_back( queries[i]); //quries value
+            qs[i].push_back(i);//index
+            qs[i].push_back(-1);//min_i
+            qs[i].push_back(-1);//max_i
+        }
+        
+        sort(qs.begin(), qs.end(), [](auto &lhs, auto &rhs){
+           return lhs[0] < rhs[1];
+        });
+        int n = A.size(), m = queries.size();
+        int Ai = 0, Qi =0;
+        printf("A[] = ");
+        for(auto &i: A) printf("%d, ", i);
+        printf("\n");
+        printf("qs[][0] = ");
+        for(auto &q: qs) printf("%d, ", q[0]);
+        printf("\n");
+        
+        while(Ai < n && Qi < m) {
+            printf("(Qi,Ai)=(%d, %d) Q[][0]=%d, A[]=%d\n", Qi,Ai, qs[Qi][0], A[Ai]);
+            if(qs[Qi][0] < A[1]) {
+                qs[Qi][2] = -1;
+                qs[Qi][3] = A[1]; 
+                Qi++;
+            } else if( qs[Qi][0]>A[n-2] ){
+                qs[Qi][2] = A[n-2];
+                qs[Qi][3] = -1;
+                Qi++;
+            } else if(qs[Qi][0] == A[Ai]){
+                qs[Qi][2] = qs[Qi][3] = qs[Qi][0];
+                Qi++;
+            } else if(qs[Qi][0] > A[Ai]) {
+                
+                Ai++;
+            } else if (qs[Qi][0]<  A[Ai]) {
+                qs[Qi][2] = A[Ai-1];
+                qs[Qi][3] = A[Ai];
+                Qi++;
+            } else {
+                Qi++;
+                printf("Err handling\n");   
             }
-            printf("\n", M);
-            if(min_i == INT_MIN) min_i = -1;
-            if(max_i == INT_MAX) max_i = -1;
+                
             
-            a.push_back(min_i);
-            a.push_back(max_i);
+        }
+        
+        sort(qs.begin(), qs.end(), [](auto &lhs, auto&rhs){
+            return lhs[1] < rhs[1];
+        });
+        
+        for(auto &v: qs) {
+            vector<int> a;
+            a.push_back(v[2]);
+            a.push_back(v[3]);
             ans.push_back(a);
         }
         return ans;
     }
-
     void inorder(TreeNode* root, vector<int>& res) {
         if(root==nullptr) return;
         inorder(root->left, res);
         res.push_back(root->val);
         inorder(root->right, res);
     }  
-
-
-    vector<vector<int>> closestNodes_Ver01(TreeNode* root, vector<int>& queries) {
-        vector<vector<int>> ans;
-        for(auto &q: queries) {
-            ans.push_back(sol(root, q));
-        }
-        return ans;
-    }
-    vector<int> sol(TreeNode* root, int q) {
-        vector<int> ret;
-        ret.push_back(find_min(root, q));
-        ret.push_back(find_max(root, q));
-        return ret;
-    }
-    
-    // find the min which is the largest value smaller or equal than q 
-    int find_min(TreeNode* root, int q) { 
-        int c = -1; // candidate
-        while(root != nullptr) {
-            int v = root->val;
-            if(v == q) {
-                return q;
-            } else if(v < q) {
-                c = v;
-                root = root->right;
-            } else { //if(v > q)
-                root = root->left;
-            }
-        }
-        return c;
-    }
-    // find the max which is the smallest value larger or equal than q 
-    int find_max(TreeNode* root, int q) {
-        int c = -1; // candidate
-        while(root != nullptr) {
-            int v = root->val;
-            if(v == q) {
-                return q;
-            } else if(v > q) {
-                c = v;
-                root = root->left;
-            } else { //if(v > q)
-                root = root->right;
-            }
-        }
-        return c;
-
-    }
-    
 };
