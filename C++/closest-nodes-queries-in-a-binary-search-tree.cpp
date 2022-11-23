@@ -11,6 +11,8 @@
  */
 class Solution {
     //https://leetcode.com/problems/closest-nodes-queries-in-a-binary-search-tree
+    //article : https://leetcode.com/problems/closest-nodes-queries-in-a-binary-search-tree/discuss/2840726/C%2B%2B-or-two-pointer-approach-or-time-O(N-%2B-MlogM)
+    //FB Post : https://www.facebook.com/groups/1451299754892511/posts/5877587348930374/
 public:
     vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
         vector<vector<int>> ans;
