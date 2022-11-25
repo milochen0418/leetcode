@@ -13,9 +13,6 @@ class Solution {
     //https://leetcode.com/problems/count-complete-tree-nodes/
 public:
     int countNodes(TreeNode* root) {
-        if(root==nullptr) 
-            return 0;
-        else 
-            return 1+countNodes(root->left) + countNodes(root->right);
+        return (!root)?0:1+countNodes(root->left) + countNodes(root->right);
     }
 };
