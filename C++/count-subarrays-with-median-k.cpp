@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-subarrays-with-median-k
+    //add article https://leetcode.com/problems/count-subarrays-with-median-k/discuss/2853941/C%2B%2B-or-prefix-sum-or-O(N)
 public:
     int countSol(vector<int>&vk, int &q, int added) {
         int n = vk.size(), ans=0;
