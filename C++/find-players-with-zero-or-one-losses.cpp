@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-players-with-zero-or-one-losses
+    //article https://leetcode.com/problems/find-players-with-zero-or-one-losses/discuss/2855203/C%2B%2B-or-Hash-Map-or-7-lines
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
         unordered_map<int, int> mp;
