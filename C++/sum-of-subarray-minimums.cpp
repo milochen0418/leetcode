@@ -1,4 +1,5 @@
 class Solution {
+    //https://leetcode.com/problems/sum-of-subarray-minimums/
 public:
     int sumSubarrayMins(vector<int>& arr) {
         int mod = 1e9+7;
@@ -29,4 +30,13 @@ public:
         }
         return ans; 
     }  
+    /*
+    [3,2,5,1,4,2]
+    Output 32, Expected 32
+    [3,2,5,4,2]
+    Output 34 
+    Expected 38 
+    because [3,2,5,4,2],  [2,5,4,2] is not coounted in this code.
+    [ ... min ... min ...] is missing to counted. 
+    */
 };
