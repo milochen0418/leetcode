@@ -1,11 +1,7 @@
 class RandomizedSet {
     //https://leetcode.com/problems/insert-delete-getrandom-o1
+    //article https://leetcode.com/problems/insert-delete-getrandom-o1/discuss/2861368/C%2B%2B-or-hash-map-or-explanation
 public:
-    /* Refer time complexity of hash set here
-    https://www.geeksforgeeks.org/hashset-in-java/ 
-    
-    Time Complexity of HashSet Operations: The underlying data structure for HashSet is hashtable. So amortize (average or usual case) time complexity for add, remove and look-up (contains method) operation of HashSet takes O(1) time.
-    */
     
     unordered_map<int,int> mp;
     vector<int> v;
