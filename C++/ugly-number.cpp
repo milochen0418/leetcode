@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/ugly-number
-    //article: https://leetcode.com/problems/ugly-number/discuss/2862140/C%2B%2B-or-O(N)
+    // article: https://leetcode.com/problems/ugly-number/discuss/2862140/C%2B%2B-or-O(N)
 public:
     bool isUgly(int n) {
         if(n<=0) return false;
