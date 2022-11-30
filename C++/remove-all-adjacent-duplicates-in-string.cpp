@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+    //article : https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/discuss/2862194/C%2B%2B-or-stack-or-7-lines
 public:
     string removeDuplicates(string s) {
         string ans;
