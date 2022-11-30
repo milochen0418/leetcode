@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/unique-number-of-occurrences/
+    //add article https://leetcode.com/problems/unique-number-of-occurrences/discuss/2862094/C%2B%2B-or-O(N)-or-6-lines-or-hash-map-and-hash-set
 public:
     bool uniqueOccurrences(vector<int>& arr) {
         unordered_map<int,int> mp;
