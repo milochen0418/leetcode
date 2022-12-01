@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/find-leaves-of-binary-tree/
+    //article https://leetcode.com/problems/find-leaves-of-binary-tree/discuss/2866657/C%2B%2B-or-DFS-or-easy
 public:
     vector<vector<int>> ans;
     vector<vector<int>> findLeaves(TreeNode* root) {
