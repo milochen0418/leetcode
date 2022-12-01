@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/single-row-keyboard
+    //article https://leetcode.com/problems/single-row-keyboard/discuss/2865587/C%2B%2B-or-O(N)-or-5-lines-or-easy
 public:
     int calculateTime(string keyboard, string word) {
         vector<int> v = vector<int>(26,0); //map of char to index
