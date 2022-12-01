@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/determine-if-string-halves-are-alike/
+    //article https://leetcode.com/problems/determine-if-string-halves-are-alike/discuss/2865188/C%2B%2B-or-faster-method-by-constant-vector
 public:
 
     const vector<int> isVowels = {
