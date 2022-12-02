@@ -8,13 +8,13 @@ public:
         int row=0, col=0;
         int i = 0;
         while(row < rows) {
-            int val = v[i%n];
-            col = col + val + 1;
-            if(col > cols+1) {
+            int width = v[i%n];//width of word
+            if(col+width > cols) {
                 col=0;
                 row++;
             } else {
-                i=i+1;    
+                col+=(width+1);//+1 is mean space 1
+                i=i+1;
             }
         }
         return i/n;
