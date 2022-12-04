@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/
+    //article https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/discuss/2875669/C%2B%2B-or-sort-or-unsigned-long-long
 public:
     typedef unsigned long long ull; 
     long long dividePlayers(vector<int>& skill) {
