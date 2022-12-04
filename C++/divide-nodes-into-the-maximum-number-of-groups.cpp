@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/divide-nodes-into-the-maximum-number-of-groups/
     //article :https://leetcode.com/problems/divide-nodes-into-the-maximum-number-of-groups/discuss/2876332/C%2B%2B-or-DFS-%2B-BFS-or-easy-or-explanation
+    //FB Post https://www.facebook.com/groups/1451299754892511/posts/5909531602402615/
 public:
     unordered_map<int, unordered_set<int>> mp;
     vector<unordered_set<int>> graphs_V;
