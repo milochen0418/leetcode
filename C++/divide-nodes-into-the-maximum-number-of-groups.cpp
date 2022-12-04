@@ -1,18 +1,16 @@
 class Solution {
     //https://leetcode.com/problems/divide-nodes-into-the-maximum-number-of-groups/
 public:
-    unordered_map<int, vector<int>> mp;
+    unordered_map<int, unordered_set<int>> mp;
     vector<unordered_set<int>> graphs_V;
     unordered_set<int> travelled;//dfs travelled vertics.
     int magnificentSets(int n, vector<vector<int>>& edges) {
-        printf("\n\n");
         int ans = 0; // find out the maximum BFS level
         
         for(int i = 0; i < edges.size();i++) {
-            mp[edges[i][0]].push_back(edges[i][1]);
-            mp[edges[i][1]].push_back(edges[i][0]);
+            mp[edges[i][0]].insert(edges[i][1]);
+            mp[edges[i][1]].insert(edges[i][0]);
         }
-        
         
         for(int i = 1; i<=n;i++) {
             if(travelled.find(i) == travelled.end()) {
@@ -43,7 +41,29 @@ public:
     
     int try_bfs_of_graph(unordered_set<int>& graphV) {
         int ans = -1;
-        for(auto &i:graphV){
+        vector<int> graphVv;
+        for(auto &i:graphV) {
+            graphVv.push_back(i);
+        }
+        sort(graphVv.begin(), graphVv.end(), [&](auto &lhs, auto& rhs){
+            if(mp[lhs].size() == mp[rhs].size()) {
+                return lhs<rhs;
+            } else {
+                return mp[lhs].size() < mp[rhs].size();    
+            }
+        });
+        
+        vector<int> graphVvv;
+        for(auto &i:graphVv) {
+            if(mp[graphVv[0]].size()==mp[i].size()) {
+                graphVvv.push_back(i);
+            }
+        }
+        
+        //for(auto &i:graphV){
+        for(auto &i:graphVvv){
+            //Changing to use the graphVvv to instead graphV is 
+            //the magic stuff to against TLE XD
             queue<int> currQ;
             queue<int> nextQ;
             unordered_set<int> s;
@@ -55,6 +75,7 @@ public:
                 int e = currQ.front();
                 currQ.pop();
                 for(auto&v: mp[e]) {
+                    
                     if(s.find(v) == s.end()) {
                         s.insert(v);
                         ls.insert(v);
