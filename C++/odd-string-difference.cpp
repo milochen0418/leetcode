@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/odd-string-difference
+    //article https://leetcode.com/problems/odd-string-difference/discuss/2877730/C%2B%2B-or-hash-set
 public:
     struct VectorHash {
         size_t operator()(const std::vector<int>& v) const {
