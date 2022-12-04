@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-average-difference
+    //article: https://leetcode.com/problems/minimum-average-difference/discuss/2874762/C%2B%2B-or-prefix-sum
 public:
     typedef unsigned long long ull;
     int minimumAverageDifference(vector<int>& nums) {
