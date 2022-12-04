@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-score-of-a-path-between-two-cities/
+    //article : https://leetcode.com/problems/minimum-score-of-a-path-between-two-cities/discuss/2875363/C%2B%2B-or-simple-DFS-or-easy-or-O(N)
 public:
     unordered_set<int> s;
     unordered_map<int, vector<int>> mp;
