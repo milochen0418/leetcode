@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-valid-clock-times
+    //article https://leetcode.com/problems/number-of-valid-clock-times/discuss/2877758/C%2B%2B-or-vector
 public:
     int countTime(string time) {
         vector<int> v(5,1);
