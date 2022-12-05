@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-letter-to-equalize-frequency
-    //article https://leetcode.com/problems/remove-letter-to-equalize-frequency/discuss/2878579/C%2B%2B-or-time-O(N)-space-O(1)-or-hash-map
+    // article https://leetcode.com/problems/remove-letter-to-equalize-frequency/discuss/2878579/C%2B%2B-or-time-O(N)-space-O(1)-or-hash-map
 public:
     bool equalFrequency(string word) {
         /*
