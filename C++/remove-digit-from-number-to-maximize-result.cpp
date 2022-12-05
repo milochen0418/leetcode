@@ -12,4 +12,28 @@ public:
         }
         return number.erase(pos,1);
     }
+
+    string removeDigit_v02(string number, char digit) {
+        //weak new code from account milochen
+        /*
+        "0123"
+        "01231"
+        */
+        //find out the first the largest digit that its rigit digit is greater than itself.
+        int removeIdx = -1;
+        int n = number.length();
+        number.push_back('9'+1);
+        for(int i = 0; i<n;i++) {
+            if(number[i] == digit) {
+                removeIdx = i;
+                if(number[i+1]>number[i]) {
+                    break;
+                }
+            }
+        }
+        //printf("removeIdx = %d\n",removeIdx);
+        number.pop_back();
+        return number.substr(0,removeIdx)+number.substr(removeIdx+1);
+    }
+
 };
