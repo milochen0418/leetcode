@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks
+    //article https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/discuss/2878827/C%2B%2B-or-Sliding-Window
 public:
     int minimumRecolors(string blocks, int k) {
         int maxv = 0, cur=0, n=blocks.size();
