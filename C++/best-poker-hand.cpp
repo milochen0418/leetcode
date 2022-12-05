@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/best-poker-hand
+    //article https://leetcode.com/problems/best-poker-hand/discuss/2879319/C%2B%2B-or-7-lines-or-array-approach
 public:
     string bestHand(vector<int>& ranks, vector<char>& suits) {
         int is_flush=1,maxv = 0;
