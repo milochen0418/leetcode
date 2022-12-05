@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-amount-of-time-to-fill-cups
+    //article https://leetcode.com/problems/minimum-amount-of-time-to-fill-cups/discuss/2879655/C%2B%2B-or-3-lines-or-greedy-or-O(1)-or-explanation
 public:
     /*
     The first strategy is always use the maximum element to reduce another remain element.
