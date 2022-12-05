@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-subarrays-with-equal-sum
+    //article https://leetcode.com/problems/find-subarrays-with-equal-sum/discuss/2878609/C%2B%2B-or-O(N)-or-HashSet
 public:
     bool findSubarrays(vector<int>& nums) {
         int n = nums.size(), j=0;
