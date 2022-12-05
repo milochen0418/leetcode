@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-hours-of-training-to-win-a-competition
+    //article https://leetcode.com/problems/minimum-hours-of-training-to-win-a-competition/discuss/2878778/C%2B%2B-or-prefix-sum
 public:
     int minNumberOfHours(int initialEnergy, int initialExperience, vector<int>& energy, vector<int>& experience) {
         int sum_energy = 0, n = energy.size(), hour = 0;
