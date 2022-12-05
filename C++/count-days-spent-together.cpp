@@ -1,6 +1,7 @@
 
 class Solution {
     //https://leetcode.com/problems/count-days-spent-together
+    //article https://leetcode.com/problems/count-days-spent-together/discuss/2878710/C%2B%2B-or-string-or-easy
 public:
     const vector<int> md = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     int countDaysTogether(string arriveAlice, string leaveAlice, string arriveBob, string leaveBob) {
