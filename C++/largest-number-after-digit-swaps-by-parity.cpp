@@ -1,46 +1,23 @@
 class Solution {
-    //https://leetcode.com/problems/largest-number-after-digit-swaps-by-parity/
+    //https://leetcode.com/problems/largest-number-after-digit-swaps-by-parity
 public:
     int largestInteger(int num) {
-        string s = to_string(num);
+        string s = to_string(num), s_odd, s_even,ansstr;
         int n = s.length();
-        vector<int> sv = vector<int>(n,0);
-        for(int i = 0; i<n;i++) sv[i] = s[i]-'0';
-        
-            
-        vector<int> odd;
-        vector<int> odd_idx;
-        vector<int> even;
-        vector<int> even_idx;
-        for(int i = 0; i<n;i++) {
-            int val = sv[i];
-            if(val%2==0) {
-                even.push_back(val);
-                even_idx.push_back(i);
-                
-            } else {
-                odd.push_back(val);
-                odd_idx.push_back(i);
-            }
+        vector<int> idxs_odd, idxs_even;
+        for(int i = 0; i < n;i++) {
+            (((s[i]-'0')%2==0)?idxs_even:idxs_odd).push_back(i);
+            (((s[i]-'0')%2==0)?s_even:s_odd).push_back(s[i]);
         }
-        sort(even.begin(), even.end(), greater<int>());
-        sort(odd.begin(), odd.end(), greater<int>());
-        
-        for(int i = 0;i<even.size();i++) {
-            sv[even_idx[i]] = even[i];
-        }
-        for(int i = 0;i<odd.size();i++) {
-            sv[odd_idx[i]] = odd[i];
-        }
-        int ans = 0;
-        for(auto &i:sv) {
-            ans = (ans*10)+i;
+        sort(s_even.begin(), s_even.end(), greater<char>());
+        sort(s_odd.begin(), s_odd.end(), greater<char>());
+        int i=0,j=0,k=0, ans=0;
+        for(k = 0;k<n;k++) {
+            if(i<idxs_odd.size() && idxs_odd[i]==k) 
+                ans = ans*10 + (s_odd[i++]-'0');
+            else 
+                ans = ans*10 + (s_even[j++]-'0');
         }
         return ans;
-        
-        
-        return 0;
-            
-        
     }
 };
