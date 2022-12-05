@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-k-beauty-of-a-number
+    //article https://leetcode.com/problems/find-the-k-beauty-of-a-number/discuss/2879749/C%2B%2B-or-Sliding-Window
 public:
     int divisorSubstrings(int num, int k) {
         string A = to_string(num);
