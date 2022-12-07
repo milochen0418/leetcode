@@ -48,6 +48,16 @@ public:
         ans+=rv>H?0:rangeSumBST(root->right, L,H);
         return ans;
     }
+
+    int rangeSumBST_refactor(TreeNode* root, int L, int H) {
+        if(!root) return 0;
+        int &rv = root->val;
+        int ans=0;
+        if(L<=rv && rv<=H) ans+=rv;
+        if(rv>=L) ans+=rangeSumBST(root->left, L,H);
+        if(rv<=H) ans+=rangeSumBST(root->right, L,H);
+    }
+
     int rangeSumBST_no_optimized(TreeNode* root, int L, int H) {
         if(!root) return 0;
         int &rv = root->val;
