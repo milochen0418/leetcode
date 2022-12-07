@@ -15,7 +15,7 @@ public:
     int rangeSumBST(TreeNode* root, int L, int H) {
         /*
         LT : left tree, RT: right tree, L:low, H:high, 
-        |---------LT--------|-|-------RT-------|
+        |---------LT---------|-|---------RT---------|
 
         case of root->val in [L,H]
         |----L----LT---------|-|---------RT----H----|
@@ -33,19 +33,19 @@ public:
         |---L-H---LT---------|-|---------RT---------|
         |---------LT---L-H---|-|---------RT---------|
 
-        so rv<L, don't search LT, search RT
-        so rv>H, don't search RT, search LT
-        rv in [L,H], search LT+RT
+        In the default, we need to search LR & RT together.
+        But in our observation, we can save time to no search when some case happen
+        When rv<L, don't search LT.Otherwise,search LT
+        When rv>H, don't search RT.Otherwise,search RT
+        rv in [L,H], rv should add into answer. 
         */
+
         if(!root) return 0;
-        bool noLT=false, noRT=false;
         int &rv = root->val;
-        if(rv<L) noLT =true;
-        if(rv>H) noRT =true;
         int ans = 0;
         if(L<=rv && rv<=H) ans+=rv;
-        if(!noLT) ans+=rangeSumBST(root->left, L,H);
-        if(!noRT) ans+=rangeSumBST(root->right, L,H);
+        ans+=rv<L?0:rangeSumBST(root->left, L,H);
+        ans+=rv>H?0:rangeSumBST(root->right, L,H);
         return ans;
     }
 
