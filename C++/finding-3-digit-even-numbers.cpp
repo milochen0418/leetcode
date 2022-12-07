@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/finding-3-digit-even-numbers
+    //article https://leetcode.com/problems/finding-3-digit-even-numbers/discuss/2885417/C%2B%2B-or-array-approach-or-O(5*9*10)-or-explanation
 public:
     vector<int> findEvenNumbers(vector<int>& digits) {
         /*
