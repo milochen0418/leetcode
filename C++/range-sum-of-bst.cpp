@@ -12,9 +12,9 @@
 class Solution {
     //https://leetcode.com/problems/range-sum-of-bst
 public:
-    int rangeSumBST(TreeNode* root, int low, int high) {
+    int rangeSumBST(TreeNode* root, int L, int H) {
         if(!root) return 0;
-        int val = (root->val<low || root->val>high)?0:root->val;
-        return val+rangeSumBST(root->left,low,high) + rangeSumBST(root->right,low,high);
+        int &rv = root->val;
+        return (L<=rv&&rv<=H?rv:0)+(L<rv?rangeSumBST(root->left,L,H):0)+(H>rv?rangeSumBST(root->right,L,H):0);        
     }
 };
