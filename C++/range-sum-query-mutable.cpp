@@ -65,7 +65,11 @@ private:
     }
     STNode* ST_build(int L, int R) {
         vector<int>& A = *pNums;
-        if(L==R) return new STNode(L,R,A[L],nullptr, nullptr);
+        if(L==R) {
+            //printf("ST_build L,R,A[L]=%d,%d,%d\n",L,R,A[L]);
+            return new STNode(L,R,A[L],nullptr, nullptr);
+            
+        }
         STNode* node = new STNode(L,R,0,nullptr,nullptr);
         int M = L + (R-L)/2;
         node->left = ST_build(L, M); 
@@ -77,7 +81,7 @@ private:
     int ST_sum(STNode*node, int L, int R) {//get sum value of [L..R]
         if(!node) return 0; 
         vector<int>& A = *pNums;
-        if(L==R) return A[L];
+        if(node->L == L && node->R == R) return node->sum;
         //for(int i = 0; i<A.size();i++) printf("%d, ", A[i]);
         //printf("\n");
         int M = node->L + (node->R-node->L) /2;
