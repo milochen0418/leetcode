@@ -1,5 +1,6 @@
 class NumArray {
     //https://leetcode.com/problems/range-sum-query-mutable/
+    //article https://leetcode.com/problems/range-sum-query-mutable/discuss/2891915/C%2B%2B-or-Segment-Tree
     //Topic: Segment Tree
 public:
     vector<int>* pNums;
