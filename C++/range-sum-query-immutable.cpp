@@ -1,23 +1,17 @@
 class NumArray {
     //https://leetcode.com/problems/range-sum-query-immutable/
 public:
-    vector<int> a;
+    vector<int>* pNums;
     NumArray(vector<int>& nums) {
-        int n = nums.size();
-        a = vector<int>(n+1, 0);
-        for(int i = 1; i < n+1; i++) {
-            a[i] = a[i-1] + nums[i-1];
-        }
-        //               L, R 
-        //nums =    [03,04,09,06]
-        //   a = [00,03,07,16,32]
-        //          L-1     R      
-        //sumrange[L..R] = a[R+1] - a[L+1-1]
-        
+        pNums=&nums;
+        vector<int>& A = *pNums;
+        for(int i = 1;i<A.size();i++) A[i]=A[i] + A[i-1];
     }
     
     int sumRange(int left, int right) {
-        return a[right+1] - a[left];
+        vector<int>& A = *pNums;
+        int A_left_1 = left-1<0?0:A[left-1];
+        return A[right] - A_left_1;
     }
 };
 
