@@ -49,9 +49,13 @@ private:
         vector<int>& A = *pNums;
         //if(index<0 || index>=A.size()) return;
         int inc = new_val - A[index];
+        A[index] = new_val;
+        //printf("inc=%d\n",inc);
         STNode *node = st_root;
         while(node != nullptr) {
+            //printf("node->sum+=inc , sum=%d, inc=%d\n",node->sum, inc);
             node->sum+=inc;
+            //printf("node->sum= %d after add inc=%d, with(L,R)=(%d,%d)\n",node->sum, inc,node->L, node->R);
             int M = node->L + (node->R-node->L)/2;
             if(index<=M) 
                 node=node->left;
@@ -72,6 +76,10 @@ private:
     
     int ST_sum(STNode*node, int L, int R) {//get sum value of [L..R]
         if(!node) return 0; 
+        vector<int>& A = *pNums;
+        if(L==R) return A[L];
+        //for(int i = 0; i<A.size();i++) printf("%d, ", A[i]);
+        //printf("\n");
         int M = node->L + (node->R-node->L) /2;
         if(R<=M) {
             return ST_sum(node->left, L, R);
