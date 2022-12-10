@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/maximum-product-of-splitted-binary-tree
+    //article https://leetcode.com/problems/maximum-product-of-splitted-binary-tree/discuss/2896985/C%2B%2B-or-DFS-and-the-tricky-big-number
 public:
     /* 
     if you use unsigned long long to figure out solution in this problem, 
