@@ -18,22 +18,22 @@ class Solution {
     */
     
 public:
+class Solution {
+public:
     int longestNiceSubarray(vector<int>& nums) {        
         int L = 0, R=0, cur=0, ans=0, n = nums.size();
         while(L<n && R < n) {   
-            if((cur&nums[R]) == 0) {
-                cur=cur|nums[R];
-                R++;
-            } else {
-                cur = cur&(~nums[L]);
-                L++;
-                if(L>R)R=L;
-            }
+            if(L>R) 
+                R=L;
+            else if((cur&nums[R]) == 0) 
+                cur = cur | nums[R++]; //add related bit 1
+            else
+                cur = cur & (~nums[L++]); //delete related bit 1
             ans = max(ans, R-L);
         }
         return ans;
     }
-
+};
 
     int longestNiceSubarray_v01(vector<int>& nums) {
         //printf("\nlongestNiceSubarray\n");
