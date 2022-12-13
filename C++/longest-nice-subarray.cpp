@@ -23,12 +23,12 @@ public:
     int longestNiceSubarray(vector<int>& nums) {        
         int L = 0, R=0, cur=0, ans=0, n = nums.size();
         while(L<n && R < n) {   
-            if(L>R) 
+            if(L>R) //always keep L in left of R
                 R=L;
-            else if((cur&nums[R]) == 0) 
-                cur = cur | nums[R++]; //add related bit 1
-            else
-                cur = cur & (~nums[L++]); //delete related bit 1
+            else if((cur&nums[R]) == 0) //if it is disjoint 
+                cur = cur | nums[R++]; //add related bit 1 from nums[R]
+            else //if it is not disjoint
+                cur = cur & (~nums[L++]); //delete related bit 1 from nums[L]
             ans = max(ans, R-L);
         }
         return ans;
