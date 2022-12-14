@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reducing-dishes/
+    //article https://leetcode.com/problems/reducing-dishes/discuss/2911044/C%2B%2B-or-Prefix-Sum-or-Easy
 public:
     int maxSatisfaction(vector<int>& satisfaction) {
         vector<int>& A = satisfaction;
