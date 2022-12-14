@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal
+    //article https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/discuss/2910228/C%2B%2B-or-7-lines-or-easy-or-explanation
 public:
 
     TreeNode* bstFromPreorder(vector<int>& preorder) {
