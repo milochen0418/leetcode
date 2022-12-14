@@ -12,7 +12,18 @@
 class Solution {
     //https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal
 public:
+
     TreeNode* bstFromPreorder(vector<int>& preorder) {
+        TreeNode *root; 
+        for(auto &v:preorder) {
+            TreeNode** c = &root;
+            while(*c) c = (v>(*c)->val)?&((*c)->right):&((*c)->left);
+            *c = new TreeNode(v);
+        }
+        return root;
+    }
+
+    TreeNode* bstFromPreorder_v01(vector<int>& preorder) {
         int n = preorder.size(), i=0;
         TreeNode* root = new TreeNode(preorder[0]);
          
