@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-deletions-to-make-array-divisible
+    //article https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/discuss/2910327/C%2B%2B-or-simple-6-lines-or-N*log(N)
 public:
     int minOperations(vector<int>& nums, vector<int>& numsDivide) {
         int gcdv = 0;
