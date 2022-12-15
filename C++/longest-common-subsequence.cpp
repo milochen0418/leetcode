@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/longest-common-subsequence
+    //article https://leetcode.com/problems/longest-common-subsequence/discuss/2913527/C%2B%2B-or-easy-understanding-or-backtrace-to-DP-or-step-by-step
 public:
     vector<vector<int>> dp;
     string str1,str2;
