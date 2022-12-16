@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/
+    //article https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/discuss/2916742/C%2B%2B-or-O(N)-or-easy
 public:
     bool canBeIncreasing(vector<int>& nums) {
         if(removeOne(nums)==false) return true;
