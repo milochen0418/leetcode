@@ -1,43 +1,35 @@
+
+
 class MyQueue {
     //https://leetcode.com/problems/implement-queue-using-stacks
-    //article https://leetcode.com/problems/implement-queue-using-stacks/discuss/2349190/C%2B%2B-or-using-temporary-stack-only-in-pop()
+    //article O(N) pop -> https://leetcode.com/problems/implement-queue-using-stacks/discuss/2349190/C%2B%2B-or-using-temporary-stack-only-in-pop()
+    //article O(N) push -> https://leetcode.com/problems/implement-queue-using-stacks/discuss/2916577/C%2B%2B-or-using-temporary-stack-only-in-push()
 public:
     stack<int> stk;
-    int front;//front of q
-    MyQueue() {
-        
-    }
+    MyQueue() {}
     
     void push(int x) {
-        if(stk.empty()) front = x;
-        stk.push(x);
+        stack<int> s2; 
+        while(!stk.empty()) {
+            s2.push(stk.top());
+            stk.pop();
+        }
+        s2.push(x);
+        while(!s2.empty()) {
+            stk.push(s2.top());
+            s2.pop();
+        }
     }
     
     int pop() {
-        stack<int> tmp; 
-        while(!stk.empty()) {
-            tmp.push(stk.top());
-            stk.pop();
-        }
-        
-        int ret = tmp.top();
-        tmp.pop();
-        front = tmp.empty()?INT_MIN:tmp.top();
-        
-        while(!tmp.empty()) {
-            stk.push(tmp.top());
-            tmp.pop();
-        } 
-        return ret;
+        int e = stk.top();
+        stk.pop();
+        return e;
     }
     
-    int peek() {
-        return front;
-    }
+    int peek() { return stk.top(); }
     
-    bool empty() {
-        return stk.empty();
-    }
+    bool empty() { return stk.empty();}
 };
 
 /**
