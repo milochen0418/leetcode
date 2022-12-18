@@ -1,5 +1,4 @@
 class Solution {
-    //https://leetcode.com/problems/cycle-length-queries-in-a-tree
 public:
     vector<int> cycleLengthQueries(int n, vector<vector<int>>& queries) {
         vector<int> ans;
@@ -9,8 +8,7 @@ public:
     int getLength(int n, int a, int b) {
         int len = 1;//1 is edge length
         while(a!=b) {//use two-pointer to find out lowest common ancestor
-            if(a<b) swap(a,b); 
-            a=a/2;
+            (a<b?b:a)/=2;//always get half of largest value. 
             len++;            
         }
         return len;
