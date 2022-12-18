@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/cycle-length-queries-in-a-tree
+    //article https://leetcode.com/problems/cycle-length-queries-in-a-tree/discuss/2924421/C%2B%2B-or-easy-10-lines-or-two-pointer
 public:
     vector<int> cycleLengthQueries(int n, vector<vector<int>>& queries) {
         vector<int> ans;
