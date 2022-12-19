@@ -1,19 +1,26 @@
 class Solution {
     //https://leetcode.com/problems/find-if-path-exists-in-graph
 public:
-    unordered_map<int,vector<int>> mp;
-    unordered_set<int> travelled;
+    vector<vector<int>> E;
+    vector<int> travelled;
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {    
+        E = vector<vector<int>>(n, vector<int>());
+        travelled = vector<int>(n,0);
         for(auto &e:edges) {
-            mp[e[0]].push_back(e[1]);
-            mp[e[1]].push_back(e[0]);
+            E[e[0]].push_back(e[1]);
+            E[e[1]].push_back(e[0]);
         }
         dfs(source);
-        return (travelled.find(destination) != travelled.end());
+        if(travelled[destination]==0) return false;
+        return true;
+        
     }
-    void dfs(int u) {
-        if(travelled.find(u) != travelled.end()) return;
-        travelled.insert(u);
-        for(auto &v:mp[u]) dfs(v);
+    void dfs(int source) {
+        travelled[source] = 1;
+        for(auto &i:E[source]) {
+            if(travelled[i]==0) {
+                dfs(i);
+            }
+        } 
     }
 };
