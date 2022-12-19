@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-if-path-exists-in-graph
+    //article https://leetcode.com/problems/find-if-path-exists-in-graph/discuss/2927026/C%2B%2B-or-DFS-or-improve
 public:
     vector<vector<int>> E;
     vector<int> travelled;
