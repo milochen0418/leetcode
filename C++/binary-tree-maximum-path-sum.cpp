@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/binary-tree-maximum-path-sum
+    //article https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/2928712/C%2B%2B-or-easy-DFS-O(N)-maximum-falling-path-or-explanation
 public:
     unordered_map<TreeNode*, int> mp;
     int ans=INT_MIN;
