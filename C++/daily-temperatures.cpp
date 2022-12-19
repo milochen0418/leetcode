@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/daily-temperatures
+    //article https://leetcode.com/problems/daily-temperatures/discuss/2928422/C%2B%2B-or-Monotonic-Stack-or-step-by-step
 public:
     /*
       0  1  2. 3. 4. 5. 6. 7
