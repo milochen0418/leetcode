@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation
+    //article https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation/discuss/2935287/C%2B%2B-or-design-rotate-lambda-to-solve
 public:
     int n;
     bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
