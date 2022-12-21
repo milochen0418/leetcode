@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/possible-bipartition
+    //article https://leetcode.com/problems/possible-bipartition/discuss/2934048/C%2B%2B-or-use-DFS-with-BFS-to-solve
 public:
     unordered_map<int, vector<int>> mp;
     unordered_set<int> dfs_visited; 
