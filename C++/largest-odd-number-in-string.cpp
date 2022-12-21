@@ -8,8 +8,6 @@ public:
             if( (num[i]-'0')%2==1 ) break;//find first odd value from right
             i--;
         }
-        if(i<0) return "";
-        
         string ans; 
         for(int j = 0;j<=i;j++)ans.push_back(num[j]);
         return ans;
