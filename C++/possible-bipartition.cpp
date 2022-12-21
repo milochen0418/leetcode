@@ -44,7 +44,7 @@ public:
                     swap(currQ, nextQ);
                     //level_nodes change
                     swap(next_level_nodes, curr_level_nodes);
-                    next_level_nodes.clear();
+                    //next_level_nodes.clear();
                 }
             }
         }
