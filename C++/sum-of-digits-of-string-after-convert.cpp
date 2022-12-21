@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sum-of-digits-of-string-after-convert
+    //article https://leetcode.com/problems/sum-of-digits-of-string-after-convert/discuss/2934739/C%2B%2B-or-array-approach
 public:
     int getLucky(string s, int k) {
         vector<int> sumv=vector<int>(256,0);
