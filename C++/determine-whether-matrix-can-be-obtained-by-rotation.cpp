@@ -7,6 +7,32 @@ public:
         vector<vector<int>>& M=mat, &T = target;
         n = mat.size();
         vector<function<vector<int>(vector<int>)>> Rfs = {
+            [&](vector<int>v){ return vector<int>({n-1-v[1],v[0]});}, //degree 90
+            [&](vector<int>v){ return vector<int>({n-1-v[0],n-1-v[1]}); }, //degree 180
+            [&](vector<int>v){ return vector<int>({v[1],n-1-v[0]}); }, //degree 270
+            [&](vector<int>v){ return vector<int>({v[0],v[1]}); } //degree 360
+        };
+        
+        int n2 = n*n;
+        for(auto& Rf: Rfs) {
+            bool is_break=false;
+            for(int k = 0;k<n2;k++) {
+                int x=k%n, y=k/n;
+                vector<int> t = Rf({x,y});
+                if(M[t[0]][t[1]] != T[x][y]) {
+                    is_break=true;
+                    break;
+                }
+            }
+            if(is_break==false) return true;
+        }
+        return false;
+    }
+
+    bool findRotation_v01(vector<vector<int>>& mat, vector<vector<int>>& target) {
+        vector<vector<int>>& M=mat, &T = target;
+        n = mat.size();
+        vector<function<vector<int>(vector<int>)>> Rfs = {
             [&](vector<int>v){ return R({v[0],v[1]}); }, 
             [&](vector<int>v){ return R(R({v[0],v[1]})); }, 
             [&](vector<int>v){ return R(R(R({v[0],v[1]}))); }, 
