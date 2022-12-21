@@ -19,36 +19,34 @@ public:
                 dfs(i);    
             }
         }
-
         
         for(auto &root: roots) {
             queue<int> currQ;
             queue<int> nextQ;
-            unordered_set<int> prev_level_nodes;
             unordered_set<int> curr_level_nodes;
+            unordered_set<int> next_level_nodes;            
             currQ.push(root);
-            prev_level_nodes.insert(root);
+            curr_level_nodes.insert(root);
+            
             bfs_visited.insert(root);            
             while(!currQ.empty()) {
                 int e = currQ.front();
                 currQ.pop();
                 for(auto &i:mp[e]) {
-                    if(prev_level_nodes.find(i) != prev_level_nodes.end()) return false;
-                    //if(curr_level_nodes.find(i) != curr_level_nodes.end()) return false;
+                    if(curr_level_nodes.find(i) != curr_level_nodes.end()) return false;                
                     if(bfs_visited.find(i) != bfs_visited.end()) continue;
                     nextQ.push(i);
-                    curr_level_nodes.insert(i);
+                    next_level_nodes.insert(i);
                     bfs_visited.insert(i);
                 }
                 
                 if(currQ.empty()) {
                     swap(currQ, nextQ);
                     //level_nodes change
-                    swap(curr_level_nodes, prev_level_nodes);
-                    curr_level_nodes.clear();
+                    swap(next_level_nodes, curr_level_nodes);
+                    next_level_nodes.clear();
                 }
             }
-            
         }
         return true;
     }
