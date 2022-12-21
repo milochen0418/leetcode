@@ -2,18 +2,18 @@ class Solution {
     //https://leetcode.com/problems/sum-of-digits-of-string-after-convert
 public:
     int getLucky(string s, int k) {
-        unordered_map<char,int> sump;
+        vector<int> sumv=vector<int>(256,0);
         for(char i='a';i<='z';i++) {
             int q = (i-'a')+1;
-            sump[i] = q%10 + q/10;
+            sumv[i]=q%10 + q/10;
         }
         int ans = 0;
-        for(int ik = 1; ik<=k;ik++) {
-            if(ik==1) {
+        for(int i = 1;i<=k;i++) {
+            if(i==1) {
                 for(auto &c:s) {
-                    ans+=sump[c];
+                    ans+=sumv[c];
                 }
-            } else {//case ik>=2
+            } else {//case i>=2
                 int tmp = ans;
                 ans = 0; 
                 while(tmp>0) {
