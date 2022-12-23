@@ -5,17 +5,10 @@ public:
         if(sensor1==sensor2) return -1;
         int n = sensor1.size();
         int wellPair12=wellPair(sensor1, sensor2), wellPair21=wellPair(sensor2, sensor1);
-        
         if(wellPair12<0 && wellPair21<0) return -1;
         if(wellPair12>=0 && wellPair21>=0) return -1;
-        if(wellPair12>=0) {
-            printf("sensor 1 correct\n");
-            return wellPair12;
-        }
-        if(wellPair21>=0) {
-            printf("sensor 2 correct\n");
-            return wellPair21;
-        }
+        if(wellPair12>=0) return 2;
+        if(wellPair21>=0) return 1;
         return -1;
     }
     //return drtopped index if the following two condition satisfied.
@@ -32,11 +25,3 @@ public:
         return dropped_idx;
     }
 };
-
-/*
-Errro for the testcase 
-[2,3,2,2,3,2]
-[2,3,2,3,2,7]
-Output:3 
-Expected:2
-*/
