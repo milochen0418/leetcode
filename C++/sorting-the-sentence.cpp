@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sorting-the-sentence
+    //https://leetcode.com/problems/sorting-the-sentence/discuss/2942483/C%2B%2B-or-simple-17-lines-O(N)
 public:
     string sortSentence(string s) {
         int n = s.length();
