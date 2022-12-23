@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-array-is-sorted-and-rotated
+    //article https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/discuss/2942632/C%2B%2B-or-3-Pass-time-O(N)-space-O(1)
 public:
     bool check(vector<int>& nums) {
         int n = nums.size(), cnt=0;
