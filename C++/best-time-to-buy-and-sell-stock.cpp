@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
     //article https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/1735410/C%2B%2B-or-O(N)-or-Step-by-Step-from-O(N2)-to-O(N)-or-!DP
+    //article II https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/2940935/C%2B%2B-or-3-Pass-and-1-Pass-approach
 public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
