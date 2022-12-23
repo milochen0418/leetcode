@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/faulty-sensor
+    //article https://leetcode.com/problems/faulty-sensor/discuss/2943021/C%2B%2B-or-explanation
 public:
     int badSensor(vector<int>& sensor1, vector<int>& sensor2) {
         if(sensor1==sensor2) return -1;
