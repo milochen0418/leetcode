@@ -4,12 +4,11 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
-        int max_profit = 0; 
-        int min_price = prices[0];
-        for(int j=1;j<n;j++) { 
-            min_price = min(min_price, prices[j]);
-            max_profit = max( max_profit, prices[j] - min_price);            
-        }        
-        return max_profit;
+        int max_gap = 0, minv = prices[0];
+        for(int i = 1; i<n;i++) {
+            minv = min(minv, prices[i]);
+            max_gap = max(max_gap, prices[i] - minv);
+        }   
+        return max_gap;
     }
 };
