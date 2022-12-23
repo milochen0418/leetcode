@@ -2,6 +2,14 @@ class Solution {
     //https://leetcode.com/problems/check-if-array-is-sorted-and-rotated
 public:
     bool check(vector<int>& nums) {
+        int n = nums.size(), cnt=0;
+        for(int i = 0;i<n;i++)             
+            if(nums[i%n] > nums[(i+1)%n] && ++cnt>1)  
+                return false;
+        return true;
+    }
+
+    bool check_3pass(vector<int>& nums) {
         //case no repeat value in nums 
         //We only need to find the minimum element, then start to circle travel
         //But repeat case like 
