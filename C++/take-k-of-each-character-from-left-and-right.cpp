@@ -28,7 +28,7 @@ public:
     int takeCharacters(string s, int k) {
         if(k==0) return 0;
         if(checkInvalid(s,k)) return -1;
-        printf("\n\n") ;
+        //printf("\n\n") ;
         int n = s.length();
         vector<int>sv = vector<int>(n,0); //sv will be 0,1,2 (mapping to abc)
         for(int i = 0; i<n;i++) {
@@ -51,7 +51,7 @@ public:
             postfix_av[i]=postfix_mp;
         }
         
-        int show = 1;
+        int show = 0;
         if(show) {        
             for(int i = 0;i<n;i++) 
                 printf("%d",sv[i]);
@@ -70,18 +70,18 @@ public:
         int max_illegal_width = 0;
         vector<int> valZ = {0,0,0};
         while(L<n && R<n) {
-            vector<int>& valL = L-1>=0 ? prefix_av[L-1] : valZ;
-            vector<int>& valR = R+1<n ? postfix_av[R+1] : valZ;
+            vector<int>& valL = L-1>=0 ?  prefix_av[L-1] : valZ;
+            vector<int>& valR = R+1< n ? postfix_av[R+1] : valZ;
             if( legal(valL, valR, k) ) {
                 R=R+1;
             } else {
-                L=R+1;
-                R=L;
+                L=L+1;
             }
             max_illegal_width = max(max_illegal_width, R-L+1);
+            //printf("LR = %d,%d ;max_w=%d\n",L,R, R-L+1);
         }
         
-        printf("max_illegal_width = %d\n", max_illegal_width);
+        //printf("max_illegal_width = %d\n", max_illegal_width);
         return n-(max_illegal_width-1);
     }
     
