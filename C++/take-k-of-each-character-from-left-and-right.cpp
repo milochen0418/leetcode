@@ -1,5 +1,5 @@
 class Solution {
-    
+    //https://leetcode.com/problems/take-k-of-each-character-from-left-and-right
     /*
     0123456789AB
     aabaaaacaabc, k=2
@@ -11,9 +11,22 @@ class Solution {
     //ab "aabaaaaaab"
     //ac "aaaaaacaac"
     //someone will be clean first , and letter is our solution
-    */
+    
+    //aabaaaacaabc
+    // 0 1 2 3 4 5 6 7 8 9 A B
+    //[a]a b a a a a c a a b c
+    //[a a]b a a a a c a a b c
+    //[a a b]a a a a c a a b c
+    // a a b[a]a a a c a a b c
+    // a a b[a a a a c]a a b c
+    // a a b a a a a c[a]a b c
+    // a a b a a a a c[a a b]c
+    // a a b a a a a c a a b[c]
+
+*/
 public:
     int takeCharacters(string s, int k) {
+        if(k==0) return 0;
         if(checkInvalid(s,k)) return -1;
         printf("\n\n") ;
         int n = s.length();
@@ -37,6 +50,7 @@ public:
             postfix_mp[sv[i]]++;
             postfix_av[i]=postfix_mp;
         }
+        
         int show = 1;
         if(show) {        
             for(int i = 0;i<n;i++) 
@@ -47,14 +61,35 @@ public:
                 printf("%d[%d,%d,%d], ",sv[i], prefix_av[i][0], prefix_av[i][1], prefix_av[i][2]);
             printf("\n");
 
-            //for(int i = 0;i<n;i++) 
-            for(int i = n-1;i>=0;i--) 
+            for(int i = 0;i<n;i++) 
+            //for(int i = n-1;i>=0;i--) 
                 printf("%d[%d,%d,%d], ",sv[i], postfix_av[i][0], postfix_av[i][1], postfix_av[i][2]);
             printf("\n");
         }
+        int L=0,R=-1;//(L,R]
+        int max_illegal_width = 0;
+        vector<int> valZ = {0,0,0};
+        while(L<n && R<n) {
+            vector<int>& valL = L-1>=0 ? prefix_av[L-1] : valZ;
+            vector<int>& valR = R+1<n ? postfix_av[R+1] : valZ;
+            if( legal(valL, valR, k) ) {
+                R=R+1;
+            } else {
+                L=R+1;
+                R=L;
+            }
+            max_illegal_width = max(max_illegal_width, R-L+1);
+        }
         
-        
-        return 0;
+        printf("max_illegal_width = %d\n", max_illegal_width);
+        return n-(max_illegal_width-1);
+    }
+    
+    bool legal(vector<int>& valL, vector<int>& valR, int &k) {
+        if(valL[0] + valR[0]<k) return false;
+        if(valL[1] + valR[1]<k) return false;
+        if(valL[2] + valR[2]<k) return false;
+        return true;
     }
     bool checkInvalid(string &s, int k) {
         int n = s.length();
