@@ -1,19 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/take-k-of-each-character-from-left-and-right
-    /*
-    0123456789AB
-    aabaaaacaabc, k=2
-    a= 01..89
-    b= 2A..2A 
-    c= 7B..7B
     
-    //bc "bcbc",
-    //ab "aabaaaaaab"
-    //ac "aaaaaacaac"
-    //someone will be clean first , and letter is our solution
-    
-    //aabaaaacaabc
-    // 0 1 2 3 4 5 6 7 8 9 A B
+    //|0 1 2 3 4 5 6 7 8 9 A B <-- index
     //[a]a b a a a a c a a b c
     //[a a]b a a a a c a a b c
     //[a a b]a a a a c a a b c
@@ -23,9 +11,28 @@ class Solution {
     // a a b a a a a c[a a b]c
     // a a b a a a a c a a b[c]
 
-*/
 public:
     int takeCharacters(string s, int k) {
+        if(k==0) return 0;
+        int n = s.length();
+        vector<int> mp=vector<int>(3,0);
+        for(int i = 0;i<n;i++) mp[s[i]-='a']++;
+        if(mp[0]<k || mp[1]<k || mp[2]<k) return -1;
+        int L = 0, R=-1, max_w = 0;
+        while(L<n && R<n) {
+            if(mp[0]<k || mp[1]<k || mp[2]<k) {
+                mp[s[L]]++;
+                L=L+1;                
+            } else {
+                R=R+1;
+                mp[s[R]]--;                
+            }
+            max_w = max(max_w, R-L+1);
+        }
+        return n-(max_w-1);        
+    }
+
+    int takeCharacters_v01(string s, int k) {
         if(k==0) return 0;
         if(checkInvalid(s,k)) return -1;
         //printf("\n\n") ;
