@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string
+    //article https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/discuss/2950423/C%2B%2B-or-1-Pass-O(N)-or-explanation
 public:
     int minOperations(string s) {
         
