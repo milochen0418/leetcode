@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/take-k-of-each-character-from-left-and-right
-    
+    //article https://leetcode.com/problems/take-k-of-each-character-from-left-and-right/discuss/2949545/C%2B%2B-or-sliding-window-O(N)-or-explanation
     //|0 1 2 3 4 5 6 7 8 9 A B <-- index
     //[a]a b a a a a c a a b c
     //[a a]b a a a a c a a b c
