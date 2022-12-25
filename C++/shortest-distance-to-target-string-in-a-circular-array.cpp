@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array
+    //https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array/discuss/2949165/C%2B%2B-easy-8-lines-or-explanation
 public:
     int closetTarget(vector<string>& words, string target, int startIndex) {
         int n = words.size(),ans = INT_MAX;
