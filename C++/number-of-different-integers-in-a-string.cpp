@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-different-integers-in-a-string/
+    //article https://leetcode.com/problems/number-of-different-integers-in-a-string/discuss/2950232/C%2B%2B-or-O(N)
 public:
     int numDifferentIntegers(string word) {
         int n = word.length();
