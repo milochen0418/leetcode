@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sum-of-distances-in-tree
+    //article https://leetcode.com/problems/sum-of-distances-in-tree/discuss/2950873/C%2B%2B-or-two-DFS-or-explanation
 public:
     unordered_map<int,vector<int>> mp;
     int n;
