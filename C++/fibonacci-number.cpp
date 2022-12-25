@@ -3,14 +3,15 @@ class Solution {
 public:
     vector<int> dp;
     int fib(int n) {
-        dp = vector<int>(n+2,-1);
-        dp[0] = 0;
-        dp[1] = 1;
+        dp = vector<int>(n+1,-1);
         return sol(n);
     }
-    int sol(int n ){
-        if(dp[n] != -1 ) return dp[n];
-        dp[n] = sol(n-1) + sol(n-2);
+    int sol(int n) {
+        if(dp[n] != -1) return dp[n];
+        if(n<=1)
+            dp[n]=n;
+        else
+            dp[n] = sol(n-1) + sol(n-2);
         return dp[n];
     }
 };
