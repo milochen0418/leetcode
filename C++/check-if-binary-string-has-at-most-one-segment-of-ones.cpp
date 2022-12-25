@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones
+    //article https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/discuss/2950291/C%2B%2B-or-easy-time-O(N)-space-O(1)
 public:
     bool checkOnesSegment(string s) {
         string ss;
