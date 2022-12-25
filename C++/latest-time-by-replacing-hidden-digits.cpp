@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/latest-time-by-replacing-hidden-digits
+    //article https://leetcode.com/problems/latest-time-by-replacing-hidden-digits/discuss/2950549/C%2B%2B-or-100-faster
 public:
     string& maximumTime(string &time) {
         string &s= time;
