@@ -2,11 +2,13 @@ class Solution {
     //https://leetcode.com/problems/minimum-cost-to-connect-sticks/
 public:
     int connectSticks(vector<int>& sticks) {
-        int n = sticks.size(),ans = 0;;
-        sort(sticks.begin(), sticks.end());
-        for(int i = 1;i<n;i++) {
-            sticks[i] = sticks[i-1]+sticks[i];
-            ans+=sticks[i];
+        vector<int>& A = sticks;
+        int ans=0;
+        while(A.size()>1) {
+            sort(A.begin(), A.end(),greater<int>());
+            A[A.size()-2] += A.back();
+            ans+=A[A.size()-2];
+            A.pop_back();
         }
         return ans;
     }
