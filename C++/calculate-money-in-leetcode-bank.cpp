@@ -1,7 +1,14 @@
 class Solution {
     //https://leetcode.com/problems/calculate-money-in-leetcode-bank
 public:
+    const vector<int> pre = {1,3,6,10,15,21,28};
     int totalMoney(int n) {
+        int q = (n-1)/7;
+        int r = (n-1)%7;
+        return (q*28 + 7*((q*q-q)/2)) + ((r+1)*(q) + pre[r]);
+    }
+
+    int totalMoney_v02(int n) {
         const vector<int> prefix_v = {1,3,6,10,15,21,28};
         n-=1;
         int ans = 0, i = 0;
