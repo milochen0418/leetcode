@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-cost-to-connect-sticks/
+    //article https://leetcode.com/problems/minimum-cost-to-connect-sticks/discuss/2951870/C%2B%2B-or-2-approach-sorting-priority-queue
 public:
     int connectSticks(vector<int>& sticks) {
         int ans = 0;
