@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-units-on-a-truck
+    //article https://leetcode.com/problems/maximum-units-on-a-truck/discuss/2954689/C%2B%2B-or-simulate-approach-with-sorting
 public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
         int total = truckSize;
