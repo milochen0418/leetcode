@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/calculate-money-in-leetcode-bank
+    //article https://leetcode.com/problems/calculate-money-in-leetcode-bank/discuss/2952705/C%2B%2B-or-two-approach-or-Math-O(1)-or-Array-O(logN)
 public:
     const vector<int> pre = {1,3,6,10,15,21,28};
     int totalMoney(int n) {
