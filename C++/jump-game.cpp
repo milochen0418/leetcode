@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/jump-game
+    //article https://leetcode.com/problems/jump-game/discuss/2951627/C%2B%2B-or-from-backtracking-(TLE)-to-DP
 public:
     vector<int> dp;
     bool canJump(vector<int>& nums) {
