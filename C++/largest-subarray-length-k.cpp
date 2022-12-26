@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/largest-subarray-length-k/
-    //article https://leetcode.com/problems/largest-subarray-length-k/discuss/2954751/C%2B%2B-or-O(N*Log(N))-by-priority_queue-and-hash-map
+    //article https://leetcode.com/problems/largest-subarray-length-k/discuss/2954751/C%2B%2B-or-O(N*Log(N))-solution-and-O(N)-solution
 public:
     vector<int> largestSubarray(vector<int>& nums, int k) {//O(N)
         vector<int> ans;
