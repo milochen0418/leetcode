@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks
-    //article https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/discuss/2955633/C%2B%2B-or-sort-or-TC-O(N)-SC-O(1)
+    //article https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/discuss/2955633/C%2B%2B-or-sort-simple-9-lines-or-TC-O(N)-SC-O(1)
 public:
     int maximumBags(vector<int>& capacity, vector<int>& rocks, int additionalRocks) {
         int n = rocks.size();
