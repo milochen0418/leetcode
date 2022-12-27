@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reformat-phone-number/
+    //article https://leetcode.com/problems/reformat-phone-number/discuss/2957291/C%2B%2B-or-O(N)-time-to-finish-it-by-constant-stack's-operation
 public:
     string reformatNumber(string number) {
         string s, ans;
@@ -88,5 +89,5 @@ public:
 12 "123-456-789-012"
 13 "123-456-789-01-23"
 14 "123-456-789-012-34"
-
+*/
   
