@@ -11,35 +11,44 @@ public:
             if(detect_4pattern(ans)) {
                 //4pattern is like "?1234"
                 //so, we want "?12-34"
-                //convert abcd. -> ab-cd
-                char d = ans.back(); ans.pop_back();
-                char c = ans.back(); ans.pop_back();
-                ans.push_back('-'); //pop back '-'
-                ans.push_back(c);
-                ans.push_back(d);
+                //What we do here is converting ?abcd -> ?ab-cd
+                process_4pattern(ans);
             } else if (detect_5pattern(ans)) {
                 //5pattern is like "?12-345"
                 //so, we want "?123-45"
-                // convert ab-cde -> abc-de
-                char e = ans.back(); ans.pop_back();
-                char d = ans.back(); ans.pop_back();
-                char c = ans.back(); ans.pop_back();
-                ans.pop_back(); //pop back '-'
-                ans.push_back(c);
-                ans.push_back('-');
-                ans.push_back(d);
-                ans.push_back(e);
+                //What we do here is converting ?ab-cde -> ?abc-de
+                process_5pattern(ans);
             }        
         }
         return ans;
         
     }
+    void process_4pattern(string &ans) {
+        //converting ?abcd -> ?ab-cd
+        char d = ans.back(); ans.pop_back();
+        char c = ans.back(); ans.pop_back();
+        ans.push_back('-'); //pop back '-'
+        ans.push_back(c);
+        ans.push_back(d);
+    }
+    void process_5pattern(string &ans) {
+        //converting ?ab-cde -> ?abc-de
+        char e = ans.back(); ans.pop_back();
+        char d = ans.back(); ans.pop_back();
+        char c = ans.back(); ans.pop_back();
+        ans.pop_back(); //pop back '-'
+        ans.push_back(c);
+        ans.push_back('-');
+        ans.push_back(d);
+        ans.push_back(e);
+    }
+    
     bool is_digit(int idx, string &s) {
         if(idx<0) return false;
         return '0'<=s[idx] && s[idx]<='9';
     }
     bool detect_4pattern(string& s) {
-        //4pattern is like "?1234"
+        //The function detect "?1234"
         int n = s.length();
         if(n<4) return false;
         return 
@@ -50,7 +59,7 @@ public:
             !is_digit(n-5,s);
     }
     bool detect_5pattern(string& s) {
-        //5pattern is like "?12-345"
+        //The functon detect "?12-345"
         int n = s.length();
         if(n<6) return false;
         return 
@@ -64,6 +73,7 @@ public:
     }
     
 };
+
 /*
  2 "12" 
  3 "123"
