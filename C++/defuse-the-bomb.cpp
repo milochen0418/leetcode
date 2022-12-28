@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/defuse-the-bomb
+    //article https://leetcode.com/problems/defuse-the-bomb/discuss/2962790/C%2B%2B-easy-8-lines
 public:
     vector<int> decrypt(vector<int>& code, int k) {
         if(k<0) reverse(code.begin(), code.end()) ;
