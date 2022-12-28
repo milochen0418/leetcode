@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-array-formation-through-concatenation
+    //article https://leetcode.com/problems/check-array-formation-through-concatenation/discuss/2962925/C%2B%2B-or-90-faster-TC%3A-O(N)-SC%3AO(N)
 public:
     bool canFormArray(vector<int>& arr, vector<vector<int>>& pieces) {
         int n = 0;
