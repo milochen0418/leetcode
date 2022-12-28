@@ -20,4 +20,19 @@ public:
             dp[i] = min(cost[i-2]+sol(i-2), cost[i-1]+sol(i-1));
         return dp[i];
     }
+    /*
+    int minCostClimbingStairs(vector<int>& cost) {
+        pCost = &cost;
+        int n = cost.size();
+        dp = vector<int>(n+1, -1);
+        return sol(n); 
+        
+    }
+    int sol(int i) {
+        if(dp[i]!=-1)return dp[i];
+        vector<int>& cost=*pCost;        
+        return dp[i]=i>1?min(cost[i-2]+sol(i-2), cost[i-1]+sol(i-1)):0;
+    }
+
+    */
 };
