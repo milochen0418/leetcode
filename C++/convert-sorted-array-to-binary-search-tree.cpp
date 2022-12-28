@@ -17,6 +17,6 @@ public:
     }
     TreeNode* dfs(vector<int>& A,int L, int R) {
         int M = L+(R-L)/2;
-        return new TreeNode(A[M],L<=M-1?dfs(A,L,M-1):0, M+1<=R?dfs(A,M+1,R):0);
+        return L>R?nullptr:new TreeNode(A[M], dfs(A,L,M-1), dfs(A,M+1,R));
     }
 };
