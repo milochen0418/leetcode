@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-repeating-substring
+    //article https://leetcode.com/problems/maximum-repeating-substring/discuss/2961354/C%2B%2B-or-find-all-word-first
 public:
     int maxRepeating(string sequence, string word) {
         int maxk = 0, k = 0, i = 0, n = word.length();
