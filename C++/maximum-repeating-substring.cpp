@@ -20,7 +20,10 @@ public:
         for(auto &i:v) {
             int j=i;
             k = 0;
-            while(s.find(j) != s.end()) j=i+(n*++k);
+            while(s.find(j) != s.end()) {
+                s.erase(j);
+                j=i+(n*++k);
+            }
             maxk = max(maxk, k);
         }
         return maxk;        
