@@ -2,19 +2,22 @@ class Solution {
     //https://leetcode.com/problems/min-cost-climbing-stairs
     //article https://leetcode.com/problems/min-cost-climbing-stairs/discuss/2197248/C%2B%2B-or-top-down-dynamic-programming-or-explanation
 public:
+    vector<int>* pCost;
     vector<int> dp;
-    vector<int> cost; 
-    int minCostClimbingStairs(vector<int>& a) {
-        cost = a;
+    int minCostClimbingStairs(vector<int>& cost) {
+        pCost = &cost;
         int n = cost.size();
-        dp = vector<int>(n+2,-1);
-        dp[n] = 0;
-        dp[n+1] = 0;
-        return min(sol(0), sol(1));
+        dp = vector<int>(n+1, -1);
+        dp[0] = dp[1] = 0;
+        return sol(n);    
     }
     int sol(int i) {
-        if(dp[i] != -1) return dp[i];
-        dp[i] = min(cost[i]+sol(i+1), cost[i] + sol(i+2));
+        if(dp[i]!=-1)return dp[i];
+        vector<int>& cost=*pCost;
+        if(i<=1) 
+            dp[i]=0;
+        else 
+            dp[i] = min(cost[i-2]+sol(i-2), cost[i-1]+sol(i-1));
         return dp[i];
     }
 };
