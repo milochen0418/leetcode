@@ -1,5 +1,6 @@
 class TwoSum {
-    //two-sum-iii-data-structure-design
+    //https://leetcode.com/problems/two-sum-iii-data-structure-design
+    //article https://leetcode.com/problems/two-sum-iii-data-structure-design/discuss/2963424/C%2B%2B-or-O(1)-find
 public:
     unordered_set<int> twosum_set;
     unordered_set<int> s;
