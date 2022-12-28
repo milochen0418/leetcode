@@ -3,26 +3,27 @@ class Solution {
 public:
     int maxRepeating(string sequence, string word) {
         int maxk = 0, k = 0, i = 0, n = word.length();
+        vector<int> v; //save all start index of every substring that equal to word 
+        unordered_set<int> s;
         for(int j = 0;j<sequence.length();j++) {
             char c = sequence[j];
-            if(c==word[i]) {
-                i=i+1;
+            if(c==word[0]) {
+                int i = 0;
+                while(i<n && sequence[j+i]==word[i])i++;
                 if(i==n) {
-                    k+=1;
-                    maxk=max(maxk,k);
-                    i=0;
+                    v.push_back(j);
+                    s.insert(j);
                 }
-            } else {
-
-                if(k>1) 
-                    j-=n+1;
-                else if(i>0) 
-                    j-=1;                
-                i=0;
-                k=0;
-            }            
+            }
         }
-        return maxk;
+        
+        for(auto &i:v) {
+            int j=i;
+            k = 0;
+            while(s.find(j) != s.end()) j=i+(n*++k);
+            maxk = max(maxk, k);
+        }
+        return maxk;        
     }
 };
 
