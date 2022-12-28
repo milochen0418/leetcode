@@ -1,5 +1,5 @@
 class Solution {
-    //https://leetcode.com/problems/get-maximum-in-generated-array
+    //https://leetcode.com/problems/get-maximum-in-generated-array 
     //article https://leetcode.com/problems/get-maximum-in-generated-array/discuss/2962836/C%2B%2B-or-DP-or-TC%3AO(N)-SC%3AO(N)
 public:
     vector<int> dp;
