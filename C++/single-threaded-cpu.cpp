@@ -11,7 +11,9 @@ public:
             else
                 return lhs[0]<rhs[0];
         });
-
+        printf("sorted tasks = ");
+        for(auto &t:tasks)printf("[%d,%d,%d], ", t[0],t[1],t[2]);
+        printf("\n");
         function<bool(vector<int>&, vector<int>&)> comp = [&]( vector<int>& lhs, vector<int>& rhs) { 
             if(lhs[1] == rhs[1]) 
                 return lhs[2] > rhs[2];
@@ -31,6 +33,7 @@ public:
                 minQ.push(tasks[curr_time_idx++]);
             }
             if(minQ.empty() && curr_time_idx<tasks.size()) {
+                curr_time=tasks[curr_time_idx][0];
                 printf("minQ.push(tasks[curr_time_idx=%d]) as curr_time = %d\n", curr_time_idx, curr_time);
                 minQ.push(tasks[curr_time_idx++]);
             }
@@ -40,6 +43,7 @@ public:
                 minQ.pop();
                 ans.push_back(task[2]);
                 curr_time += task[1];
+                printf("curr_time = %d\n", curr_time);
             }
         } while(!minQ.empty() || curr_time_idx<tasks.size());
         
