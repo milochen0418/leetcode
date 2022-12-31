@@ -1,4 +1,6 @@
 class FirstUnique {
+    //https://leetcode.com/problems/first-unique-number
+    //article https://leetcode.com/problems/first-unique-number/discuss/2975430/C%2B%2B-or-queue-%2B-hashmap-or-explanation
 public:
     unordered_map<int,int> mp_cnt;//value to counter of the appearing of it.
     queue<int> q;
