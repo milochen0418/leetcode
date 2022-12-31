@@ -9,6 +9,8 @@
  */
 
 class Solution {
+    //https://leetcode.com/problems/leftmost-column-with-at-least-a-one
+    //article https://leetcode.com/problems/leftmost-column-with-at-least-a-one/discuss/2974929/C%2B%2B-or-solve-step-by-step
 public:
     int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
         int m = binaryMatrix.dimensions()[0];
