@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/word-pattern/
+    //article https://leetcode.com/problems/word-pattern/discuss/2981633/C%2B%2B-or-TC%3AO(N)-by-Hash-Set
 public:
     bool wordPattern(string pattern, string s) {
         unordered_set<string> ss;
