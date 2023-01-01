@@ -23,6 +23,13 @@ int main()
         minv = min(minv, primegaps[i]);
         //printf("%d", i%10);
         char c = 35+(primegaps[i]/2);
+        int b = (int)((c-35)*2);
+        b = b==0?1:b;
+        //if(i>=1 && b!=primegaps[i]) {
+        if(b!=primegaps[i]) {
+            printf("\n\nStop early\n\n");
+            return 0;
+        }
         printf("%c", c);
     }
     printf("\";\n\n");
