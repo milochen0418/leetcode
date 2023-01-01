@@ -1,51 +1,65 @@
 class Solution {
     //https://leetcode.com/problems/closest-prime-numbers-in-range/
 public:
-    vector<int> closestPrimes(int left, int right) {
-        //int n = right;
-        int n = right;
-        set<int> primes;
-        set<int> primess;
-        for(int i = 2;i<=n;i++) primes.insert(i);
-        
-        int prev_min_p = -1;
-        int min_gap = INT_MAX;
-        vector<int> ans={-1,-1};
-        
-        while(1) {
-            int min_p = findMin(primes);
-            if(min_p==-1) break;
-            //primess.insert(min_p);
-            for(int i = min_p; i <= n; i+=min_p) primes.erase(i);
-            
-            
-            if(prev_min_p>=left) {
-                int gap = min_p - prev_min_p;
-                if(gap < min_gap) {
-                    min_gap = gap;
-                    ans[0]=prev_min_p;
-                    ans[1]=min_p;
-                    printf("new gap found %d,%d\n", ans[0], ans[1]);
-                }
-                if(min_gap==2) return ans;
-            }
-            prev_min_p = min_p;            
-        }
+    
+    #define printf(...) empty_printf(__VA_ARGS__)
+    void empty_printf(const char *fmt, ...) {
         /*
-        printf("primess = ");
-        for(auto &i:primess) printf("%d,",i);
-        printf("\n");
+        va_list args;
+        va_start(args, fmt);
+        vprintf(fmt, args);
+        va_end(args);
         */
-        if(min_gap == -1) return vector<int>{-1,-1};        
-        return ans;
-
     }
     
-    int findMin(set<int> my_set) {
-        int min_element=-1;
-        if (!my_set.empty())
-            min_element = *my_set.begin();
-        return min_element;
+    vector<int> closestPrimes(int left, int right) {
+        vector<int> is_primes = vector<int>(right+1,1);
+        vector<int> primes=vector<int>(), ans=vector<int>(2,INT_MAX);
+        is_primes[0] = is_primes[1] = 0;
+        for(int i = 2;i<=right;i++) {
+            if(is_primes[i]==1) {
+                for(int j = i+i;j<=right;j+=i) {
+                    is_primes[j] = 0;
+                }                
+            }
+        }
+        
+        int min_gap = INT_MAX;
+        
+        printf("primes = ");
+        //for(int i = 2;i<=right;i++) {
+        for(int i = left;i<=right;i++) {        
+            if(is_primes[i]==1) {
+                printf("%d,",i);
+                
+                if(primes.size()>0) {
+                    int gap = i - primes.back();
+                    if(gap<min_gap) {
+                        printf("gap<min_gap, gap = %d, min_gap = %d\n", gap, min_gap);
+                        min_gap = gap;
+                        ans[0] = primes.back();
+                        ans[1] = i;
+                        if(min_gap==2) return ans;
+                    }
+                }
+                primes.push_back(i);
+            }
+        }
+        
+        
+        printf("\n");
+        if(ans[0]!=-1)return ans;
+        
+        return vector<int>{-1,-1};            
     }
- 
 };
+
+/*
+Error Testcase
+
+[4,6]
+Output: [2147483647,2147483647]
+Expected:[-1,-1]
+
+
+*/
