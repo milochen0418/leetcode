@@ -33,6 +33,12 @@ public:
         return ans;
     }
 
+    int decode(const char &c) {
+        int b = (int)((c-35)*2);
+        b = b==0?1:b;
+        return b;
+    }
+
 
     vector<int> closestPrimes_v04(int left, int right) {
         vector<int> is_primes = vector<int>(right+1,1);
