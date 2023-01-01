@@ -1,7 +1,6 @@
 class Solution {
-    //https://leetcode.com/problems/closest-prime-numbers-in-range/
+    //https://leetcode.com/problems/closest-prime-numbers-in-range/submissions/
 public:
-    
     #define printf(...) empty_printf(__VA_ARGS__)
     void empty_printf(const char *fmt, ...) {
         /*
@@ -13,6 +12,7 @@ public:
     }
     
     vector<int> closestPrimes(int left, int right) {
+        //vector<int> is_primes = vector<int>(right+1,1);
         vector<int> is_primes = vector<int>(right+1,1);
         vector<int> primes=vector<int>(), ans=vector<int>(2,-1);
         is_primes[0] = is_primes[1] = 0;
@@ -44,6 +44,6 @@ public:
         }
         printf("\n");
         if(ans[0]!=-1)return ans;
-        return vector<int>{-1,-1};=
+        return vector<int>{-1,-1};
     }
 };
