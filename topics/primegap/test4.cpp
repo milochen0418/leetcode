@@ -31,6 +31,7 @@ int main()
             return 0;
         }
         printf("%c", c);
+        if(c=='\\') printf("%c",c);
     }
     printf("\";\n\n");
     printf("minV = %d, maxV=%d\n", minv, maxv);
