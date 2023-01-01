@@ -14,7 +14,7 @@ public:
     
     vector<int> closestPrimes(int left, int right) {
         vector<int> is_primes = vector<int>(right+1,1);
-        vector<int> primes=vector<int>(), ans=vector<int>(2,INT_MAX);
+        vector<int> primes=vector<int>(), ans=vector<int>(2,-1);
         is_primes[0] = is_primes[1] = 0;
         for(int i = 2;i<=right;i++) {
             if(is_primes[i]==1) {
@@ -23,15 +23,12 @@ public:
                 }                
             }
         }
-        
         int min_gap = INT_MAX;
         
         printf("primes = ");
-        //for(int i = 2;i<=right;i++) {
         for(int i = left;i<=right;i++) {        
             if(is_primes[i]==1) {
                 printf("%d,",i);
-                
                 if(primes.size()>0) {
                     int gap = i - primes.back();
                     if(gap<min_gap) {
@@ -45,21 +42,8 @@ public:
                 primes.push_back(i);
             }
         }
-        
-        
         printf("\n");
         if(ans[0]!=-1)return ans;
-        
-        return vector<int>{-1,-1};            
+        return vector<int>{-1,-1};=
     }
 };
-
-/*
-Error Testcase
-
-[4,6]
-Output: [2147483647,2147483647]
-Expected:[-1,-1]
-
-
-*/
