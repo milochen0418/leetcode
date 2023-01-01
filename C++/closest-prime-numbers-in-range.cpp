@@ -1,5 +1,7 @@
 class Solution {
-    //https://leetcode.com/problems/closest-prime-numbers-in-range/submissions/
+    //https://leetcode.com/problems/closest-prime-numbers-in-range/
+    //article https://leetcode.com/problems/closest-prime-numbers-in-range/discuss/2981354/C%2B%2B-or-prime-gap-%2B-pre-built-or-O(N-logN)-100-faster-or-less-than-10ms
+    
 public:
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)
