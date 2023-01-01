@@ -2,6 +2,29 @@ class Solution {
     //https://leetcode.com/problems/word-pattern/
 public:
     bool wordPattern(string pattern, string s) {
+        unordered_set<string> ss;
+        int n = s.length(),j = 0;
+        vector<string> vs =vector<string>(256,"");
+        string w="";
+        for(int i=0;i<n;i++) {
+            w.push_back(s[i]);
+            if(i+1>=n || s[i+1]==' ') {
+                if(vs[pattern[j]]=="") {
+                    if(ss.find(w) != ss.end()) return false;
+                    vs[pattern[j]] = w;
+                    ss.insert(w);
+                } else {
+                    if(vs[pattern[j]] != w) return false;
+                }
+                w="";
+                j++,i++;
+            } 
+        }
+        if(j<(int)pattern.size()) return false;
+        return true;
+    }
+
+    bool wordPattern_v01(string pattern, string s) {
         
         /*split s into strs vector<string> by ' '*/
         vector<string> strs; 
