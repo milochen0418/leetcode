@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/slowest-key
+    //article https://leetcode.com/problems/slowest-key/discuss/2986006/C%2B%2B-One-Pass-O(N)
 public:
     char slowestKey(vector<int>& releaseTimes, string keysPressed) {
         int n = keysPressed.length();
