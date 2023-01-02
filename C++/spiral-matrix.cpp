@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/spiral-matrix
+    //article https://leetcode.com/problems/spiral-matrix/discuss/2987227/C%2B%2B-One-Pass-Simulation-or-explanation
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
