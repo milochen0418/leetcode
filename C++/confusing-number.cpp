@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/confusing-number
+    //article https://leetcode.com/problems/confusing-number/discuss/2983958/C%2B%2B-1-Pass
 public:
     bool confusingNumber(int n) {
         //After rorate 180 degree for the n to get m. if m is number and m!=n, 
