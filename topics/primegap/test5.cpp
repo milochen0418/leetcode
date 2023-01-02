@@ -23,7 +23,8 @@ int main()
 
     //figure out the maximum distance of prime gap 
     vector<vector<int>> mp = vector<vector<int>>(256,vector<int>()); 
-    vector<int> mp_max_dist = vector<int>(256,0); 
+    vector<int> mp_max_dist = vector<int>(256,0); //index distance of primegap
+    vector<int> mp_max_pdist = vector<int>(256,0); //real distance of two prime
     vector<int> mp_min_dist = vector<int>(256,100000); 
     vector<float> mp_avg_dist = vector<float>(256,0.0f);
     for(int i = 0;i<primegaps.size();i++) {
@@ -37,6 +38,7 @@ int main()
     }
     for(int i = 0;i<256;i++) {
         ull sum_dist = 0;
+        //figure out avg index distance
         if(mp[i].size()>=2) {
             //for(auto &val:mp[i])sum_dist+=val;
             for(int j =1;j<mp[i].size();j++) {
@@ -45,11 +47,23 @@ int main()
             double avg_double = sum_dist / mp[i].size()-1;
             mp_avg_dist[i] = (float) avg_double;
         }
+        //figure out prime distance
+        if(mp[i].size()>=2) {
+            
+            for(int j =1;j<mp[i].size();j++) {
+                int sum = 0;
+                int lidx = mp[i][j-1];
+                int ridx = mp[i][j]; 
+                for(int idx=lidx;idx<=ridx;idx++) sum+=primegaps[idx];
+                mp_max_pdist[i] = max(mp_max_pdist[i], sum);
+            }
+        }
+
     }
     for(int i = 0;i<256;i++) {
         //prime gap only >=2 for all prime>=3
         if(i%2==0)
-            printf("%3d:repeat=%5d, max_dist=%5d, min_dist=%5d, avg_dist=%5.0f\n", i, (int)mp[i].size(), mp_max_dist[i],  mp_min_dist[i]==100000?-1:mp_min_dist[i], mp_avg_dist[i]);
+            printf("%3d:repeat=%5d, max_dist=%5d, min_dist=%5d, avg_dist=%5.0f, max_pdist=%5d\n", i, (int)mp[i].size(), mp_max_dist[i],  mp_min_dist[i]==100000?-1:mp_min_dist[i], mp_avg_dist[i], mp_max_pdist[i]);
     }
 
 
