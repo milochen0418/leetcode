@@ -1,8 +1,14 @@
 class Solution {
     //https://leetcode.com/problems/detect-capital
     //Article https://leetcode.com/problems/detect-capital/discuss/1714403/C%2B%2B-or-O(N)
+    //article https://leetcode.com/problems/detect-capital/discuss/2983807/C%2B%2B-1-Pass-O(N)-with-explanation
 public:
     bool detectCapitalUse(string word) {
+        int cnt = 0,n=word.length();
+        for(auto &c:word) if('A'<=c && c<='Z') cnt++;
+        return cnt==0 || cnt==n || (cnt==1 && word[0]<='Z');
+    }
+    bool detectCapitalUse_v01(string word) {
         const char* str = word.c_str();
         int i = 0;
         bool shouldAllLowerCase = false;
