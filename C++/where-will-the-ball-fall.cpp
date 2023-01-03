@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/where-will-the-ball-fall
-    //article https://leetcode.com/problems/where-will-the-ball-fall/discuss/2988343/C%2B%2B-O(N*M)
+    //article https://leetcode.com/problems/where-will-the-ball-fall/discuss/2988343/C%2B%2B-O(N*M)-simulation
 public:
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)
