@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/special-positions-in-a-binary-matrix
+    //article https://leetcode.com/problems/special-positions-in-a-binary-matrix/discuss/2998607/C%2B%2B-Two-Pass-O(M*N)
 public:
     int numSpecial(vector<vector<int>>& mat) {
         int m = mat.size(), n = mat[0].size();
