@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters
+    //article https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/discuss/2998747/C%2B%2B-One-Pass
 public:
     string modifyString(string s) {
         int n = s.length();
