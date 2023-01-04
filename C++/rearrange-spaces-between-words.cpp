@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/rearrange-spaces-between-words
+    //article https://leetcode.com/problems/rearrange-spaces-between-words/discuss/2998539/C%2B%2B-Two-Pass-or-explanation
 public:
     string reorderSpaces(string text) {
         int n=text.length(), space_cnt=0;//cnt of space
