@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times
+    //article https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/discuss/2998935/C%2B%2B-TC%3AO(N2)-SC%3AO(1)
 public:
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)
