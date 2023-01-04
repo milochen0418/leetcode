@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks
+    //article https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/discuss/2994957/C%2B%2B-Hash-Map-or-explanation
 public:
     int minimumRounds(vector<int>& tasks) {
         //Observation
