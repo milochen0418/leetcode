@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/water-bottles/
+    //article https://leetcode.com/problems/water-bottles/discuss/3002181/C%2B%2B-One-Pass-simulation
 public:
     int numWaterBottles(int numBottles, int numExchange) {
         int ans = 0;
