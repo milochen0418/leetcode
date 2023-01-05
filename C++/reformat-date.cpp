@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reformat-date
+    //article https://leetcode.com/problems/reformat-date/discuss/3002289/C%2B%2B-easy
 public:
     string reformatDate(string date) {
         int n = date.length();
@@ -11,10 +12,7 @@ public:
             "01","02","03","04","05","06",
             "07","08","09","10","11","12"
         };
-        
-        
-        char buff[10];
-        
+        char buff[10];        
         string ans;
         string s;
         int cnt=0;
@@ -32,7 +30,6 @@ public:
                 } else if(cnt==1) {
                     for(int j=0;j<mon_old.size();j++) {
                         if(mon_old[j]==s) {
-                            //ans.append(mon_new[j]);
                             ans = mon_new[j] + "-" + ans;
                             break;
                         }
@@ -43,17 +40,13 @@ public:
                         if('0'<=s[j] && s[j]<='9') 
                             year=year*10+s[j]-'0';
                     sprintf(buff,"%04d\0", year);
-                    //ans.append(string(buff));
                     ans = string(buff) + "-" + ans;
                     return ans;
                 }
-                
                 s="";
                 cnt++;
-            } 
-                
+            }      
         }
         return ans;
-        
     }
 };
