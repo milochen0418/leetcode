@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop
+    //article https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/discuss/3002864/C%2B%2B-or-O(N)-Monotonic-Stack
 public:
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)
