@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/most-visited-sector-in-a-circular-track
+    //article https://leetcode.com/problems/most-visited-sector-in-a-circular-track/discuss/3001604/C%2B%2B-or-One-Pass
 public:
     vector<int> mostVisited(int n, vector<int>& rounds) {
         vector<int>ans;
