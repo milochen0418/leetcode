@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/rank-transform-of-an-array
+    //article https://leetcode.com/problems/rank-transform-of-an-array/discuss/3009503/C%2B%2B-Hash-Map
 public:
     vector<int>& arrayRankTransform(vector<int>& arr) {
         unordered_set<int> s;
