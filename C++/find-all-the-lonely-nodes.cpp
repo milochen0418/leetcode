@@ -11,9 +11,9 @@
  */
 class Solution {
     //https://leetcode.com/problems/find-all-the-lonely-nodes
+    //article https://leetcode.com/problems/find-all-the-lonely-nodes/discuss/3009566/C%2B%2B-DFS
 public:
     vector<int> ans;
-    int root_val;
     vector<int>& getLonelyNodes(TreeNode* root) {
         dfs(root);
         return ans;
