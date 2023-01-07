@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/maximum-ice-cream-bars
     //Study Counting Sort https://leetcode.com/explore/learn/card/sorting/695/non-comparison-based-sorts/4437/
+    //article https://leetcode.com/problems/maximum-ice-cream-bars/discuss/3011618/C%2B%2B-or-3-approach-(sort-priority-queue-counting)
 public:
     typedef long long ll;
     int maxIceCream(vector<int>& costs, int coins) {
