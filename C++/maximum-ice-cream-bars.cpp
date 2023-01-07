@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-ice-cream-bars
+    //Study Counting Sort https://leetcode.com/explore/learn/card/sorting/695/non-comparison-based-sorts/4437/
 public:
     int maxIceCream(vector<int>& costs, int coins) {
         //sorting
