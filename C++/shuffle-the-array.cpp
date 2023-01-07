@@ -1,4 +1,5 @@
 class Solution {
+    //https://leetcode.com/problems/shuffle-the-array/
 public:
     vector<int> shuffle(vector<int>& nums, int n) {
         vector<int> ans;
@@ -8,6 +9,4 @@ public:
         }
         return ans;
     }
-
-    
 };
