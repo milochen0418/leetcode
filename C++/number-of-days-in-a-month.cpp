@@ -1,7 +1,13 @@
 class Solution {
     //https://leetcode.com/problems/number-of-days-in-a-month
 public:
-    int numberOfDays(int year, int month) {
+    int numberOfDays_v02(int year, int month) {
+        vector<int> days_in_months = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+        if(month==2 && year%4==0 && (year%400==0 || year%100!=0)) return 29;
+        return days_in_months[month];
+    }
+    
+    int numberOfDays_v02(int year, int month) {
         vector<int> days_in_months = {0,31,28,31,30,31,30,31,31,30,31,30,31};
                                       // 1     3     5     7  8    10    12
         if(month==2){
