@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence
+    //article https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/discuss/3020432/C%2B%2B-One-Pass-O(N)-with-SC%3AO(1)
 public:
     int isPrefixOfWord(string sentence, string searchWord) {
         int n = sentence.length(), m = searchWord.length(), idx=1,j=0;
