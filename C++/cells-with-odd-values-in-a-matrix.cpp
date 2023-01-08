@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/cells-with-odd-values-in-a-matrix
+    //article https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/discuss/3020762/C%2B%2B-easy-solution-with-complexity
 public:
     int oddCells(int m, int n, vector<vector<int>>& indices) {
         int ans =0;
