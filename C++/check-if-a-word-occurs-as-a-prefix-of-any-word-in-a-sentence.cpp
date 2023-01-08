@@ -7,12 +7,9 @@ public:
             if(sentence[i]==' ') {
                 idx++;
                 j=0;
-                i++;
-                continue;
             } else {
-                if(sentence[i]==searchWord[j]) {
-                    if(j==m-1) return idx;
-                    j++;
+                if(sentence[i]==searchWord[j++]) {
+                    if(j==m) return idx;
                 } else {
                     while(i+1<n && sentence[i+1]!=' ')i++;
                 }
