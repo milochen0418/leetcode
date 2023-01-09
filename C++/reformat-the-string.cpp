@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reformat-the-string
+    //article https://leetcode.com/problems/reformat-the-string/discuss/3024492/C%2B%2B-Two-Pass-O(N)-6-lines
 public:
     string reformat(string s) {
         string A,B;
