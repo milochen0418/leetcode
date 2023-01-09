@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number
+    //article https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/discuss/3026126/C%2B%2B-Counting-Sort-O(N)
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         int n = nums.size();
