@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-all-1s-are-at-least-length-k-places-away
+    //article https://leetcode.com/problems/check-if-all-1s-are-at-least-length-k-places-away/discuss/3023639/C%2B%2B-one-pass-10-lines
 public:
     bool kLengthApart(vector<int>& nums, int k) {
         int n = nums.size(), prev_i=-1*(1e5+1);
