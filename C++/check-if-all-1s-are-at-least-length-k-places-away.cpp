@@ -2,6 +2,18 @@ class Solution {
     //https://leetcode.com/problems/check-if-all-1s-are-at-least-length-k-places-away
 public:
     bool kLengthApart(vector<int>& nums, int k) {
+        int n = nums.size(), prev_i=-1*(1e5+1);
+        for(int i=0;i<n;i++) {        
+            if(nums[i]==1) {
+                int len = i-prev_i-1;
+                if(len<k) return false;                    
+                prev_i=i;
+            }
+        }
+        return true;
+    }
+
+    bool kLengthApart_v02(vector<int>& nums, int k) {
         int n = nums.size(), i=0;
         int prev_i=-1;
         for(i=prev_i+1;i<n;i++) {        
