@@ -1,4 +1,7 @@
 class Solution {
+    //https://leetcode.com/problems/perform-string-shifts
+    //article https://leetcode.com/problems/perform-string-shifts/discuss/3024340/C%2B%2B-Two-Pass-7-lines
+    
 public:
     string stringShift(string s, vector<vector<int>>& shift) {
         int shift_val = 0, n = s.length();
