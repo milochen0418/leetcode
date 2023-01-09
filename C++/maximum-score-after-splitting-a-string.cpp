@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-score-after-splitting-a-string
+    //article https://leetcode.com/problems/maximum-score-after-splitting-a-string/discuss/3024443/C%2B%2B-Two-Pass-O(N)-9-lines
 public:
     int maxScore(string s) {
         int n = s.length(), L=0,R=0; 
