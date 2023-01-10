@@ -5,6 +5,16 @@ public:
         int cnt = 0;
         string ans;
         for(auto &c:s) {
+            if(cnt!=(c!='(')) ans.push_back(c);
+            cnt = c=='('?cnt + 1:cnt-1;
+        }
+        return ans;
+    }
+
+    string removeOuterParentheses_v01(string s) {
+        int cnt = 0;
+        string ans;
+        for(auto &c:s) {
             if(c=='(') {
                 if(cnt!=0) ans.push_back(c);
                 cnt = cnt + 1;
