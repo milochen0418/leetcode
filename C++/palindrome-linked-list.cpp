@@ -17,6 +17,23 @@ public:
         while(node) {
             v.push_back(node->val);
             node=node->next;
+        }        
+        node = head;
+        while(node) {
+            if(node->val != v.back()) return false;
+            v.pop_back();
+            node=node->next;
+        }
+        return true;
+    }
+
+
+    bool isPalindrome_vector(ListNode* head) {
+        ListNode* node = head;
+        vector<int> v;
+        while(node) {
+            v.push_back(node->val);
+            node=node->next;
         }
         int L=0, R=v.size()-1;
         while(L<=R) if(v[L++]!=v[R--])return false;
