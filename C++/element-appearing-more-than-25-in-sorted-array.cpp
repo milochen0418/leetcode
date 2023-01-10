@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array
+    //article https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/discuss/3028211/C%2B%2B-One-Pass-O(N)
 public:
     int findSpecialInteger(vector<int>& arr) {
         int n = arr.size();
