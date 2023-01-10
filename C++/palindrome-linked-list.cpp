@@ -8,8 +8,10 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
 class Solution {
     //https://leetcode.com/problems/palindrome-linked-list
+    //article https://leetcode.com/problems/palindrome-linked-list/discuss/3028630/C%2B%2B-2-approaches-or-stack-and-array
 public:
     bool isPalindrome(ListNode* head) {
         ListNode* node = head;
