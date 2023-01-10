@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/power-of-three
-    //article https://leetcode.com/problems/power-of-three/discuss/3028739/C%2B%2B-One-Pass-O(logN)
+    //article https://leetcode.com/problems/power-of-three/discuss/3028739/C%2B%2B-One-Pass-O(logN) 
 public:
     bool isPowerOfThree(int n) {
         if(n<=0) return false;
