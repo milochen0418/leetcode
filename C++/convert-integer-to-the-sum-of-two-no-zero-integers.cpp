@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers
+    //article https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/discuss/3028076/C%2B%2B-O(NlogN)-brute-force
 public:
     vector<int> getNoZeroIntegers(int n) {
         //O(N) number of loops
