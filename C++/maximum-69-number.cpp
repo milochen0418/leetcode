@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-69-number/
+    //article https://leetcode.com/problems/maximum-69-number/discuss/3027912/C%2B%2B-Stack
 public:
     int maximum69Number (int num) {
         stack<int> s;
