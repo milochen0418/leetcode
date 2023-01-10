@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/increasing-decreasing-string
+    //article https://leetcode.com/problems/increasing-decreasing-string/discuss/3027455/C%2B%2B-counting-approach-O(N)
 public:
     string sortString(string s) {
         string ans;
