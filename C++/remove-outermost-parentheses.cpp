@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/remove-outermost-parentheses
+    //article https://leetcode.com/problems/remove-outermost-parentheses/discuss/3028464/C%2B%2B-One-Pass-O(N)-7-lines
 public:
     string removeOuterParentheses(string s) {
         int cnt = 0;
