@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/missing-number-in-arithmetic-progression
+    //article https://leetcode.com/problems/missing-number-in-arithmetic-progression/discuss/3035309/C%2B%2B-Two-Pass-O(N)
 public:
     int missingNumber(vector<int>& arr) {
         int n = arr.size();
