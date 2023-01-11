@@ -10,6 +10,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/odd-even-linked-list
+    //article https://leetcode.com/problems/odd-even-linked-list/discuss/3034321/C%2B%2B-One-Pass-O(N)
 public:
     ListNode* oddEvenList(ListNode* head) {
         if(!head || !head->next)return head;
