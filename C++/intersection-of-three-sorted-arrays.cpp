@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/intersection-of-three-sorted-arrays
+    //article https://leetcode.com/problems/intersection-of-three-sorted-arrays/discuss/3036226/C%2B%2B-two-pointer
 public:
     vector<int> ans;
     vector<int> arraysIntersection(vector<int>& arr1, vector<int>& arr2, vector<int>& arr3) {
