@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game
-    //article: https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/discuss/3032978/C%2B%2B-One-Pass
+    //article: https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/discuss/3032978/C%2B%2B-One-Pass-O(N)
 public:
     string tictactoe(vector<vector<int>>& moves) {
         vector<vector<int>> rmp = vector<vector<int>>(2, vector<int>(3,0));//column check
