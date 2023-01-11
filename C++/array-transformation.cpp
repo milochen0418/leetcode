@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/array-transformation/
+    //article https://leetcode.com/problems/array-transformation/discuss/3035216/C%2B%2B-simple-solution
 public:
     vector<int> transformArray(vector<int>& arr) {
         vector<int>& A = arr;
