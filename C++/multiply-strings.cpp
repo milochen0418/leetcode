@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/multiply-strings
+    //article https://leetcode.com/problems/multiply-strings/discuss/3033785/C%2B%2B-Simulation
 public:
     string multiply(string num1, string num2) {
         if(num1=="0" || num2=="0")return "0";
