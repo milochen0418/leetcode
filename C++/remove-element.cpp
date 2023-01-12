@@ -3,6 +3,15 @@ class Solution {
     //article https://leetcode.com/problems/remove-element/discuss/1894691/C%2B%2B-or-two-pointer-approach
 public:
     int removeElement(vector<int>& nums, int val) {
+        int cnt = 0, n = nums.size();
+        for(int i = 0; i<n; i++) {
+            nums[i-cnt] = nums[i];
+            if(nums[i] == val) cnt++;
+        }
+        return n-cnt;
+    }
+
+    int removeElement_v02(vector<int>& nums, int val) {
         int n = nums.size();
         if (n==0) return 0;
         int i = 0, j = n-1;
