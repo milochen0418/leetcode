@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/day-of-the-week
+    //article https://leetcode.com/problems/day-of-the-week/discuss/3039876/C%2B%2B-or-Calculate-from-1900-01-01-Monday
 public:
     vector<string> weekdays = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     string dayOfTheWeek(int day, int month, int year) {
