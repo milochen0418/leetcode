@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label
+    //article https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/discuss/3038318/C%2B%2B-DFS-explanation
 public:
     unordered_map<int, vector<int>> mp;
     vector<vector<int>> extend;
