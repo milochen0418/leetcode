@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-health-to-beat-game
+    //article https://leetcode.com/problems/minimum-health-to-beat-game/discuss/3038140/C%2B%2B-One-Pass-O(N)-4-lines
 public:
     long long minimumHealth(vector<int>& damage, int armor) {
         int n = damage.size(), maxv = damage[0], maxi = 0;
@@ -7,7 +8,7 @@ public:
         for(int i = 1;i<n;ans+=damage[i++]) if(damage[i]>maxv) maxv = damage[maxi=i];
         return ans -= min(maxv, armor);
     }
-    
+
     long long minimumHealth_v01(vector<int>& damage, int armor) {
         int maxv = damage[0];
         int maxi = 0;
