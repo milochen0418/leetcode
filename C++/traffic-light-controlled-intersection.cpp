@@ -21,9 +21,9 @@ public:
     }
     
     
-    std::string string_format(const std::string fmt_str, ...) {
+    string string_format(const string fmt_str, ...) {
         int final_n, n = ((int)fmt_str.size()) * 2; /* Reserve two times as much as the length of the fmt_str */
-        std::unique_ptr<char[]> formatted;
+        unique_ptr<char[]> formatted;
         va_list ap;
         while(1) {
             formatted.reset(new char[n]); /* Wrap the plain char array into the unique_ptr */
@@ -36,6 +36,6 @@ public:
             else
                 break;
         }
-        return std::string(formatted.get());
+        return string(formatted.get());
     }    
 };
