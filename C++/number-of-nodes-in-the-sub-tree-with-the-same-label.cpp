@@ -2,6 +2,7 @@ class Solution {
     //https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label
     //article https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/discuss/3038318/C%2B%2B-DFS-explanation
     //FB Post https://www.facebook.com/groups/1451299754892511/posts/6032768313412276/
+    //article https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/discuss/3043090/C%2B%2B-or-time-O(N)-algorithm-to-support-O(N)-label
 public:
     
     unordered_map<int, vector<int>> mp;//mapping vertex to its neighborhoods
