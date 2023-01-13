@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/distance-between-bus-stops
+    //article https://leetcode.com/problems/distance-between-bus-stops/discuss/3043265/C%2B%2B-One-Pass-O(N)
 public:
     int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
         int total = 0, dist = 0, begin = min(start, destination), end = max(start, destination);
