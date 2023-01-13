@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/diet-plan-performance
+    //article https://leetcode.com/problems/diet-plan-performance/discuss/3043693/C%2B%2B-Two-Pass-O(N)-Prefix-Sum
 public:
     int dietPlanPerformance(vector<int>& calories, int k, int lower, int upper) {        
         int ans =0,n = calories.size();
