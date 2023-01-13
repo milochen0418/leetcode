@@ -13,10 +13,15 @@ public:
             m++;
         }
         int sum = 0; 
+        
         for(auto &i:v){
-            int p = 1;
-            for(int j = 0;j<m;j++) p=p*i;
-            sum+=p;
+            //int p = 1;
+            //for(int j = 0;j<m;j++) p=p*i;
+            //sum+=p;
+            
+            //double pow(double x, double y);
+            sum+=(int)(pow(i,m)); 
+            //The speed have no difference by use pow function
         }
         //printf("sum = %d\n",sum);
         return sum == input;            
