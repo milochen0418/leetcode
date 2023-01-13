@@ -3,13 +3,23 @@ class Solution {
 public:
     typedef long long ll;
     const ll mod = 1e9+7;
+    const vector<int> isPrime={0,0,1,1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0
+};
+    
     int numPrimeArrangements(int n) {
+        int cnt_prime=0;
+        for(int i = 1;i<=n;i++) if(isPrime[i]) cnt_prime++;
+        return mul(factorial(cnt_prime), factorial(n-cnt_prime));
+    }
+    
+    int numPrimeArrangements_v02(int n) {
         vector<int> is_prime = vector<int>(101,1);
         int cnt_prime = is_prime[0] = is_prime[1] = 0;
         for(int i = 2;i<=n;i++) if(is_prime[i]) {
             cnt_prime++;
             for(int j = i+i;j<=n;j+=i) is_prime[j] = 0;
-        }     
+        }
+        for(int i = 0;i<=100;i++) printf("%d,",is_prime[i]);
         return mul(factorial(cnt_prime), factorial(n-cnt_prime));
     }
     
