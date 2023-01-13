@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-equivalent-domino-pairs/
+    //article https://leetcode.com/problems/number-of-equivalent-domino-pairs/discuss/3046457/C%2B%2B-or-2-approaches-sorting-hash-map
 public:
     int numEquivDominoPairs(vector<vector<int>>& dominoes) {
         //Time O(N), Space O(N) solution by hash map
