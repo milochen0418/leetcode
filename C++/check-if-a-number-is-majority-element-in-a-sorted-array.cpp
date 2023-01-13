@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array
+    //article https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/discuss/3044563/C%2B%2B-Binary-Search-O(logN)
 public:
     bool isMajorityElement(vector<int>& nums, int target) {
         int n = nums.size();
