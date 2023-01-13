@@ -2,7 +2,19 @@ class Solution {
     //https://leetcode.com/problems/number-of-equivalent-domino-pairs/
 public:
     int numEquivDominoPairs(vector<vector<int>>& dominoes) {
-        //NlogN solution by sorting
+        //Time O(N), Space O(N) solution by hash map
+        int n = dominoes.size(), ans=0;
+        unordered_map<int,int> mp;
+        for(auto &v:dominoes) {
+            if(v[0]>v[1]) swap(v[0],v[1]);
+            mp[v[0]*10+v[1]]++;
+        }
+        for(auto &[k,v]:mp) if(v>=2) ans+=(v*(v-1))/2;
+        return ans;
+    }
+
+    int numEquivDominoPairs_v01(vector<vector<int>>& dominoes) {
+        //Time O(NlogN), Space O(1) solution by sorting
         dominoes.push_back({10,11});
         int n = dominoes.size();
         for(auto &v:dominoes) if(v[0]>v[1]) swap(v[0],v[1]);
