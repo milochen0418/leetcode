@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-common-characters
+    //add article https://leetcode.com/problems/find-common-characters/discuss/3049741/C%2B%2B-Two-Pass-O(N)
 public:
     vector<string> commonChars(vector<string>& words) {
         vector<int> v = vector<int>(26,INT_MAX);
