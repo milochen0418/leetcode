@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree
+    //article https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/discuss/3049682/C%2B%2B-One-Pass-O(N)-BFS
 public:
     int maxLevelSum(TreeNode* root) {
         //BFS
