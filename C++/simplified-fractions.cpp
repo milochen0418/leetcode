@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/simplified-fractions
+    //article https://leetcode.com/problems/simplified-fractions/discuss/3055110/C%2B%2B-GCD-O(N2)-6-lines
 public:
     vector<string> simplifiedFractions(int n) {
         vector<string> ans;
