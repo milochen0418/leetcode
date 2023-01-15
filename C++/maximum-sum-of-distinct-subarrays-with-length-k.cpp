@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/
+    //article https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/discuss/3053545/C%2B%2B-Sliding-Window
 public:
     /*
     [1,5,4,2,9,9,9]  
