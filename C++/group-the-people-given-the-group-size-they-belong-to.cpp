@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to
+    //article https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/discuss/3055208/C%2B%2B-O(N)-array-with-hash-map
 public:
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         unordered_map<int,int> mp;
