@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/increment-submatrices-by-one/
+    //article https://leetcode.com/problems/increment-submatrices-by-one/discuss/3053526/C%2B%2B-Prefix-Sum
 public:
     vector<vector<int>> rangeAddQueries(int n, vector<vector<int>>& queries) {
         //Prefix sum
