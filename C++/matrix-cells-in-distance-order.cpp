@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/matrix-cells-in-distance-order
+    //article https://leetcode.com/problems/matrix-cells-in-distance-order/discuss/3054652/C%2B%2B-Sorting-10-lines
 public:
     vector<vector<int>> allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
         vector<vector<int>> ans;
