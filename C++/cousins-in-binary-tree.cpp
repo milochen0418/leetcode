@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/cousins-in-binary-tree
+    //article https://leetcode.com/problems/cousins-in-binary-tree/discuss/3055070/C%2B%2B-BFS-O(N)
 public:
     bool isCousins(TreeNode* root, int x, int y) {
         queue<TreeNode*> currQ, nextQ;
