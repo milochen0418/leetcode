@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum
+    //article https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/discuss/3057061/C%2B%2B-Prefix-Sum-O(N)
 public:
     bool canThreePartsEqualSum(vector<int>& arr) {
         vector<int>& A = arr;
@@ -15,7 +17,7 @@ public:
         if(R<L) return false;
         return true;
     }
-    
+
     bool canThreePartsEqualSum_v01(vector<int>& arr) {
         vector<int>& A = arr;
         int n = A.size();
