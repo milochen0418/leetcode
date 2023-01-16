@@ -8,7 +8,6 @@ public:
         while(L<R) {
             while(L<n && !is_letter(s[L]))L++;
             while(R>=0 && !is_letter(s[R]))R--;
-            if(R<0 || L>=n) break;
             if(L>=R) break;
             swap(s[L++],s[R--]);
         }
