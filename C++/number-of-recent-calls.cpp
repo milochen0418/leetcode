@@ -1,4 +1,5 @@
 class RecentCounter {
+    //https://leetcode.com/problems/number-of-recent-calls
 public:
     queue<int> q;
     RecentCounter() {
