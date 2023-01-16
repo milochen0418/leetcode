@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/reverse-string-ii
+    //article https://leetcode.com/problems/reverse-string-ii/discuss/3059532/C%2B%2B-One-Pass-O(N)-6-lines
 public:
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)    
