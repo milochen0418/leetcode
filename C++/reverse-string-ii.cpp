@@ -5,6 +5,15 @@ public:
     #define empty_printf(...)    
     string reverseStr(string s, int k) {
         int i = 0,  n = s.length();
+        for(i = 0;  i<n; i+=2*k) { 
+            int L = i, R=i+k>n?n-1:i+k-1;
+            while(L<R) swap(s[L++], s[R--]);                
+        }
+        return s;
+    }
+
+    string reverseStr_v02(string s, int k) {
+        int i = 0,  n = s.length();
         for(i = 0;  i<n; i+=2*k) {            
             if(i+k>n) {
                 printf("remaind case 1\n");
