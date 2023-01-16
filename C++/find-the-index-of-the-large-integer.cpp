@@ -16,6 +16,7 @@
 
 class Solution {
     //https://leetcode.com/problems/find-the-index-of-the-large-integer
+    //article https://leetcode.com/problems/find-the-index-of-the-large-integer/discuss/3057233/C%2B%2B-Binary-Search-O(logN)
 public:
     int getIndex(ArrayReader &reader) {
         int n = reader.length();
