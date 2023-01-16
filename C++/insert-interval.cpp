@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/insert-interval
-    //article https://leetcode.com/problems/insert-interval/discuss/3056773/C%2B%2B-O(N)
+    //article https://leetcode.com/problems/insert-interval/discuss/3056773/C%2B%2B-extending-newInterval-O(N)
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> ans;
