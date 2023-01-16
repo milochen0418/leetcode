@@ -22,6 +22,23 @@ public:
         int L = 0, R=n-1;
         while(L<=R) {
             n=R-L+1;
+            if(L==R) return L;            
+            int M = L+(R-L)/2;
+            int ret = reader.compareSub(L,M-n%2,M+1,R);
+            if(ret == 0) return M;
+            if(ret>0)
+                R=M-n%2;
+            else 
+                L=M+1;
+        }
+        return -1;            
+    }
+
+    int getIndex_v01(ArrayReader &reader) {
+        int n = reader.length();
+        int L = 0, R=n-1;
+        while(L<=R) {
+            n=R-L+1;
             if(L==R) return L;
             if(n%2==1) {
                 int M = L+(R-L)/2;
