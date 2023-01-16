@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/index-pairs-of-a-string
+    //article: https://leetcode.com/problems/index-pairs-of-a-string/discuss/3058631/C%2B%2B-String-find
 public:
     vector<vector<int>> indexPairs(string text, vector<string>& words) {
         vector<vector<int>> ans;
