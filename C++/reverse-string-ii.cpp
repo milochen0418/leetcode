@@ -6,6 +6,23 @@ public:
     string reverseStr(string s, int k) {
         int i = 0,  n = s.length();
         for(i = 0;  i<n; i+=2*k) {            
+            if(i+k>n) {
+                printf("remaind case 1\n");
+                //If there are fewer than k characters left
+                int L = i, R=n-1;
+                while(L<R) swap(s[L++], s[R--]);                
+            } else {
+                printf("normal case 3, i=%d,k=%d,n=%d\n",i,k,n);
+                int L = i, R=i+k-1;
+                while(L<R) swap(s[L++], s[R--]);
+            }
+        }
+        return s;
+    }
+
+    string reverseStr_v01(string s, int k) {
+        int i = 0,  n = s.length();
+        for(i = 0;  i<n; i+=2*k) {            
             if(i+2*k>=n) {
                 if(i+k>n) {
                     printf("remaind case 1\n");
