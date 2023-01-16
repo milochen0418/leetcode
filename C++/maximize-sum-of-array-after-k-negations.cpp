@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/maximize-sum-of-array-after-k-negations
+    //article https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/discuss/3057440/C%2B%2B-Priority-Queue-O(N%2BKlogN)
 public:
     int largestSumAfterKNegations(vector<int>& nums, int k) {
         priority_queue<int, vector<int>, greater<int>> negMinQ;
