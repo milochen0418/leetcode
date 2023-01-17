@@ -2,6 +2,16 @@ class Solution {
     //https://leetcode.com/problems/flip-string-to-monotone-increasing/
 public:
     int minFlipsMonoIncr(string s) {
+        int v = 0, zcnt=0, n = s.length(), minv = 0;
+        for(int i = 0;i<n; i++) {
+            zcnt+=(s[i]=='0');
+            v+=2*(s[i]=='1')-1;
+            minv = min(minv, v);
+        }
+        return minv+zcnt;
+    }
+
+    int minFlipsMonoIncr_v03(string s) {
         int v = 0, n = s.length(), ans = INT_MAX;
         for(auto &c:s) v+=c=='0';
         ans = min(ans, v);
@@ -11,7 +21,7 @@ public:
         }
         return ans;
     }
-    
+
     int minFlipsMonoIncr_v02(string s) {
         int v = 0, n = s.length(), ans = INT_MAX;
         for(auto &c:s) v+=c=='0';
