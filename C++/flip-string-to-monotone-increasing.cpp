@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/flip-string-to-monotone-increasing/
+    //article https://leetcode.com/problems/flip-string-to-monotone-increasing/discuss/3061920/C%2B%2B-One-Pass-O(N)-7-lines
 public:
     int minFlipsMonoIncr(string s) {
         int v = 0, zcnt=0, n = s.length(), minv = 0;
@@ -47,7 +48,6 @@ public:
                 L_ocnt++;
             ans = min(ans, L_ocnt+R_zcnt);
         }
-        return ans;
-        
+        return ans;        
     }
 };
