@@ -2,6 +2,9 @@ class Solution {
     //https://leetcode.com/problems/maximum-sum-circular-subarray/
     //article https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/2215798/C%2B%2B-or-Can-any-test-case-make-this-greedy-algorithm-fail-or-TC-O(n)-SC-O(1)
     //FB post https://www.facebook.com/groups/1451299754892511/posts/5455204947835285/
+    //Prefix Sum solution article https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/3069202/C%2B%2B-Prefix-Sum-O(N)
+    
+
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
         int total = accumulate(nums.begin(),nums.end(),0);
