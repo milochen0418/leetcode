@@ -56,32 +56,26 @@ public:
 
     int maxSubArray_prefixSum_TLE(vector<int>& nums) {
         //In view of prefix sum to solve this problem
-        int sum = 0, n = nums.size();
-        for(auto &i:nums) sum+=i;
+        int n = nums.size(), ans = INT_MIN;
         for(int i = 1;i<n;i++) nums[i]+=nums[i-1]; //prefix sum
-        int ans = sum;
         for(int i=0;i<n;i++) {
             int nums_i_1 = i==0?0:nums[i-1];
             for(int j = i;j<n;j++) {
-                if(i==0 && j==n-1) continue;//the case is sum, default in ans.
                 int sum_i_j = nums[j] - nums_i_1; //sum[i..j]
                 ans = max(sum_i_j, ans);
                 //printf("sum[%d..%d]=%d\n",i,j,sum_i_j );
             }
         }
-        return ans;        
+        return ans;
     }
 
     int maxSubArray_prefixSum_improve(vector<int>& nums) {
-        int sum = 0, n = nums.size();
-        for(auto &i:nums) sum+=i;
+        int n = nums.size(), ans = INT_MIN;
         for(int i = 1;i<n;i++) nums[i]+=nums[i-1]; //prefix sum
-        int ans = sum;
         for(int i=0;i<n;i++) {
             int nums_i_1 = i==0?0:nums[i-1];
             int j=i;//added line for improve prefix sum
             for(;j<n;j++) {
-                if(i==0 && j==n-1) continue;//the case is sum, default in ans.
                 int sum_i_j = nums[j] - nums_i_1; //sum[i..j]
                 ans = max(sum_i_j, ans);
                 if(sum_i_j<0) break; // Added line for improve prefix sum
