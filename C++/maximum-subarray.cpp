@@ -54,5 +54,23 @@ public:
         return max_val;
     }
 
+    int maxSubArray_prefixSum_TLE(vector<int>& nums) {
+        //In view of prefix sum to solve this problem
+        int sum = 0, n = nums.size();
+        for(auto &i:nums) sum+=i;
+        for(int i = 1;i<n;i++) nums[i]+=nums[i-1]; //prefix sum
+        int ans = sum;
+        for(int i=0;i<n;i++) {
+            int nums_i_1 = i==0?0:nums[i-1];
+            for(int j = i;j<n;j++) {
+                if(i==0 && j==n-1) continue;//the case is sum, default in ans.
+                int sum_i_j = nums[j] - nums_i_1; //sum[i..j]
+                ans = max(sum_i_j, ans);
+                //printf("sum[%d..%d]=%d\n",i,j,sum_i_j );
+            }
+        }
+        return ans;        
+    }    
+
 
 };
