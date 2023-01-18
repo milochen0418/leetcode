@@ -2,6 +2,8 @@ class Solution {
     //https://leetcode.com/problems/maximum-subarray
     //article https://leetcode.com/problems/maximum-subarray/discuss/2207120/C%2B%2B-or-greedy-approach-space-O(N)-time-O(1)-or-from-idea-to-proof
     //FB Post https://www.facebook.com/groups/1451299754892511/posts/5449522045070242/
+    //article https://leetcode.com/problems/maximum-subarray/discuss/3067003/C%2B%2B-Prefix-Sum-without-TLE
+    
 public:
 
     //greedy algorithm
