@@ -10,6 +10,25 @@ public:
         return total==mini ? maxi : max(maxi, total - mini);
         //This idea of solution is given in FB post discussion by Arthur Lin. 
     }
+
+    int maxSubarraySumCircular_prefixSum_LTE(vector<int>& nums) {
+        //prefix sum solution but LTE
+        int sum = 0, n = nums.size();
+        for(auto &i:nums) sum+=i;
+        for(int i = 1;i<n;i++) nums[i]+=nums[i-1]; //prefix sum
+        int ans = sum;
+        for(int i=0;i<n;i++) {
+            for(int j = i;j<n;j++) {
+                if(i==0 && j==n-1) continue;//the case is sum, default in ans.
+                int nums_i_1 = i==0?0:nums[i-1];
+                int sum_i_j = nums[j] - nums_i_1; //sum[i..j]
+                int q = max(sum_i_j,sum-sum_i_j);
+                //printf("sum[%d..%d]=%d, sum-sum[i..j]=%d\n",i,j,sum_i_j, sum-sum_i_j);
+                ans = max(q, ans);
+            }
+        }
+        return ans;
+    }
     int extreSum (vector<int>& a, bool is_min) {
         int sign =  is_min?-1:1;
         int ans = INT_MIN, R=0, acc=0;
