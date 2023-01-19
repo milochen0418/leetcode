@@ -6,7 +6,27 @@ class Solution {
     //FB Post for Prefix sum solution https://www.facebook.com/groups/1451299754892511/posts/6053093378046436/
 
 public:
+
+class Solution {
+public:
     int maxSubarraySumCircular(vector<int>& nums) {
+        //Refer Bangye Wu's idea about maximum subarray sum to implement maxSubarraySumCircular
+        int max_rise_sum = INT_MIN, max_down_sum = INT_MIN;
+        int prefix_min = 0, prefix_max=0;
+        int Si = 0;
+        for(auto &i: nums){
+            Si = Si + i;
+            max_down_sum = max(max_down_sum, prefix_max-Si);
+            max_rise_sum = max(max_rise_sum, Si-prefix_min);
+            prefix_min = min(prefix_min, Si);
+            prefix_max = max(prefix_max, Si);
+        }
+        printf("max_rise_sum=%d, max_down_sum=%d, Si=%d\n",max_rise_sum, max_down_sum, Si);
+        if(max_rise_sum<0) return max_rise_sum;
+        return max(max_rise_sum, Si+max_down_sum);
+    }
+};
+    int maxSubarraySumCircular_extreSum(vector<int>& nums) {
         int total = accumulate(nums.begin(),nums.end(),0);
         int mini = extreSum(nums, true);
         int maxi = extreSum(nums, false);
