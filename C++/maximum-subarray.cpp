@@ -6,8 +6,21 @@ class Solution {
 
 public:
 
-    //greedy algorithm
     int maxSubArray(vector<int>& nums) {
+        //Refer the idea from Bangye Wu in https://www.facebook.com/groups/1451299754892511/posts/6053093378046436/
+        int n = nums.size();
+        int ans = INT_MIN;
+        int prefix_min = 0;
+        for(int i = 0; i<n; i++) {
+            int nums_i_1 = i==0 ? 0 : nums[i-1];
+            nums[i] += nums_i_1; //S[i]
+            ans = max(ans, nums[i] - prefix_min);
+            prefix_min = min(prefix_min, nums[i]);//prefix-minimum    
+        }
+        return ans;
+    }
+    //greedy algorithm
+    int maxSubArray_greedy(vector<int>& nums) {
         /*
         [-2,1,-3,4,-1,2,1,-5,4]
         case [L,R]=[0,0]
@@ -87,6 +100,8 @@ public:
         }
         return ans;
     }    
+
+
 
 
 };
