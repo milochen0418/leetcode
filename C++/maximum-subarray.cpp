@@ -5,8 +5,21 @@ class Solution {
     //article https://leetcode.com/problems/maximum-subarray/discuss/3067003/C%2B%2B-Prefix-Sum-or-O(N2)-greater-O(N)
 
 public:
-
     int maxSubArray(vector<int>& nums) {
+        //Refer the idea from Bangye Wu in https://www.facebook.com/groups/1451299754892511/posts/6053093378046436/
+        int n = nums.size();
+        int ans = INT_MIN;
+        int prefix_min = 0;
+        int Si = 0;
+        for(auto &i: nums){
+            Si = Si + i;
+            ans = max(ans, Si-prefix_min);
+            prefix_min = min(prefix_min, Si);
+        }        
+        return ans;
+    }
+
+    int maxSubArray_v01_BangyeWu(vector<int>& nums) {
         //Refer the idea from Bangye Wu in https://www.facebook.com/groups/1451299754892511/posts/6053093378046436/
         int n = nums.size();
         int ans = INT_MIN;
