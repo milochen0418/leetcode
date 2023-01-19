@@ -5,6 +5,21 @@ public:
     #define empty_printf(...)
 
     int subarraysDivByK(vector<int>& nums, int k) {
+        //Space Complexity O(K), Time Complexity O(N+K);
+        int n = nums.size(), ans = 0, prefix_sum=0;
+        vector<int> mp = vector<int>(k,0);
+        for(int i:nums) {
+            i = ((i%k)+k)%k; 
+            prefix_sum = (prefix_sum + i)%k;
+            mp[prefix_sum]++;
+        }
+        mp[0]++;
+        for(auto &i:mp) ans+=(i*(i-1))/2;
+        return ans;
+    }
+
+    int subarraysDivByK_v02(vector<int>& nums, int k) {
+        //Space Complexity O(N+K), Time Complexity O(N+K);
         int n = nums.size(), ans = 0;
         for(int i = 1;i<n;i++) nums[i]+=nums[i-1];
         for(auto &i:nums) i = ((i%k)+k)%k;
