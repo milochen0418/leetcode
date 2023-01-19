@@ -3,10 +3,22 @@ class Solution {
 public:
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)
+
     int subarraysDivByK(vector<int>& nums, int k) {
+        int n = nums.size(), ans = 0;
+        for(int i = 1;i<n;i++) nums[i]+=nums[i-1];
+        for(auto &i:nums) i = ((i%k)+k)%k;
+        vector<int> mp = vector<int>(k,0);
+        for(auto &i:nums) mp[i]++;
+        mp[0]++;
+        for(auto &i:mp) ans+=(i*(i-1))/2;
+        return ans;
+    }
+
+    int subarraysDivByK_v01(vector<int>& nums, int k) {
         //For reduce this problem, we get the math key point here.
         //(prefixSum[j] - prefix[i]) % k = 0 <=> prefixSum[i] % k = prefixSum[j] % k.
-        
+
         int n = nums.size(), ans = 0;
         for(int i = 1;i<n;i++) nums[i]+=nums[i-1];
         
