@@ -20,6 +20,18 @@ public:
         return cur;
     }
     
+    int rob_v03(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> dp = vector<int>(n,-1);    
+        function<int(int)> sol = [&](int i){
+            if(i>=n) return 0;
+            if(dp[i] != -1) return dp[i];
+            dp[i] = nums[i]+sol(i+2);
+            if(i+1<n) dp[i] = max(dp[i], nums[i+1]+sol(i+3));
+            return dp[i];
+        };
+        return sol(0);
+    }    
 
     vector<int> dp;
     int rob_v02(vector<int>& nums) {
