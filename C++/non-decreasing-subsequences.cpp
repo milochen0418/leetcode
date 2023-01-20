@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/non-decreasing-subsequences/
+    //article https://leetcode.com/problems/non-decreasing-subsequences/discuss/3075502/C%2B%2B-iterative-brute-force
 public:
     struct vector_hasher {
         int operator()(const vector<int> &V) const {
