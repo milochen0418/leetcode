@@ -21,8 +21,19 @@ public:
 class Solution {
     //https://leetcode.com/problems/n-ary-tree-preorder-traversal
 public:
-    vector<int> ans;
     vector<int> preorder(Node* root) {
+        vector<int> ans;
+        function<void(Node*)> dfs = [&](Node* root){
+            if(!root) return;
+            ans.push_back(root->val);
+            for(auto &child:root->children) dfs(child);
+        };   
+        dfs(root);
+        return ans;        
+    }
+
+    vector<int> ans;
+    vector<int> preorder_v01(Node* root) {
         ans = vector<int>();
         dfs(root);
         return ans;
