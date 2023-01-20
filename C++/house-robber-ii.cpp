@@ -2,10 +2,27 @@ class Solution {
     //https://leetcode.com/problems/house-robber-ii
     //article https://leetcode.com/problems/house-robber-ii/discuss/2204537/C%2B%2B-or-reuse-DP-approach-of-house-robber-i-or-explanation-or-step-by-step
 public:
+
+    int rob(vector<int>& nums) {
+        //case 1: nums[0] selected, so [n-1] and [1] cannot be selected
+        //case 2: nums[0] not selected, so [1] and [n-1] can be selected
+        int n = nums.size(), n1=n-1, n2=n;
+        vector<int> dp1 = vector<int>(n1,-1);
+        vector<int> dp2 = vector<int>(n2,-1);
+        function<int(int,int,vector<int>&)> sol = [&](int i, int n, vector<int>& dp){
+            if(i>=n) return 0;
+            if(dp[i] != -1) return dp[i];
+            dp[i] = max(nums[i]+sol(i+2,n,dp), sol(i+1,n,dp));
+            return dp[i];
+        };
+        return max(nums[0]+sol(2,n1,dp1), sol(1,n2,dp2));
+    }
+
+
     vector<int> a;
     vector<int> ldp;
     vector<int> rdp;
-    int rob(vector<int>& nums) {
+    int rob_v01(vector<int>& nums) {
         a = nums;
         int n = a.size();
         ldp = vector<int>(n+1,-1);
