@@ -4,18 +4,21 @@ class Solution {
 public:
 
     int rob(vector<int>& nums) {
-        //case 1: nums[0] selected, so [n-1] and [1] cannot be selected
-        //case 2: nums[0] not selected, so [1] and [n-1] can be selected
-        int n = nums.size(), n1=n-1, n2=n;
-        vector<int> dp1 = vector<int>(n1,-1);
-        vector<int> dp2 = vector<int>(n2,-1);
+        int n = nums.size();
         function<int(int,int,vector<int>&)> sol = [&](int i, int n, vector<int>& dp){
             if(i>=n) return 0;
             if(dp[i] != -1) return dp[i];
             dp[i] = max(nums[i]+sol(i+2,n,dp), sol(i+1,n,dp));
             return dp[i];
         };
-        return max(nums[0]+sol(2,n1,dp1), sol(1,n2,dp2));
+        vector<int> dp;
+        //case 1: nums[0] selected => [2..n-1) can be selected
+        dp = vector<int>(n-1,-1);
+        int case1 = nums[0]+sol(2,n-1, dp);
+        //case 2: nums[0] not selected => [1..n) can be selected
+        dp = vector<int>(n,-1);
+        int case2 = sol(1,n,dp);
+        return max(case1, case2); 
     }
 
 
