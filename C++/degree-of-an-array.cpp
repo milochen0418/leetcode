@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/degree-of-an-array/
+    //article https://leetcode.com/problems/degree-of-an-array/discuss/3077894/C%2B%2B-Two-Pass-O(N)-10-lines
 public:
     int findShortestSubArray(vector<int>& nums) {
         unordered_map<int, vector<int>> mp;
