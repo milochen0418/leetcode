@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/count-good-nodes-in-binary-tree
+    //article https://leetcode.com/problems/count-good-nodes-in-binary-tree/discuss/3076023/C%2B%2B-Recursive-DFS-with-Stack
 public:
     stack<int> stk;
     int ans = 0;
