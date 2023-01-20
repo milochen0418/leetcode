@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/2-keys-keyboard
+    //article https://leetcode.com/problems/2-keys-keyboard/discuss/3075970/C%2B%2B-Math-solution-from-observation
 public:
     /*
     Observation 
@@ -18,6 +20,4 @@ public:
         }
         return ans;
     }
-        
-    
 };
