@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/restore-ip-addresses
+    //article https://leetcode.com/problems/restore-ip-addresses/discuss/3079383/C%2B%2B-100-faster-by-backtracking
 public:
     vector<string> restoreIpAddresses(string s) {
         stack<int> stk;//most 3 element that mean the index of first digit after dot
