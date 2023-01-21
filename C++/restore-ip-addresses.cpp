@@ -3,19 +3,41 @@ class Solution {
 public:
     stack<int> stk;//most 3 element that mean the index of first digit after dot
     string s;
-    vector<vector<int>> ips;//legal ips, ips[k] is like {221,102,3,0}
+    vector<int> octets;
+    vector<string> ans;
     vector<string> restoreIpAddresses(string ss) {
-        vector<string> ans;
-        ips = {{255,255,11,135},{255,255,111,35}};
-        s = ss;
-        sol(1);//generate solution to ips in this backtracking
-        for(auto &ip:ips) 
-            ans.push_back(string_format("%d.%d.%d.%d",ip[0],ip[1],ip[2],ip[3]));
-        
+        s = ss;       
+        sol();
         return ans;
     }
-    void sol(int i) {
+    void sol() {
+        int n = s.length();
+        int prev_idx=stk.empty()?0:stk.top();
+        for(int len = 1;len<=3 && prev_idx+len-1<n;len++) {
+            if(stk.size()==3 && prev_idx+len-1!=n-1) continue;
+            string octetstr = s.substr(prev_idx,len);
+            if(legal_octet_str(octetstr)) {
+                stk.push(prev_idx+len);
+                octets.push_back(stoi(octetstr));
+                if(octets.size()==4) {
+                    vector<int>& ip = octets;
+                    ans.push_back(string_format("%d.%d.%d.%d",ip[0],ip[1],ip[2],ip[3]));
+                } else {
+                    sol();
+                }
+                octets.pop_back();
+                stk.pop();                
+            }
+        }
         return;
+    }
+    int legal_octet_str(string str) {
+        int n = str.length();
+        if(n==0) return 0;
+        if(str[0]=='0') return n<=1;
+        int octet_val = stoi(str);
+        if(octet_val>255) return 0;
+        return 1;
     }
     string string_format(const string fmt_str, ...) {
         int final_n, n = ((int)fmt_str.size()) * 2; 
