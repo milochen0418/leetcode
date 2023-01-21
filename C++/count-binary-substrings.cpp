@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-binary-substrings
+    //article https://leetcode.com/problems/count-binary-substrings/discuss/3081074/C%2B%2B-O(N)-easy-to-understand
 public:
     // Explanation
     //   "000111001100001111" <-- Input
