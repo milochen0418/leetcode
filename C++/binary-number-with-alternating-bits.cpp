@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/binary-number-with-alternating-bits
+    //article https://leetcode.com/problems/binary-number-with-alternating-bits/discuss/3081130/C%2B%2B-2-approaches-O(1)-and-O(logN)
 public:
     bool hasAlternatingBits(int n) {
         //O(1)
