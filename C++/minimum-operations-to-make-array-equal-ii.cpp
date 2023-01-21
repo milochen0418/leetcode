@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/
+    //article https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/discuss/3082560/C%2B%2B-clean-dirty-cases-first
 public:
     typedef long long ll;
     long long minOperations(vector<int>& nums1, vector<int>& nums2, int k) {
