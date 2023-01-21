@@ -12,6 +12,23 @@ class Solution {
     //https://leetcode.com/problems/sort-list/
 public:
     ListNode* sortList(ListNode* head) {
+        vector<int> v;
+        ListNode* node = head;
+        while(node) {
+            v.push_back(node->val);
+            node = node->next;
+        }
+        sort(v.begin(),v.end());
+        node = head;
+        for(auto &i:v) {
+            node->val = i;
+            node=node->next;
+        }
+        
+        return head;
+    }
+
+    ListNode* sortList_v01(ListNode* head) {
         ListNode* node = head;
         int base = 1;
         ListNode* l = node;
