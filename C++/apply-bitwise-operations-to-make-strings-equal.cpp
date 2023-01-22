@@ -14,6 +14,8 @@ class Solution {
     contain 1 can make any case contain 1. 
     no one only can fit no one
     */
+   //https://leetcode.com/problems/apply-bitwise-operations-to-make-strings-equal
+   //article https://leetcode.com/problems/apply-bitwise-operations-to-make-strings-equal/discuss/3083822/C%2B%2B-easy-O(N)-with-explanation
 public:
     bool makeStringsEqual(string s, string target) {
         int n = s.length();
