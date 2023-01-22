@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/average-of-levels-in-binary-tree
+    //article https://leetcode.com/problems/average-of-levels-in-binary-tree/discuss/3083586/C%2B%2B-DFS-with-explanation
 public:
     vector<double> averageOfLevels(TreeNode* root) {
         typedef long long ll;
