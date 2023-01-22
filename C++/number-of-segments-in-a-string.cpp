@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-segments-in-a-string
+    //article https://leetcode.com/problems/number-of-segments-in-a-string/discuss/3086562/C%2B%2B-One-Pass-O(N)-6-lines
 public:
     int countSegments(string s) {
         int ans = 0, state = 0;//0:unknown, 1:space, -1:non-space
