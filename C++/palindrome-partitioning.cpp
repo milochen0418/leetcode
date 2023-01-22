@@ -2,6 +2,7 @@ class Solution {
     //https://leetcode.com/problems/palindrome-partitioning
 public:
     vector<vector<string>> partition(string s) {
+        
         int n = s.length();//there will be number of n-1 , max(n)=16. max(n-1)=15
         if(n==1) return vector<vector<string>>(1,vector<string>(1,s));
         int m = 1<<(n-1);
@@ -18,7 +19,16 @@ public:
             }
             e.push_back(s[n-1]);
             vs.push_back(e);
-            ans.push_back(vs);
+            //check this partition here. 
+            int is_partition_legal = 1;
+            for(auto &str:vs) {
+                if(!is_palindrome(str)){
+                    is_partition_legal=false;
+                    break;
+                }
+            }
+            
+            if(is_partition_legal) ans.push_back(vs);
         }
         return ans;
     }
