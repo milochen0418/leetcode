@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/palindrome-partitioning
+    //article https://leetcode.com/problems/palindrome-partitioning/discuss/3086699/C%2B%2B-iterative-approach-for-all-partition
 public:
     vector<vector<string>> partition(string s) {
         function<int(string&)> is_palindrome=[&](string &s){
