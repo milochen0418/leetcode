@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/alternating-digit-sum/
+    //article https://leetcode.com/problems/alternating-digit-sum/discuss/3085117/C%2B%2B-One-Pass-O(logN)-8-lines
 public:
     int alternateDigitSum(int n) {
         int cnt=0;
