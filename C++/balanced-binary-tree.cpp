@@ -14,8 +14,31 @@ class Solution {
     //article https://leetcode.com/problems/balanced-binary-tree/discuss/2311350/C%2B%2B-or-Improve-from-2-DFS-into-1-DFS
 public:
 
-    unordered_map<TreeNode*, int> mp;    
+
     bool isBalanced(TreeNode* root) {
+        unordered_map<TreeNode*, int> high;
+        function<int(TreeNode*)> get_high = [&](TreeNode*root){
+            if(high.find(root) != high.end()) return high[root];
+            if(!root) return high[root]=0;
+            int lh = get_high(root->left);
+            int rh = get_high(root->right);
+            high[root] = 1+max(lh,rh);
+            return high[root];
+        };
+        get_high(root); //call dfs
+        
+        function<bool(TreeNode*)> balance = [&](TreeNode*root){
+            if(!root) return true;
+            if(balance(root->left)==true && balance(root->right)==true) 
+                if(abs(high[root->left]-high[root->right])<= 1) 
+                    return true;
+            return false;
+        };
+        return balance(root);
+    }
+
+    unordered_map<TreeNode*, int> mp;    
+    bool isBalanced_v02(TreeNode* root) {
         if(!root) return true;
         if(isBalanced(root->left) && isBalanced(root->right)) {
             if(abs(get_height(root->left)-get_height(root->right))<=1) {
