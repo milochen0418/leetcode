@@ -6,11 +6,10 @@ public:
             int L=0,R=s.length()-1;
             while(L<R) if(s[L++]!=s[R--])return 0;
             return 1;            
-        }; //The lambda for checking string is palindrome or not.         
-        int n = s.length();//there will be number of n-1 , max(n)=16. max(n-1)=15
-        if(n==1) return vector<vector<string>>(1,vector<string>(1,s));
-        int m = 1<<(n-1);
+        }; //The lambda for checking string is palindrome or not. 
         vector<vector<string>> ans;
+        int n = s.length();//there will be number of n-1 , max(n)=16. max(n-1)=15
+        int m = 1<<(n-1);
         for(int i = 0; i<m;i++) {
             int is_partition_legal = 1;
             vector<string> vs;
