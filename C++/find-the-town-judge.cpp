@@ -2,6 +2,18 @@ class Solution {
     //https://leetcode.com/problems/find-the-town-judge
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
+        vector<int> cntR = vector<int>(n+1,0);
+        vector<int> cntL = vector<int>(n+1,0);
+        for(auto &v:trust) {
+            cntR[v[1]]++; //be trusted
+            cntL[v[0]]++; //trust another one
+        }
+        for(int i = 1;i<n+1;i++) 
+            if(cntR[i] == n-1 && cntL[i] == 0) return i;
+        return -1;
+    }
+
+    int findJudge_v01(int n, vector<vector<int>>& trust) {
         unordered_map<int,int> judge_mp;
         unordered_map<int,int> body_mp;
         if(n==1) return 1;
