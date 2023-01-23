@@ -1,13 +1,15 @@
 class Solution {
-    //https://leetcode.com/problems/longest-uncommon-subsequence-ii/
+    //https://leetcode.com/problems/longest-uncommon-subsequence-ii
 public:
+    //Assume M is maximum length in all string.
+    //Assume N is the number of strings
     int findLUSlength(vector<string>& strs) {
         int n = strs.size();
         vector<bool> failed = vector<bool>(n,false);
         unordered_set<string>failed_strs;
         unordered_set<string>observed_strs;
         int maxv=0;
-        for(int i = 0;i<n;i++) {
+        for(int i = 0;i<n;i++) { //O(M*N^2) to gather failed/observed string set. 
             string &s1=strs[i];
             for(auto&s2:strs){
                 if(&s1!=&s2 && s1==s2) {
@@ -19,8 +21,9 @@ public:
             if(failed[i] == false) observed_strs.insert(strs[i]);
         }
         
+        //while any string `str` of observed_set is subsequence of one string in failed_set,
+        //then keep to move `str` into failed_set.
         unordered_set<string> new_observed_strs;
-        
         while(!observed_strs.empty()) {        
             new_observed_strs = observed_strs;
             for(auto &s:observed_strs) {
@@ -33,7 +36,7 @@ public:
             if(new_observed_strs.size() == observed_strs.size()) break;
             observed_strs = new_observed_strs;
         }
-        
+        //Right now, there is no any string of observed_set should move to failed_set
         if(new_observed_strs.empty()) return -1;
         for(auto&s:new_observed_strs) 
             maxv = max(maxv,(int)s.length());
