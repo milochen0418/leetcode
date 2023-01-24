@@ -4,6 +4,21 @@ class Solution {
     //FB Post https://www.facebook.com/groups/1451299754892511/posts/5193837967305319/
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        #define A(i) (matrix[(i)/n][(i)%n])
+        int m = matrix.size(), n=matrix[0].size();
+        int L = 0, R=m*n-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            if(A(M)==target) return true;
+            if(target<A(M)) 
+                R = M-1;
+            else 
+                L = M+1;
+        }        
+        return false;
+    }
+
+    bool searchMatrix_v01(vector<vector<int>>& matrix, int target) {
         int m = matrix.size(), n = matrix[0].size(), L=0,R=m*n-1;
         while(L<=R) {
             int M = L+(R-L)/2;
