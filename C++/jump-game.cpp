@@ -2,8 +2,23 @@ class Solution {
     //https://leetcode.com/problems/jump-game
     //article https://leetcode.com/problems/jump-game/discuss/2951627/C%2B%2B-or-from-backtracking-(TLE)-to-DP
 public:
-    vector<int> dp;
     bool canJump(vector<int>& nums) {
+        vector<int> dp = vector<int> (nums.size(),-1);
+        function<int(int)> sol = [&](int i){
+            int n = nums.size();
+            if(dp[i] != -1) return dp[i];
+            if(i==n-1) return dp[i]=1;
+            int limit = min(n-1,i+nums[i]);
+            for(int j =i+1;j<=limit;j++) 
+                if(sol(j)) return dp[i]=1;
+            return dp[i]=0;
+        };
+        return sol(0);
+    }
+
+
+    vector<int> dp;
+    bool canJump_v01(vector<int>& nums) {
         //return sol_backtracking(0, nums);
         dp = vector<int>(nums.size(), -1);
         return sol_dp(0,nums);
