@@ -2,6 +2,52 @@ class Solution {
     //https://leetcode.com/problems/search-in-rotated-sorted-array
     //article https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/2174199/C%2B%2B-or-binary-search-or-explanation
 public:
+    int search_complicated(vector<int>& nums, int target) {
+        vector<int>& A=nums;
+        int n = nums.size();
+        int L = 0, R=n-1;
+        while(L<=R) {
+            int M = L + (R-L)/2;
+            printf("L,R,M,A[M]=%d,%d,%d,%d\n",L,R,M,A[M]);
+            if(nums[R]>nums[L]) { 
+                printf("[L..R] = A[%d..%d]=[%d..%d] rising edge part \n",L,R,A[L],A[R]);
+                //case pure rising edge
+                if(nums[M]==target) return M;
+                if(target<nums[M])
+                    R=M-1;
+                else
+                    L=M+1;
+            } else { //case in circular part
+                printf("[L..R] = A[%d..%d]=[%d..%d] circular part \n",L,R,A[L],A[R]);
+                if(nums[M]==target) return M;
+                if(target<nums[L]) {//case in right of circular
+                    printf("and target in right of circular\n");
+                    if(nums[M]>=nums[L]) {
+                        printf("but nums[M] in left of circular\n");
+                        L=M+1;
+                    } else {
+                        if(nums[M]<target) 
+                            L=M+1;
+                        else
+                            R=M-1;
+                    }
+                } else {//case target>nums[R],case in left of circular
+                    printf("and target in left of circular\n");
+                    if(nums[M]<nums[L]) {
+                        printf("but nums[M] in right of circular\n");
+                        R=M-1;
+                    } else {
+                        if(nums[M]<target) 
+                            L=M+1;
+                        else 
+                            R=M-1;                        
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
     int search(vector<int>& a, int t) {
         int n = a.size(), L=0, R=n-1;
         while(L<=R) {
