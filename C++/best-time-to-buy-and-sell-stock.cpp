@@ -4,6 +4,22 @@ class Solution {
     //article II https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/2940935/C%2B%2B-or-3-Pass-and-1-Pass-approach
 public:
     int maxProfit(vector<int>& prices) {
+        /*
+        The maximum prices difference must come from one forward price and 
+        some backward price.
+        in all prices[], the best difference must contain a backward price that in prices.
+        In view of backward price, the best solution it can make is to find out which 
+        is the lowest prices in the forward side 
+        */
+        
+        int ans = 0, minv = prices[0], n = prices.size();
+        for(int i = 1;i<n;i++) {
+            ans = max(ans, prices[i]-minv);
+            minv = min(minv,prices[i]);
+        }
+        return ans;
+    }
+    int maxProfit_v01(vector<int>& prices) {
         int n = prices.size();
         int max_gap = 0, minv = prices[0];
         for(int i = 1; i<n;i++) {
