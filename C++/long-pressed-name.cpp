@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/long-pressed-name
+    //article https://leetcode.com/problems/long-pressed-name/discuss/3097476/C%2B%2B-One-Pass-O(N)
 public:
     bool isLongPressedName(string name, string typed) {
         int n = name.length(), m=typed.length();
