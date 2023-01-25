@@ -3,6 +3,16 @@ class Solution {
 public:
     int shortestDistance(vector<string>& wordsDict, string word1, string word2) {
         int ans = INT_MAX, j1=-1,j2=-1;
+        for(int i = 0; i<wordsDict.size();i++) {
+            if(wordsDict[i] == word1) j1=i;
+            if(wordsDict[i] == word2) j2=i;
+            if(j1>=0 && j2>=0) ans = min(ans, abs(j2-j1));
+        }
+        return ans;
+    }
+
+    int shortestDistance_v02(vector<string>& wordsDict, string word1, string word2) {
+        int ans = INT_MAX, j1=-1,j2=-1;
         vector<pair<string,int>> vs;
         for(int i = 0; i<wordsDict.size();i++) {
             string &w = wordsDict[i];
