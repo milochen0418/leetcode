@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/shortest-word-distance
+    //article https://leetcode.com/problems/shortest-word-distance/discuss/3098757/C%2B%2B-One-Pass-O(N)-7-lines
 public:
     int shortestDistance(vector<string>& wordsDict, string word1, string word2) {
         int ans = INT_MAX, j1=-1,j2=-1;
