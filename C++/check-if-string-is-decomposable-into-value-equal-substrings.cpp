@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-string-is-decomposable-into-value-equal-substrings
+    //article https://leetcode.com/problems/check-if-string-is-decomposable-into-value-equal-substrings/discuss/3098648/C%2B%2B-One-Pass-O(N)
 public:
     bool isDecomposable(string s) {
         //Rule 1. Only one element in one time can allow 2+3*n. 
