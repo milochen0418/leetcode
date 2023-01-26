@@ -17,11 +17,12 @@ public:
                 }
             }
         }
-        
+        int ans = -1;
         vector<vector<int>> dirs={ {1,0}, {-1,0}, {0,1}, {0,-1}};
-        function<void(int,int)> bfs = [&](int row, int col) {
+        function<void()> bfs = [&]() {
             queue<vector<int>> currQ, nextQ;
-            currQ.push({row,col});
+            for(auto &v:rotten_oranges) 
+                currQ.push(v);
             int time = 0;
             while(!currQ.empty()) {
                 vector<int>e = currQ.front();
@@ -32,7 +33,6 @@ public:
                     int r = e[0]+d[0], c = e[1]+d[1];
                     if(r<0 || r>=m || c<0 || c>=n) continue;
                     if(grid[r][c]==0) continue;
-                    if(rotten_time[r][c]<=time+1) continue;
                     nextQ.push({r,c});
                 }
                 if(currQ.empty()) {
@@ -41,15 +41,11 @@ public:
                 }
             }
         };
-                    
-        for(auto &o: rotten_oranges) {
-            vector<vector<int>> copy_grid = grid;
-            bfs(o[0],o[1]);
-            grid = copy_grid;
-        }
+        vector<vector<int>> copy_grid = grid;
+        bfs();
+        grid = copy_grid;
         
         //find out maximum number in rotten_time.
-        int ans = -1;
         for(int i=0; i<m; i++) {
             for(int j=0; j<n; j++) {   
                 if(grid[i][j]!=0) {
