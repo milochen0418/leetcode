@@ -18,11 +18,12 @@ public:
         if(fresh_oranges_cnt==0) return 0;
         int ans = -1;
         vector<vector<int>> dirs={ {1,0}, {-1,0}, {0,1}, {0,-1}};
-        vector<vector<int>> orig_grid = grid;
         int time = 0;
         while(!currQ.empty()) { //O(N*M)
             vector<int>e = currQ.front();
             rotten_time[e[0]][e[1]] = min(time,rotten_time[e[0]][e[1]]) ;
+            ans = max(ans, rotten_time[e[0]][e[1]]);
+            if(grid[e[0]][e[1]] == 1)fresh_oranges_cnt--;
             grid[e[0]][e[1]] = 0;
             currQ.pop();
             for(auto &d:dirs) {
@@ -37,13 +38,7 @@ public:
             }
         }
         
-        //find out maximum number in rotten_time. O(N*M)
-        for(int i=0; i<m; i++) 
-            for(int j=0; j<n; j++) 
-                if(orig_grid[i][j]!=0) 
-                    ans = max(ans, rotten_time[i][j]);//find max rotten time    
-        
-        if(ans == INT_MAX) return -1;
+        if(fresh_oranges_cnt>0) return -1;
         return ans;
     }
 };
