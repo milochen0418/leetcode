@@ -12,9 +12,21 @@
 class Solution {
     //https://leetcode.com/problems/kth-smallest-element-in-a-bst
 public:
+    int kthSmallest(TreeNode* root, int k) {
+        int idx = k, ans = -1;
+        function<void(TreeNode*)> dfs =[&](TreeNode* root){
+            if(!root) return;
+            dfs(root->left);
+            if(1==idx--) ans=root->val;
+            dfs(root->right);
+        } ;
+        dfs(root);
+        return ans;
+    }
+
     priority_queue<int> maxQ; 
     int size_k = 0;
-    int kthSmallest(TreeNode* root, int k) {
+    int kthSmallest_v01(TreeNode* root, int k) {
         size_k = k;
         travelBST(root);
         return maxQ.top();
