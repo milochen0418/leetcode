@@ -15,25 +15,26 @@ public:
     stack<TreeNode*> stk;
 
     BSTIterator(TreeNode *root) {
-        while(root!=nullptr) {
+        while(root) {
             stk.push(root);
             root = root->left;
         }
     }
-    
+
     bool hasNext() {
         return !stk.empty();
     }
-    
+
     int next() {
-        TreeNode *root = stk.top();
+        TreeNode *node = stk.top();
         stk.pop();
-        TreeNode *root_right = root->right;
-        while(root_right!=nullptr) {
-            stk.push(root_right);
-            root_right = root_right->left;
+        int ret = node->val;
+        node=node->right;
+        while(node) {
+            stk.push(node);
+            node=node->left;
         }
-        return root->val;
+        return ret;
     }
     
 };
