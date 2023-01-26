@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/kth-smallest-element-in-a-bst
+    //article https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/3099908/C%2B%2B-DFS-O(N)-9-lines
 public:
     int kthSmallest(TreeNode* root, int k) {
         int idx = k, ans = -1;
