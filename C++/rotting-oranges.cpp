@@ -1,6 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/rotting-oranges/
 public:
-    
     int orangesRotting(vector<vector<int>>& grid) {
         vector<vector<int>> rotten_time;
         vector<vector<int>> rotten_oranges;
@@ -19,20 +19,31 @@ public:
         }
         
         vector<vector<int>> dirs={ {1,0}, {-1,0}, {0,1}, {0,-1}};
-        function<void(int,int,int)> dfs=[&](int row, int col,int time){
-            grid[row][col] = 0;
-            rotten_time[row][col] = min(rotten_time[row][col],time);
-            for(auto &d:dirs) {
-                int r = row+d[0], c = col+d[1];
-                if(r<0 || r>=m || c<0 || c >= n) continue;
-                if(grid[r][c]==0) continue;
-                dfs(r,c,time+1);
+        function<void(int,int)> bfs = [&](int row, int col) {
+            queue<vector<int>> currQ, nextQ;
+            currQ.push({row,col});
+            int time = 0;
+            while(!currQ.empty()) {
+                vector<int>e = currQ.front();
+                rotten_time[e[0]][e[1]] = min(time,rotten_time[e[0]][e[1]]) ;
+                grid[e[0]][e[1]] = 0;
+                currQ.pop();
+                for(auto &d:dirs) {
+                    int r = e[0]+d[0], c = e[1]+d[1];
+                    if(r<0 || r>=m || c<0 || c>=n) continue;
+                    if(grid[r][c]==0) continue;
+                    nextQ.push({r,c});
+                }
+                if(currQ.empty()) {
+                    time++;
+                    swap(currQ,nextQ);
+                }
             }
         };
                     
         for(auto &o: rotten_oranges) {
             vector<vector<int>> copy_grid = grid;
-            dfs(o[0],o[1],0);
+            bfs(o[0],o[1]);
             grid = copy_grid;
         }
         
@@ -57,13 +68,3 @@ public:
         return ans;
     }
 };
-
-/*
-[[2,1,1],[1,1,0],[0,1,1]]
-[[2,1,1],[0,1,1],[1,0,1]]
-[[0,2]]
-[[0]]
-[[1]]
-
-[[2,1,1],[1,1,1],[0,1,2]] <-- not passed
-*/
