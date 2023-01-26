@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
+    //article https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/discuss/3099915/C%2B%2B-DFS-O(N)-6-lines
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
         function<TreeNode*(int,int)> dfs=[&](int L,int R) {
