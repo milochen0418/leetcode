@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/rotting-oranges/
+    //article https://leetcode.com/problems/rotting-oranges/discuss/3102496/C%2B%2B-BFS-SC%3AO(K)-K-is-maximum-size-of-queue
 public:
     int orangesRotting(vector<vector<int>>& grid) {
         int fresh_oranges_cnt = 0;
@@ -35,7 +36,7 @@ public:
         if(fresh_oranges_cnt>0) return -1;
         return ans*-1;
     }
-    
+
     int orangesRotting_v01(vector<vector<int>>& grid) {
         vector<vector<int>> rotten_time;
         int fresh_oranges_cnt = 0;
