@@ -13,6 +13,15 @@ class Solution {
     //https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
+        function<TreeNode*(int,int)> dfs=[&](int L,int R) {
+            if(L>R) return (TreeNode*)nullptr;
+            int M = L + (R-L)/2;
+            return new TreeNode(nums[M],dfs(L,M-1), dfs(M+1,R));
+        };        
+        return dfs(0,nums.size()-1);
+    }
+
+    TreeNode* sortedArrayToBST_v01(vector<int>& nums) {
         return dfs(nums,0,nums.size()-1);
     }
     TreeNode* dfs(vector<int>& A,int L, int R) {
