@@ -4,7 +4,8 @@ public:
     int orangesRotting(vector<vector<int>>& grid) {
         vector<vector<int>> rotten_time;
         vector<vector<int>> rotten_oranges;
-        vector<vector<int>> fresh_oranges;
+        
+        int fresh_oranges_cnt = 0;
         int m = grid.size(), n = grid[0].size();
         rotten_time = vector<vector<int>> (m, vector<int>(n,INT_MAX));
         
@@ -13,10 +14,11 @@ public:
                 if(grid[i][j] == 2) {
                     rotten_oranges.push_back({i,j});
                 } else if(grid[i][j] == 1){
-                    fresh_oranges.push_back({i,j});
+                    fresh_oranges_cnt++;
                 }
             }
         }
+        if(fresh_oranges_cnt==0) return 0;
         int ans = -1;
         vector<vector<int>> dirs={ {1,0}, {-1,0}, {0,1}, {0,-1}};
         function<void()> bfs = [&]() {
@@ -53,13 +55,6 @@ public:
                 }
             }   
         }
-        
-        if(rotten_oranges.size()==0) {
-            if(fresh_oranges.size()==0) 
-                return 0;
-            else 
-                return -1;
-        } 
         
         if(ans == INT_MAX) return -1;
         return ans;
