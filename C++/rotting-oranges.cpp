@@ -32,6 +32,7 @@ public:
                     int r = e[0]+d[0], c = e[1]+d[1];
                     if(r<0 || r>=m || c<0 || c>=n) continue;
                     if(grid[r][c]==0) continue;
+                    if(rotten_time[r][c]<=time+1) continue;
                     nextQ.push({r,c});
                 }
                 if(currQ.empty()) {
