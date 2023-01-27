@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/word-break-ii
+    //article https://leetcode.com/problems/word-break-ii/discuss/3106644/C%2B%2B-Trie-mixed-Backtrack
 public:
     vector<string> wordBreak(string s, vector<string>& wordDict) {
         struct TNode {
