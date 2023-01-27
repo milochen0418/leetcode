@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/word-break
+    //https://leetcode.com/problems/word-break/discuss/3106255/C%2B%2B-Trie-mixed-with-DP
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
         //Implement by Trie
