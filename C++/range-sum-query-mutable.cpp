@@ -1,5 +1,6 @@
 
 class NumArray {
+    //https://leetcode.com/problems/range-sum-query-mutable/
 public:
     vector<int>* pNums;
     NumArray(vector<int>& nums) {
