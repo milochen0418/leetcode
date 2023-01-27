@@ -1,4 +1,6 @@
 /*
+# https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee
+# article https://leetcode.com/problems/the-number-of-employees-which-report-to-each-employee/discuss/3105131/MySQL-solution-explanation
 # Write your MySQL query statement below
 Input 
 {"headers":{"Employees":["employee_id","name","reports_to","age"]},"rows":{"Employees":[[9,"Hercy",null,43],[6,"Alice",9,41],[4,"Bob",9,36],[2,"Winston",null,37]]}}
