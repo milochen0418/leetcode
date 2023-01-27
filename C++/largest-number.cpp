@@ -3,6 +3,19 @@ class Solution {
 public:
     string largestNumber(vector<int>& nums) {
         int n = nums.size();
+        sort(nums.begin(), nums.end(), [&](auto &lhs, auto &rhs) {
+            string ls = to_string(lhs);
+            string rs = to_string(rhs);
+            return stoull(ls+rs) > stoull(rs+ls);
+        });
+        string ans;
+        for(auto &i:nums) ans.append(to_string(i));
+        if(nums == vector<int>(nums.size(),0)) return "0";
+        return ans;
+    }
+
+    string largestNumber_v01(vector<int>& nums) {
+        int n = nums.size();
         vector<vector<int>> v;
         
         for(auto &i:nums) {
