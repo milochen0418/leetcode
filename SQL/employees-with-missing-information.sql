@@ -11,17 +11,17 @@ Salaries  have 5,1,4
 This "SELECT employee_id FROM Employees UNION SELECT employee_id FROM Salaries" will get all ids
 */
 
-select * from (SELECT employee_id FROM Employees UNION SELECT employee_id FROM Salaries) tbl
+select * from (select employee_id from Employees UNION select employee_id from Salaries)  tbl
 WHERE
     (
-    employee_id not in (SELECT employee_id FROM Employees) 
+    employee_id NOT in (select employee_id from Employees) 
     AND 
-    employee_id in (SELECT employee_id FROM Salaries)
+    employee_id in (select employee_id from Salaries)
     )
 OR
     (
-    employee_id in (SELECT employee_id FROM Employees) 
+    employee_id in (select employee_id from Employees) 
     AND
-    employee_id not in (SELECT employee_id FROM Salaries) 
+    employee_id NOT in (select employee_id from Salaries) 
     )
 order by tbl.employee_id asc
