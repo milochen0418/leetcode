@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/construct-string-from-binary-tree/
+    //article https://leetcode.com/problems/construct-string-from-binary-tree/discuss/3103726/C%2B%2B-DFS
 public:
     string tree2str(TreeNode* root) {
         string ans;
