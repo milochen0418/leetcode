@@ -1,7 +1,11 @@
 class Solution {
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
 public:
+    #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%d,",i);printf("\n");
+    #define printf(...) empty_printf(__VA_ARGS__)
+    #define empty_printf(...)    
     int maxProfit(vector<int>& prices) {
+        print_container(prices);
         //Use a little bit idea of  Robber House to think about this idea
         /*
          0 1 2 3 4 
@@ -22,6 +26,29 @@ public:
         sol(i+2=5) also mean sell (i=3) before. so that why we have sol(i+2=5)
         So sol(0) is mean we sell in cost(-1)=0. And start to find optimize value for sol(0)
         */
-        return 0;
+        
+        function<int(int)> sol = [&prices, &sol](int i) {
+            printf("sol(i=%d)\n",i);
+            int ans=0, cost = 0, n=prices.size();
+            if(i>=n) {
+                printf("i>=n, return 0 early\n");
+                return 0;
+            }
+            
+            int minv = prices[i] ;
+            printf("sol(i=%d), n=%d\n",i,n);
+            for(int j = i;j<n;j++) {
+                cost = max(cost, prices[j]-minv);
+                minv = min(minv, prices[j]);
+                int sol_j_2 = sol(j+2);
+                
+                ans = max(ans, cost+sol_j_2);
+                printf("j=%d: cost+sol(j+2=%d) = %d + %d => new ans=%d\n",j,j+2, cost, sol_j_2, ans );
+            }
+            return ans;
+        };
+        int bestearn = sol(0);
+        return bestearn;
     }
+
 };
