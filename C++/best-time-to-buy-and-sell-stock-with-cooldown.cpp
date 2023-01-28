@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
-    //article https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/3109092/C%2B%2B-Use-similar-DP-of-House-Robber-DP-to-solve
+    //article https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/3109092/C%2B%2B-Use-similar-DP-of-House-Robber-to-solve
 public:
     
     #define printf(...) empty_printf(__VA_ARGS__)
