@@ -1,9 +1,10 @@
 class Solution {
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
 public:
-    #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%d,",i);printf("\n");
+    
     #define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)    
+    #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%d,",i);printf("\n");
     int maxProfit(vector<int>& prices) {
         print_container(prices);
         //Use a little bit idea of  Robber House to think about this idea
@@ -50,5 +51,4 @@ public:
         int bestearn = sol(0);
         return bestearn;
     }
-
 };
