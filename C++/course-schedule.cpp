@@ -3,7 +3,7 @@ public:
     //https://leetcode.com/problems/course-schedule
     //Refer this article first to understand topological sort more
     //https://www.geeksforgeeks.org/detect-cycle-in-directed-graph-using-topological-sort/
-    #define printf(...) empty_printf(__VA_ARGS__)
+    //#define printf(...) empty_printf(__VA_ARGS__)
     #define empty_printf(...)
     #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%d,",i);printf("\n");
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
@@ -21,7 +21,7 @@ public:
         
         
         vector<int> v;
-        vector<int> visited = vector<int>(numCourses,-1);
+        vector<int> color = vector<int>(numCourses,-1);//-1 is mean no color
         vector<int> pathover = vector<int>(numCourses,0);
         int detect_cycle=0;
         
@@ -29,15 +29,15 @@ public:
         function<void(int,int)> dfs = [&](int parent,int root) {
             if(detect_cycle) return;
             pathover[parent] = 1;
-            visited[parent] = root;
+            color[parent] = root;
+            //v.push_back(parent);
             for(auto &child:mp[parent]){
-                printf("(%d->%d),",parent,child);
                 if(pathover[child]==1) {
-                    printf("detect_cycle for parent=%d, child=%d\n", parent, child);
+                    printf(" || detect_cycle for parent=%d, child=%d\n", parent, child);
                     detect_cycle=1;                    
                 } else {
-                    printf("=>%d",child);
-                    if(visited[child]==root || visited[child]==-1){
+                    printf("->%d",child);
+                    if(color[child]==root || color[child]==-1){
                         dfs(child, root);
                     }
                 }
@@ -48,7 +48,7 @@ public:
         };
         
         for(int i = 0;i<numCourses;i++) {
-            if(visited[i]==-1) {
+            if(color[i]==-1) {
                 printf("\nDFS init to start from %d", i);
                 detect_cycle=0;
                 dfs(i,i);
@@ -57,7 +57,7 @@ public:
         }
         
         
-        reverse(v.begin(), v.end());
+        //reverse(v.begin(), v.end());
         printf("v.size() = %d\n", (int)v.size());
         print_container(v);
         if(detect_cycle) return false;
@@ -66,6 +66,12 @@ public:
     
     
 };
+/* Test Cases
+2
+[[1,0],[0,1]]
+5
+[[1,4],[2,4],[3,1],[3,2]]
+*/
 /* Test Cases
 2
 [[1,0],[0,1]]
