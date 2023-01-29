@@ -13,15 +13,21 @@ public:
         by the 2-level loop. 
         
         After we find out nums[i]>nums[j]...
-        We need find the elements e_h in nums[0 .. i-1] s.t. e_h < nums[j]
-        We need find the elements e_k in nums[j+1..n-1] s.t. e_k > nums[i]
+        We need find the elements e_h in nums[0 .. i-1] s.t. e_h < nums[j] ...(1) 
+        We need find the elements e_k in nums[j+1..n-1] s.t. e_k > nums[i] ...(2)
 
-        This observation is contributed by ZZZ, 哎呀呀 in LeetCode Contest After Party
+        For case (1) --we calculate Left part prefix sum of count
+        For case (2) --we calculate Right part suffix sum of count
+
+        This observation is contributed by ZZZ, 哎呀呀 in 
+        LeetCode Contest After Party (https://www.facebook.com/IM.LeetCoder/)
         */
         int n = nums.size();
         vector<vector<int>> cnt = vector<vector<int>>(n, vector<int>(n,0));
         vector<vector<int>> &h_cnt = cnt, &k_cnt=cnt;
-
+        //vector<vector<int>> h_cnt = vector<vector<int>>(n, vector<int>(n,0)); //Left part prefix sum of count
+        //vector<vector<int>> r_cnt = vector<vector<int>>(n, vector<int>(n,0)); //Right part suffix sum of count
+        
         for(int j=2;j<n-1;j++){
             int max_i = j-1;
             for(int h =0;h<max_i;h++) {
