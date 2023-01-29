@@ -21,32 +21,37 @@ public:
         
         
         vector<int> v;
-        vector<int> visited = vector<int>(numCourses,0);
+        vector<int> visited = vector<int>(numCourses,-1);
+        vector<int> pathover = vector<int>(numCourses,0);
         int detect_cycle=0;
         
         
-        function<void(int)> dfs = [&](int parent) {
-            visited[parent] = 1;
-            
+        function<void(int,int)> dfs = [&](int parent,int root) {
+            if(detect_cycle) return;
+            pathover[parent] = 1;
+            visited[parent] = root;
             for(auto &child:mp[parent]){
                 printf("(%d->%d),",parent,child);
-                if(visited[child] == 0) {
-                    printf("=>%d",child);
-                    dfs(child);
-                } else {
+                if(pathover[child]==1) {
                     printf("detect_cycle for parent=%d, child=%d\n", parent, child);
-                    detect_cycle=1;
+                    detect_cycle=1;                    
+                } else {
+                    printf("=>%d",child);
+                    if(visited[child]==root || visited[child]==-1){
+                        dfs(child, root);
+                    }
                 }
+                if(detect_cycle) break;
             }
             v.push_back(parent);
-            visited[parent] = 0;
+            pathover[parent] = 0;
         };
         
         for(int i = 0;i<numCourses;i++) {
-            if(!visited[i]) {
+            if(visited[i]==-1) {
                 printf("\nDFS init to start from %d", i);
                 detect_cycle=0;
-                dfs(i);
+                dfs(i,i);
                 if(detect_cycle)return false;
             }
         }
@@ -61,3 +66,9 @@ public:
     
     
 };
+/* Test Cases
+2
+[[1,0],[0,1]]
+5
+[[1,4],[2,4],[3,1],[3,2]]
+*/
