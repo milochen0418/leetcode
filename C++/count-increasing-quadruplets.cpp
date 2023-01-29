@@ -19,8 +19,8 @@ public:
         This observation is contributed by ZZZ, 哎呀呀 in LeetCode Contest After Party
         */
         int n = nums.size();
-        vector<vector<int>> h_cnt = vector<vector<int>>(n, vector<int>(n,0));
-        vector<vector<int>> k_cnt = vector<vector<int>>(n, vector<int>(n,0));
+        vector<vector<int>> cnt = vector<vector<int>>(n, vector<int>(n,0));
+        vector<vector<int>> &h_cnt = cnt, &k_cnt=cnt;
 
         for(int j=2;j<n-1;j++){
             int max_i = j-1;
