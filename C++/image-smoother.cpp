@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/image-smoother
+    //article https://leetcode.com/problems/image-smoother/discuss/3119052/C%2B%2B-T%3AO(MN)-S%3AO(1)-15-lines
 public:
     vector<vector<int>>& imageSmoother(vector<vector<int>>& img) {
         int m = img.size(), n=img[0].size();
