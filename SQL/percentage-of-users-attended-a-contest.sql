@@ -17,7 +17,13 @@ order by percentage desc, contest_id asc;
 But Our purpose is to saveing query result of  (select count(user_id) from Users),2)
 For this purpose , we can use WITH 
 (refer WITH in this article: https://zhuanlan.zhihu.com/p/397195826) 
+It's format is like 
+WITH 
+a AS ( SELECT * FROM category WHERE cname = '家电' ),
+b AS ( SELECT * FROM products WHERE pname IN ( '小米电视机', '格力空调' )) 
+SELECT * FROM	a	LEFT JOIN b ON a.cid = b.category_id;
 
+From our new solution, it is like
 with var as (...)  select ... from Table, var ... 
 */
 
@@ -30,3 +36,4 @@ select contest_id,
     round ((100*count(user_id))/var.total,2) as percentage 
 from Register, var group by contest_id 
 order by percentage desc, contest_id asc;
+
