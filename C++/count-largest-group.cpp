@@ -8,6 +8,23 @@ public:
     #define empty_printf(...)    
     #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%d,",i);printf("\n");
     int countLargestGroup(int n) {
+        unordered_map<int,int> mp;
+        int maxv = 0;
+        for(int i = 1;i<=n;i++) {
+            int m = i;
+            int dsum = 0;
+            while(m>0) {
+                dsum += m%10;
+                m/=10;
+            }
+            maxv= max(maxv,++mp[dsum]);
+        }
+        int ans = 0;
+        for(auto &[k,v]:mp) if(maxv==v) ans++;
+        return ans;
+    }
+    
+    int countLargestGroup_v01(int n) {
         unordered_map<int,vector<int>> mp;
         int maxv = 0;
         for(int i = 1;i<=n;i++) {
