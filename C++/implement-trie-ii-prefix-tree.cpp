@@ -1,10 +1,16 @@
 class Trie {
+    //https://leetcode.com/problems/implement-trie-ii-prefix-tree
 public:
     struct TNode {
         int match;//be a counter. 0:not any matched insert string 
         int through;// be a counter. 3:mean 3 insert string go through it before.
+        char c;
+        TNode* parent;
         vector<TNode*> children;
-        TNode(int _match=0, int _through=0) {
+        TNode(TNode* _parent=nullptr, char _c='*',int _through=0,int _match=0 ) {
+            //Just create TNode's root by call TNode() without any parameter
+            parent=_parent;
+            c=_c;
             match=_match;
             through=_through;
             children = vector<TNode*>(26,nullptr);
@@ -17,7 +23,7 @@ public:
     };
     TNode* root;
     Trie() {
-        root = new TNode();            
+        root = new TNode();//set through to avoid erase() procedure to erase
     }
     ~Trie() {
         delete root;
@@ -28,7 +34,7 @@ public:
         for(auto &c:word) {
             node->through++;
             TNode*&child = node->children[c-'a'];
-            node = !child?child=new TNode():child;
+            node = !child?child=new TNode(node,c):child;
         }
         node->match++;
         node->through++;
@@ -57,13 +63,26 @@ public:
     
     void erase(string word) {
         TNode* node = root;
+        vector<TNode*> stk;
+        
         for(auto& c:word) {
             node->through--;
+            if(node->through==0) stk.push_back(node);
             TNode*& child = node->children[c-'a'];
             node=child;
         }
         node->match--;
         node->through--;
+        if(node->through==0) stk.push_back(node);
+        
+        for(int i=stk.size()-1; i>=0;i--) {
+            char c = stk[i]->c;
+            TNode*parent = stk[i]->parent;
+            if(parent) {//parent==nullptr iff current node is root
+                parent->children[c-'a']=nullptr;
+                delete stk[i];
+            }
+        }
     }
 };
 
