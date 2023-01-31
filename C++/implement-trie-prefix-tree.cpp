@@ -27,9 +27,8 @@ public:
     void insert(string word) {
         TNode* node = root;
         for(auto &c:word) {
-            if(node->children[c-'a']==nullptr)
-                node->children[c-'a'] = new TNode();
-            node = node->children[c-'a'];
+            TNode*&child = node->children[c-'a'];
+            node = !child?child=new TNode():child;
         }
         node->match = true;
     }
@@ -37,7 +36,8 @@ public:
     bool search(string word) {
         TNode *node = root;
         for(auto& c:word) {
-            node=node->children[c-'a'];
+            TNode*&child = node->children[c-'a'];
+            node=child;
             if(!node) return false;
         }
         return node->match;
@@ -46,7 +46,8 @@ public:
     bool startsWith(string prefix) {
         TNode *node = root;
         for(auto& c:prefix) {
-            node=node->children[c-'a'];
+            TNode*&child = node->children[c-'a'];
+            node=child;
             if(node==nullptr) return false;
         }
         return true;
