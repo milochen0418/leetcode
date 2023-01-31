@@ -1,5 +1,6 @@
 class Trie {
     //https://leetcode.com/problems/implement-trie-ii-prefix-tree
+    //article https://leetcode.com/problems/implement-trie-ii-prefix-tree/discuss/3123605/C%2B%2B-No-Memory-Leak
 public:
     struct TNode {
         int match;//be a counter. 0:not any matched insert string 
