@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/best-team-with-no-conflicts
+    //article https://leetcode.com/problems/best-team-with-no-conflicts/discuss/3123875/C%2B%2B-DP-solution-similar-to-House-Robber
 public:
     int bestTeamScore(vector<int>& scores, vector<int>& ages) {
         //Dynamic Programming from bestTeamScore_TLE_v02() 
