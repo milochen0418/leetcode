@@ -30,19 +30,22 @@ public:
             return lhs[1]==rhs[1]?lhs[0]>rhs[0]:lhs[1]>rhs[1];
         });
         
-        function<int(int,int,int)> sol = [&](int score, int age, int i){
+        function<int(int,int)> sol = [&](int L, int R){
+            int score = L<0?INT_MIN:v[L][0];
+            int age = L<0?0:v[L][1];
             //printf("s,a,i=%d,%d,%d\n",score,age,i);
-            if(i>=n) {
+            if(R>=n) {
                 return 0;
             }
-            if(v[i][1]<age && v[i][0]>score) {
-                return sol(score, age, i+1);
+            if(v[R][1]<age && v[R][0]>score) {
+                return sol(L, R+1);
             } else {
-                int val1 = v[i][0]+sol(v[i][0],v[i][1],i+1);
-                int val2 = sol(score, age, i+1);
+                int val1 = v[R][0]+sol(R,R+1);
+                int val2 = sol(L, R+1);
                 return max(val1,val2);
             }
         };
-        return sol(INT_MIN,0,0);
+        //return sol(INT_MIN,0,0);
+        return sol(-1,0);
     }
 };
