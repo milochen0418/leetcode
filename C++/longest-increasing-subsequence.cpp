@@ -3,6 +3,20 @@ class Solution {
     //https://leetcode.com/problems/longest-increasing-subsequence/discuss/2072683/C%2B%2B-or-Dynamic-Programming-(Top-Down)
 public:
     int lengthOfLIS(vector<int>& nums) {
+        //backtracking TLE v01 
+        int n = nums.size();
+        function<int(int,int)> sol = [&](int v,int i){
+            if(i>=n) return 0;
+            if(nums[i]<=v)
+                return sol(v, i+1);
+            else 
+                return max(1+sol(nums[i],i+1), sol(v, i+1));
+        };
+        return sol(INT_MIN,0);
+    }
+
+
+    int lengthOfLIS_v01(vector<int>& nums) {
         int n = nums.size();
         vector<int> dp = vector<int>(n, 0);
         dp[n-1]=1;
