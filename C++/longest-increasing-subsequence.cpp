@@ -18,6 +18,48 @@ public:
         return sol(-1,0);
     }
 
+    int lengthOfLIS_observation(vector<int>& nums) {
+        //Do some observation 
+        /*
+        Input: [10,9,2,5,3,7,101,18]
+        stdout:
+        L\R	R=0	R=1	R=2	R=3	R=4	R=5	R=6	R=7	
+        L=0	4	4	4	3	3	2	1	1	
+        L=1	1	1	1	1	1	1	1	1	
+        L=2	2	1	1	1	1	1	1	1	
+        L=3	3	3	3	3	3	2	1	1	
+        L=4	2	2	2	2	2	2	1	1	
+        L=5	3	3	3	3	2	2	1	1	
+        L=6	2	2	1	1	1	1	1	1	
+        L=7	0	0	0	0	0	0	0	0	
+        */
+        int n = nums.size();
+        vector<vector<int>> dp = vector<vector<int>>(n, vector<int>(n,-1));
+        function<int(int,int)> sol = [&](int L,int R){
+            if(R>=n) return 0;
+            int& dpv = dp[L+1][R];
+            if(dpv != -1) return dpv;
+            if(nums[R] <= (L<0?INT_MIN:nums[L]))
+                return dpv = sol(L,R+1);
+            else
+                return dpv = max(1+sol(R,R+1), sol(L,R+1));
+        };
+        for(int L = 0; L<n;L++) {
+            if(L==0) {
+                printf("L\\R\t");
+                for(int R=0;R<n;R++) printf("R=%d\t",R);
+                printf("\n");
+            }
+            
+            printf("L=%d\t",L);
+            for(int R=0;R<n;R++) {
+                printf("%d\t", sol(L-1,R));
+            }
+            printf("\n");
+        }
+        return sol(-1,0);
+    }    
+
 
     int lengthOfLIS_v03(vector<int>& nums) {
         //backtracking TLE v01, change two parameter as index of array
