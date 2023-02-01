@@ -2,6 +2,23 @@ class Solution {
     //https://leetcode.com/problems/longest-increasing-subsequence
     //https://leetcode.com/problems/longest-increasing-subsequence/discuss/2072683/C%2B%2B-or-Dynamic-Programming-(Top-Down)
 public:
+    int lengthOfLIS(vector<int>& nums) {
+        //DP solution O(N^2)
+        int n = nums.size();
+        vector<vector<int>> dp = vector<vector<int>>(n, vector<int>(n,-1));
+        function<int(int,int)> sol = [&](int L,int R){
+            if(R>=n) return 0;
+            int& dpv = dp[L+1][R];
+            if(dpv != -1) return dpv;
+            if(nums[R] <= (L<0?INT_MIN:nums[L]))
+                return dpv = sol(L,R+1);
+            else
+                return dpv = max(1+sol(R,R+1), sol(L,R+1));
+        };
+        return sol(-1,0);
+    }
+
+
     int lengthOfLIS_v03(vector<int>& nums) {
         //backtracking TLE v01, change two parameter as index of array
         int n = nums.size();
