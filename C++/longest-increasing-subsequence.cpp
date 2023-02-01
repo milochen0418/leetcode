@@ -32,6 +32,17 @@ public:
         L=5	3	3	3	3	2	2	1	1	
         L=6	2	2	1	1	1	1	1	1	
         L=7	0	0	0	0	0	0	0	0	
+
+        R\L	L=0	L=1	L=2	L=3	L=4	L=5	L=6	L=7	
+        R=0	4	1	2	3	2	3	2	0	
+        R=1	4	1	1	3	2	3	2	0	
+        R=2	4	1	1	3	2	3	1	0	
+        R=3	3	1	1	3	2	3	1	0	
+        R=4	3	1	1	3	2	2	1	0	
+        R=5	2	1	1	2	2	2	1	0	
+        R=6	1	1	1	1	1	1	1	0	
+        R=7	1	1	1	1	1	1	1	0	        
+
         */
         int n = nums.size();
         vector<vector<int>> dp = vector<vector<int>>(n, vector<int>(n,-1));
@@ -57,6 +68,21 @@ public:
             }
             printf("\n");
         }
+        printf("\n");
+        for(int R = 0; R<n;R++) {
+            if(R==0) {
+                printf("R\\L\t");
+                for(int L=0;L<n;L++) printf("L=%d\t",L);
+                printf("\n");
+            }
+            
+            printf("R=%d\t",R);
+            for(int L=0;L<n;L++) {
+                printf("%d\t", sol(L-1,R));
+            }
+            printf("\n");
+        }
+        
         return sol(-1,0);
     }    
 
