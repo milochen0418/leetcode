@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-vowel-strings-in-ranges
+    //article https://leetcode.com/problems/count-vowel-strings-in-ranges/discuss/3146671/C%2B%2B-Two-Pass-O(N)-4-lines
 public:
 
     vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
@@ -8,7 +9,7 @@ public:
         for(auto &q:queries) ans.push_back(v[q[1]+1] - v[q[0]]);
         return ans;        
     }
-    
+
     vector<int> vowelStrings_v01(vector<string>& words, vector<vector<int>>& queries) {
         vector<int> is_vowel = vector<int>(256,0);
         is_vowel['a']=is_vowel['e']=is_vowel['i']=is_vowel['o']=is_vowel['u']=1;
