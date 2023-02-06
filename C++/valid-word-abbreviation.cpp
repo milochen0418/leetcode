@@ -14,6 +14,7 @@ public:
         vector<string> v;
         string s;
         char prev='-'; 
+        abbr.push_back( is_digit(abbr.back())?'a':'1');
         for(auto &c:abbr) {
             if((is_digit(c) && is_letter(prev)) 
             ||(is_letter(c) && is_digit(prev)) ){
@@ -23,7 +24,6 @@ public:
             s.push_back(c);
             prev = c;
         }
-        if(s.length()>0) v.push_back(s);
 
         
         int i = 0;         
