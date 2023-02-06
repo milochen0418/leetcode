@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/valid-word-abbreviation
-    //article https://leetcode.com/problems/valid-word-abbreviation/discuss/3151992/C%2B%2B-100-beats
+    //article https://leetcode.com/problems/valid-word-abbreviation/discuss/3151992/C%2B%2B-One-Pass-O(N)-100-beats
 public:
     bool validWordAbbreviation(string word, string abbr) {
         #define bound(S,c,B) (B>=c && c>=S)
