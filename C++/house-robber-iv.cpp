@@ -1,6 +1,7 @@
 class Solution {
+    //https://leetcode.com/problems/house-robber-iv
 public:
-    #define DEBUG
+    //#define DEBUG
     #ifndef DEBUG
         #define printf(...) empty_printf(__VA_ARGS__)
     #endif 
@@ -8,9 +9,6 @@ public:
     #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%d,",i);printf("\n");
     
     int minCapability(vector<int>& nums, int k) {
-        return 0;
-    }
-    int minCapability_research(vector<int>& nums, int k) {
         printf("\nminCapability, k= %d\n",k);
         print_container(nums);
         vector<int> A = nums;
@@ -31,41 +29,26 @@ public:
             return cnt;
         };
         sort(A.begin(), A.end());
-        for(auto &v: A) 
-            printf("v = %d, check_cnt(v) = %d\n",  v, check_cnt(v));
+        
+        for(int i = 0; i<A.size();i++) 
+            printf("A[i=%d] = %d, check_cnt(%d) = %d\n",  i,A[i], A[i], check_cnt(A[i]));
+        
+        printf("Start to binary search\n");
+        int L = 0, R=A.size()-1;
+        while(L<=R) {
+            int M = L+(R-L)/2;
+            printf("L,M,R = %d,%d,%d\n", L,M,R);
+            if( (M-1<0 || check_cnt(A[M-1])<k) && check_cnt(A[M]) == k ) {
+                printf("A[M=%d] = %d is solution\n",M, A[M]);
+                return A[M];
+            } 
+            if(check_cnt(A[M]) >= k) {
+                R=M-1;
+            } else {
+                L=M+1;
+            }
+        }
+        return -1;
+        
     }
-    /*
-    Stdout:
-    minCapability, k= 2
-    nums = 2,3,5,9,
-    v = 2, check_cnt(v) = 1
-    v = 3, check_cnt(v) = 1
-    v = 5, check_cnt(v) = 2
-    v = 9, check_cnt(v) = 2
-    Expected:
-    5
-
-    Stdout:
-    minCapability, k= 2
-    nums = 2,7,9,3,1,
-    v = 1, check_cnt(v) = 1
-    v = 2, check_cnt(v) = 2
-    v = 3, check_cnt(v) = 2
-    v = 7, check_cnt(v) = 2
-    v = 9, check_cnt(v) = 3
-    Expected:
-    2
-
-    Stdout:
-    minCapability, k= 3
-    nums = 2,7,9,3,1,
-    v = 1, check_cnt(v) = 1
-    v = 2, check_cnt(v) = 2
-    v = 3, check_cnt(v) = 2
-    v = 7, check_cnt(v) = 2
-    v = 9, check_cnt(v) = 3
-    Expected:
-    9
-
-    */
 };
