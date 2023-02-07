@@ -1,7 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/house-robber-iv
 public:
-    //#define DEBUG
+    #define DEBUG
     #ifndef DEBUG
         #define printf(...) empty_printf(__VA_ARGS__)
     #endif 
@@ -49,7 +49,7 @@ public:
         nums.push_back(INT_MAX);
         int n = nums.size();
         
-        function<int(int)> check_cnt =  [&](int v) {
+        function<int(int)> kcnt =  [&](int v) {
             //select all value that smaller or equal than v
             int cnt = 0;
             int L = 0;
@@ -65,18 +65,18 @@ public:
         sort(A.begin(), A.end());
         
         for(int i = 0; i<A.size();i++) 
-            printf("A[i=%d] = %d, check_cnt(%d) = %d\n",  i,A[i], A[i], check_cnt(A[i]));
+            printf("A[i=%d] = %d, kcnt(%d) = %d\n",  i,A[i], A[i], kcnt(A[i]));
         
         printf("Start to binary search\n");
         int L = 0, R=A.size()-1;
         while(L<=R) {
             int M = L+(R-L)/2;
             printf("L,M,R = %d,%d,%d\n", L,M,R);
-            if( (M-1<0 || check_cnt(A[M-1])<k) && check_cnt(A[M]) == k ) {
+            if( (M-1<0 || kcnt(A[M-1])<k) && kcnt(A[M]) == k ) {
                 printf("A[M=%d] = %d is solution\n",M, A[M]);
                 return A[M];
             } 
-            if(check_cnt(A[M]) >= k) {
+            if(kcnt(A[M]) >= k) {
                 R=M-1;
             } else {
                 L=M+1;
