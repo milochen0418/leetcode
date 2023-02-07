@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/house-robber-iv
+    //article https://leetcode.com/problems/house-robber-iv/discuss/3157588/C%2B%2B-Binary-search-%2B-easy-array-approach
 public:
     #define DEBUG
     #ifndef DEBUG
