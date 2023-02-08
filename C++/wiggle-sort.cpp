@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/wiggle-sort
+    //article https://leetcode.com/problems/wiggle-sort/discuss/3159404/C%2B%2B-easy-understand-sorting
 public:
     void wiggleSort(vector<int>& nums) {
         vector<int> A = nums;
