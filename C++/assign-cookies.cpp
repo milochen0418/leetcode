@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/assign-cookies/
+    //article https://leetcode.com/problems/assign-cookies/discuss/3163910/C%2B%2B-One-Pass-O(N)-5-lines
 public:
     int findContentChildren(vector<int>& g, vector<int>& s) {
         int n = s.size(), m = g.size(), ans=0,j=0;
@@ -8,7 +9,7 @@ public:
         while(ans<m && j<n) ans+=s[j++]>=g[ans];
         return ans;
     }
-    
+
     int findContentChildren_v01(vector<int>& g, vector<int>& s) {
         int ans = 0, n = s.size(), m = g.size(), i=0,j=0;
         sort(s.begin(), s.end());
