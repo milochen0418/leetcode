@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/shortest-distance-to-a-character
+    //article https://leetcode.com/problems/shortest-distance-to-a-character/discuss/3166428/C%2B%2B-Two-Pass-O(N)-9-lines
 public:
     vector<int> shortestToChar(string s, char c) {
         int n = s.length(), idx;
