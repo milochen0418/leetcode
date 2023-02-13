@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-odd-numbers-in-an-interval-range
+    //article https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/discuss/3178059/C%2B%2B-or-easy-1-line-solution-without-if-else
 public:
     int countOdds(int low, int high) {
         /*
