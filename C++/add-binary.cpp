@@ -2,6 +2,25 @@ class Solution {
     //https://leetcode.com/problems/add-binary
 public:
     string addBinary(string a, string b) {
+        reverse(a.begin(), a.end());
+        reverse(b.begin(), b.end());
+        if(a.length()<b.length()) swap(a,b);
+        //a.length() >= b.length() now.
+        int m = a.length(), n = b.length();
+        int C = 0, S=0;
+        for(int i=0; i<m; i++) {
+            int A = a[i]-'0', B=i<n?b[i]-'0':0;
+            S = (A+B+C);
+            C = S/2;
+            a[i] = (S%2) + '0';
+        }
+        if(C>0)a.push_back(C+'0');
+        reverse(a.begin(), a.end());
+        return a;
+    }
+
+
+    string addBinary_Ver01(string a, string b) {
         string ans="";
         int m = a.length(), n = b.length(), end = max(m,n);
         int bit_c = 0;
