@@ -19,13 +19,9 @@ public:
         if(tsv.find(key) == tsv.end()) {
             tsv[key].push_back(0);
             tsm[key][0] = "";
-            //tsm[key].push_back("");
         }
         tsv[key].push_back(timestamp);
         tsm[key][timestamp]=value;
-        //tsm[key].push_back(value);
-            
-
         /*
         printf("key = %s -> ", key.c_str());
         print_container(tsv[key]);
@@ -39,10 +35,8 @@ public:
     string get(string key, int timestamp) {
         if(tsv.find(key) == tsv.end()) return "";
         const vector<int>& v = tsv[key];
-        //const unordered_map<int, string>& mp = tsm[key];
-        //const vector<string>& mp = tsm[key];
-        //if(timestamp >= v.back()) return mp[v.back()];
-        if(timestamp >= v.back()) return tsm[key][v.back()];
+        unordered_map<int, string>& mp = tsm[key];
+        if(timestamp >= v.back()) return mp[v.back()];
         int n = v.size(), L=0, R=n-1;
         int M=0;
         int t = timestamp;
@@ -58,12 +52,8 @@ public:
             } else {
                 R=M-1;
             }      
-        }
-        //printf("final L,M,R = %d,%d,%d\n", L, M, R);
-        
-        return tsm[key][v[M]];
-        //return  mp[v[M]];
-        //return  mp[M];
+        }        
+        return mp[v[M]];
     }
 };
 
