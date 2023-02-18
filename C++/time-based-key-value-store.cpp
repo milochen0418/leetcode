@@ -10,32 +10,39 @@ public:
     
     unordered_map<string, vector<int>> tsv; //Use key to get time-stamp vector
     unordered_map<string, unordered_map<int, string>> tsm;//Use key to get time-stamp map ;
+    //unordered_map<string, vector<string>> tsm;//Use key to get time-stamp map     
     TimeMap() {
-        printf("\n");
+        //printf("\n");
     }
     
     void set(string key, string value, int timestamp) {
         if(tsv.find(key) == tsv.end()) {
             tsv[key].push_back(0);
             tsm[key][0] = "";
+            //tsm[key].push_back("");
         }
         tsv[key].push_back(timestamp);
         tsm[key][timestamp]=value;
-        
+        //tsm[key].push_back(value);
+            
+
+        /*
         printf("key = %s -> ", key.c_str());
         print_container(tsv[key]);
         for(auto &i:tsv[key]) 
             printf("\"%s\",", tsm[key][i].c_str());
         printf("\n");
-        
+        */
     }
     
     
     string get(string key, int timestamp) {
         if(tsv.find(key) == tsv.end()) return "";
-        vector<int>& v = tsv[key];
-        unordered_map<int, string> mp = tsm[key];
-        if(timestamp >= v.back()) return mp[v.back()];
+        const vector<int>& v = tsv[key];
+        //const unordered_map<int, string>& mp = tsm[key];
+        //const vector<string>& mp = tsm[key];
+        //if(timestamp >= v.back()) return mp[v.back()];
+        if(timestamp >= v.back()) return tsm[key][v.back()];
         int n = v.size(), L=0, R=n-1;
         int M=0;
         int t = timestamp;
@@ -52,9 +59,11 @@ public:
                 R=M-1;
             }      
         }
-        printf("final L,M,R = %d,%d,%d\n", L, M, R);
+        //printf("final L,M,R = %d,%d,%d\n", L, M, R);
         
-        return  mp[v[M]];
+        return tsm[key][v[M]];
+        //return  mp[v[M]];
+        //return  mp[M];
     }
 };
 
