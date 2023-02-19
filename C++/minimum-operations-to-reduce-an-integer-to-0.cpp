@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/
+    //article https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/discuss/3204179/C%2B%2B-array-approach
 public:
     //39 = 32+4+2+1  = 100111
     
