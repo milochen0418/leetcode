@@ -3,25 +3,25 @@ class TimeMap {
 public:
     
     unordered_map<string, vector<int>> tsv; //Use key to get time-stamp vector
-    unordered_map<string, unordered_map<int, string>> tsm;//Use key to get time-stamp map ;
+    unordered_map<string, vector<string>> tsm;//Use key to get time-stamp map ;
     TimeMap() {
     }
     
     void set(string key, string value, int timestamp) {
         if(tsv.find(key) == tsv.end()) {
             tsv[key].push_back(0);
-            tsm[key][0] = "";
+            tsm[key].push_back("");
         }
         tsv[key].push_back(timestamp);
-        tsm[key][timestamp]=value;
+        tsm[key].push_back(value);
     }
     
     
     string get(string key, int timestamp) {
         if(tsv.find(key) == tsv.end()) return "";
         const vector<int>& v = tsv[key];
-        unordered_map<int, string>& mp = tsm[key];
-        if(timestamp >= v.back()) return mp[v.back()];
+        const vector<string>& mp = tsm[key];
+        if(timestamp >= v.back()) return mp.back();
         int n = v.size(), L=0, R=n-1;
         int M=0;
         int t = timestamp;
@@ -33,7 +33,7 @@ public:
             else 
                 R=M-1;
         }        
-        return mp[v[M]];
+        return mp[M];
     }
 };
 
