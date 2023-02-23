@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sort-colors
+    //https://leetcode.com/problems/sort-colors/discuss/3220276/C%2B%2B-O(N)-Two-Pass-in-place-solution
 public:
     void sortColors(vector<int>& nums) {
         int n = nums.size();
