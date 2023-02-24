@@ -10,6 +10,7 @@
  * };
  */
 class Solution {
+    //https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 public:
     
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
@@ -25,13 +26,14 @@ public:
           P=01111
           I=11110
         */
+        unordered_map<int,int> mp;//find the index of inorder array that equal to val by mp[val]
+        for(int i = 0; i<inorder.size();i++) mp[inorder[i]]=i;
+        
         
         function<TreeNode*(int,int,int,int)> build = [&](int Pi, int Pj, int Ii, int Ij) {
             int val = preorder[Pi];
             TreeNode* node = new TreeNode(val);
-            if(Pi==Pj) return node;
-            int Im;
-            for(Im = Ii; Im<=Ij;Im++) if(inorder[Im] == val) break;
+            int Im = mp[val];
             int LW = Im-Ii;//width of left subtree (the number of node for left  subtree)
             int RW = Ij-Im;//width of right subtree(the number of node for right subtree)
             if(LW>0) node->left = build(Pi+1, Pi+LW, Ii, Im-1);
