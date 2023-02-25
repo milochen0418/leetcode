@@ -1,5 +1,6 @@
 class MovingAverage {
     //https://leetcode.com/problems/moving-average-from-data-stream
+    //article https://leetcode.com/problems/moving-average-from-data-stream/discuss/3227801/C%2B%2B-FIFO-queue-O(1)
 public:
     typedef long long ll;
     ll sum=0,width=0;
