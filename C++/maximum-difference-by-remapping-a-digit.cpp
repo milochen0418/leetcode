@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-difference-by-remapping-a-digit
+    //article https://leetcode.com/problems/maximum-difference-by-remapping-a-digit/discuss/3227815/C%2B%2B-O(logN)-by-string-approach
 public:
     int minMaxDifference(int num) {
         string maxs = to_string(num), mins = maxs;
