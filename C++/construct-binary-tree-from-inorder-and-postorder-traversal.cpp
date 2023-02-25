@@ -10,6 +10,8 @@
  * };
  */
 class Solution {
+    //https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+    //https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/3227098/C%2B%2B-recursion-by-the-number-of-node-in-subtree
 public:
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
         /*
