@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/unique-email-addresses
+    //article https://leetcode.com/problems/unique-email-addresses/discuss/3233164/C%2B%2B-One-Pass-O(N)-12-lines
 public:
     int numUniqueEmails(vector<string>& emails) {
         unordered_set<string> set;
