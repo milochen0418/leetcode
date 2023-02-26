@@ -22,13 +22,9 @@ public:
         while(L<n && R<n) {
             if(mark.find(R) != mark.end()) {
                 R++;
-                continue;
-            } 
-            if(mark.find(L) != mark.end()) {
+            } else if(mark.find(L) != mark.end()) {
                 L++;
-                continue;
-            } 
-            if(D[L]<=A[R]) {
+            } else if(D[L]<=A[R]) {
                 ans+=2;
                 mark.insert(L);
                 mark.insert(R);
