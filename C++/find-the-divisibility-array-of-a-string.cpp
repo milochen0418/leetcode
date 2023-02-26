@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-divisibility-array-of-a-string
+    //article https://leetcode.com/problems/find-the-divisibility-array-of-a-string/discuss/3230852/C%2B%2B-One-Pass-O(N)-explanation
 public:
     typedef long long ll ;
     vector<int> divisibilityArray(string word, int mm) {
