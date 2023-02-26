@@ -7,7 +7,28 @@ public:
     #endif 
     #define empty_printf(...)
     #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%3d,",i);printf("\n");
-    int maxNumOfMarkedIndices(vector<int>& nums) {
+
+    int maxNumOfMarkedIndices(vector<int>& A) {
+        sort(A.begin(), A.end());
+        int ans=0, n = A.size();
+        int L=0, R=n/2;
+        while(L<n && R<n) {
+            if(A[R]<0) {
+                R++;
+            } else if(A[L]<0) {
+                L++;
+            } else if(A[L]*2<=A[R]) {
+                ans+=2;
+                A[L++]*=-1;
+                A[R++]*=-1;
+            } else { //D[i]>=A[j]
+                R++;  
+            }
+        }
+        return ans;        
+    }
+
+    int maxNumOfMarkedIndices_v01(vector<int>& nums) {
         vector<int>& A = nums; 
         int n = A.size();
         sort(A.begin(), A.end());
