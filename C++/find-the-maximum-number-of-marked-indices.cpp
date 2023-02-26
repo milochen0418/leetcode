@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-maximum-number-of-marked-indices/
+    //article https://leetcode.com/problems/find-the-maximum-number-of-marked-indices/discuss/3233033/C%2B%2B-One-Pass-O(NlogN)-9-lines
 public:
     //#define DEBUG
     #ifndef DEBUG
@@ -7,8 +8,19 @@ public:
     #endif 
     #define empty_printf(...)
     #define print_container(name) printf("%s = ",#name);for(auto &i:name)printf("%3d,",i);printf("\n");
-
+    
     int maxNumOfMarkedIndices(vector<int>& A) {
+        sort(A.begin(), A.end());
+        int ans=0, n = A.size(), L=0, R=n/2;
+        while(L<n && R<n) {
+            if(A[R]<0) R++;
+            else if(A[L]<0) L++;
+            else if (A[L]*2>A[R]) R++;
+            else ans+=-1*((A[L++]=-1)+(A[R++]=-1));
+        }
+        return ans;        
+    }
+    int maxNumOfMarkedIndices_v02(vector<int>& A) {
         sort(A.begin(), A.end());
         int ans=0, n = A.size();
         int L=0, R=n/2;
