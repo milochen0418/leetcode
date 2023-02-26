@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/available-captures-for-rook
+    //article https://leetcode.com/problems/available-captures-for-rook/discuss/3233626/C%2B%2B-9-lines-solution
 public:
     int numRookCaptures(vector<vector<char>>& board) {
         int m=board.size(), n = board[0].size(), ans = 0;
