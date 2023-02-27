@@ -40,6 +40,7 @@ public:
 
 class Solution {
     //https://leetcode.com/problems/construct-quad-tree
+    //article https://leetcode.com/problems/construct-quad-tree/discuss/3235794/C%2B%2B-recursion-O(grid-size)-16-lines
 public:
     Node* construct(vector<vector<int>>& grid) {
         int n = grid.size(),xx = 0;
