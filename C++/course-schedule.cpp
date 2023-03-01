@@ -3,6 +3,7 @@ class Solution {
     //add article https://leetcode.com/problems/course-schedule/discuss/3114572/C%2B%2B-preorder-DFS-approach
     //Refer this article first to understand topological sort more
     //https://www.geeksforgeeks.org/detect-cycle-in-directed-graph-using-topological-sort/    
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/6087354007953706/
     
 public:
     #define DEBUG
