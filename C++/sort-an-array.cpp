@@ -1,10 +1,12 @@
 class Solution {
-    //https://leetcode.com/problems/sort-an-array/
+    //https://leetcode.com/problems/sort-an-array
 public:
     vector<int> sortArray(vector<int>& nums) {
         
-        for(auto &i:nums) i+=5*1e4;
         auto countingSort = [](vector<int>&arr) {
+            int minv = INT_MAX;
+            for(auto &i:arr) if(i<minv) minv=i;
+            for(auto &i:arr) i-=minv;
             int n = arr.size(); 
             vector<int> arr1 = vector<int>(1+10*1e4,0);
             vector<int> count_arr = vector<int>(1+10*1e4,0);
@@ -18,9 +20,10 @@ public:
                 count_arr[arr[i]]--;
             }
             for (int i = 0; i < n; i++)  arr[i] = arr1[i];
+            for(auto &i:arr) i+=minv;
         };        
         countingSort(nums);
-        for(auto &i:nums) i-=5*1e4;
+
         return nums;
         
     }
