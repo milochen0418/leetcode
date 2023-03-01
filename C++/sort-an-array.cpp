@@ -5,11 +5,20 @@ public:
         
         auto countingSort = [](vector<int>&arr) {
             int minv = INT_MAX;
-            for(auto &i:arr) if(i<minv) minv=i;
-            for(auto &i:arr) i-=minv;
+            int maxv = INT_MIN;
+            
+            for(auto &i:arr) {
+                if(i<minv) minv=i;
+                if(i>maxv) maxv=i;
+            }
+            int diff = maxv-minv;
+            for(auto &i:arr) {
+                i-=minv;
+            }
             int n = arr.size(); 
-            vector<int> arr1 = vector<int>(1+10*1e4,0);
-            vector<int> count_arr = vector<int>(1+10*1e4,0);
+            //printf("maxv = %d, minv=%d, diff=%d", maxv, minv, diff);
+            vector<int> arr1 = vector<int>(n,0);
+            vector<int> count_arr = vector<int>(1+diff,0);
             int x = arr[0];
             for (int i = 1; i < n; i++) if (arr[i] > x) x = arr[i];
             for (int i = 0; i <= x; ++i) count_arr[i] = 0;
@@ -23,8 +32,6 @@ public:
             for(auto &i:arr) i+=minv;
         };        
         countingSort(nums);
-
-        return nums;
-        
+        return nums;       
     }
 };
