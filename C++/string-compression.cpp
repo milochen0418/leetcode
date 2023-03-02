@@ -14,14 +14,9 @@ public:
             } else {
                 cnt++;
             }
-        }
-        
+        }        
         int ret = ans.length();
-        for(int i = 0; i<ret;i++) 
-            if(i<n) 
-                chars[i] = ans[i];
-            else 
-                chars.push_back(ans[i]);
+        for(int i = 0; i<ret;i++) chars[i] = ans[i];
         return ret;
     }
 };
