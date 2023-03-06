@@ -2,7 +2,21 @@ class Solution {
     //https://leetcode.com/problems/kth-missing-positive-number/
     //article https://leetcode.com/problems/kth-missing-positive-number/discuss/2163408/C%2B%2B-or-find-aM-greater-k%2BM-greater-aM-1
 public:
-    int findKthPositive(vector<int>& a, int k) {
+    int findKthPositive_v03(vector<int>& A, int k) {
+        //Brute Force solution
+        int j = 0,ans=0;
+        for(int i = 0;i<k;i++) {
+            ans++;
+            while(j<A.size() && A[j]==ans){
+                ans++;
+                j++;
+            } 
+        }
+        return ans;
+    }
+
+
+    int findKthPositive_v02(vector<int>& a, int k) {
         a.push_back(INT_MAX);
         int L=0,R=a.size()-1;
         while(L<=R) { //find a[M-1] < k+M < a[M] 
@@ -12,7 +26,7 @@ public:
         } return -1;
     }
 
-    int findKthPositiveOld(vector<int>& a, int k) {
+    int findKthPositive_v01(vector<int>& a, int k) {
         a.push_back(INT_MAX);
         int L=0,R=a.size()-1;
         while(L<=R) {
