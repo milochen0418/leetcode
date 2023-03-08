@@ -1,44 +1,27 @@
 class Solution {
-    //https://leetcode.com/problems/koko-eating-bananas/
+    //https://leetcode.com/problems/koko-eating-bananas
 public:
-    int test (vector<int>& piles, int H) {
-        int low = 1, high = 1000000000, k = 0;
-        while (low <= high) {
-            k = (low + high) / 2;
-            int h = 0;
-            for (int i = 0; i < piles.size(); i ++) 
-                h += ceil(1.0 * piles[i] / k);
-            if (h > H)
-                low = k + 1;
-            else
-                high = k - 1;
-        }
-        return low;        
-    }
+    typedef long long ll;
     int minEatingSpeed(vector<int>& piles, int h) {
-        return test(piles,h); //answser from anothers
-        int low = INT_MAX;
-        int high = INT_MIN;
+        int n = piles.size();
+        function<ll(int)> check = [&](int k){            
+            ll times = 0;
+            for(int i = 0; i<n; i++) {
+                int p = piles[i];
+                int acc = p/k + ((p%k)!=0);
+                times+=acc;
+            }
+            return times;
+        };
+        int maxv = 0;
+        for(auto &p:piles) 
+            maxv=max(p,maxv);
         
-        for(int v: piles) {
-            low = min(low,v);
-            high = max(high,v);
-        }
-        low = low/h;
-        low = max(1,low);
+        int L = 1, R=maxv;
         
+        for(int i = L;i<=R;i++) 
+            if(check(i)<=(ll)h) return i;
         
-        int k = 0;
-        while (low <= high) {
-            k = (low + high) / 2;
-            int ch = 0;
-            for (int i = 0; i < piles.size(); i ++) 
-                ch += ceil(1.0 * piles[i] / k);
-            if (ch > h)
-                low = k + 1;
-            else
-                high = k - 1;
-        }
-        return low;        
+        return -1;
     }
 };
