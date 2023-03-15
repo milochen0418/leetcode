@@ -9,6 +9,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree
+    //article https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/discuss/3298489/C%2B%2B-or-DFS-%2B-BFS
 public:
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
         if(k==0) return {target->val};
