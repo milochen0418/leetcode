@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/flip-equivalent-binary-trees
+    //article https://leetcode.com/problems/flip-equivalent-binary-trees/discuss/3298531/C%2B%2B-sort-and-compare-O(N)
 public:
     /*
     Observation: Each tree will have unique node values, 
