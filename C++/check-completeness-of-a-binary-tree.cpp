@@ -18,12 +18,11 @@ public:
         Q.push(root);
         while(!Q.empty()) {
             TreeNode* e=Q.front();Q.pop();
-            if(e->left || e->right) {
-                if(!e->left) return false;
-                if(finished) return false;
-                if(!e->right) finished = 1;
+            if(finished) {
+                if(e->left || e->right) return false;
             } else {
-                finished = 1;
+                if(finished = (!e->left || !e->right)) 
+                    if(!e->left && e->right) return false;
             }
             if(e->left ) Q.push(e->left );
             if(e->right) Q.push(e->right);
