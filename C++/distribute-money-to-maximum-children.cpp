@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/distribute-money-to-maximum-children
-    //article https://leetcode.com/problems/distribute-money-to-maximum-children/discuss/3316578/C%2B%2B-or-O(1)-easy-understand
+    //article https://leetcode.com/problems/distribute-money-to-maximum-children/discuss/3316578/C%2B%2B-or-O(1)-explanation-and-easy-understand
 public:
     int distMoney(int money, int children) {
         money-=children;
