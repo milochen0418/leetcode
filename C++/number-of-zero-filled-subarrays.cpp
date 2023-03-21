@@ -23,4 +23,16 @@ public:
         }
         return ans;
     }
+
+    long long zeroFilledSubarray_v01(vector<int>& nums) {
+        //refactor but slower version
+        nums.push_back(1);
+        ll k = 0, ans=0; 
+        for(auto &i: nums)
+            if(i!=0) 
+                k=0;
+            else 
+                ans+=++k;
+        return ans;
+    }
 };
