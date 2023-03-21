@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/shortest-completing-word
+    //article https://leetcode.com/problems/shortest-completing-word/discuss/3322761/C%2B%2B-or-simple-solution-19-lines
 public:
     string shortestCompletingWord(string licensePlate, vector<string>& words) { 
         vector<int> mp = vector<int>(26,0);
