@@ -1,6 +1,6 @@
 class StringIterator {
     //https://leetcode.com/problems/design-compressed-string-iterator
-    //article https://leetcode.com/problems/design-compressed-string-iterator/discuss/3323593/C%2B%2B-or-One-Pass-O(N)
+    //article https://leetcode.com/problems/design-compressed-string-iterator/discuss/3323593/C%2B%2B-or-One-Pass-O(N)-with-total-16-lines
 public:
     string s;
     vector<int> v;
