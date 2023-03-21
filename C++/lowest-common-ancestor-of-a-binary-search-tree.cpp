@@ -12,9 +12,85 @@ class Solution {
     //https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
     //article https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/discuss/2256920/C%2B%2B-or-Space-O(1)-Time-O(N)-or-some-new-idea-or-explanation
 public:
+    typedef long long ll;
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        while( (ll)(root->val-p->val) * (ll)(root->val-q->val)>0 ) 
+            root = (p->val<root->val)?root->left:root->right;
+        return root;
+    }
+    
+    TreeNode* lowestCommonAncestor_v03(TreeNode* root, TreeNode* p, TreeNode* q) {
+        TreeNode* ans = root;
+        while( 
+            !(
+                (ans->val > p->val && ans->val < q->val) ||
+                (ans->val < p->val && ans->val > q->val) ||
+                (ans->val == p->val && ans->val < q->val) ||
+                (ans->val == p->val && ans->val > q->val) ||
+                (ans->val < p->val && ans->val == q->val) ||
+                (ans->val > p->val && ans->val == q->val) 
+            )
+        ) {
+            if(p->val<ans->val || q->val<ans->val) {
+                ans = ans->left;
+            } else {
+                ans = ans->right;
+            }
+        }
+        return ans;        
+    }
+    TreeNode* lowestCommonAncestor_v02(TreeNode* root, TreeNode* p, TreeNode* q) {
+        //p=2:2,6
+        //q=8,8,6
+        
+        //p=2:  2,6  <= pA
+        //q=4:4,2,6  <= qA
+        
+        vector<TreeNode*> pA;
+        vector<TreeNode*> qA;
+        
+        TreeNode* node = root;
+        while(node->val != p->val) {
+            pA.push_back(node);
+            if(p->val < node->val) 
+                node = node->left;
+            else //node->val > p->val
+                node = node->right;
+        } 
+        pA.push_back(node);
+        
+        node = root;
+        while(node->val != q->val) {
+            qA.push_back(node);
+            if(q->val < node->val) 
+                node = node->left;
+            else //node->val > q->val
+                node = node->right;
+        } 
+        qA.push_back(node);
+
+        /*
+        printf("pA = ");
+        for(auto &v: pA) printf("%d, ", v->val);
+        printf("\n");
+        printf("qA = ");
+        for(auto &v: qA) printf("%d, ", v->val);
+        printf("\n");
+        */
+        TreeNode* ans;
+        int n = min((int)pA.size(), (int)qA.size());
+        for(int i = 0; i<n;i++) {
+            if(pA[i]->val == qA[i]->val) {
+                ans = pA[i];
+            }
+        }
+        return ans;
+        
+    }
+
     TreeNode* smallNode = nullptr;
     TreeNode* largeNode = nullptr;
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    TreeNode* lowestCommonAncestor_v01(TreeNode* root, TreeNode* p, TreeNode* q) {
         
         //Case 1: one is the ancestor to another.
         TreeNode* node;
