@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-zero-filled-subarrays
+    //article https://leetcode.com/problems/number-of-zero-filled-subarrays/discuss/3322271/C%2B%2B-or-One-Pass-O(N)-with-explanation
 public:
     typedef long long ll;
     long long zeroFilledSubarray(vector<int>& nums) {
