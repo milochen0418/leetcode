@@ -11,8 +11,10 @@
  */
 class Solution {
     //https://leetcode.com/problems/merge-two-binary-trees
+    //https://leetcode.com/problems/merge-two-binary-trees/discuss/3323258/C%2B%2B-or-simple-DFS-with-2-lines
 public:
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {        
+
         function<TreeNode*(TreeNode*,TreeNode*)> dfs=[&](TreeNode* r1, TreeNode* r2) {
             if(!r1 && !r2) return (TreeNode*) nullptr;
             return new TreeNode(
