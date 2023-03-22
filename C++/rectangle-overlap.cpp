@@ -2,7 +2,13 @@ class Solution {
     //https://leetcode.com/problems/rectangle-overlap/
 public:
     bool isRectangleOverlap(vector<int>& P, vector<int>& Q) {
-        return false;
+        //(1) interval overlap in X-projection 
+        //(2) interval overlap in Y-projection
+        //(1) && (2) iff P rect is overlap to Q rect
+        //Exclude all cases of non-overalap will get the overlap case
+        bool Xoverlap = !(Q[2] <= P[0] || Q[0] >= P[2]);
+        bool Yoverlap = !(Q[3] <= P[1] || Q[1] >= P[3]);
+        return Xoverlap && Yoverlap; 
     }
     bool isRectangleOverlap_wrongans_01(vector<int>& P, vector<int>& Q) {
         //I assume
