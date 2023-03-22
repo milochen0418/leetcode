@@ -1,30 +1,22 @@
 class Solution {
-    //https://leetcode.com/problems/rectangle-overlap
+    //https://leetcode.com/problems/rectangle-overlap/
 public:
-    bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
-        vector<int>& v=rec2, &w=rec1;
-        vector<vector<int>> ps = {{v[0],v[1]}, {v[2],v[3]},{v[0],v[3]},{v[2],v[1]}};
-        vector<vector<int>> cs = {{w[0],w[1]}, {w[2],w[3]},{w[0],v[3]},{w[2],v[1]}};
-        printf("ps = ");
-        for(auto &p:ps)
-            printf("(%d,%d), ",p[0],p[1]);
-        printf("\n");
-        for(auto &p:ps) {
-            int is_corner_touch = 0;
-            for(auto& c:cs) if(c==p) {
-                printf("corner touch (%d,%d)\n", c[0], c[1]);
-                is_corner_touch =1;
-                break;
-                //ignore corner intersection. 
-            }
-            if(is_corner_touch) continue;
-            if(w[0]<=p[0] && p[0]<= w[2]) {
-                if(w[1]<=p[1] && p[1] <=w[3]) {
-                    printf("(%d,%d) in area\n", p[0],p[1]);
-                    return true;            
-                }
-            }
-        }
+    bool isRectangleOverlap(vector<int>& P, vector<int>& Q) {
+        //I guess
+        //two rectangle P,Q overlap iff one point of P in rect Q or one point of Q in rect P
+        vector<vector<int>> Pxy = {{P[0],P[1]}, {P[2],P[1]}, {P[0],P[3]}, {P[2],P[3]}};
+        vector<vector<int>> Qxy = {{Q[2],Q[3]}, {Q[0],Q[3]}, {Q[2],Q[1]}, {Q[0],Q[1]}};
+        for(auto &q:Qxy)
+            if( (P[0]<q[0]&&q[0]<P[2]) && (P[1]<q[1]&&q[1]<P[3]) ) return true;
+        swap(P,Q);
+        swap(Qxy,Pxy);
+        for(auto &q:Qxy)
+            if( (P[0]<q[0]&&q[0]<P[2]) && (P[1]<q[1]&&q[1]<P[3]) ) return true;
         return false;
+        /*
+        cannot pass this test-case after submit
+        [7,8,13,15]
+        [10,8,12,20]
+        */
     }
 };
