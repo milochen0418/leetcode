@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/mice-and-cheese/
-    //article https://leetcode.com/problems/mice-and-cheese/discuss/3368768/C%2B%2B-or-simple-8-lines-or-greedy-%2B-sorting-O(N-log-N)
+    //article https://leetcode.com/problems/mice-and-cheese/discuss/3368768/C%2B%2B-or-8-lines-O(N-log-N)-greedy-and-explanation
 public:
     int miceAndCheese(vector<int>& reward1, vector<int>& reward2, int k) {
         vector<vector<int>>v;
