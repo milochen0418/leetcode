@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-closed-islands
+    //article https://leetcode.com/problems/number-of-closed-islands/discuss/3385258/C%2B%2B-or-simple-11-lines-DFS
 public:
     int closedIsland(vector<vector<int>>& grid) {
         int m = grid.size(), n=grid[0].size(),ans=0;
