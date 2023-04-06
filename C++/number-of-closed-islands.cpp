@@ -11,8 +11,8 @@ public:
             for(auto &d:dirs) ret &= dfs(i+d[0], j+d[1]);
             return ret;
         }; 
-        for(int i=0; i<m;i++) for(int j=0;j<n;j++) if(grid[i][j]==0) ans+=dfs(i,j);
-        return ans;        
+        for(int k = 0;k<m*n;k++) ans+= grid[k/n][k%n]==0?dfs(k/n,k%n):0;
+        return ans;
     }
     int closedIsland_v02(vector<vector<int>>& grid) {
         int m = grid.size(), n=grid[0].size(),ans=0;
