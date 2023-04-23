@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sliding-subarray-beauty/
+    //article https://leetcode.com/problems/sliding-subarray-beauty/discuss/3447738/C%2B%2B-O(N)-sliding-window-%2B-counting
 public:
     vector<int> getSubarrayBeauty_LTE(vector<int>& nums, int k, int x) {
         vector<int> ans;
