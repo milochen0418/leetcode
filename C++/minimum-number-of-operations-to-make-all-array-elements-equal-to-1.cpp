@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-number-of-operations-to-make-all-array-elements-equal-to-1/
+    //article https://leetcode.com/problems/minimum-number-of-operations-to-make-all-array-elements-equal-to-1/discuss/3447720/C%2B%2B-O(1)-Brute-Force-or-Explanation
 public:
     int minOperations(vector<int>& nums) {
         int n = nums.size();
