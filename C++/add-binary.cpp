@@ -2,6 +2,18 @@ class Solution {
     //https://leetcode.com/problems/add-binary
 public:
     string addBinary(string a, string b) {
+        int i = (int)A.length()-1, j=(int)B.length()-1, C=0;
+        string ans;
+        while(i>=0 || j>=0 || C>0) {
+            if(i>=0) C+=A[i--]-'0';
+            if(j>=0) C+=B[j--]-'0';
+            ans.push_back((C%2)+'0');
+            C/=2;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+    string addBinary_Ver02(string a, string b) {
         reverse(a.begin(), a.end());
         reverse(b.begin(), b.end());
         if(a.length()<b.length()) swap(a,b);
