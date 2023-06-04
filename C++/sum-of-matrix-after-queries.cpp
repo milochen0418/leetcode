@@ -52,6 +52,48 @@ public:
         return ans;   
     }
 
+    long long matrixSumQueries_v03(int n, vector<vector<int>>& queries) {
+        ll ans = 0;
+        ll maxv = (ll)n*(ll)n;
+        ll cnt = 0;
+        vector<int> cols_changed = vector<int>(n,0);
+        vector<int> rows_changed = vector<int>(n,0);
+        unordered_set<int> rows_unchanged = unordered_set<int>();
+        unordered_set<int> cols_unchanged = unordered_set<int>();        
+        for(int i = 0;i<n;i++) {
+            rows_unchanged.insert(i);
+            cols_unchanged.insert(i);
+        }
+        
+        int m = queries.size();
+        for(int i = m-1 ; i>=0; i--) {
+            vector<int> &q = queries[i];
+            int type=q[0], idx=q[1], val=q[2];
+            
+            if(type == 0 && cols_changed[idx] == 0) {//change columns
+                cols_changed[idx] = 1;
+                cols_unchanged.erase(idx);
+                
+                for(auto &j:rows_unchanged) {
+                    ans+=val;
+                    cnt++;                    
+                }
+            } else if(type == 1 && rows_changed[idx] == 0){//change rows
+                rows_changed[idx] = 1;
+                rows_unchanged.erase(idx);
+                
+                for(auto &j:cols_unchanged) {
+                    ans+=val;
+                    cnt++;                    
+                }
+                           
+            }
+            if(cnt>=maxv) break;
+        }
+        
+        return ans;
+    }
+
 
 
 };
