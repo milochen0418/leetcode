@@ -2,7 +2,38 @@ class Solution {
 public:
     typedef long long ll;    
     long long matrixSumQueries(int n, vector<vector<int>>& queries) {
-        return 0;
+        ll ans = 0;
+        ll maxv = (ll)n*(ll)n;
+        ll cnt = 0;
+        vector<int> cols_changed = vector<int>(n,0);
+        vector<int> rows_changed = vector<int>(n,0);
+        unordered_set<int> rows_unchanged = unordered_set<int>();
+        unordered_set<int> cols_unchanged = unordered_set<int>();
+        
+        for(int i = 0;i<n;i++) {
+            rows_unchanged.insert(i);
+            cols_unchanged.insert(i);
+        }
+        
+        int m = queries.size();
+        for(int i = m-1 ; i>=0; i--) {
+            vector<int> &q = queries[i];
+            int type=q[0], idx=q[1], val=q[2];
+            
+            if(type == 0 && cols_changed[idx] == 0) {//change columns
+                cols_changed[idx] = 1;
+                cols_unchanged.erase(idx);
+                cnt+=rows_unchanged.size();
+                ans+=val*rows_unchanged.size();
+            } else if(type == 1 && rows_changed[idx] == 0){//change rows
+                rows_changed[idx] = 1;
+                rows_unchanged.erase(idx);
+                cnt+=cols_unchanged.size();
+                ans+=val*cols_unchanged.size();                           
+            }
+            if(cnt>=maxv) break;
+        }        
+        return ans;
     }
 
     long long matrixSumQueries_v01(int n, vector<vector<int>>& queries) {
@@ -64,7 +95,7 @@ public:
             rows_unchanged.insert(i);
             cols_unchanged.insert(i);
         }
-        
+
         int m = queries.size();
         for(int i = m-1 ; i>=0; i--) {
             vector<int> &q = queries[i];
