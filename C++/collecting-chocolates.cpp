@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/collecting-chocolates/
+    //article https://leetcode.com/problems/collecting-chocolates/discuss/3624622/C%2B%2B-or-Simple-18-lines-O(N2)-solution-with-explain
 public:
     typedef long long ll;
     long long minCost(vector<int>& nums, int x) {
