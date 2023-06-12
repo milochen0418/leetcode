@@ -5,6 +5,27 @@ class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         int start = newInterval[0], end = newInterval[1], n = intervals.size();
+        vector<vector<int>> ans;        
+        int i = 0, state = -1;
+        for(auto &x: intervals) {
+            if(state == -1 && !(x[1]<start)) state=0;
+            if(state == 0 && (end<x[0] || start>x[1])) {
+                ans.push_back({start, end});
+                state=1;
+            }
+            if (!state) {
+                start = min(x[0],start);
+                end = max(x[1],end);                
+            } else {
+                ans.push_back(x);
+            }            
+        }        
+        if(state < 1) ans.push_back({start, end});
+        return ans;
+    }
+
+    vector<vector<int>> insert_v04(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        int start = newInterval[0], end = newInterval[1], n = intervals.size();
         vector<vector<int>> ans;
         int i = 0, state = 0;
         while(i<n) {
