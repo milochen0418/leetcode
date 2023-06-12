@@ -3,6 +3,23 @@ class Solution {
     //article https://leetcode.com/problems/insert-interval/discuss/3056773/C%2B%2B-extending-newInterval-O(N)
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        int start = newInterval[0], end = newInterval[1], n = intervals.size();
+        vector<vector<int>> ans;
+        for(auto &x : intervals) {
+            if(!(end<x[0]) && !(start > x[1])) {
+                start = min(x[0],start);
+                end = max(x[1],end);
+            } 
+        }
+        int i = 0;
+        while(i<n && intervals[i][1]<start) ans.push_back(intervals[i++]); //
+        ans.push_back({start, end});//add the x s.t. x < {start, end}
+        while(i<n && intervals[i][1]<=end) i++; //ignore when x belong to {start, end}
+        while(i<n ) ans.push_back(intervals[i++]);//add the x s.t.{start, end} < x 
+        return ans;
+    }
+    
+    vector<vector<int>> inser_v01(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> ans;
         int n = intervals.size();
         int start = newInterval[0];
