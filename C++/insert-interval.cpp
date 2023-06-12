@@ -2,6 +2,7 @@ class Solution {
     //https://leetcode.com/problems/insert-interval
     //article https://leetcode.com/problems/insert-interval/discuss/3056773/C%2B%2B-extending-newInterval-O(N)
     //article https://leetcode.com/problems/insert-interval/discuss/3630023/C%2B%2B-One-Pass-O(N)-solution
+    //article https://leetcode.com/problems/insert-interval/discuss/3630326/C%2B%2B-One-Pass-O(N)-or-easy-15-lines-with-explanation 
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<int>& y = newInterval;
