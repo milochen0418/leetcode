@@ -1,8 +1,36 @@
 class Solution {
     //https://leetcode.com/problems/insert-interval
     //article https://leetcode.com/problems/insert-interval/discuss/3056773/C%2B%2B-extending-newInterval-O(N)
+    //article https://leetcode.com/problems/insert-interval/discuss/3630023/C%2B%2B-One-Pass-O(N)-solution
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        int start = newInterval[0], end = newInterval[1], n = intervals.size();
+        vector<vector<int>> ans;
+        int i = 0, state = 0;
+        while(i<n) {
+            if(state == 0) {
+                if(intervals[i][1]<start)
+                    ans.push_back(intervals[i++]);
+                else
+                    state=1;
+            } else if (state == 1) {
+                auto &x = intervals[i];
+                if(!(end<x[0] || start>x[1])) {
+                    start = min(x[0],start);
+                    end = max(x[1],end);
+                    i++;
+                } else {
+                    ans.push_back({start, end});
+                    state = 2;
+                }
+            } else {
+                ans.push_back(intervals[i++]);
+            }
+        }
+        if(state != 2) ans.push_back({start, end});
+        return ans;
+    }
+    vector<vector<int>> insert_v03(vector<vector<int>>& intervals, vector<int>& newInterval) {
         int start = newInterval[0], end = newInterval[1], n = intervals.size();
         vector<vector<int>> ans;        
         int i = 0;
