@@ -4,6 +4,22 @@ class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         int start = newInterval[0], end = newInterval[1], n = intervals.size();
+        vector<vector<int>> ans;        
+        int i = 0;
+        while(i<n && intervals[i][1]<start) ans.push_back(intervals[i++]); //add the x s.t. x < {start, end}
+        while(i<n) {
+            auto &x = intervals[i];
+            if(end<x[0] || start > x[1]) break;
+            start = min(x[0],start);
+            end = max(x[1],end);
+            i++;
+        }
+        ans.push_back({start, end});//add the largest union interval of newInterval
+        while(i<n ) ans.push_back(intervals[i++]);//add the x s.t.{start, end} < x
+        return ans;
+    }
+    vector<vector<int>> insert_v02(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        int start = newInterval[0], end = newInterval[1], n = intervals.size();
         vector<vector<int>> ans;
         for(auto &x : intervals) {
             if(!(end<x[0]) && !(start > x[1])) {
@@ -18,7 +34,7 @@ public:
         while(i<n ) ans.push_back(intervals[i++]);//add the x s.t.{start, end} < x 
         return ans;
     }
-    
+
     vector<vector<int>> inser_v01(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> ans;
         int n = intervals.size();
