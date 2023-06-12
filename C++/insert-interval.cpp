@@ -4,6 +4,24 @@ class Solution {
     //article https://leetcode.com/problems/insert-interval/discuss/3630023/C%2B%2B-One-Pass-O(N)-solution
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<int>& y = newInterval;
+        vector<vector<int>> ans;        
+        int i = 0, disjoint = -1;
+        for(auto &x: intervals) {
+            if(disjoint == -1 && !(x[1]<y[0])) disjoint++; 
+            if(!disjoint && (y[1]<x[0]||y[0]>x[1])) {
+                ans.push_back(y);
+                disjoint++;
+            }
+            if(disjoint)
+                ans.push_back(x);
+            else 
+                y = {min(x[0],y[0]), max(x[1],y[1])};
+        }        
+        if(disjoint < 1) ans.push_back(y);
+        return ans;
+    }
+    vector<vector<int>> insert_v05(vector<vector<int>>& intervals, vector<int>& newInterval) {
         int start = newInterval[0], end = newInterval[1], n = intervals.size();
         vector<vector<int>> ans;        
         int i = 0, state = -1;
