@@ -5,6 +5,24 @@ class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<int>& y = newInterval;
+        vector<vector<int>> ans;
+        int i = 0, disjoint = -1;
+        for(auto &x: intervals) {
+            disjoint+=( (disjoint <0) && (x[1]>=y[0]));
+            disjoint+=( (disjoint==0) && (y[1]<x[0]||y[0]>x[1]));
+            if(disjoint==1) ans.push_back(y);
+            disjoint+=(disjoint==1);
+            if(disjoint)
+                ans.push_back(x);
+            else
+                y = {min(x[0],y[0]), max(x[1],y[1])};
+        }
+        if(disjoint <= 0) ans.push_back(y);
+        return ans;
+    }
+
+    vector<vector<int>> insert_v06(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<int>& y = newInterval;
         vector<vector<int>> ans;        
         int i = 0, disjoint = -1;
         for(auto &x: intervals) {
