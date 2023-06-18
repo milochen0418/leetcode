@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/special-permutations/
+    //article https://leetcode.com/problems/special-permutations/discuss/3652805/C%2B%2B-or-simple-DP-with-explanation
 public:
     int specialPerm(vector<int>& nums) {
         int mod = 1e9+7;
