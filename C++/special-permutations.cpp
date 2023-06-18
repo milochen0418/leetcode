@@ -4,8 +4,8 @@ public:
     int specialPerm(vector<int>& nums) {
         int n = nums.size();
         int ans = 0;
-        vector<int> dp = vector<int>(1<<n, -1);
-        function<int(int, int)> sol = [&](int mask, int val) {
+        function<int(int, int)> sol = [&](int mask, int idx) {
+            int val = nums[idx];
             int sum = 0;
             if (mask  == (1<<n)-1) {
                 sum = 1;
@@ -13,7 +13,7 @@ public:
                 for(int i = 0; i<n;i++) {
                     if( (1<<i) & mask ) continue;
                     if(nums[i] % val == 0 || val % nums[i] == 0) {
-                        sum+=sol(mask|(1<<i), nums[i]);
+                        sum+=sol(mask|(1<<i), i);
                     }
                 }
             }
@@ -21,7 +21,7 @@ public:
         };
         for(int i = 0; i<n;i++) {
             int mask = 1<<i;
-            ans+=sol(mask, nums[i]);
+            ans+=sol(mask, i);
         }
         return ans;
     }
