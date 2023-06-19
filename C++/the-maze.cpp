@@ -8,7 +8,7 @@ public:
         function<int(vector<int>&)> outbound = [&](vector<int>&p) {
             return (p[0]<0 || p[1]<0 || p[0]>=m || p[1]>=n);
         };
-        function<int (vector<int>, int)> get_dir_scale = [&](vector<int>p, int didx){
+        function<int (vector<int>&, int)> get_dir_scale = [&](vector<int>&p, int didx){
             if( dir_scale[p[0]][p[1]][didx] != -1) return dir_scale[p[0]][p[1]][didx];
             vector<int> q = {p[0] + dirs[didx][0], p[1] + dirs[didx][1]};
             if(outbound(q) || maze[q[0]][q[1]] == 1)
@@ -18,7 +18,7 @@ public:
         };
         
         bool ans = false;
-        function<void(vector<int>)> dfs = [&](vector<int> p) {
+        function<void(vector<int>&)> dfs = [&](vector<int>& p) {
             //printf("{%d,%d}\n", p[0],p[1]);
             if(ans == true || p == destination) {
                 ans = true;
@@ -36,6 +36,6 @@ public:
             }
         };
         dfs(start);
-        return ans;                                                                                            
+        return ans;                                                                                           
     }
 };
