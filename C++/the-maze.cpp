@@ -1,5 +1,4 @@
 class Solution {
-    //https://leetcode.com/problems/the-maze
 public:
     bool hasPath(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
         int m = maze.size(), n = maze[0].size();
@@ -21,7 +20,10 @@ public:
         bool ans = false;
         function<void(vector<int>)> dfs = [&](vector<int> p) {
             //printf("{%d,%d}\n", p[0],p[1]);
-            if(p == destination) ans = true;
+            if(ans == true || p == destination) {
+                ans = true;
+                return;
+            }
             visited[p[0]][p[1]] = 1;
             for(int didx = 0; didx<4; didx++) {
                 vector<int> q = {
