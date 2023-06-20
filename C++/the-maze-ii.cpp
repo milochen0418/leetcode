@@ -40,7 +40,12 @@ public:
         dfs(start);
         if(!solution_exist) return -1;
         unordered_map<int, vector<vector<int>>>mp;
+        unordered_map<int, int> dist;
+        unordered_set<int> selV; //all of vertex that have been selected in solution
+        unordered_set<int> adjV; //all of vertext that not belong to selV but the adjcency vertetx of v of selV
+        const int DIST_MAX = INT_MAX/2;
         for(auto &v: V) {
+            dist[v] = DIST_MAX;
             int r=v/n, c=v%n;
             vector<int> p = {r,c};
             for(int i = 0; i<4;i++) {
@@ -53,12 +58,43 @@ public:
                 mp[v].push_back({u, weight});
             }
         }
+        /*
         for(auto &v:V) {
             for(auto &uw: mp[v]) {
                 int u = uw[0], w = uw[1];
                 printf("{%d, %d} -> {%d,%d}, w = %d\n", v/n, v%n, u/n, u%n, w);
             }
+        }*/
+        int s = start[0]*n + start[1];
+        int d = destination[0]*n + destination[1];
+        dist[s] = 0;
+        selV.insert(s);
+        int minV=s;
+        while(true) {
+            for(auto& uw: mp[minV]) {
+                int u = uw[0], w = uw[1];
+                if(selV.find(u) != selV.end()) continue;
+                dist[u] = min(dist[minV]+w , dist[u]);
+                if(dist[u] != DIST_MAX) adjV.insert(u);
+            }
+
+            if(adjV.size() == 0) {
+                break;
+            }
+            minV = -1;//adjV[0];
+            for(auto &v: adjV) {
+                if(minV==-1) {
+                    minV = v;
+                    continue;
+                }
+                //if(dist[adjV[i]] < dist[minV]) {
+                if(dist[v] < dist[minV]) {
+                    minV = v;
+                }                
+            }
+            selV.insert(minV);
+            adjV.erase(minV);            
         }
-        return 0;    
+        return dist[d];
     }
 };
