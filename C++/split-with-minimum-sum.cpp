@@ -1,4 +1,5 @@
 class Solution {
+    //https://leetcode.com/problems/split-with-minimum-sum/
 public:
     int splitNum(int num) {
         
