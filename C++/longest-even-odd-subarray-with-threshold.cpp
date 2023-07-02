@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/longest-even-odd-subarray-with-threshold
+    //article https://leetcode.com/problems/longest-even-odd-subarray-with-threshold/discuss/3706846/C%2B%2B-simple-9-lines-O(N)
 public:
     int longestAlternatingSubarray(vector<int>& nums, int threshold) {
         int L=0, R=0, ans=0, n=nums.size();        
