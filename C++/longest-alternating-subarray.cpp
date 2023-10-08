@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/longest-alternating-subarray
+    //article https://leetcode.com/problems/longest-alternating-subarray/discuss/4144699/C%2B%2B-or-time-O(N)-space-O(1)-two-pass
 public:
     int alternatingSubarray(vector<int>& nums) {
         int n = nums.size(); 
