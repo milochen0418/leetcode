@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/check-if-array-is-good
+    //article https://leetcode.com/problems/check-if-array-is-good/discuss/4144330/C%2B%2B-or-One-Pass-O(N)-simple-5-lines
 public:
     bool isGood(vector<int>& nums) {
         int n = nums.size();
