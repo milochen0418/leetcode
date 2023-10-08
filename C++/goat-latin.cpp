@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/goat-latin
+    //article https://leetcode.com/problems/goat-latin/discuss/4145892/C%2B%2B-or-two-pass-O(N)
 public:
     string toGoatLatin(string sentence) {
         unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u','A','E','I','O','U'};
