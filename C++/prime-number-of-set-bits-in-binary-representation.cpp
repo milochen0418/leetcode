@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation
+    //article https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/discuss/4148027/C%2B%2B-N-log(N)-simple-11-lines
 public:
     int countPrimeSetBits(int left, int right) {
         int ans = 0;
