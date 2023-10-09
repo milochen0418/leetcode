@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/positions-of-large-groups
+    //article https://leetcode.com/problems/positions-of-large-groups/discuss/4147935/C%2B%2B-One-Pass-simple-11-lines11
 public:
     vector<vector<int>> largeGroupPositions(string s) {
         vector<vector<int>> ans;
