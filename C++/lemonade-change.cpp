@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/lemonade-change
+    //article https://leetcode.com/problems/lemonade-change/discuss/4147786/C%2B%2B-One-Pass-SC%3AO(1)-simulate
 public:
     bool lemonadeChange(vector<int>& bills) {
         //change change would be 0,5 or 15 
