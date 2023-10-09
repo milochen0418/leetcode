@@ -13,7 +13,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/extract-kth-character-from-the-rope-tree
-    //article https://leetcode.com/problems/extract-kth-character-from-the-rope-tree/discuss/4148243/C%2B%2B-O(H)-binary-search-tree
+    //article https://leetcode.com/problems/extract-kth-character-from-the-rope-tree/discuss/4148243/C%2B%2B-O(H)-binary-search-tree-or-simple-12-lines
 public:
     char getKthCharacter(RopeTreeNode* root, int k) {
         while(root->len!=0) {
