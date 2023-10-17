@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/rearrange-words-in-a-sentence
+    //article https://leetcode.com/problems/rearrange-words-in-a-sentence/discuss/4179267/C%2B%2B-O(NlogN)
 public:
     string arrangeWords(string text) {
         vector<vector<int>> v; //{word_idx_start, word_idx_end, original_order}
