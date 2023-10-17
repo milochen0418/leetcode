@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays
+    //article https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/discuss/4179163/C%2B%2B-or-One-Pass-O(N)-or-simple-15-lines
 public:
     vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
         int n = A.size();
