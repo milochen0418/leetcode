@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array
+    //article https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/discuss/4186023/C%2B%2B-One-Pass-O(N)-simple-8-lines
 public:
     typedef long long ll;
     vector<long long> findPrefixScore(vector<int>& nums) {
