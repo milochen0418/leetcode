@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/the-k-strongest-values-in-an-array
+    //article https://leetcode.com/problems/the-k-strongest-values-in-an-array/discuss/4192637/C%2B%2B-simple-13-lines-using-sort
 public:
     vector<int> getStrongest(vector<int>& arr, int k) {
         vector<vector<int>> v;
