@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/sum-in-a-matrix
+    //article https://leetcode.com/problems/sum-in-a-matrix/discuss/4194495/C%2B%2B-or-simple-10-lines-by-Sort
 public:
     int matrixSum(vector<vector<int>>& nums) {
         for(auto &v:nums)
