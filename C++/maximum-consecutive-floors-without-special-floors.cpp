@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors
+    //article https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors/discuss/4194446/C%2B%2B-or-O(NlogN)-simple-9-line
 public:
     int maxConsecutive(int bottom, int top, vector<int>& special) {
         vector<int> v;
