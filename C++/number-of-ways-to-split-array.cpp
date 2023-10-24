@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-ways-to-split-array
+    //article https://leetcode.com/problems/number-of-ways-to-split-array/discuss/4203016/C%2B%2B-or-Two-Pass-or-simple-8-lines
 public:
     int waysToSplitArray(vector<int>& nums) {
         typedef long long ll;
