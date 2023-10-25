@@ -6,23 +6,17 @@ public:
         for(int i = 0; i<n; i++) {
             for(int j = 0 ; j<n;j++) {
                 if(j==i) continue;
-                string& a = nums[i];
-                int am = a.length();
-                string& b = nums[j];
-                int bm = b.length();
+                string&a = nums[i], &b=nums[j];
+                int am = a.length(), bm=b.length();
                 if(am+bm != m) continue;
                 int the_same = 1;
                 for(int k =0; k<m && the_same==1; k++ ) {
-                    if(k>=am) {
-                        if(b[k-am] != target[k]) the_same = 0;
-                    } else {
-                        if(a[k] != target[k]) the_same = 0;
-                    }
+                    char c = k>=am?b[k-am]:a[k];
+                    if(c!=target[k]) the_same = 0;
                 }
                 ans+=the_same;
             }
         }
         return ans;
-        
     }
 };
