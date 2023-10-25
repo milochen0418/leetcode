@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target
+    //article https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/discuss/4207351/C%2B%2B-or-simple-17-lines
 public:
     int numOfPairs(vector<string>& nums, string target) {
         int ans=0, n=nums.size(), m = target.length();;
