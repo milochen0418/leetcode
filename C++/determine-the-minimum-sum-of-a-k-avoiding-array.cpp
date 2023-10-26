@@ -25,6 +25,26 @@ public:
 */
     int minimumSum(int n, int k) {
         if(n==1) return 1;
+        int last = 1, ans=1, cnt=1;        
+        for(int i = 2; i<k; i++) {
+            if(i+last>=k) break;
+            last = i;
+            cnt++;
+            ans+=last;
+            if(cnt==n) return ans;
+        }
+        int L=max(2,k),R=n+k;
+        for(int i = L; i<=R;i++) {
+            last = i;
+            ans+=i;
+            cnt++;
+            if(cnt==n) return ans;
+        }
+        return ans;
+    }
+    
+    int minimumSum_v01(int n, int k) {
+        if(n==1) return 1;
         vector<int> v = {1};
         for(int i = 2; i<k; i++) {
             if(i+v.back()>=k) break;
