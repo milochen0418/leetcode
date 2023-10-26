@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/determine-the-minimum-sum-of-a-k-avoiding-array
+    //article https://leetcode.com/problems/determine-the-minimum-sum-of-a-k-avoiding-array/discuss/4208934/C%2B%2B-or-time-O(N%2BK)-space-O(1)
 public:
 /*
         //n=5, k=4 
@@ -42,7 +44,7 @@ public:
         }
         return ans;
     }
-    
+
     int minimumSum_v01(int n, int k) {
         if(n==1) return 1;
         vector<int> v = {1};
