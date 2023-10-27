@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-substrings-with-only-1s
+    //article https://leetcode.com/problems/number-of-substrings-with-only-1s/discuss/4212234/C%2B%2B-One-Pass-or-explain-from-array-approach
 public:
     int numSub(string s) {
         typedef long long ll;
