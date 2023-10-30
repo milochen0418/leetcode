@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/count-total-number-of-colored-cells/
+    //article https://leetcode.com/problems/count-total-number-of-colored-cells/discuss/4227280/C%2B%2B-O(1)-explain
 public:
     typedef long long ll;
     long long coloredCells(int n) {
