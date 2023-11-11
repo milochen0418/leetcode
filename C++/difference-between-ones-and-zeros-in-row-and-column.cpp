@@ -1,5 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/difference-between-ones-and-zeros-in-row-and-column
+    //article https://leetcode.com/problems/difference-between-ones-and-zeros-in-row-and-column/discuss/4275855/C%2B%2B-O(N2)
+    
 public:
     vector<vector<int>> onesMinusZeros(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
