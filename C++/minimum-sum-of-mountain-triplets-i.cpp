@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-sum-of-mountain-triplets-i
+    //article https://leetcode.com/problems/minimum-sum-of-mountain-triplets-i/discuss/4276328/C%2B%2B-or-simple-7-lines
 public:
     int minimumSum(vector<int>& nums) {
         int n = nums.size(), ans = INT_MAX;
