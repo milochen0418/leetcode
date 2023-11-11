@@ -1,6 +1,7 @@
 
 class Solution {
     //https://leetcode.com/problems/last-visited-integers
+    //article https://leetcode.com/problems/last-visited-integers/discuss/4276309/C%2B%2B-One-Pass
 public:
     vector<int> lastVisitedIntegers(vector<string>& words) {        
         vector<int> nums, ans;
