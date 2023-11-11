@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up
+    //article https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/discuss/4275792/C%2B%2B-or-One-Pass-simple-8-lines
 public:
     int minimumCardPickup(vector<int>& cards) {
         unordered_map<int,int> mp;
