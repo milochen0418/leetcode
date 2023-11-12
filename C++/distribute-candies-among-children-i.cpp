@@ -6,8 +6,7 @@ public:
         int ans = 0,m = min(n,limit);
         for(int i = 0; i<=m;i++) 
             for(int j = 0; j<=m;j++) 
-                for(int k = 0; k<=m;k++) 
-                    if(n == i+j+k ) ans++;
+                if( n-(i+j)>=0 && n-(i+j)<=m) ans++;
         return ans;
     }
 };
