@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/distribute-candies-among-children-i
-    //article https://leetcode.com/problems/distribute-candies-among-children-i/discuss/4279629/C%2B%2B-or-simple-6-lines-Space-O(1)-Time-O(M3)
+    //article https://leetcode.com/problems/distribute-candies-among-children-i/discuss/4279629/C%2B%2B-or-simple-5-lines-O(M2)
 public:
     int distributeCandies(int n, int limit) {
         int ans = 0,m = min(n,limit);
