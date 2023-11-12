@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-champion-i
+    //article https://leetcode.com/problems/find-champion-i/discuss/4279584/C%2B%2B-or-One-Pass-O(N2)
 public:
     int findChampion(vector<vector<int>>& grid) {
         int n = grid.size();
