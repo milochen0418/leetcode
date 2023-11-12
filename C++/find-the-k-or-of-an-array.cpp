@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-k-or-of-an-array
+    //article https://leetcode.com/problems/find-the-k-or-of-an-array/discuss/4279520/C%2B%2B-or-One-Pass-for-every-bit
 public:
     int findKOr(vector<int>& nums, int k) {
         unsigned int cnt=0,n=nums.size(),ans=0,base=1;
