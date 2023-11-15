@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
+    //article https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/discuss/4291649/C%2B%2B-simple-14-lines-O(N)
 public:
     TreeNode* bstToGst(TreeNode* root) {
         vector<TreeNode*> v;
