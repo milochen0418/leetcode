@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/matrix-similarity-after-cyclic-shifts
+    //article https://leetcode.com/problems/matrix-similarity-after-cyclic-shifts/discuss/4343456/C%2B%2B-or-O(1)-Space-O(M*N)-time
 public:
     bool areSimilar(vector<vector<int>>& mat, int k) {
         int m = mat.size(), n = mat[0].size();
