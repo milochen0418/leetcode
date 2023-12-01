@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60
+    //article https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/discuss/4351010/C%2B%2B-time-O(N)-space-O(1)-but-integer-array-only
 public:
     int numPairsDivisibleBy60(vector<int>& time) {
         vector<int> mp = vector<int>(60,0);
