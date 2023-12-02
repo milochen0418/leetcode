@@ -11,6 +11,7 @@
  */
 class Solution {
     //https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree
+    //article https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/discuss/4353653/C%2B%2B-use-min-queue-%2B-BFS
 public:
     long long kthLargestLevelSum(TreeNode* root, int k) {
         typedef long long ll;
