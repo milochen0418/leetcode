@@ -1,10 +1,10 @@
 class Solution {
     //https://leetcode.com/problems/maximum-value-after-insertion
+    //article https://leetcode.com/problems/maximum-value-after-insertion/discuss/4357387/C%2B%2B-simple-7-lines-O(N)
 public:
     string maxValue(string s, int x) {
         string ans;
-        int n = s.length(), d=x+'0';
-        int neg = (s[0]=='-'), i = neg;
+        int n = s.length(), d=x+'0', neg=(s[0]=='-'), i=(s[0]=='-');
         if(neg) ans.push_back('-');
         while(i<n && (neg?(d>=s[i]):(d<=s[i])) ) ans.push_back(s[i++]);
         ans.push_back(d);
