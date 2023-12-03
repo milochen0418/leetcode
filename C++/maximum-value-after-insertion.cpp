@@ -3,6 +3,16 @@ class Solution {
 public:
     string maxValue(string s, int x) {
         string ans;
+        int n = s.length(), d=x+'0';
+        int neg = (s[0]=='-'), i = neg;
+        if(neg) ans.push_back('-');
+        while(i<n && (neg?(d>=s[i]):(d<=s[i])) ) ans.push_back(s[i++]);
+        ans.push_back(d);
+        while(i<n) ans.push_back(s[i++]);
+        return ans;
+    }
+    string maxValue_v01(string s, int x) {
+        string ans;
         int n = s.length();
         if(s[0]=='-') {
             int i = 1;
