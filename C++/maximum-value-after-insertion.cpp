@@ -4,9 +4,9 @@ class Solution {
 public:
     string maxValue(string s, int x) {
         string ans;
-        int n = s.length(), d=x+'0', neg=(s[0]=='-'), i=(s[0]=='-');
-        if(neg) ans.push_back('-');
-        while(i<n && (neg?(d>=s[i]):(d<=s[i])) ) ans.push_back(s[i++]);
+        int n = s.length(), d=x+'0', sign=(s[0]!='-')*2-1, i=(s[0]=='-');
+        if(sign==-1) ans.push_back('-');
+        while(i<n && sign*d <= sign*s[i]) ans.push_back(s[i++]);
         ans.push_back(d);
         while(i<n) ans.push_back(s[i++]);
         return ans;
