@@ -1,17 +1,11 @@
 class Solution {
     //https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients
+    //article https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients/discuss/4363504/C%2B%2B-O(1)-time-O(1)-space
 public:
     vector<int> numOfBurgers(int tomatoSlices, int cheeseSlices) {
         if(tomatoSlices%2==1) return {};
         if(tomatoSlices/2<cheeseSlices) return {};
         if(tomatoSlices/4>cheeseSlices) return {};
-        /*
-        x+y = C
-        4*x + 2*y = T 
-        We need to find the answer for x,y
-        2*C + 2x = T -> x = (T-2C)/2
-        y = C-x
-        */
         int x = (tomatoSlices - 2*cheeseSlices)/2;
         int y = cheeseSlices - x;
         return {x,y};
