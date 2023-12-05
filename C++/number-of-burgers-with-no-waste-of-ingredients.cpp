@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients
-    //article https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients/discuss/4363504/C%2B%2B-O(1)-time-O(1)-space
+    //article https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients/discuss/4363504/C%2B%2B-O(1)-time-O(1)-space-with-explaination
 public:
     vector<int> numOfBurgers(int tomatoSlices, int cheeseSlices) {
         if(tomatoSlices%2==1) return {};
