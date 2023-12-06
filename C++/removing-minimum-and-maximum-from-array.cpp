@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/removing-minimum-and-maximum-from-array
+    //article https://leetcode.com/problems/removing-minimum-and-maximum-from-array/discuss/4370224/C%2B%2B-One-Pass-O(N)
 public:
     int minimumDeletions(vector<int>& nums) {
         int n = nums.size(), minv=INT_MAX, maxv = INT_MIN, minidx=-1, maxidx=-1;
