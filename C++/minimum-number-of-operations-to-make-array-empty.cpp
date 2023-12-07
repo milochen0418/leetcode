@@ -1,7 +1,20 @@
 class Solution {
     //https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty
 public:
+
     int minOperations(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        int ans = 0;
+        vector<int> r={0,2,1};
+        for(auto &v:nums) mp[v]++; //[0]=0, [1]=2, [2]=1
+        for(auto& [k,v]:mp) {
+            if(v==1) return -1;
+            ans+=(v+r[v%3])/3;
+        }
+        return ans;     
+    }
+
+    int minOperations_v01(vector<int>& nums) {
         unordered_map<int,int> mp;
         int ans = 0;
         for(auto &v:nums) mp[v]++;
