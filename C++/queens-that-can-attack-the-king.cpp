@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/queens-that-can-attack-the-king
+    //article https://leetcode.com/problems/queens-that-can-attack-the-king/discuss/4375108/C%2B%2B-or-O(N%2BQ)-N%3Aboard-width-Q-number-of-queen
 public:
     vector<vector<int>> queensAttacktheKing(vector<vector<int>>& queens, vector<int>& king) {
         //printf("\n\n");
