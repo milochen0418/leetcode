@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty
-    //article https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/discuss/4375285/C%2B%2B-simple-9-lines-with-explain
+    //article https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/discuss/4375285/C%2B%2B-simple-9-lines-O(N)-with-explain
 public:
 
     int minOperations(vector<int>& nums) {
