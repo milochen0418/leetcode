@@ -1,4 +1,6 @@
 class Solution {
+    //https://leetcode.com/problems/minimum-suffix-flips
+    //article https://leetcode.com/problems/minimum-suffix-flips/discuss/4375481/C%2B%2B-easy-8-lines-with-explain
 public:
     int minFlips(string target) {
         //Observation 
