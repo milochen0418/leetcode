@@ -1,6 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/longest-turbulent-subarray
-    //article https://leetcode.com/problems/longest-turbulent-subarray/discuss/4379337/C%2B%2B-easy-solution-with-explain-O(N)-time
+    //article https://leetcode.com/problems/longest-turbulent-subarray/discuss/4379337/C%2B%2B-One-Pass-O(N)-and-space-O(1)-with-explain
 public:
     int maxTurbulenceSize(vector<int>& arr) {
         char lastc = '=';
@@ -14,7 +14,6 @@ public:
             char ch = get_curr(i);
             if(ch=='=') {
                 ans = max(ans, cnt);
-                cnt = 0;
                 while(i<=n && get_curr(i)=='=')i++;
                 if(i<=n) lastc = get_curr(i);
                 cnt=2;
