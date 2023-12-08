@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/longest-turbulent-subarray
+    //article https://leetcode.com/problems/longest-turbulent-subarray/discuss/4379337/C%2B%2B-easy-solution-with-explain-O(N)-time
 public:
     int maxTurbulenceSize(vector<int>& arr) {
         vector<char> v;
