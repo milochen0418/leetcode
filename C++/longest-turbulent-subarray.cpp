@@ -5,6 +5,44 @@ public:
     int maxTurbulenceSize(vector<int>& arr) {
         char lastc = '=';
         int n = arr.size(), ans=1, cnt=0;
+        for(int i=-1; i<=n; i++) {
+            char ch = (i<0||i>=n-1||arr[i]==arr[i+1])?'=':(arr[i]<arr[i+1]?'+':'-');
+            if(ch=='=' || ch==lastc) {
+                ans = max(ans, cnt);
+                cnt = ch =='='?0:2;
+            } else if( ch + lastc == '+' + '-') {
+                cnt++;
+            } else{
+                cnt=2;
+            }
+            lastc = ch;
+        }
+        return ans;
+    }
+    int maxTurbulenceSize_v03(vector<int>& arr) {
+        char lastc = '=';
+        int n = arr.size(), ans=1, cnt=0;        
+        for(int i=-1; i<=n; i++) {
+            char ch = (i<0||i>=n-1||arr[i]==arr[i+1])?'=':(arr[i]<arr[i+1]?'+':'-');
+            if(ch=='=') {
+                ans = max(ans, cnt);
+                cnt=0;
+            } else {
+                if(ch!=lastc) {
+                    cnt = lastc=='='?2:cnt+1;
+                } else {
+                    ans=max(ans, cnt);
+                    cnt=2;
+                }
+            }
+            lastc = ch;
+        }
+        return ans;
+    }
+
+    int maxTurbulenceSize_v02(vector<int>& arr) {
+        char lastc = '=';
+        int n = arr.size(), ans=1, cnt=0;
         function<char(int i)> get_curr = [&arr,&n](int i) {
             if(i<0 || i>=n-1 || arr[i]==arr[i+1]) return '=';
             return (arr[i] <arr[i+1])?'+':'-';
