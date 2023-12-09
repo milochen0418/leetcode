@@ -10,14 +10,14 @@
  */
 class Solution {
     //https://leetcode.com/problems/double-a-number-represented-as-a-linked-list
+    //article https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/discuss/4382630/C%2B%2B-or-simple-8-lines-One-Pass-O(N)-solution
 public:
     ListNode* doubleIt(ListNode* head) {
         ListNode*node = head;
         if(head->val>=5) head = new ListNode(1, head);
         while(node){
-            int v = (node->val)*2;
-            if(node->next && node->next->val>=5) v+=1;
-            node->val = v%10;
+			int carry = (node->next && node->next->val>=5);
+            node->val = (2*(node->val)+carry)%10;
             node=node->next;
         }
         return head;
