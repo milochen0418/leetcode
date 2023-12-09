@@ -13,6 +13,17 @@ class Solution {
 public:
     ListNode* doubleIt(ListNode* head) {
         ListNode*node = head;
+        if(head->val>=5) head = new ListNode(1, head);
+        while(node){
+            int v = (node->val)*2;
+            if(node->next && node->next->val>=5) v+=1;
+            node->val = v%10;
+            node=node->next;
+        }
+        return head;
+    }
+    ListNode* doubleIt_v01(ListNode* head) {
+        ListNode*node = head;
         while(node){
             int v = (node->val)*2;
             if(node->next && node->next->val>=5) v+=1;
