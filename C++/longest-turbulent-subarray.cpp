@@ -1,6 +1,7 @@
 class Solution {
     //https://leetcode.com/problems/longest-turbulent-subarray
     //article https://leetcode.com/problems/longest-turbulent-subarray/discuss/4379337/C%2B%2B-9-lines-One-Pass-O(N)-and-space-O(1)-with-explain
+    //article https://leetcode.com/problems/longest-turbulent-subarray/discuss/4382428/C%2B%2B-simple-7-lines-time-O(N)-space-O(1)-with-explain
 public:
     int maxTurbulenceSize(vector<int>& arr) {
         int n = arr.size(), ans=1, cnt=0, lastd=0,d=0;
