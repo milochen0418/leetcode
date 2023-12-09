@@ -3,6 +3,16 @@ class Solution {
     //article https://leetcode.com/problems/longest-turbulent-subarray/discuss/4379337/C%2B%2B-9-lines-One-Pass-O(N)-and-space-O(1)-with-explain
 public:
     int maxTurbulenceSize(vector<int>& arr) {
+        int n = arr.size(), ans=1, cnt=0, lastd=0,d=0;
+        for(int i=-1; i<=n; i++,lastd=d) {
+            d = (i<0||i>=n-1||arr[i+1]==arr[i])?0:((arr[i+1]-arr[i])>0?1:-1);
+            if(d==0 || d==lastd) ans = max(ans, cnt);//compare cnt to ans when expected sequence stop
+            cnt = (d*lastd == -1) ? cnt+1 : 2*abs(d);//cnt+1 when expected sequence keep going. Here, we set cnt=0 when arr[i+1]==arr[i]  and cnt=2 otherwise.
+        }
+        return ans;
+    }
+
+    int maxTurbulenceSize_v05(vector<int>& arr) {
         char lastc = '=';
         int n = arr.size(), ans=1, cnt=0;
         for(int i=-1; i<=n; i++) {
