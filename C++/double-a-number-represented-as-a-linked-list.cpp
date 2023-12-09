@@ -11,6 +11,7 @@
 class Solution {
     //https://leetcode.com/problems/double-a-number-represented-as-a-linked-list
     //article https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/discuss/4382630/C%2B%2B-or-simple-8-lines-One-Pass-O(N)-solution
+    //FB post https://www.facebook.com/groups/1451299754892511/posts/7163704600318636/
 public:
     ListNode* doubleIt(ListNode* head) {
         ListNode*node = head;
