@@ -6,16 +6,16 @@ var expect = function(val) {
     return {
         toBe : function(beVal){
             if(val === beVal) {
-                return true
+                return true;
             } else {
-                throw("Not Equal")
+                throw new Error("Not Equal");
             }
         }, 
         notToBe : function(beVal) {
             if(val !== beVal) {
-                return true
+                return true;
             } else {
-                throw("Equal")
+                throw new Error("Equal");
             }    
         }
     };
