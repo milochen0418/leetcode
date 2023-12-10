@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/
+    //article https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/discuss/4386999/C%2B%2B-simulate-O(N)
 public:
     int numSteps(string s) {
         s = "0"+s; 
