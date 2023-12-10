@@ -2,6 +2,7 @@
  * @param {number} n
  * @return {Function} counter
  */
+//https://leetcode.com/problems/counter/
 var createCounter = function(n) {
     counter = n-1;
     return function() {
