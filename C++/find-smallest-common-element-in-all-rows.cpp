@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-smallest-common-element-in-all-rows
+    //aritcle https://leetcode.com/problems/find-smallest-common-element-in-all-rows/discuss/4405158/C%2B%2B-simple-hash-map-solution
 public:
     int smallestCommonElement(vector<vector<int>>& mat) {
         unordered_map<int,int>mp;
