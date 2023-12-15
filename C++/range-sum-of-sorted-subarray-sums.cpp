@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/range-sum-of-sorted-subarray-sums
+    //article https://leetcode.com/problems/range-sum-of-sorted-subarray-sums/discuss/4408508/C%2B%2B-or-simple-array-approach
 public:
     int rangeSum(vector<int>& nums, int n, int left, int right) {
         typedef long long ll;
