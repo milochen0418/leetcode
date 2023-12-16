@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/maximum-number-of-coins-you-can-get
+    //article https://leetcode.com/problems/maximum-number-of-coins-you-can-get/discuss/4413810/C%2B%2B-or-simple-4-lines-by-sort
 public:
     int maxCoins(vector<int>& piles) {
         //[2,4,1,2,7,8]
