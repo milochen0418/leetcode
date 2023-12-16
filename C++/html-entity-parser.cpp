@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/html-entity-parser
+    //article https://leetcode.com/problems/html-entity-parser/discuss/4411439/C%2B%2B-One-Pass-O(N)-by-Trie-and-Queue
 public:
     typedef struct {
         unordered_map<char, void*> mp;
