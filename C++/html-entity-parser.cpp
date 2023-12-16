@@ -1,32 +1,31 @@
 class Solution {
     //https://leetcode.com/problems/html-entity-parser
-    //article https://leetcode.com/problems/html-entity-parser/discuss/4411439/C%2B%2B-One-Pass-O(N)-by-Trie-and-Queue
 public:
     typedef struct {
         unordered_map<char, void*> mp;
         string* str;
-    } Trie;
+    } Tree;
     string entityParser(string text) {
-        Trie* root = new Trie();
-        buildTrie(root, "&quot;", "\"");
-        buildTrie(root, "&apos;", "'");
-        buildTrie(root, "&amp;", "&");
-        buildTrie(root, "&gt;", ">");
-        buildTrie(root, "&lt;", "<");
-        buildTrie(root, "&frasl;", "/");
+        Tree* root = new Tree();
+        buildTree(root, "&quot;", "\"");
+        buildTree(root, "&apos;", "'");
+        buildTree(root, "&amp;", "&");
+        buildTree(root, "&gt;", ">");
+        buildTree(root, "&lt;", "<");
+        buildTree(root, "&frasl;", "/");
         
         string output; 
         int i = 0, n = text.length();
-        Trie* node = root;
+        Tree* node = root;
         queue<char> Q;
         while(i<n) {
             while(i<n && node->mp.find(text[i]) != node->mp.end()) {
-                node = (Trie*)node->mp[text[i]];
+                node = (Tree*)node->mp[text[i]];
                 Q.push(text[i++]);
             } 
             if(node->str) {//match
-                output = output + *(node->str);
-                while(!Q.empty())Q.pop();
+                for(auto &ch:*node->str) output.push_back(ch); 
+                while(!Q.empty()) Q.pop(); //clean queue
                 node = root;                
             } else { //!node->str
                 if(i<n && text[i]!='&') Q.push(text[i++]);
@@ -40,11 +39,11 @@ public:
         return output;
     }
     
-    void buildTrie(Trie* root, string buildStr, string leafStr) {
-        Trie* node=root;
+    void buildTree(Tree* root, string buildStr, string leafStr) {
+        Tree* node=root;
         for(auto &c:buildStr) {
-            if(!node->mp[c])  node->mp[c]=(void*)(new Trie());
-            node = (Trie*)node->mp[c];
+            if(!node->mp[c])  node->mp[c]=(void*)(new Tree());
+            node = (Tree*)node->mp[c];
         }
         node->str = &leafStr;
     }
