@@ -1,6 +1,7 @@
 
 class Solution {
     //https://leetcode.com/problems/clumsy-factorial
+    //article https://leetcode.com/problems/clumsy-factorial/discuss/4415320/C%2B%2B-or-Recursive-Approach-O(N)-with-explain
 public:
     int clumsy(int N) {
         /*
