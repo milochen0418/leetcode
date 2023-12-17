@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock
+    //article https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock/discuss/4417204/C%2B%2B-or-two-pointer-solution-with-comment
 public:
     long long getDescentPeriods(vector<int>& prices) {
         typedef long long ll;
