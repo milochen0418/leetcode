@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-missing-and-repeated-values
+    //article https://leetcode.com/problems/find-missing-and-repeated-values/discuss/4414986/C%2B%2B-O(N2)-by-hashmap
 public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
         int n = grid.size();
