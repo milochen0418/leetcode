@@ -1,5 +1,6 @@
 class Solution {
     //https://leetcode.com/problems/find-the-kth-largest-integer-in-the-array
+    //article https://leetcode.com/problems/find-the-kth-largest-integer-in-the-array/discuss/4417384/C%2B%2B-or-simple-9-lines
 public:
     //maintain an k number of Min priority_queue
     //keep pop and push new element when size of queue >=k
