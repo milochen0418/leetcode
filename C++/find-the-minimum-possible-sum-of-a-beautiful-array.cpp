@@ -2,6 +2,23 @@ class Solution {
     //https://leetcode.com/problems/find-the-minimum-possible-sum-of-a-beautiful-array
 public:
     int minimumPossibleSum(int n, int target) {
+        typedef long long ll;
+        const ll MOD = 1e9+7;
+        ll ans = 0;
+        ll Lcnt = 0; //total count of the selected number before target 
+        Lcnt = (target-1)/2 - 1 + 1;
+        ll downwidth = 1, upwidth = (target-1)/2; 
+        if(target%2==0) {
+            Lcnt++;
+            upwidth += 1;
+        }
+        if(n<=Lcnt) {
+            ll updown = ((upwidth%MOD) + (downwidth%MOD)) % MOD;
+            ll twoarea = ((updown%MOD) * (Lcnt%MOD)) % MOD;
+            return twoarea/2;
+        }
+        return 0;
+
     }
     int minimumPossibleSum_v02(int n, int target) {
         //7,15
