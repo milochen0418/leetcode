@@ -1,5 +1,6 @@
 /*
 # https://leetcode.com/problems/loan-types
+# article https://leetcode.com/problems/loan-types/discuss/4636941/having-group-by-count-distinct
 # Write your MySQL query statement below
 */
 
